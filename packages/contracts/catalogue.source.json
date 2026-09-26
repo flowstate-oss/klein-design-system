@@ -887,5 +887,107 @@
     "usage": "Supply precomputed percentages and formatted values. Use seriesId to keep related reported and estimated segments visually paired.",
     "behavior": "Estimated values use a patterned legend. Help controls work by keyboard. Values remain visible beside the chart.",
     "avoid": "Do not calculate cost classifications or monetary totals in the renderer. Do not supply arbitrary colors or SVG geometry."
+  },
+  {
+    "name": "RelationshipPlot",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare prepared positions on two numeric axes with sized points and supplied status.",
+    "aliases": [
+      "scatter",
+      "project health matrix",
+      "bubble plot"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and use the typed recipe. The library owns geometry and interaction.",
+    "behavior": "Queries, access decisions, calculations and formatting belong to the application. The renderer does not infer financial meaning.",
+    "avoid": "Do not duplicate chart options, custom plugins or panel markup in a consumer. Extend the canonical component here."
+  },
+  {
+    "name": "ForecastAdjustmentChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare actual, adjusted forecast and baseline with a supplied limit and adjustment annotation.",
+    "aliases": [
+      "AI spend forecast",
+      "forecast baseline",
+      "forecast adjustment"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and use the typed recipe. The library owns geometry and interaction.",
+    "behavior": "Queries, access decisions, calculations and formatting belong to the application. The renderer does not infer financial meaning.",
+    "avoid": "Do not duplicate chart options, custom plugins or panel markup in a consumer. Extend the canonical component here."
+  },
+  {
+    "name": "ChartPanel",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Frame a plot consistently inside an edge-to-edge band or a standalone panel.",
+    "aliases": [
+      "chart frame",
+      "plot panel",
+      "chart container"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and use the typed recipe. The library owns geometry and interaction.",
+    "behavior": "Queries, access decisions, calculations and formatting belong to the application. The renderer does not infer financial meaning.",
+    "avoid": "Do not duplicate chart options, custom plugins or panel markup in a consumer. Extend the canonical component here."
+  },
+  {
+    "name": "ProgressPie",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Compact completion pie for entity properties and table cells.",
+    "aliases": [
+      "statusprogresspie",
+      "entityprogressindicator"
+    ],
+    "status": "experimental",
+    "usage": "Supply a percentage and accessible label; map domain statuses to values in the application.",
+    "behavior": "Clamps completion to 0\u2013100; retains the label for assistive technology in iconOnly mode.",
+    "avoid": "Do not duplicate SVG geometry or encode business lifecycle statuses in the renderer."
+  },
+  {
+    "name": "Notice",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Explain a condition and offer an optional recovery action.",
+    "aliases": [
+      "warning",
+      "alert",
+      "feedback"
+    ],
+    "status": "experimental",
+    "usage": "Supply a title, explanation, semantic tone and optional canonical action. Set urgent only for newly occurring errors requiring immediate attention.",
+    "behavior": "Static notices have a labelled section; urgent errors use the alert live-region role.",
+    "avoid": "Do not create feature-specific colored warning boxes or announce every static notice."
+  },
+  {
+    "name": "EddyLaunchpad",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Start a question or choose a grouped, permission-filtered suggestion.",
+    "aliases": [
+      "eddylanding",
+      "assistantlanding"
+    ],
+    "status": "experimental",
+    "usage": "Control the draft and supply localized suggestions already filtered by viewer permissions. Handle submit and suggestion IDs in the application.",
+    "behavior": "Enter submits non-empty drafts; Shift+Enter adds a line; composition input is not prematurely submitted. Decorative currents respect reduced motion.",
+    "avoid": "Do not fetch permissions, resolve routes, send messages or persist drafts inside this component."
+  },
+  {
+    "name": "PanZoomCanvas",
+    "package": "@klein-ui/react",
+    "layer": "Organisms",
+    "purpose": "Navigate large diagrams with pointer pan, wheel/pinch zoom, fit and reset.",
+    "aliases": [
+      "explorercanvas",
+      "diagramcanvas"
+    ],
+    "status": "experimental",
+    "usage": "Place in a bounded-height container. Pass prepared diagram content and optionally a focus anchor getter for large structures. Use the ref for external Fit and Reset controls.",
+    "behavior": "Fits once after ready. Keyboard arrows pan, plus/minus zoom and Home resets. Controls inside the content retain their own keyboard behavior.",
+    "avoid": "Do not build a feature-local gesture engine or put hierarchy queries and business filtering in the canvas."
   }
 ]

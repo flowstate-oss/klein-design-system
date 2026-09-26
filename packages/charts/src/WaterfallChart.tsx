@@ -21,7 +21,8 @@ export interface WaterfallChartProps {
   bars: readonly WaterfallBar[];
   legend: readonly { label: string; tone: "neutral" | "good" | "bad" }[];
   emptyLabel: string;
-  height?: number;
+  height?: number | "fill";
+  valueRange?: { min?: number; max?: number };
   /** Same columns on a separate aligned axis. Null leaves an intentional gap. */
   secondary?: {
     label: string;
@@ -46,6 +47,7 @@ export function WaterfallChart({
   legend,
   emptyLabel,
   height = 256,
+  valueRange,
   secondary,
 }: WaterfallChartProps) {
   const { theme } = useChartTheme();
@@ -60,7 +62,10 @@ export function WaterfallChart({
   const labels = bars.map((bar) => bar.label);
   if (!bars.length) return <p role="status">{emptyLabel}</p>;
   return (
-    <section aria-label={label} className="flex flex-col gap-2 px-4 py-3">
+    <section
+      aria-label={label}
+      className={`${height === "fill" ? "k-chart-fill " : ""}flex flex-col gap-2 px-4 py-3`}
+    >
       <div className="text-body flex flex-wrap items-center gap-4 text-xs">
         {legend.map((item) => (
           <span key={item.label} className="flex items-center gap-1.5">
@@ -73,60 +78,65 @@ export function WaterfallChart({
           </span>
         ))}
       </div>
-      <BarChart
-        height={height}
-        data={{
-          labels,
-          datasets: [
-            {
-              label,
-              data: bars.map((bar) => bar.range),
-              backgroundColor: bars.map((bar) => colors[bar.tone]),
-              borderWidth: 0,
-              barPercentage: 0.7,
-              categoryPercentage: 0.9,
-              datalabels: {
-                display: (ctx: { dataIndex: number }) =>
-                  bars[ctx.dataIndex]?.showLabel !== false,
-                formatter: (_range: unknown, ctx: { dataIndex: number }) =>
-                  bars[ctx.dataIndex]?.valueLabel ?? "",
-                anchor: (ctx: { dataIndex: number }) =>
-                  bars[ctx.dataIndex]?.direction === "down" ? "start" : "end",
-                align: (ctx: { dataIndex: number }) =>
-                  bars[ctx.dataIndex]?.direction === "down" ? "bottom" : "top",
-                color: colors.neutral,
-                font: { size: 10, weight: 600 },
+      <div className="k-chart-plot">
+        <BarChart
+          height={height === "fill" ? "100%" : height}
+          data={{
+            labels,
+            datasets: [
+              {
+                label,
+                data: bars.map((bar) => bar.range),
+                backgroundColor: bars.map((bar) => colors[bar.tone]),
+                borderWidth: 0,
+                barPercentage: 0.7,
+                categoryPercentage: 0.9,
+                datalabels: {
+                  display: (ctx: { dataIndex: number }) =>
+                    bars[ctx.dataIndex]?.showLabel !== false,
+                  formatter: (_range: unknown, ctx: { dataIndex: number }) =>
+                    bars[ctx.dataIndex]?.valueLabel ?? "",
+                  anchor: (ctx: { dataIndex: number }) =>
+                    bars[ctx.dataIndex]?.direction === "down" ? "start" : "end",
+                  align: (ctx: { dataIndex: number }) =>
+                    bars[ctx.dataIndex]?.direction === "down"
+                      ? "bottom"
+                      : "top",
+                  color: colors.neutral,
+                  font: { size: 10, weight: 600 },
+                },
+              },
+            ],
+          }}
+          options={{
+            maintainAspectRatio: false,
+            layout: { padding: { right: 8 } },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  title: (items: Array<{ dataIndex: number }>) =>
+                    bars[items[0]?.dataIndex]?.title ?? "",
+                  label: (ctx: { dataIndex: number }) =>
+                    bars[ctx.dataIndex]?.tooltipLines ?? [],
+                },
               },
             },
-          ],
-        }}
-        options={{
-          maintainAspectRatio: false,
-          layout: { padding: { right: 8 } },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                title: (items: Array<{ dataIndex: number }>) =>
-                  bars[items[0]?.dataIndex]?.title ?? "",
-                label: (ctx: { dataIndex: number }) =>
-                  bars[ctx.dataIndex]?.tooltipLines ?? [],
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { font: { size: 11 }, autoSkip: false },
+              },
+              y: {
+                beginAtZero: valueRange?.min === undefined,
+                ...valueRange,
+                afterFit: pinAxisWidth,
+                ticks: { font: { size: 11 }, precision: 0 },
               },
             },
-          },
-          scales: {
-            x: {
-              grid: { display: false },
-              ticks: { font: { size: 11 }, autoSkip: false },
-            },
-            y: {
-              beginAtZero: true,
-              afterFit: pinAxisWidth,
-              ticks: { font: { size: 11 }, precision: 0 },
-            },
-          },
-        }}
-      />
+          }}
+        />
+      </div>
       {secondary && (
         <div data-waterfall-secondary="" className="flex flex-col gap-1">
           <span

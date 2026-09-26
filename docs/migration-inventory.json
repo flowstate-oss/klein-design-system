@@ -4,6 +4,39 @@
   "naming": "Table; persisted dataview keys and IDs retained",
   "modules": [
     {
+      "source": "src/app/(authenticated)/plan/[planId]/eddy/_components/EddyLanding.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/budgets/_components/BudgetCostTrendChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/capitalisation/_components/CostCapBucketPie.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/capitalisation/_components/ProjectSpendView.tsx",
+      "destinations": [
+        "@klein-ui/charts",
+        "@klein-ui/react"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
       "source": "src/app/(authenticated)/plan/[planId]/finance/forecast/_components/BudgetVarianceBadge.tsx",
       "destinations": [
         "@klein-ui/forecast"
@@ -60,6 +93,118 @@
       "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
     },
     {
+      "source": "src/app/(authenticated)/plan/[planId]/functional-groups/explorer/_components/ExplorerCanvas.tsx",
+      "destinations": [
+        "@klein-ui/react"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/functional-groups/explorer/_components/explorer-model.ts",
+      "destinations": [
+        "@klein-ui/react/patterns/canvas-transform"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/BudgetActualsForecast.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/CapExOpExAlignment.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/CumulativeCapExChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/EffortByDriverChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/HeadcountBridge.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/LaborMixChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/ProjectHealthMatrix.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/SkillsSupplyDemand.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/UnitEconomicsChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/_components/charts/ZombieCostChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/hybrid-workforce/_components/AiSpendForecastChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/hybrid-workforce/_components/HeadcountWaterfall.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
       "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/reports/_components/charts/ChartRenderer.tsx",
       "destinations": [
         "@klein-ui/charts/ChartRenderer",
@@ -100,6 +245,22 @@
       ],
       "disposition": "re-export",
       "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/business-metrics/_components/MetricCostTrendChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/business-metrics/_components/MetricVolumeChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
     },
     {
       "source": "src/components/ai/shared/components/CostByCostCentreChart.tsx",
@@ -344,6 +505,14 @@
       "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
     },
     {
+      "source": "src/components/entity-details/entity-header/EntityProgressIndicator.tsx",
+      "destinations": [
+        "@klein-ui/react/patterns/ProgressPie"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
       "source": "src/components/entity-details/functional-group/page/HeadcountBridge.tsx",
       "destinations": [
         "@klein-ui/charts"
@@ -393,6 +562,22 @@
       "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
     },
     {
+      "source": "src/components/insights/ProjectCostsCard.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/insights/TeamBreakdownCard.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
       "source": "src/components/layout/SectionBar.tsx",
       "destinations": [
         "@klein-ui/react/compat/section-bar"
@@ -425,9 +610,25 @@
       "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
     },
     {
+      "source": "src/components/navigation/primary-nav/SettingsNavigationLayout.tsx",
+      "destinations": [
+        "@klein-ui/react"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
       "source": "src/components/navigation/primary-nav/shell-parts.tsx",
       "destinations": [
         "@klein-ui/react/compat/shell"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/overview/BaselineDataWarning.tsx",
+      "destinations": [
+        "@klein-ui/react"
       ],
       "disposition": "application-adapter",
       "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
@@ -489,12 +690,29 @@
       "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
     },
     {
+      "source": "src/components/settings/SettingsTable.tsx",
+      "destinations": [
+        "@klein-ui/react",
+        "@klein-ui/table"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
       "source": "src/components/shared/CircularProgress.tsx",
       "destinations": [
         "@klein-ui/react/patterns/ProgressRing"
       ],
       "disposition": "re-export",
       "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/shared/StatusProgressPie.tsx",
+      "destinations": [
+        "@klein-ui/react/patterns/ProgressPie"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
     },
     {
       "source": "src/components/staffing/CapabilityBulkGrid.tsx",

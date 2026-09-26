@@ -8,7 +8,12 @@ export default function PublicChartOptions() {
     "vertical",
   );
   const [caption, setCaption] = useState(true);
-  const [legend, setLegend] = useState(true);
+  const [legend, setLegend] = useState("visible");
+  const [secondary, setSecondary] = useState(false);
+  const [band, setBand] = useState(false);
+  const [dashed, setDashed] = useState(false);
+  const [connect, setConnect] = useState(false);
+  const [pending, setPending] = useState(false);
   const [highlight, setHighlight] = useState(false);
   const [range, setRange] = useState(false);
   const [stacked, setStacked] = useState(false);
@@ -78,10 +83,39 @@ export default function PublicChartOptions() {
           value={caption}
           onValueChange={setCaption}
         />
-        <Switch
-          label="Show chart legend"
+        <Select
+          label="Chart legend"
           value={legend}
           onValueChange={setLegend}
+          options={["visible", "hidden", "responsive"].map((value) => ({
+            value,
+            label: value,
+          }))}
+        />
+        <Switch
+          label="Secondary axis"
+          value={secondary}
+          onValueChange={setSecondary}
+        />
+        <Switch
+          label="Prepared interval"
+          value={band}
+          onValueChange={setBand}
+        />
+        <Switch
+          label="Dashed comparison"
+          value={dashed}
+          onValueChange={setDashed}
+        />
+        <Switch
+          label="Connect missing points"
+          value={connect}
+          onValueChange={setConnect}
+        />
+        <Switch
+          label="Pending comparison"
+          value={pending}
+          onValueChange={setPending}
         />
         <Switch
           label="Highlight filter matches"
@@ -119,7 +153,27 @@ export default function PublicChartOptions() {
             height={height === "fill" ? "fill" : Number(height)}
             orientation={orientation}
             showCaption={caption}
-            showLegend={legend}
+            showLegend={
+              legend === "responsive" ? "responsive" : legend === "visible"
+            }
+            secondaryAxis={
+              secondary
+                ? {
+                    label: "Share (%)",
+                    formatValue: (value) => `${value * 100}%`,
+                    range: { min: 0, max: 1 },
+                  }
+                : undefined
+            }
+            rangeBand={
+              band
+                ? {
+                    label: "Prepared interval",
+                    lower: [0.3, 0.5, 0.6],
+                    upper: [0.5, 0.7, 0.8],
+                  }
+                : undefined
+            }
             highlight={
               highlight
                 ? { seriesIds: ["engineering"], pointIds: ["2026-01"] }
@@ -136,7 +190,15 @@ export default function PublicChartOptions() {
                 label: "Engineering",
                 values: [0.4, 0.6, 0.7],
               },
-              { id: "design", label: "Design", values: [0.2, null, 0.3] },
+              {
+                id: "design",
+                label: "Design",
+                values: pending ? [null, null, null] : [0.2, null, 0.3],
+                axis: secondary ? "secondary" : "primary",
+                lineStyle: dashed ? "dashed" : "solid",
+                connectMissing: connect,
+                pending,
+              },
             ]}
             referenceLine={target ? { label: "Target", value: 0.8 } : undefined}
             formatValue={(value) =>
@@ -158,7 +220,11 @@ export default function PublicChartOptions() {
       <p>
         Targets and stacking apply to cartesian charts. Null means missing data;
         it is not converted to zero. Changing formatting never changes the
-        values. Selection uses series and point IDs.
+        values. Selection uses series and point IDs. Interval bands apply to
+        unstacked line/area charts; their bounds are prepared by the
+        application. Secondary axes preserve separate units. Dashed lines and
+        missing-point connections apply to lines. Pending series never invent
+        numeric values. Responsive legends hide below 350px.
       </p>
     </section>
   );

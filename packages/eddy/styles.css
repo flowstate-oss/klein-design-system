@@ -25,3 +25,47 @@
 .k-eddy-chart-compact{height:150px}.k-eddy-chart-expanded{height:400px}
 
 .k-eddy-rail{position:absolute;inset-block:0;right:0;z-index:30;display:flex;flex-direction:column;width:100%;max-width:420px;border-left:var(--k-rule-strong);background:var(--k-surface-page);transition:translate .2s ease-out,opacity .2s ease-out}.k-eddy-rail[data-open=false]{translate:100%;opacity:0;pointer-events:none}.k-eddy-rail[data-open=true]{translate:0;opacity:1}@media(prefers-reduced-motion:reduce){.k-eddy-rail{transition:none}}
+
+/**
+ * Eddy — the hairline currents that drift across the top of the landing panel.
+ *
+ * Four white paths at falling opacity, each on its own period, translating
+ * half their width so a 200%-wide SVG loops seamlessly. Ported from the
+ * mockup (`docs/mockups/hybrid/klein.css`, `.currents`). Stroke stays 0.75px
+ * at every size via `vector-effect`. Motion is decoration only, so it stops
+ * entirely for anyone who has asked for reduced motion.
+ */
+.eddy-currents {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 132px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.eddy-currents svg {
+  display: block;
+  width: 200%;
+  height: 132px;
+}
+.eddy-currents path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 0.75;
+  vector-effect: non-scaling-stroke;
+}
+.eddy-currents .c1 { opacity: 0.42; animation: eddy-drift 34s linear infinite; }
+.eddy-currents .c2 { opacity: 0.30; animation: eddy-drift 46s linear infinite; }
+.eddy-currents .c3 { opacity: 0.21; animation: eddy-drift 62s linear infinite; }
+.eddy-currents .c4 { opacity: 0.14; animation: eddy-drift 78s linear infinite; }
+@keyframes eddy-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .eddy-currents .c1,
+  .eddy-currents .c2,
+  .eddy-currents .c3,
+  .eddy-currents .c4 {
+    animation: none;
+  }
+}

@@ -2,7 +2,7 @@
 
 ## Visual authority
 
-The Klein reference in `~/Code/klein` is the source for colour, spacing, type and control geometry. The application branch is the source for real product behaviour. The copied PLAN.md records the reviewed application revision. This milestone uses Klein-first light styling; it does not silently remove dark mode from Flowstate. Existing app screens remain unchanged.
+The Klein reference in `~/Code/klein` is the source for colour, spacing, type and control geometry. The application branch is the source for real product behaviour. The copied PLAN.md records the reviewed application revision. This milestone uses Klein-first light styling; it does not silently remove dark mode from Flowstate. Adapters preserve application behavior while adopting canonical presentation.
 
 ## Documented extensions
 
@@ -51,3 +51,5 @@ All packages use @klein-ui. The repository and MIT copyright belong to Flowstate
 ApplicationLayout extracts the actual viewport shell shared by workspace and area navigation. Its top slot supports native title bars; sidebar and content remain below it. WorkspaceLayout is the alternate header-above-navigation arrangement. ProfilePageLayout, StandingSummary and CapacityBreakdown use functional names; their application predecessors supply domain values and labels.
 
 WaterfallChart owns floating ranges and the separately scaled, aligned companion strip; the data adapter computes the ranges and decides whether confidential values may be supplied. ShareBreakdown owns the cost-classification ring/legend geometry and estimated-value patterns; it receives percentages and formatted values. Chart selection emits seriesId/pointId/value and requires point IDs when interactive. Its expanded data table supports the same action by keyboard. Optional axis bounds, orientation and filter emphasis are closed presentation contracts, not vendor option bags.
+
+EddyLaunchpad owns the branded prompt/suggestion surface, including the original motion and reduced-motion behavior. The application supplies permission-filtered, localized groups and handles submission/navigation. PanZoomCanvas owns pan, pinch/wheel zoom and legible Fit geometry; diagram hierarchy queries and filtering remain outside it. ChartPanel provides the consistent flat/panel chart heading composition. ProgressPie shares one renderer across lifecycle and measured-completion adapters; the canonical API accepts a percentage rather than application statuses. Notice supplies static or urgent feedback semantics.

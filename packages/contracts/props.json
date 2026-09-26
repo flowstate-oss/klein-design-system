@@ -598,7 +598,7 @@
       },
       {
         "name": "showLegend",
-        "type": "boolean | undefined",
+        "type": "boolean | \"responsive\" | undefined",
         "required": false,
         "description": "",
         "default": null
@@ -615,6 +615,13 @@
         "type": "{ min?: number; max?: number; } | undefined",
         "required": false,
         "description": "",
+        "default": null
+      },
+      {
+        "name": "secondaryAxis",
+        "type": "{ label: string; formatValue: (value: number) => string; range?: { min?: number; max?: number; }; } | undefined",
+        "required": false,
+        "description": "A separately labelled scale for a different unit. Values are never converted by the chart.",
         "default": null
       },
       {
@@ -650,6 +657,13 @@
         "type": "{ label: string; value: number; } | undefined",
         "required": false,
         "description": "Target on the same axis; applicable to bar, line and area. Never included in stacked totals.",
+        "default": null
+      },
+      {
+        "name": "rangeBand",
+        "type": "{ label: string; lower: readonly (number | null)[]; upper: readonly (number | null)[]; } | undefined",
+        "required": false,
+        "description": "Prepared interval for unstacked line/area charts. Both bounds use the primary unit.",
         "default": null
       },
       {
@@ -2440,7 +2454,7 @@
     ]
   },
   "WaterfallChart": {
-    "declaration": "export interface WaterfallChartProps {\n  label: string;\n  bars: readonly WaterfallBar[];\n  legend: readonly { label: string; tone: \"neutral\" | \"good\" | \"bad\" }[];\n  emptyLabel: string;\n  height?: number;\n  /** Same columns on a separate aligned axis. Null leaves an intentional gap. */\n  secondary?: {\n    label: string;\n    values: readonly (number | null)[];\n    formatValue: (value: number) => string;\n    formatAxisValue: (value: number) => string;\n  };\n}",
+    "declaration": "export interface WaterfallChartProps {\n  label: string;\n  bars: readonly WaterfallBar[];\n  legend: readonly { label: string; tone: \"neutral\" | \"good\" | \"bad\" }[];\n  emptyLabel: string;\n  height?: number | \"fill\";\n  valueRange?: { min?: number; max?: number };\n  /** Same columns on a separate aligned axis. Null leaves an intentional gap. */\n  secondary?: {\n    label: string;\n    values: readonly (number | null)[];\n    formatValue: (value: number) => string;\n    formatAxisValue: (value: number) => string;\n  };\n}",
     "props": [
       {
         "name": "label",
@@ -2472,7 +2486,14 @@
       },
       {
         "name": "height",
-        "type": "number | undefined",
+        "type": "number | \"fill\" | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "valueRange",
+        "type": "{ min?: number; max?: number; } | undefined",
         "required": false,
         "description": "",
         "default": null
@@ -2529,6 +2550,307 @@
         "type": "string",
         "required": true,
         "description": "",
+        "default": null
+      }
+    ]
+  },
+  "RelationshipPlot": {
+    "declaration": "export interface RelationshipPlotProps {\n  /** Accessible, application-localized label. */\n  label: string;\n  /** Ordered display model, including all permission filtering. */\n  points: readonly RelationshipPoint[];\n  /** Horizontal axis label and optional display bounds. */\n  xAxis: { label: string; min?: number; max?: number };\n  /** Vertical axis label and optional display bounds. */\n  yAxis: { label: string; min?: number; max?: number };\n  /** Plot height, or fill a bounded parent. */\n  height?: number | \"fill\";\n  /** Receives a point ID from pointer or keyboard selection. */\n  onPointSelect?: (id: string) => void;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible, application-localized label.",
+        "default": null
+      },
+      {
+        "name": "points",
+        "type": "readonly RelationshipPoint[]",
+        "required": true,
+        "description": "Ordered display model, including all permission filtering.",
+        "default": null
+      },
+      {
+        "name": "xAxis",
+        "type": "{ label: string; min?: number; max?: number; }",
+        "required": true,
+        "description": "Horizontal axis label and optional display bounds.",
+        "default": null
+      },
+      {
+        "name": "yAxis",
+        "type": "{ label: string; min?: number; max?: number; }",
+        "required": true,
+        "description": "Vertical axis label and optional display bounds.",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | \"fill\" | undefined",
+        "required": false,
+        "description": "Plot height, or fill a bounded parent.",
+        "default": null
+      },
+      {
+        "name": "onPointSelect",
+        "type": "((id: string) => void) | undefined",
+        "required": false,
+        "description": "Receives a point ID from pointer or keyboard selection.",
+        "default": null
+      }
+    ]
+  },
+  "ForecastAdjustmentChart": {
+    "declaration": "export interface ForecastAdjustmentChartProps {\n  /** Accessible, application-localized label. */\n  label: string;\n  /** Chronological display model; null preserves missing values. */\n  points: readonly ForecastAdjustmentPoint[];\n  /** Legend labels for the three prepared series. */\n  labels: { actual: string; forecast: string; baseline: string };\n  /** Prepared limit or target; never included in series totals. */\n  referenceLine?: { label: string; value: number };\n  /** Application-formatted difference at a stable point ID. */\n  annotation?: {\n    pointId: string;\n    label: string;\n    tone: \"good\" | \"bad\" | \"neutral\";\n  };\n  /** Same formatter for tooltips and the accessible table. */\n  formatValue: (value: number) => string;\n  /** Plot height in pixels, default 260. */\n  height?: number;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible, application-localized label.",
+        "default": null
+      },
+      {
+        "name": "points",
+        "type": "readonly ForecastAdjustmentPoint[]",
+        "required": true,
+        "description": "Chronological display model; null preserves missing values.",
+        "default": null
+      },
+      {
+        "name": "labels",
+        "type": "{ actual: string; forecast: string; baseline: string; }",
+        "required": true,
+        "description": "Legend labels for the three prepared series.",
+        "default": null
+      },
+      {
+        "name": "referenceLine",
+        "type": "{ label: string; value: number; } | undefined",
+        "required": false,
+        "description": "Prepared limit or target; never included in series totals.",
+        "default": null
+      },
+      {
+        "name": "annotation",
+        "type": "{ pointId: string; label: string; tone: \"good\" | \"bad\" | \"neutral\"; } | undefined",
+        "required": false,
+        "description": "Application-formatted difference at a stable point ID.",
+        "default": null
+      },
+      {
+        "name": "formatValue",
+        "type": "(value: number) => string",
+        "required": true,
+        "description": "Same formatter for tooltips and the accessible table.",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "Plot height in pixels, default 260.",
+        "default": null
+      }
+    ]
+  },
+  "ChartPanel": {
+    "declaration": "export interface ChartPanelProps {\n  title?: ReactNode;\n  appearance?: \"flat\" | \"panel\";\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "appearance",
+        "type": "\"flat\" | \"panel\" | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ProgressPie": {
+    "declaration": "export interface ProgressPieProps {\n  /** Accessible, application-formatted description of completion. */\n  label: string;\n  /** Completion percentage from 0 to 100; values outside the range are clamped. */\n  value: number;\n  /** Semantic assessment supplied by the application. */\n  tone?: \"neutral\" | \"good\" | \"watch\" | \"bad\";\n  /** Keep the description accessible while hiding it visually. */\n  iconOnly?: boolean;\n  /** Canonical glyph sizes. */\n  size?: \"small\" | \"medium\";\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible, application-formatted description of completion.",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "Completion percentage from 0 to 100; values outside the range are clamped.",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "\"neutral\" | \"good\" | \"watch\" | \"bad\" | undefined",
+        "required": false,
+        "description": "Semantic assessment supplied by the application.",
+        "default": null
+      },
+      {
+        "name": "iconOnly",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Keep the description accessible while hiding it visually.",
+        "default": null
+      },
+      {
+        "name": "size",
+        "type": "\"small\" | \"medium\" | undefined",
+        "required": false,
+        "description": "Canonical glyph sizes.",
+        "default": null
+      }
+    ]
+  },
+  "Notice": {
+    "declaration": "export interface NoticeProps {\n  /** Short description of the condition. */\n  title: string;\n  /** Supporting explanation or recovery instructions. */\n  children?: ReactNode;\n  /** Meaning supplied by the application. */\n  tone?: \"neutral\" | \"good\" | \"watch\" | \"bad\";\n  /** Announce a newly occurring urgent error; static notices are not live by default. */\n  urgent?: boolean;\n  /** Optional recovery action using canonical controls. */\n  actions?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Short description of the condition.",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Supporting explanation or recovery instructions.",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "\"neutral\" | \"good\" | \"watch\" | \"bad\" | undefined",
+        "required": false,
+        "description": "Meaning supplied by the application.",
+        "default": null
+      },
+      {
+        "name": "urgent",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Announce a newly occurring urgent error; static notices are not live by default.",
+        "default": null
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Optional recovery action using canonical controls.",
+        "default": null
+      }
+    ]
+  },
+  "EddyLaunchpad": {
+    "declaration": "export interface EddyLaunchpadProps {\n  /** Controlled question draft. */\n  value: string;\n  /** Receives draft changes; persistence belongs to the application. */\n  onValueChange: (value: string) => void;\n  /** Submit intent; application owns sending, clearing and rail navigation. */\n  onSubmit: () => void;\n  /** Only groups and suggestions the viewer is permitted to use. */\n  groups: readonly {\n    id: string;\n    label: string;\n    suggestions: readonly { id: string; label: string }[];\n  }[];\n  /** Stable suggestion identity; no routing or permission decisions occur here. */\n  onSuggestionSelect: (id: string) => void;\n  /** Localized labels and permission explanation. */\n  labels: {\n    title: string;\n    placeholder: string;\n    scope: string;\n    send: string;\n    suggestions: string;\n    permission: string;\n  };\n}",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Controlled question draft.",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Receives draft changes; persistence belongs to the application.",
+        "default": null
+      },
+      {
+        "name": "onSubmit",
+        "type": "() => void",
+        "required": true,
+        "description": "Submit intent; application owns sending, clearing and rail navigation.",
+        "default": null
+      },
+      {
+        "name": "groups",
+        "type": "readonly { id: string; label: string; suggestions: readonly { id: string; label: string; }[]; }[]",
+        "required": true,
+        "description": "Only groups and suggestions the viewer is permitted to use.",
+        "default": null
+      },
+      {
+        "name": "onSuggestionSelect",
+        "type": "(id: string) => void",
+        "required": true,
+        "description": "Stable suggestion identity; no routing or permission decisions occur here.",
+        "default": null
+      },
+      {
+        "name": "labels",
+        "type": "{ title: string; placeholder: string; scope: string; send: string; suggestions: string; permission: string; }",
+        "required": true,
+        "description": "Localized labels and permission explanation.",
+        "default": null
+      }
+    ]
+  },
+  "PanZoomCanvas": {
+    "declaration": "export interface PanZoomCanvasProps {\n  /** Accessible name of the navigable diagram. */\n  label: string;\n  /** Diagram content; controls should stop pointer propagation to avoid panning. */\n  children: ReactNode;\n  /** Fit once when content first becomes ready. */\n  ready?: boolean;\n  /** Optional content anchor used when a large diagram cannot fit legibly. */\n  getFocusTarget?: (layer: HTMLElement) => HTMLElement | null;\n  /** Drives external Fit and Reset controls. */\n  ref?: Ref<PanZoomCanvasHandle>;\n  /** Optional testing hooks, without layout overrides. */\n  testIds?: { viewport?: string; layer?: string };\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name of the navigable diagram.",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Diagram content; controls should stop pointer propagation to avoid panning.",
+        "default": null
+      },
+      {
+        "name": "ready",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Fit once when content first becomes ready.",
+        "default": null
+      },
+      {
+        "name": "getFocusTarget",
+        "type": "((layer: HTMLElement) => HTMLElement | null) | undefined",
+        "required": false,
+        "description": "Optional content anchor used when a large diagram cannot fit legibly.",
+        "default": null
+      },
+      {
+        "name": "ref",
+        "type": "Ref<PanZoomCanvasHandle> | undefined",
+        "required": false,
+        "description": "Drives external Fit and Reset controls.",
+        "default": null
+      },
+      {
+        "name": "testIds",
+        "type": "{ viewport?: string; layer?: string; } | undefined",
+        "required": false,
+        "description": "Optional testing hooks, without layout overrides.",
         "default": null
       }
     ]

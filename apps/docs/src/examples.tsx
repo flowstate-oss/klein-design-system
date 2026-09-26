@@ -276,8 +276,24 @@ export function TableExample() {
   );
 }
 export function ChartExample() {
-  const [selection,setSelection]=useState('No point selected');
-  return <><Chart label="Monthly capacity" type="bar" labels={['Jan','Feb','Mar']} pointIds={['2026-01','2026-02','2026-03']} series={[{id:'capacity',label:'Capacity',values:[2,3,4]}]} referenceLine={{label:'Target',value:3}} formatValue={value=>`${value} FTE`} onPointSelect={point=>setSelection(`${point.seriesId}: ${point.pointId} = ${point.value}`)} /><p role="status">{selection}</p></>;
+  const [selection, setSelection] = useState("No point selected");
+  return (
+    <>
+      <Chart
+        label="Monthly capacity"
+        type="bar"
+        labels={["Jan", "Feb", "Mar"]}
+        pointIds={["2026-01", "2026-02", "2026-03"]}
+        series={[{ id: "capacity", label: "Capacity", values: [2, 3, 4] }]}
+        referenceLine={{ label: "Target", value: 3 }}
+        formatValue={(value) => `${value} FTE`}
+        onPointSelect={(point) =>
+          setSelection(`${point.seriesId}: ${point.pointId} = ${point.value}`)
+        }
+      />
+      <p role="status">{selection}</p>
+    </>
+  );
 }
 
 export function ForecastTableExample() {
@@ -1105,11 +1121,202 @@ export function WaterfallChartExample() {
   );
 }
 
-import {ShareBreakdown} from '@klein-ui/charts';
-export function ShareBreakdownExample(){
- return <ShareBreakdown label="Cost classification" description="Confirmed and estimated values" totalLabel="Total" totalValue="£100k" emptyLabel="No spend" segments={[
- {id:'capital-confirmed',seriesId:'capital',label:'Capital (reported)',percentage:50,valueLabel:'£50,000',helpText:'Confirmed development costs.'},
- {id:'capital-estimated',seriesId:'capital',label:'Capital (estimated)',percentage:20,valueLabel:'£20,000',estimated:true,helpText:'Unconfirmed allocation estimate.'},
- {id:'operating',label:'Operating',percentage:30,valueLabel:'£30,000'}
- ]}/>;
+import { ShareBreakdown } from "@klein-ui/charts";
+export function ShareBreakdownExample() {
+  return (
+    <ShareBreakdown
+      label="Cost classification"
+      description="Confirmed and estimated values"
+      totalLabel="Total"
+      totalValue="£100k"
+      emptyLabel="No spend"
+      segments={[
+        {
+          id: "capital-confirmed",
+          seriesId: "capital",
+          label: "Capital (reported)",
+          percentage: 50,
+          valueLabel: "£50,000",
+          helpText: "Confirmed development costs.",
+        },
+        {
+          id: "capital-estimated",
+          seriesId: "capital",
+          label: "Capital (estimated)",
+          percentage: 20,
+          valueLabel: "£20,000",
+          estimated: true,
+          helpText: "Unconfirmed allocation estimate.",
+        },
+        {
+          id: "operating",
+          label: "Operating",
+          percentage: 30,
+          valueLabel: "£30,000",
+        },
+      ]}
+    />
+  );
+}
+
+import { RelationshipPlot, ForecastAdjustmentChart } from "@klein-ui/charts";
+import { ChartPanel } from "@klein-ui/react";
+export function RelationshipPlotExample() {
+  const [selected, setSelected] = useState("No project selected");
+  return (
+    <>
+      <RelationshipPlot
+        label="Project health"
+        xAxis={{ label: "Timeline progress (%)", min: 0, max: 100 }}
+        yAxis={{ label: "Budget consumed (%)", min: 0, max: 150 }}
+        points={[
+          {
+            id: "platform",
+            label: "Platform",
+            x: 45,
+            y: 70,
+            radius: 18,
+            tone: "watch",
+            details: ["Timeline: 45%", "Budget: 70%", "Spend: £70,000"],
+          },
+          {
+            id: "mobile",
+            label: "Mobile",
+            x: 80,
+            y: 60,
+            radius: 12,
+            tone: "good",
+            details: ["Timeline: 80%", "Budget: 60%", "Spend: £30,000"],
+          },
+        ]}
+        onPointSelect={setSelected}
+      />
+      <p role="status">{selected}</p>
+    </>
+  );
+}
+export function ForecastAdjustmentChartExample() {
+  return (
+    <ForecastAdjustmentChart
+      label="Adjusted forecast"
+      labels={{
+        actual: "Actual",
+        forecast: "Adjusted forecast",
+        baseline: "Baseline",
+      }}
+      points={[
+        {
+          id: "june",
+          label: "June",
+          actual: 100,
+          forecast: null,
+          baseline: null,
+        },
+        {
+          id: "july",
+          label: "July",
+          actual: 110,
+          forecast: 110,
+          baseline: 110,
+        },
+        {
+          id: "august",
+          label: "August",
+          actual: null,
+          forecast: 240,
+          baseline: 120,
+        },
+        {
+          id: "september",
+          label: "September",
+          actual: null,
+          forecast: 260,
+          baseline: 130,
+        },
+      ]}
+      referenceLine={{ label: "Monthly limit", value: 340 }}
+      annotation={{ pointId: "september", label: "+£130/mo", tone: "bad" }}
+      formatValue={(value) => `£${value}`}
+      height={260}
+    />
+  );
+}
+export function ChartPanelExample() {
+  return (
+    <ChartPanel title="Monthly capacity" appearance="flat">
+      <ChartExample />
+    </ChartPanel>
+  );
+}
+
+import { ProgressPie } from "@klein-ui/react";
+export function ProgressPieExample() {
+  return <ProgressPie label="3 of 4 completed" value={75} tone="good" />;
+}
+
+import { Notice } from "@klein-ui/react";
+export function NoticeExample() {
+  return (
+    <Notice title="Baseline unavailable" tone="watch">
+      Choose a comparison period with recorded data.
+    </Notice>
+  );
+}
+
+import { EddyLaunchpad } from "@klein-ui/eddy";
+export function EddyLaunchpadExample() {
+  const [value, onValueChange] = useState("");
+  const [action, setAction] = useState("No question sent");
+  return (
+    <>
+      <EddyLaunchpad
+        value={value}
+        onValueChange={onValueChange}
+        onSubmit={() => {
+          setAction(value);
+          onValueChange("");
+        }}
+        onSuggestionSelect={(id) => setAction(id)}
+        groups={[
+          {
+            id: "planning",
+            label: "Planning",
+            suggestions: [
+              { id: "capacity", label: "Where do we have spare capacity?" },
+            ],
+          },
+        ]}
+        labels={{
+          title: "Eddy",
+          placeholder: "Ask about your organisation",
+          scope: "Sees what you see — Example organisation",
+          send: "Ask Eddy",
+          suggestions: "Where to start",
+          permission: "Your existing permissions apply.",
+        }}
+      />
+      <p role="status">{action}</p>
+    </>
+  );
+}
+
+import { PanZoomCanvas, type PanZoomCanvasHandle } from "@klein-ui/react";
+import { useRef } from "react";
+export function PanZoomCanvasExample() {
+  const ref = useRef<PanZoomCanvasHandle>(null);
+  return (
+    <>
+      <Button variant="secondary" onClick={() => ref.current?.fit()}>
+        Fit diagram
+      </Button>
+      <Button variant="secondary" onClick={() => ref.current?.reset()}>
+        Reset diagram
+      </Button>
+      <div style={{ height: 300 }}>
+        <PanZoomCanvas ref={ref} label="Example diagram">
+          <MetricStripExample />
+        </PanZoomCanvas>
+      </div>
+    </>
+  );
 }

@@ -1027,6 +1027,19 @@
     ]
   },
   {
+    "name": "react/patterns/ProgressPie",
+    "import": "@klein-ui/react/patterns/ProgressPie",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ProgressPieRendererProps {",
+      "export function ProgressPieRenderer({"
+    ],
+    "declarations": [
+      "export interface ProgressPieRendererProps {\n  fraction: number;\n  label?: ReactNode;\n  iconOnly?: boolean;\n  ringClassName?: string;\n  wedgeClassName?: string;\n  pieClassName?: string;\n  labelClassName?: string;\n  className?: string;\n  \"data-status\"?: string;\n  \"data-testid\"?: string;\n}"
+    ]
+  },
+  {
     "name": "react/patterns/ProgressRing",
     "import": "@klein-ui/react/patterns/ProgressRing",
     "status": "migration-api",
@@ -1080,6 +1093,37 @@
     "declarations": [
       "export type SubjectStandingTone = \"neutral\" | \"good\" | \"warn\" | \"bad\";",
       "export interface StandingSummaryProps {\n  /**\n   * Eyebrow label above the standing value, e.g. \"Tier\", \"Standing\",\n   * \"Account status\". Renders in 10px upper-case muted text.\n   */\n  label: string;\n  /**\n   * The standing value itself, e.g. \"Heads-up\", \"Tier 3\", \"Active\".\n   * Renders as a pill with the requested tone.\n   */\n  value: string;\n  /** Standing tone — drives the value pill colour. */\n  tone: SubjectStandingTone;\n  /**\n   * One short paragraph of supporting copy. Keep it under 160 chars —\n   * the card is for orientation, not documentation.\n   */\n  description?: string | null;\n  /**\n   * The single recommended action the viewer can take. Renders as a\n   * compact row with an arrow. Omit when there's nothing to do.\n   */\n  nudge?: {\n    label: string;\n    href: string;\n  } | null;\n  /**\n   * Link to the policy / configuration that drives this standing.\n   * Renders as a tiny meta line at the bottom of the card.\n   */\n  policy?: {\n    label: string;\n    href: string;\n  } | null;\n  /** Extra class names — escape hatch for layout. */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/patterns/canvas-transform",
+    "import": "@klein-ui/react/patterns/canvas-transform",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface Point {",
+      "export interface Size {",
+      "export interface Box extends Size {",
+      "export interface CanvasTransform {",
+      "export const MIN_SCALE = 0.25;",
+      "export const MAX_SCALE = 2;",
+      "export const FIT_MAX_SCALE = 1;",
+      "export const FIT_MIN_SCALE = 0.6;",
+      "export const FIT_PADDING = 24;",
+      "export const IDENTITY_TRANSFORM: CanvasTransform = { x: 0, y: 0, scale: 1 };",
+      "export function clampScale(scale: number): number {",
+      "export function panBy(",
+      "export function zoomAt(",
+      "export function fitTo(",
+      "export function distance(a: Point, b: Point): number {",
+      "export function midpoint(a: Point, b: Point): Point {",
+      "export function wheelZoomFactor(deltaY: number, pinch: boolean): number {"
+    ],
+    "declarations": [
+      "export interface Point {\n  x: number;\n  y: number;\n}",
+      "export interface Size {\n  width: number;\n  height: number;\n}",
+      "export interface Box extends Size {\n  x: number;\n  y: number;\n}",
+      "export interface CanvasTransform {\n  x: number;\n  y: number;\n  scale: number;\n}"
     ]
   },
   {

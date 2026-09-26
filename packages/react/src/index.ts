@@ -58,11 +58,42 @@ export type {
   BadgeProps,
 } from "./controls.js";
 
-export {DashboardPageLayout,DetailPageLayout,WorkspaceLayout} from './page-layouts.js';
-export type {DashboardPageLayoutProps,DetailPageLayoutProps,WorkspaceLayoutProps} from './page-layouts.js';
+export {
+  DashboardPageLayout,
+  DetailPageLayout,
+  WorkspaceLayout,
+} from "./page-layouts.js";
+export type {
+  DashboardPageLayoutProps,
+  DetailPageLayoutProps,
+  WorkspaceLayoutProps,
+} from "./page-layouts.js";
 
-export {ProfilePageLayout,IdentityStrip,StandingSummary,SectionDivider,ProgressRing} from './profile-patterns.js';
-export type {ProfilePageLayoutProps,IdentityStripProps,StandingSummaryProps,SectionDividerProps,ProgressRingProps} from './profile-patterns.js';
+export {
+  ProfilePageLayout,
+  IdentityStrip,
+  StandingSummary,
+  SectionDivider,
+  ProgressRing,
+} from "./profile-patterns.js";
+export type {
+  ProfilePageLayoutProps,
+  IdentityStripProps,
+  StandingSummaryProps,
+  SectionDividerProps,
+  ProgressRingProps,
+} from "./profile-patterns.js";
 
-export {ApplicationLayout} from './page-layouts.js';
-export type {ApplicationLayoutProps} from './page-layouts.js';
+export { ApplicationLayout } from "./page-layouts.js";
+export type { ApplicationLayoutProps } from "./page-layouts.js";
+
+export { ChartPanel } from "./chart-panel.js";
+export type { ChartPanelProps } from "./chart-panel.js";
+export { ProgressPie, type ProgressPieProps } from "./progress-pie.js";
+export { Notice, type NoticeProps } from "./notice.js";
+
+export {
+  PanZoomCanvas,
+  type PanZoomCanvasProps,
+  type PanZoomCanvasHandle,
+} from "./pan-zoom-canvas.js";

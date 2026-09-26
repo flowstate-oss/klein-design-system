@@ -31,3 +31,8 @@ export type {WaterfallChartProps,WaterfallBar} from './WaterfallChart.js';
 
 export {ShareBreakdown} from './ShareBreakdown.js';
 export type {ShareBreakdownProps,ShareSegment} from './ShareBreakdown.js';
+
+export {RelationshipPlot} from './RelationshipPlot.js';
+export type {RelationshipPlotProps,RelationshipPoint} from './RelationshipPlot.js';
+export {ForecastAdjustmentChart} from './ForecastAdjustmentChart.js';
+export type {ForecastAdjustmentChartProps,ForecastAdjustmentPoint} from './ForecastAdjustmentChart.js';

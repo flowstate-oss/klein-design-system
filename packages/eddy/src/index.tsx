@@ -337,3 +337,5 @@ export function EddyRail({ open, children }: EddyRailProps) {
     </aside>
   );
 }
+
+export {EddyLaunchpad,type EddyLaunchpadProps} from './EddyLaunchpad.js';
