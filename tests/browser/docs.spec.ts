@@ -212,3 +212,19 @@ test("documentation is available without JavaScript", async ({ browser }) => {
 });
 
 for(const name of ['DashboardPageLayout','DetailPageLayout','WorkspaceLayout','TableCollection'])test(`${name} remains within the mobile viewport`,async({page})=>{await page.setViewportSize({width:390,height:900});await page.goto(`/components/${name}/`);await expect(page.locator('.docs-specimen')).not.toBeEmpty();const width=await page.evaluate(()=>({content:document.documentElement.scrollWidth,viewport:innerWidth}));expect(width.content).toBeLessThanOrEqual(width.viewport+1);});
+
+for (const width of [390,1280]) test(`application shell keeps sidebar and content in one bounded frame at ${width}px`,async({page})=>{
+  await page.setViewportSize({width,height:900});
+  await page.goto('/components/ApplicationLayout/');
+  const shell=page.locator('.k-application-layout');
+  await expect(shell).toBeVisible();
+  const bounds=await shell.evaluate(element=>{
+    const root=element.getBoundingClientRect();
+    const body=element.querySelector('.k-application-body')!.getBoundingClientRect();
+    const content=element.querySelector('.k-application-content')!.getBoundingClientRect();
+    return {root:root.width,body:body.width,right:content.right,edge:root.right,overflow:getComputedStyle(element).overflow};
+  });
+  expect(bounds.body).toBeLessThanOrEqual(bounds.root+1);
+  expect(bounds.right).toBeLessThanOrEqual(bounds.edge+1);
+  expect(bounds.overflow).toBe('hidden');
+});

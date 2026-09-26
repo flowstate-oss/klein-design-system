@@ -22,7 +22,7 @@ Library components may own focus and interaction mechanics. Controlled tabs and 
 
 ## Implementation scope
 
-The first milestone is foundations, everyday text controls, header/navigation, view shells, docs and consumer checks. Metadata marks every component experimental. A list recipe demonstrates supplied content, not a new data-view implementation. Charts/forecast/Eddy extraction remains in PLAN.md. Do not export placeholder packages for them.
+The packages now include controls, complete table collections, charts, forecast, Eddy and page templates. Metadata marks every component experimental. PLAN.md and the migration inventory describe ownership; do not treat a curated catalogue count as evidence that every application renderer has migrated.
 
 ## Documentation and checking
 
@@ -36,7 +36,7 @@ Consumer checks reject explicit raw controls, vendor/legacy/deep imports, inline
 - Existing component APIs are extracted under explicit `/compat` paths to preserve working callers. These exports are forbidden for new features by the consumer checker. Closed APIs wrap the same vendor primitives and have curated contracts.
 - Chart.js, AG Grid and Gantt renderers live in library packages. Domain calculations, queries, formatting, route decisions and persistence stay in Flowstate. Legacy chart options remain only on the migration API; the public Chart API is closed.
 - Flowstate dark mode is an explicit opt-in product extension (`@klein-ui/react/dark.css`) preserving its existing neutral palette. It overrides semantic roles, not Klein brand primitives. Lucide remains supported by extracted APIs; new root Icon uses the approved glyph set.
-- Packages are vendored as npm tarballs until a registry is selected. The application installs reproducibly without access to a sibling checkout. Nothing has been published.
+- Packages are vendored as npm tarballs while initial @klein-ui registry authentication is pending. The application installs reproducibly without access to a sibling checkout. Nothing has been published.
 
 The six chart identities use explicit `series-dark-01` through `series-dark-06` product-extension tokens on dark surfaces. Their higher lightness keeps marks visible against Flowstate's dark background. Both palettes repeat after six to preserve old twelve-position indexing; the dashboard renderer still caps its legend to the top four plus Other. These are display colors, not a change to metric values.
 
@@ -47,3 +47,5 @@ TableCollection is the original DataView composition: its provider, toolbar, fil
 MetricStrip and MetricGrid replace feature-specific KPI names. DashboardPageLayout, DetailPageLayout and WorkspaceLayout describe the page structure rather than the feature that first needed it. EdgeToEdgeLayout and its bands remain the full-bleed recipe.
 
 All packages use @klein-ui. The repository and MIT copyright belong to Flowstate; npm publication and GitHub Pages deployment are defined in the repository workflows.
+
+ApplicationLayout extracts the actual viewport shell shared by workspace and area navigation. Its top slot supports native title bars; sidebar and content remain below it. WorkspaceLayout is the alternate header-above-navigation arrangement. ProfilePageLayout, StandingSummary and CapacityBreakdown use functional names; their application predecessors supply domain values and labels.

@@ -22,3 +22,6 @@ export {CumulativeChart} from './CumulativeChart.js';
 export type {CumulativeChartProps,CumulativePoint} from './CumulativeChart.js';
 export {DistributionChart} from './DistributionChart.js';
 export type {DistributionChartProps,DistributionItem} from './DistributionChart.js';
+
+export {CapacityBreakdown} from './CapacityBreakdown.js';
+export type {CapacityBreakdownProps,CapacitySegment} from './CapacityBreakdown.js';

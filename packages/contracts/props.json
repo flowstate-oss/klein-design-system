@@ -2302,5 +2302,85 @@
         "default": null
       }
     ]
+  },
+  "ApplicationLayout": {
+    "declaration": "export interface ApplicationLayoutProps {\n  top?: ReactNode;\n  sidebar?: ReactNode;\n  children: ReactNode;\n  ready?: boolean;\n  [attribute: `data-${string}`]: string | undefined;\n}",
+    "props": [
+      {
+        "name": "top",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "sidebar",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "ready",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "CapacityBreakdown": {
+    "declaration": "export interface CapacityBreakdownProps {\n  label: string;\n  description?: string;\n  segments: readonly CapacitySegment[];\n  summary?: {\n    label: string;\n    value: ReactNode;\n    statusLabel?: string;\n    tone?: \"neutral\" | \"good\" | \"watch\" | \"bad\";\n  };\n  height?: number;\n  emptyLabel?: string;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "segments",
+        "type": "readonly CapacitySegment[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "summary",
+        "type": "{ label: string; value: ReactNode; statusLabel?: string; tone?: \"neutral\" | \"good\" | \"watch\" | \"bad\"; } | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "emptyLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
   }
 }

@@ -1,0 +1,27 @@
+import {render,screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {describe,it,expect,vi} from 'vitest';
+import {CapacityBreakdown} from '../packages/charts/src/CapacityBreakdown';
+import {ForecastAllocationEditor} from '../packages/forecast/src/ForecastAllocationEditor';
+vi.mock('../packages/charts/src/chart-base.js',()=>({BarChart:()=>null}));
+describe('display-model organisms',()=>{
+  it('preserves prepared values and business assessment independently of the plotted value',()=>{
+    render(<CapacityBreakdown label="Capacity" segments={[{id:'working',label:'Working',value:9,displayValue:'9.00 people'}]} summary={{label:'Utilization',value:'90.00%',tone:'bad',statusLabel:'Above permitted limit'}} />);
+    expect(screen.getByText('9.00 people')).toBeVisible();
+    expect(screen.getByText('90.00%')).toBeVisible();
+    expect(screen.getByText('Above permitted limit')).toBeVisible();
+  });
+  it('shows zero as a value while explaining the empty chart',()=>{
+    render(<CapacityBreakdown label="Capacity" emptyLabel="No allocation" segments={[{id:'working',label:'Working',value:0,displayValue:'0.0'}]} />);
+    expect(screen.getByRole('status')).toHaveTextContent('No allocation');
+    expect(screen.getByText('0.0')).toBeVisible();
+  });
+  it('opens a forecast editor through keyboard activation of the value',async()=>{
+    const onOpenChange=vi.fn();
+    render(<ForecastAllocationEditor open={false} onOpenChange={onOpenChange} resourceName="Alex" resourceType="employee" value={1} onValueChange={()=>{}} creating={false} onCreatingChange={()=>{}} loading={false} saving={false} canCreate={false} allocationCount={1} directAllocations={[{id:'a'}]} teamAllocations={[]} onSave={()=>{}}>1.0</ForecastAllocationEditor>);
+    await userEvent.tab();
+    expect(screen.getByRole('button',{name:'Edit Alex allocation'})).toHaveFocus();
+    await userEvent.keyboard('{Enter}');
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+  });
+});

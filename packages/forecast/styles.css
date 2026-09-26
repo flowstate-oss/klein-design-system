@@ -27,3 +27,5 @@
 .k-forecast-value>button{font:inherit;color:inherit;text-align:right;border:0;background:transparent;cursor:pointer;padding:var(--k-space-1)}
 .k-forecast-value>button:hover{background:var(--k-tint)}
 .k-forecast-value[aria-busy=true]{opacity:.65}
+
+.k-forecast-edit-trigger{font:inherit;color:inherit;background:transparent;border:0;padding:var(--k-space-1);cursor:pointer;text-align:right}.k-forecast-edit-trigger:hover{background:var(--k-tint)}.k-forecast-edit-trigger:focus-visible{outline:2px solid var(--k-klein);outline-offset:2px}.k-forecast-row-label [data-description]{display:block;color:var(--k-body);font-size:var(--k-text-xs)}

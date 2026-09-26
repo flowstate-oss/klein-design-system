@@ -63,3 +63,6 @@ export type {DashboardPageLayoutProps,DetailPageLayoutProps,WorkspaceLayoutProps
 
 export {ProfilePageLayout,IdentityStrip,StandingSummary,SectionDivider,ProgressRing} from './profile-patterns.js';
 export type {ProfilePageLayoutProps,IdentityStripProps,StandingSummaryProps,SectionDividerProps,ProgressRingProps} from './profile-patterns.js';
+
+export {ApplicationLayout} from './page-layouts.js';
+export type {ApplicationLayoutProps} from './page-layouts.js';

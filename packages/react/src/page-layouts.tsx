@@ -87,3 +87,34 @@ export function WorkspaceLayout({
     </div>
   );
 }
+
+/** Viewport shell shared by browser workspaces, product areas and native windows.
+ * Sidebar width/state and native window metrics are supplied by the application.
+ * The body slot owns scrolling; this frame clips overflow without adding gutters.
+ */
+export interface ApplicationLayoutProps {
+  top?: ReactNode;
+  sidebar?: ReactNode;
+  children: ReactNode;
+  ready?: boolean;
+  [attribute: `data-${string}`]: string | undefined;
+}
+export function ApplicationLayout({
+  top,
+  sidebar,
+  children,
+  ready = true,
+  ...attributes
+}: ApplicationLayoutProps) {
+  return (
+    <div {...attributes} className="k-application-layout">
+      {top}
+      <div className="k-application-body">
+        {sidebar}
+        <div className="k-application-content" data-ready={ready}>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}

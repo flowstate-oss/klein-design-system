@@ -49,7 +49,7 @@ const manifest = {
     cwd: consumer,
     encoding: "utf8",
   }).trim(),
-  status: "local extraction; unpublished",
+  status: "library and docs on GitHub; npm initial publication pending",
   naming: "Table; persisted dataview keys and IDs retained",
   modules,
   retainedApplicationBoundaries: [

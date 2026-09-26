@@ -64,6 +64,8 @@ export function ForecastMatrixFrame({
 export interface ForecastExpandableRowProps {
   id: string;
   label: string;
+  description?: ReactNode;
+  labelTitle?: string;
   level?: number;
   tone?: ForecastTone;
   hasChildren?: boolean;
@@ -79,6 +81,8 @@ export interface ForecastExpandableRowProps {
 export function ForecastExpandableRow({
   id,
   label,
+  description,
+  labelTitle,
   level,
   tone,
   hasChildren,
@@ -116,12 +120,17 @@ export function ForecastExpandableRow({
             <button
               type="button"
               className="k-forecast-row-link"
+              title={labelTitle}
               onClick={() => onRowClick(id)}
             >
               {label}
+              {description && <span data-description="">{description}</span>}
             </button>
           ) : (
-            <span>{label}</span>
+            <span title={labelTitle}>
+              {label}
+              {description && <span data-description="">{description}</span>}
+            </span>
           )}
           {count !== undefined && count > 0 && (
             <span title={countDescription}>({count})</span>

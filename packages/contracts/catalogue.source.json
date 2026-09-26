@@ -824,5 +824,36 @@
     "usage": "Supply ready-to-render data; follow the typed example.",
     "behavior": "The component renders supplied values and drawing geometry. Calculations and queries stay in the application.",
     "avoid": "Do not copy chart options into the application or calculate business values in the renderer."
+  },
+  {
+    "name": "ApplicationLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Frame the browser or native application with a sidebar, optional top strip and one content column.",
+    "aliases": [
+      "shell",
+      "area shell",
+      "native window",
+      "navigation frame"
+    ],
+    "status": "experimental",
+    "usage": "Supply the native top strip and sidebar as slots. Compose the page header and body as children. The body owns scrolling.",
+    "behavior": "The frame fills the viewport and clips outer overflow. Native metrics, route state and sidebar persistence stay in the application.",
+    "avoid": "Do not recreate viewport flex wrappers or add another outer gutter. Use WorkspaceLayout for a header spanning both navigation and content."
+  },
+  {
+    "name": "CapacityBreakdown",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare capacity segments with their metric values and a supplied assessment.",
+    "aliases": [
+      "FTE utilization",
+      "stacked capacity",
+      "capacity summary"
+    ],
+    "status": "experimental",
+    "usage": "Supply segments with stable IDs, numeric plotting values and formatted display values. Compute utilization and status thresholds in the application.",
+    "behavior": "The bar and accessible metric list share the same supplied values. Empty segments show an explicit empty state.",
+    "avoid": "Do not copy Chart.js options into an application or infer business status from the chart values."
   }
 ]

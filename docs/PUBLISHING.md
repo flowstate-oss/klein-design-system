@@ -12,8 +12,10 @@ Trusted publishing uses OIDC (`id-token: write`) on GitHub-hosted runners, Node 
 
 ## Every release
 
-Run `npm run release:version -- 0.1.1` with the intended new version, and commit the resulting manifests and lockfile with package changes. Keep all package versions aligned. Never reuse a published version for changed code.
+Run `npm run release:version -- 0.1.3` with the intended new version, and commit the resulting manifests and lockfile with package changes. Keep all package versions aligned. Never reuse a published version for changed code.
 
 On main, package/build/manifest changes trigger publish.yml. It runs generation consistency, build, types, tests, dependency boundaries, Astro build, browser tests and packed Vite/Next consumer tests before publishing. Packages publish in dependency order. Already-published versions are skipped, allowing a partially failed release to be retried with workflow_dispatch. CI checks that package changes include a version change. Documentation-only changes deploy the site without publishing npm packages.
 
 The workflow does not commit version changes, create tags or publish from pull requests. A main-branch push is the release action. Package publication is immutable; fix a bad release with a new version.
+
+GitHub Pages and the `npm` GitHub environment are configured. The live site is https://flowstate-oss.github.io/klein-design-system/. Initial npm package creation and trusted-publisher registration remain pending maintainer authentication; the hosted publish attempt returned E404 on the first package.

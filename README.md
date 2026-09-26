@@ -26,7 +26,7 @@ Open the URL printed by Astro (normally http://localhost:4321). The static site 
 | `@klein-ui/eddy` | Composer, messages, conversation scrolling, history, panel, persistent rail, chart preview and icon |
 | `@klein-ui/contracts` | Usage contracts, generated props, migration reference, source inventory and consumer checker |
 
-All versions are experimental `0.1.0`. Packages are built locally and consumed by Flowstate as committed tarballs. The remote is `git@github.com:flowstate-oss/klein-design-system.git`. GitHub workflows validate changes, deploy the static site and publish new package versions on main. Nothing has been published by this local migration. See [publishing setup](docs/PUBLISHING.md).
+All versions are experimental `0.1.2`. Packages are built locally and consumed by Flowstate as committed tarballs. The remote is `git@github.com:flowstate-oss/klein-design-system.git`. GitHub workflows validate changes, deploy the static site and publish new package versions on main. The documentation is live at https://flowstate-oss.github.io/klein-design-system/. Initial npm publication is awaiting maintainer authentication. See [publishing setup](docs/PUBLISHING.md).
 
 ## Consume
 

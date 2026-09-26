@@ -987,3 +987,65 @@ export function DistributionChartExample() {
     />
   );
 }
+
+import { ApplicationLayout } from "@klein-ui/react";
+export function ApplicationLayoutExample() {
+  return (
+    <ApplicationLayout
+      sidebar={
+        <RouteTabs
+          label="Application"
+          items={[
+            { id: "projects", label: "Projects", href: "#projects" },
+            { id: "people", label: "People", href: "#people" },
+          ]}
+          value="projects"
+        />
+      }
+    >
+      <PageHeader title="Projects" />
+      <DashboardPageLayout>
+        <TableExample />
+      </DashboardPageLayout>
+    </ApplicationLayout>
+  );
+}
+
+import { CapacityBreakdown } from "@klein-ui/charts";
+export function CapacityBreakdownExample() {
+  return (
+    <CapacityBreakdown
+      label="Capacity allocation"
+      description="Prepared by the application data layer"
+      segments={[
+        {
+          id: "working",
+          label: "Working",
+          value: 7,
+          displayValue: "7.0 FTE",
+          barLabel: "70%",
+        },
+        {
+          id: "leave",
+          label: "Leave",
+          value: 2,
+          displayValue: "2.0 FTE",
+          barLabel: "20%",
+        },
+        {
+          id: "available",
+          label: "Available",
+          value: 1,
+          displayValue: "1.0 FTE",
+          barLabel: "10%",
+        },
+      ]}
+      summary={{
+        label: "Utilization",
+        value: "70%",
+        statusLabel: "Below target",
+        tone: "watch",
+      }}
+    />
+  );
+}

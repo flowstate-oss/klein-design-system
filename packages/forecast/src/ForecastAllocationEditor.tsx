@@ -86,7 +86,7 @@ export function ForecastAllocationEditor({
 }: ForecastAllocationEditorProps) {
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
-      <PopoverTrigger asChild>{children}</PopoverTrigger>
+      <PopoverTrigger className="k-forecast-edit-trigger" aria-label={`Edit ${resourceName} allocation`}>{children}</PopoverTrigger>
       <PopoverContent className="w-80" align="start">
         <div className="space-y-4">
           <div>

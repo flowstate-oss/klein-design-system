@@ -1,6 +1,6 @@
 {
   "sourceRevision": "09886eaf4",
-  "status": "local extraction; unpublished",
+  "status": "library and docs on GitHub; npm initial publication pending",
   "naming": "Table; persisted dataview keys and IDs retained",
   "modules": [
     {
@@ -264,6 +264,14 @@
       "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
     },
     {
+      "source": "src/components/dashboard/FTEUtilizationBar.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
       "source": "src/components/dashboard/TeamSkillDonutChart.tsx",
       "destinations": [
         "@klein-ui/charts"
@@ -332,6 +340,22 @@
       "source": "src/components/layout/StableWidthLayout.tsx",
       "destinations": [
         "@klein-ui/react/compat/stable-width-layout"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/navigation/area-shell/AreaShellFrame.tsx",
+      "destinations": [
+        "@klein-ui/react"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/navigation/primary-nav/NewNavigation.tsx",
+      "destinations": [
+        "@klein-ui/react"
       ],
       "disposition": "application-adapter",
       "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
