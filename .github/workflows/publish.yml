@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    if: github.repository == 'flowstate-oss/klein-design-system' && github.ref == 'refs/heads/main'
+    if: vars.ENABLE_NPM_PUBLISH == 'true' && github.repository == 'flowstate-oss/klein-design-system' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: npm
     permissions:
@@ -49,15 +49,36 @@ jobs:
         run: node scripts/release-plan.mjs
       - if: steps.plan.outputs.pending_tokens == 'true'
         run: npm publish --workspace @klein-ui/tokens --access public --provenance
+        env:
+          # Optional CI-only bootstrap credential; omit after OIDC is configured.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - if: steps.plan.outputs.pending_react == 'true'
         run: npm publish --workspace @klein-ui/react --access public --provenance
+        env:
+          # Optional CI-only bootstrap credential; omit after OIDC is configured.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - if: steps.plan.outputs.pending_table == 'true'
         run: npm publish --workspace @klein-ui/table --access public --provenance
+        env:
+          # Optional CI-only bootstrap credential; omit after OIDC is configured.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - if: steps.plan.outputs.pending_charts == 'true'
         run: npm publish --workspace @klein-ui/charts --access public --provenance
+        env:
+          # Optional CI-only bootstrap credential; omit after OIDC is configured.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - if: steps.plan.outputs.pending_forecast == 'true'
         run: npm publish --workspace @klein-ui/forecast --access public --provenance
+        env:
+          # Optional CI-only bootstrap credential; omit after OIDC is configured.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - if: steps.plan.outputs.pending_eddy == 'true'
         run: npm publish --workspace @klein-ui/eddy --access public --provenance
+        env:
+          # Optional CI-only bootstrap credential; omit after OIDC is configured.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - if: steps.plan.outputs.pending_contracts == 'true'
         run: npm publish --workspace @klein-ui/contracts --access public --provenance
+        env:
+          # Optional CI-only bootstrap credential; omit after OIDC is configured.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

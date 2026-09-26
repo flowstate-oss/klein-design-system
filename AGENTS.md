@@ -11,3 +11,5 @@ Read README.md, docs/DECISIONS.md and the applicable entry in packages/contracts
 - Read docs/CONSUMER_AGENTS.md when changing enforcement. Do not weaken it to make a test pass. Document checker limitations honestly.
 - Generate tokens/contracts, run npm run check, npm run build:docs and affected browser tests. Run smoke:pack when changing exports/build/client boundaries.
 - Generated files are checked in; dist/build/node_modules are not. Keep package versions aligned. Do not publish or configure a remote without a requested destination.
+
+- Package publication is GitHub Actions-only, including initial package creation. Never run local npm publish. Keep ENABLE_NPM_PUBLISH and ENABLE_DOCS_DEPLOY disabled until the user explicitly requests a release/deployment.

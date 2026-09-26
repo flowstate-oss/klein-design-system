@@ -32,7 +32,7 @@ jobs:
         with:
           path: apps/docs/build
   deploy:
-    if: github.repository == 'flowstate-oss/klein-design-system' && github.ref == 'refs/heads/main'
+    if: vars.ENABLE_DOCS_DEPLOY == 'true' && github.repository == 'flowstate-oss/klein-design-system' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     permissions:
