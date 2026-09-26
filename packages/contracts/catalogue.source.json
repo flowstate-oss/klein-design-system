@@ -291,8 +291,8 @@
       "chart"
     ],
     "status": "experimental",
-    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
-    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "usage": "Supply display-ready series; use pointIds with onPointSelect for interaction. The data table provides keyboard access to the same points. Use height=\"fill\" only inside a bounded parent.",
+    "behavior": "Supports bar, line, area, pie and doughnut. Target lines stay outside stacked totals; null remains missing. The adapter supplies formatting, axis bounds and filter matches.",
     "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
   },
   {
@@ -855,5 +855,37 @@
     "usage": "Supply segments with stable IDs, numeric plotting values and formatted display values. Compute utilization and status thresholds in the application.",
     "behavior": "The bar and accessible metric list share the same supplied values. Empty segments show an explicit empty state.",
     "avoid": "Do not copy Chart.js options into an application or infer business status from the chart values."
+  },
+  {
+    "name": "WaterfallChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Show prepared opening, movement and closing bars with an optional aligned companion series.",
+    "aliases": [
+      "headcount bridge",
+      "waterfall",
+      "movement bridge",
+      "cost strip"
+    ],
+    "status": "experimental",
+    "usage": "The adapter supplies floating ranges, signed labels, tooltip lines and semantic tones. Secondary values must correspond to the same columns.",
+    "behavior": "Bar and secondary panels align their left axes. Missing secondary values remain gaps. Accessible data can be expanded below the plots.",
+    "avoid": "Do not compute running totals, permissions or financial values in the renderer. Do not put differently scaled series on the same axis."
+  },
+  {
+    "name": "ShareBreakdown",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Show category shares, formatted totals and reported/estimated breakdowns in a compact ring and legend.",
+    "aliases": [
+      "cost classification",
+      "capex opex",
+      "estimated shares",
+      "donut legend"
+    ],
+    "status": "experimental",
+    "usage": "Supply precomputed percentages and formatted values. Use seriesId to keep related reported and estimated segments visually paired.",
+    "behavior": "Estimated values use a patterned legend. Help controls work by keyboard. Values remain visible beside the chart.",
+    "avoid": "Do not calculate cost classifications or monetary totals in the renderer. Do not supply arbitrary colors or SVG geometry."
   }
 ]

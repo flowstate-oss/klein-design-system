@@ -3,7 +3,7 @@ export type { SparklineProps } from "./sparkline-public.js";
 export { sparklineSegments, SPARKLINE_PARTIAL_DASH } from "./Sparkline.js";
 export type { AnalyticsSeries, AnalyticsDataPoint } from "./types.js";
 export { Chart } from "./Chart.js";
-export type { ChartProps, ChartSeries } from "./Chart.js";
+export type { ChartProps, ChartSeries, ChartPointSelection } from "./Chart.js";
 export { ChartThemeProvider } from "./theme.js";
 
 export {MetricStrip,MetricGrid} from './metrics.js';
@@ -25,3 +25,9 @@ export type {DistributionChartProps,DistributionItem} from './DistributionChart.
 
 export {CapacityBreakdown} from './CapacityBreakdown.js';
 export type {CapacityBreakdownProps,CapacitySegment} from './CapacityBreakdown.js';
+
+export {WaterfallChart} from './WaterfallChart.js';
+export type {WaterfallChartProps,WaterfallBar} from './WaterfallChart.js';
+
+export {ShareBreakdown} from './ShareBreakdown.js';
+export type {ShareBreakdownProps,ShareSegment} from './ShareBreakdown.js';

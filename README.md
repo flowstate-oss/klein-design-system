@@ -21,12 +21,12 @@ Open the URL printed by Astro (normally http://localhost:4321). The static site 
 | `@klein-ui/tokens` | Klein primitive and semantic tokens, CSS variables and typed JS values |
 | `@klein-ui/react` | Controls, headers, route/local tabs, layouts, bands and shell renderers |
 | `@klein-ui/table` | Complete TableCollection (formerly DataView), state/shared-filter providers, toolbar, table/board/timeline bodies, selection, sizing and AG Grid boundary |
-| `@klein-ui/charts` | Closed Chart API, Chart.js/report renderers, partial periods, reference lines, sparklines, bubble, Gantt, timeline and burndown |
+| `@klein-ui/charts` | Closed Chart API, Chart.js/report renderers, partial periods, reference lines, sparklines, bubble, Gantt, timeline, waterfall, share breakdown and burndown |
 | `@klein-ui/forecast` | Period matrix, pinned labels/totals, rows/cells, variance and allocation editor |
 | `@klein-ui/eddy` | Composer, messages, conversation scrolling, history, panel, persistent rail, chart preview and icon |
 | `@klein-ui/contracts` | Usage contracts, generated props, migration reference, source inventory and consumer checker |
 
-All versions are experimental `0.1.2`. Packages are built locally and consumed by Flowstate as committed tarballs. The remote is `git@github.com:flowstate-oss/klein-design-system.git`. GitHub workflows validate changes, deploy the static site and publish new package versions on main. The documentation is live at https://flowstate-oss.github.io/klein-design-system/. Initial npm publication is awaiting maintainer authentication. See [publishing setup](docs/PUBLISHING.md).
+All versions are experimental `0.1.3`. Packages are built locally and consumed by Flowstate as committed tarballs. The remote is `git@github.com:flowstate-oss/klein-design-system.git`. GitHub workflows validate changes, deploy the static site and publish new package versions on main. The documentation is live at https://flowstate-oss.github.io/klein-design-system/. Initial npm publication is awaiting maintainer authentication. See [publishing setup](docs/PUBLISHING.md).
 
 ## Consume
 

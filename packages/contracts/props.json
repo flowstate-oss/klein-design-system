@@ -545,7 +545,7 @@
     ]
   },
   "Chart": {
-    "declaration": "export interface ChartProps {\n  label: string;\n  description?: string;\n  type: \"bar\" | \"line\" | \"pie\" | \"doughnut\";\n  labels: readonly string[];\n  series: readonly ChartSeries[];\n  height?: number;\n  loading?: boolean;\n  stacked?: boolean;\n  onPointSelect?: (point: ChartElementClickParams) => void;\n}",
+    "declaration": "export type ChartProps = ChartBaseProps &\n  (\n    | {\n        pointIds: readonly string[];\n        onPointSelect: (point: ChartPointSelection) => void;\n      }\n    | { pointIds?: readonly string[]; onPointSelect?: undefined }\n  );",
     "props": [
       {
         "name": "label",
@@ -563,7 +563,7 @@
       },
       {
         "name": "type",
-        "type": "\"bar\" | \"line\" | \"pie\" | \"doughnut\"",
+        "type": "\"bar\" | \"line\" | \"area\" | \"pie\" | \"doughnut\"",
         "required": true,
         "description": "",
         "default": null
@@ -584,9 +584,44 @@
       },
       {
         "name": "height",
-        "type": "number | undefined",
+        "type": "number | \"fill\" | undefined",
         "required": false,
         "description": "",
+        "default": null
+      },
+      {
+        "name": "showCaption",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "showLegend",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "orientation",
+        "type": "\"vertical\" | \"horizontal\" | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "valueRange",
+        "type": "{ min?: number; max?: number; } | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "highlight",
+        "type": "{ seriesIds?: readonly string[]; pointIds?: readonly string[]; } | undefined",
+        "required": false,
+        "description": "Emphasize filter matches without hiding other data.",
         "default": null
       },
       {
@@ -604,8 +639,29 @@
         "default": null
       },
       {
+        "name": "formatValue",
+        "type": "((value: number) => string) | undefined",
+        "required": false,
+        "description": "Application-owned number, currency or ratio formatting.",
+        "default": null
+      },
+      {
+        "name": "referenceLine",
+        "type": "{ label: string; value: number; } | undefined",
+        "required": false,
+        "description": "Target on the same axis; applicable to bar, line and area. Never included in stacked totals.",
+        "default": null
+      },
+      {
+        "name": "pointIds",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
         "name": "onPointSelect",
-        "type": "((point: ChartElementClickParams) => void) | undefined",
+        "type": "(point: ChartPointSelection) => void | undefined",
         "required": false,
         "description": "",
         "default": null
@@ -1846,10 +1902,10 @@
         "default": null
       },
       {
-        "name": "mode",
-        "type": "\"cost\" | \"effort\"",
+        "name": "labels",
+        "type": "{ forecast: string; actual: string; }",
         "required": true,
-        "description": "Cost (money) or Effort (FTE/days) — drives the axis formatter + labels.",
+        "description": "Pre-translated dataset labels.",
         "default": null
       },
       {
@@ -1860,10 +1916,17 @@
         "default": null
       },
       {
-        "name": "labels",
-        "type": "{ forecast: string; actual: string; }",
+        "name": "formatValue",
+        "type": "(value: number) => string",
         "required": true,
-        "description": "Pre-translated dataset labels.",
+        "description": "Format an axis/tooltip value (caller injects currency/effort formatting).",
+        "default": null
+      },
+      {
+        "name": "mode",
+        "type": "\"cost\" | \"effort\"",
+        "required": true,
+        "description": "Cost (money) or Effort (FTE/days) — drives the axis formatter + labels.",
         "default": null
       },
       {
@@ -1871,13 +1934,6 @@
         "type": "number",
         "required": true,
         "description": "Index of the \"today\" month in `series` (red marker). -1 to omit.",
-        "default": null
-      },
-      {
-        "name": "formatValue",
-        "type": "(value: number) => string",
-        "required": true,
-        "description": "Format an axis/tooltip value (caller injects currency/effort formatting).",
         "default": null
       },
       {
@@ -2378,6 +2434,100 @@
         "name": "emptyLabel",
         "type": "string | undefined",
         "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "WaterfallChart": {
+    "declaration": "export interface WaterfallChartProps {\n  label: string;\n  bars: readonly WaterfallBar[];\n  legend: readonly { label: string; tone: \"neutral\" | \"good\" | \"bad\" }[];\n  emptyLabel: string;\n  height?: number;\n  /** Same columns on a separate aligned axis. Null leaves an intentional gap. */\n  secondary?: {\n    label: string;\n    values: readonly (number | null)[];\n    formatValue: (value: number) => string;\n    formatAxisValue: (value: number) => string;\n  };\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "bars",
+        "type": "readonly WaterfallBar[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "legend",
+        "type": "readonly { label: string; tone: \"neutral\" | \"good\" | \"bad\"; }[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "emptyLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "secondary",
+        "type": "{ label: string; values: readonly (number | null)[]; formatValue: (value: number) => string; formatAxisValue: (value: number) => string; } | undefined",
+        "required": false,
+        "description": "Same columns on a separate aligned axis. Null leaves an intentional gap.",
+        "default": null
+      }
+    ]
+  },
+  "ShareBreakdown": {
+    "declaration": "export interface ShareBreakdownProps {\n  label: string;\n  description?: string;\n  segments: readonly ShareSegment[];\n  totalLabel: string;\n  totalValue: string;\n  emptyLabel: string;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "segments",
+        "type": "readonly ShareSegment[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "totalLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "totalValue",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "emptyLabel",
+        "type": "string",
+        "required": true,
         "description": "",
         "default": null
       }

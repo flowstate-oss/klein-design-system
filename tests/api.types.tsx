@@ -52,3 +52,6 @@ const invalidEddy = (
     endpoint="/api/chat"
   />
 );
+// @ts-expect-error Interactive charts must supply stable point IDs.
+const unstableChart=<KleinChart label="Capacity" type="bar" labels={['January']} series={[]} onPointSelect={()=>{}} />;
+void unstableChart;

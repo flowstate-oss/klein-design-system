@@ -276,18 +276,10 @@ export function TableExample() {
   );
 }
 export function ChartExample() {
-  return (
-    <Chart
-      label="Monthly capacity"
-      type="bar"
-      labels={["Jan", "Feb", "Mar"]}
-      series={[
-        { id: "planned", label: "Planned", values: [12, 14, 16] },
-        { id: "actual", label: "Actual", values: [10, 13, null] },
-      ]}
-    />
-  );
+  const [selection,setSelection]=useState('No point selected');
+  return <><Chart label="Monthly capacity" type="bar" labels={['Jan','Feb','Mar']} pointIds={['2026-01','2026-02','2026-03']} series={[{id:'capacity',label:'Capacity',values:[2,3,4]}]} referenceLine={{label:'Target',value:3}} formatValue={value=>`${value} FTE`} onPointSelect={point=>setSelection(`${point.seriesId}: ${point.pointId} = ${point.value}`)} /><p role="status">{selection}</p></>;
 }
+
 export function ForecastTableExample() {
   return (
     <ForecastTable
@@ -1048,4 +1040,76 @@ export function CapacityBreakdownExample() {
       }}
     />
   );
+}
+
+import { WaterfallChart } from "@klein-ui/charts";
+export function WaterfallChartExample() {
+  return (
+    <WaterfallChart
+      label="Capacity bridge"
+      emptyLabel="No movements"
+      legend={[
+        { label: "Opening", tone: "neutral" },
+        { label: "Increase", tone: "good" },
+        { label: "Decrease", tone: "bad" },
+      ]}
+      bars={[
+        {
+          id: "opening",
+          label: "Opening",
+          title: "Opening",
+          range: [0, 10],
+          valueLabel: "10",
+          tooltipLines: ["Opening: 10"],
+          tone: "neutral",
+          direction: "total",
+        },
+        {
+          id: "added",
+          label: "September",
+          title: "September increase",
+          range: [10, 12],
+          valueLabel: "+2",
+          tooltipLines: ["Increase: +2", "Alex", "Morgan"],
+          tone: "good",
+          direction: "up",
+        },
+        {
+          id: "removed",
+          label: "",
+          title: "September decrease",
+          range: [11, 12],
+          valueLabel: "-1",
+          tooltipLines: ["Decrease: -1", "Sam"],
+          tone: "bad",
+          direction: "down",
+        },
+        {
+          id: "closing",
+          label: "Closing",
+          title: "Closing",
+          range: [0, 11],
+          valueLabel: "11",
+          tooltipLines: ["Closing: 11"],
+          tone: "neutral",
+          direction: "total",
+        },
+      ]}
+      secondary={{
+        label: "Monthly cost",
+        values: [null, 84000, 84000, null],
+        formatValue: (value) => `£${value.toLocaleString("en-GB")}`,
+        formatAxisValue: (value) => `£${value / 1000}k`,
+      }}
+    />
+  );
+}
+
+import {ShareBreakdown} from '@klein-ui/charts';
+export function ShareBreakdownExample(){
+ return <ShareBreakdown label="Cost classification" description="Confirmed and estimated values" totalLabel="Total" totalValue="£100k" emptyLabel="No spend" segments={[
+ {id:'capital-confirmed',seriesId:'capital',label:'Capital (reported)',percentage:50,valueLabel:'£50,000',helpText:'Confirmed development costs.'},
+ {id:'capital-estimated',seriesId:'capital',label:'Capital (estimated)',percentage:20,valueLabel:'£20,000',estimated:true,helpText:'Unconfirmed allocation estimate.'},
+ {id:'operating',label:'Operating',percentage:30,valueLabel:'£30,000'}
+ ]}/>;
 }

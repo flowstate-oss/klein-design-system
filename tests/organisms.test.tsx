@@ -25,3 +25,14 @@ describe('display-model organisms',()=>{
     expect(onOpenChange).toHaveBeenCalledWith(true);
   });
 });
+
+import {ShareBreakdown} from '../packages/charts/src/ShareBreakdown';
+it('keeps share values and estimated explanations available to keyboard users',async()=>{
+  render(<ShareBreakdown label="Classification" totalLabel="Total" totalValue="£1,234.56" emptyLabel="No data" segments={[{id:'estimate',seriesId:'capital',label:'Capital (estimated)',percentage:37.5,valueLabel:'£462.96',estimated:true,helpText:'Allocation estimate awaiting confirmation'}]} />);
+  expect(screen.getByText('£1,234.56')).toBeVisible();
+  expect(screen.getByText('£462.96')).toBeVisible();
+  expect(screen.getByText('37.5%')).toBeVisible();
+  await userEvent.tab();
+  expect(screen.getByRole('button',{name:'About Capital (estimated)'})).toHaveFocus();
+  expect(await screen.findByRole('tooltip')).toHaveTextContent('Allocation estimate awaiting confirmation');
+});

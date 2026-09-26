@@ -228,3 +228,26 @@ for (const width of [390,1280]) test(`application shell keeps sidebar and conten
   expect(bounds.right).toBeLessThanOrEqual(bounds.edge+1);
   expect(bounds.overflow).toBe('hidden');
 });
+
+test('simple chart options render every type and preserve keyboard point identities',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.goto('/charts/');
+  const gallery=page.getByRole('region',{name:'Simple chart options'});
+  for(const type of ['line','area','pie','doughnut','bar']){
+    await gallery.getByRole('combobox',{name:'Chart type',exact:true}).click();
+    await page.getByRole('option',{name:type,exact:true}).click();
+    await expect(gallery.locator('canvas')).toBeVisible();
+  }
+  await gallery.getByRole('combobox',{name:'Orientation',exact:true}).click();
+  await page.getByRole('option',{name:'horizontal',exact:true}).click();
+  await gallery.getByRole('switch',{name:'Highlight filter matches'}).click();
+  await gallery.getByRole('switch',{name:'Bound values to zero–one'}).click();
+  await gallery.getByRole('combobox',{name:'Chart height',exact:true}).click();
+  await page.getByRole('option',{name:'fill',exact:true}).click();
+  await expect(gallery.locator('.k-chart-fill')).toBeVisible();
+  await gallery.getByText('Monthly capacity data',{exact:true}).click();
+  const value=gallery.getByRole('button',{name:'Engineering, Jan: 0.4'});
+  await value.focus();await page.keyboard.press('Enter');
+  await expect(gallery.getByRole('status')).toHaveText('engineering / 2026-01: 0.4');
+  expect(errors).toEqual([]);
+});
