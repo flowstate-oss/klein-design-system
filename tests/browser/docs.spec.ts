@@ -380,3 +380,29 @@ test("Eddy launchpad submits its controlled draft and respects reduced motion", 
     .click();
   await expect(page.getByRole("status")).toHaveText("capacity");
 });
+
+test("hierarchy add action appears for keyboard and touch users", async ({
+  page,
+  browser,
+}) => {
+  await page.goto("/components/HierarchyTree/");
+  const action = page.getByRole("button", { name: "Add node" });
+  await expect(action).toHaveCSS("opacity", "0");
+  await action.focus();
+  await expect(action).toHaveCSS("opacity", "1");
+  const touch = await browser.newContext({
+    hasTouch: true,
+    isMobile: true,
+    viewport: { width: 390, height: 844 },
+  });
+  try {
+    const touchPage = await touch.newPage();
+    await touchPage.goto(page.url());
+    await expect(touchPage.getByRole("button", { name: "Add node" })).toHaveCSS(
+      "opacity",
+      "1",
+    );
+  } finally {
+    await touch.close();
+  }
+});

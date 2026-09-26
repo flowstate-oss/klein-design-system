@@ -178,14 +178,59 @@ export function Tooltip({ content, children }: TooltipProps) {
 /** Display a supplied percent, clamped to the visual range 0–100. */
 export interface ProgressProps {
   label: string;
+  /** Percentage; geometry and the ARIA numeric range clamp to 0–100. */
   value: number;
+  /** Application-formatted actual value, including any over-capacity amount. */
+  valueText?: string;
+  /** Optional prepared projection; visual only, include its meaning in valueText. */
+  preview?: { value: number; tone?: "accent" | "good" | "watch" | "bad" };
+  /** Optional prepared target marker; describe its meaning in valueText. */
+  target?: { value: number; testId?: string };
+  "data-testid"?: string;
+  /** Business assessment belongs to the adapter, never inferred from the value. */
+  tone?: "neutral" | "accent" | "good" | "watch" | "bad";
+  size?: "sm" | "md" | "lg";
 }
-export function Progress({ label, value }: ProgressProps) {
+export function Progress({
+  label,
+  value,
+  valueText,
+  preview,
+  target,
+  "data-testid": testId,
+  tone = "accent",
+  size = "md",
+}: ProgressProps) {
   return (
-    <ProgressPrimitive
-      aria-label={label}
-      value={Math.max(0, Math.min(100, value))}
-    />
+    <div className="k-progress-frame">
+      <ProgressPrimitive
+        aria-label={label}
+        aria-valuetext={valueText}
+        data-testid={testId}
+        className={`k-progress k-progress-${size}`}
+        indicatorClassName={`k-progress-tone-${tone}`}
+        value={Number.isFinite(value) ? Math.max(0, Math.min(100, value)) : 0}
+      />
+      {target && (
+        <span
+          className="k-progress-target"
+          aria-hidden="true"
+          data-testid={target.testId}
+          style={{
+            left: `${Number.isFinite(target.value) ? Math.max(0, Math.min(100, target.value)) : 0}%`,
+          }}
+        />
+      )}
+      {preview && (
+        <span
+          className={`k-progress-preview k-progress-tone-${preview.tone ?? "accent"}`}
+          aria-hidden="true"
+          style={{
+            width: `${Number.isFinite(preview.value) ? Math.max(0, Math.min(100, preview.value)) : 0}%`,
+          }}
+        />
+      )}
+    </div>
   );
 }
 /** Identity image with supplied fallback initials; no user lookup. */

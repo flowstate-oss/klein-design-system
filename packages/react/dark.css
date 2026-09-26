@@ -1,8 +1,37 @@
 /* Flowstate dark-mode product extension. Brand primitives remain unchanged. */
 .dark {
- --k-surface-page:#0b0d12;--k-surface-band:#15171c;--k-surface-fill:#23262d;
- --k-surface-selected:#001a57;--k-text-primary:#ffffff;--k-text-body:#d7dbe2;
- --k-text-secondary:#b9bec7;--k-text-muted:#b0c2ee;--k-text-link:#b0c2ee;
- --k-text-accent:#b0c2ee;--k-border:#23262d;
- --k-rule-hairline:1px solid #23262d;--k-rule-strong:1px solid #3a3e46;
+  --k-surface-page: #0b0d12;
+  --k-surface-band: #15171c;
+  --k-surface-fill: #23262d;
+  --k-surface-selected: #001a57;
+  --k-text-primary: #ffffff;
+  --k-text-body: #d7dbe2;
+  --k-text-secondary: #b9bec7;
+  --k-text-muted: #b0c2ee;
+  --k-text-link: #b0c2ee;
+  --k-text-accent: #b0c2ee;
+  --k-border: #23262d;
+  --k-rule-hairline: 1px solid #23262d;
+  --k-rule-strong: 1px solid #3a3e46;
+}
+
+.dark {
+  --color-chart-1: var(--k-series-dark-01);
+  --color-chart-2: var(--k-series-dark-02);
+  --color-chart-3: var(--k-series-dark-03);
+  --color-chart-4: var(--k-series-dark-04);
+  --color-chart-5: var(--k-series-dark-05);
+  --color-chart-6: var(--k-series-dark-06);
+  --color-chart-7: var(--k-series-dark-07);
+  --color-chart-8: var(--k-series-dark-08);
+  --color-chart-9: var(--k-series-dark-09);
+  --color-chart-10: var(--k-series-dark-10);
+  --color-chart-11: var(--k-series-dark-11);
+  --color-chart-12: var(--k-series-dark-12);
+}
+
+.dark {
+  --k-text-good: var(--k-series-dark-04);
+  --k-text-watch: var(--k-series-dark-05);
+  --k-text-bad: var(--k-series-dark-06);
 }

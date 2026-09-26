@@ -6,10 +6,10 @@
 @source "../forecast/src";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  --font-display: 'Geist', system-ui, sans-serif;
-  --font-body: 'Geist', system-ui, sans-serif;
-  --font-sans: 'Geist', system-ui, sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-body: "Geist", system-ui, sans-serif;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
 
   --radius: 0;
 
@@ -72,18 +72,18 @@
   --color-ring: var(--color-klein-600);
   --color-backdrop: rgb(255 255 255 / 0.82);
 
-  --color-chart-1: #002fa7;
-  --color-chart-2: #3e7ca6;
-  --color-chart-3: #7e99df;
-  --color-chart-4: #0f6b4f;
-  --color-chart-5: #9a6b00;
-  --color-chart-6: #a8102b;
-  --color-chart-7: #4a6bcb;
-  --color-chart-8: #b0c2ee;
-  --color-chart-9: #3e7ca6;
-  --color-chart-10: #7e99df;
-  --color-chart-11: #1b45b4;
-  --color-chart-12: #8a8f9a;
+  --color-chart-1: var(--k-series-01);
+  --color-chart-2: var(--k-series-02);
+  --color-chart-3: var(--k-series-03);
+  --color-chart-4: var(--k-series-04);
+  --color-chart-5: var(--k-series-05);
+  --color-chart-6: var(--k-series-06);
+  --color-chart-7: var(--k-series-07);
+  --color-chart-8: var(--k-series-08);
+  --color-chart-9: var(--k-series-09);
+  --color-chart-10: var(--k-series-10);
+  --color-chart-11: var(--k-series-11);
+  --color-chart-12: var(--k-series-12);
 
   --surface-1: var(--color-paper);
   --surface-2: var(--color-band);
@@ -104,8 +104,16 @@
   --color-brand-blue: var(--color-klein-600);
   --color-brand-blue-foreground: #ffffff;
 
-  --ai-gradient: linear-gradient(135deg, var(--color-klein-600), var(--color-klein-600));
-  --ai-gradient-soft: linear-gradient(135deg, var(--color-klein-50), var(--color-klein-50));
+  --ai-gradient: linear-gradient(
+    135deg,
+    var(--color-klein-600),
+    var(--color-klein-600)
+  );
+  --ai-gradient-soft: linear-gradient(
+    135deg,
+    var(--color-klein-50),
+    var(--color-klein-50)
+  );
 
   --nav-color-primary: var(--color-klein-600);
   --nav-color-inactive: var(--color-muted-foreground);
@@ -117,8 +125,10 @@
   --color-chip-active-border: var(--color-klein-600);
 }
 
-
-:root { --row-height-padding: 8px; --row-min-height: 40px; }
+:root {
+  --row-height-padding: 8px;
+  --row-min-height: 40px;
+}
 
 @source "./src/patterns";
 

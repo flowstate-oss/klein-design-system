@@ -508,8 +508,8 @@
       "progress"
     ],
     "status": "experimental",
-    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
-    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "usage": "Supply a label, prepared percentage and optional formatted valueText. Use target for a marker or preview for a projected fill; describe their meaning in valueText.",
+    "behavior": "Geometry and ARIA values clamp to 0\u2013100. Application adapters choose semantic tones and retain actual over-capacity values in valueText.",
     "avoid": "Do not copy markup or import the compatibility API for new features."
   },
   {
@@ -989,5 +989,135 @@
     "usage": "Place in a bounded-height container. Pass prepared diagram content and optionally a focus anchor getter for large structures. Use the ref for external Fit and Reset controls.",
     "behavior": "Fits once after ready. Keyboard arrows pan, plus/minus zoom and Home resets. Controls inside the content retain their own keyboard behavior.",
     "avoid": "Do not build a feature-local gesture engine or put hierarchy queries and business filtering in the canvas."
+  },
+  {
+    "name": "HierarchyTree",
+    "package": "@klein-ui/react",
+    "layer": "Organisms",
+    "purpose": "Arrange prepared nodes as a hierarchy with shared hairline connectors.",
+    "aliases": [
+      "orgchart",
+      "positionorgchart",
+      "reportingstructure"
+    ],
+    "status": "experimental",
+    "usage": "Supply acyclic roots with stable IDs and display-ready cards. Compose inside PanZoomCanvas for large structures. The application controls ordering, filtering and collapsed branches.",
+    "behavior": "Uses nested semantic lists and content-driven connector geometry. Optional padded mode supplies the standalone gutter.",
+    "avoid": "Do not recreate connector CSS in a feature, or put hierarchy queries and permission checks inside this renderer."
+  },
+  {
+    "name": "AssignmentCard",
+    "package": "@klein-ui/react",
+    "layer": "Organisms",
+    "purpose": "Show a responsibility, its capacity and its assigned people or resources.",
+    "aliases": [
+      "positioncard",
+      "seatcard"
+    ],
+    "status": "experimental",
+    "usage": "Supply formatted values and date descriptions. Handle selected IDs in the app; optional drag bindings and context-menu adapters preserve feature interactions.",
+    "behavior": "Heading and entries are separate keyboard actions. Drag and drop emphasis is controlled by the application. Native event/ref forwarding supports context-menu composition.",
+    "avoid": "Do not calculate allocations, infer employee types or query occupancy from this renderer."
+  },
+  {
+    "name": "HierarchySummaryCard",
+    "package": "@klein-ui/react",
+    "layer": "Organisms",
+    "purpose": "Summarize a hierarchy node with independent detail, related-record and descendant actions.",
+    "aliases": [
+      "groupcard",
+      "explorergroupcard"
+    ],
+    "status": "experimental",
+    "usage": "Supply localized metrics and controlled expansion states. Permission filtering, fetching related records and navigation remain in the app.",
+    "behavior": "Each action is a native button; related records and child branches expand independently. Indicators sit outside the expansion button so their own tooltips/actions remain valid.",
+    "avoid": "Do not conflate branch expansion with loading records or reproduce this card inside an explorer."
+  },
+  {
+    "name": "ReviewSequence",
+    "package": "@klein-ui/react",
+    "layer": "Organisms",
+    "purpose": "Show ordered review stages with accessible reviewer and status explanations.",
+    "aliases": [
+      "approvalchaintimeline",
+      "approvalworkflow"
+    ],
+    "status": "experimental",
+    "usage": "Sort and map business statuses in the data adapter. Supply prepared labels, details, tones and symbols; compact mode is for table rows.",
+    "behavior": "Preserves supplied order. Explanations open on keyboard focus and hover; status meaning is provided by text and symbols as well as color.",
+    "avoid": "Do not calculate the current approver or compare timestamps inside the renderer."
+  },
+  {
+    "name": "RankedBars",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare ranked values using prepared proportional bars and optional selection.",
+    "aliases": [
+      "topspendersbars",
+      "spendbyprojectbars",
+      "costbyrolechart",
+      "costbyteamchart"
+    ],
+    "status": "experimental",
+    "usage": "Prepare ordering, top-N limits, percentages and formatted values in the data adapter. Pass value/onValueChange for interactive filtering.",
+    "behavior": "Selections use stable IDs and native buttons. Unselected rows dim without disappearing. Zero, empty and loading states do not invent values.",
+    "avoid": "Do not create clickable div charts or aggregate costs inside the renderer."
+  },
+  {
+    "name": "SegmentedBar",
+    "package": "@klein-ui/charts",
+    "layer": "Molecules",
+    "purpose": "Show prepared shares consistently in a compact row or summary band.",
+    "aliases": [
+      "helmsplitbar",
+      "helmshareband",
+      "coveragechart"
+    ],
+    "status": "experimental",
+    "usage": "Supply percentages, formatted amounts, optional share labels and stable series indices or semantic tones. The adapter owns provider folding, currency formatting and coverage calculations.",
+    "behavior": "Bar and legend use one palette mapping. Hidden legends remain accessible within the component\u2019s scrolling boundary.",
+    "avoid": "Do not calculate financial totals or accept arbitrary CSS colors in a feature-local split bar."
+  },
+  {
+    "name": "BreakdownTable",
+    "package": "@klein-ui/table",
+    "layer": "Organisms",
+    "purpose": "Dense labelled metrics with a trailing proportional share bar.",
+    "aliases": [
+      "dashboardbreakdown",
+      "splitbandtable"
+    ],
+    "status": "experimental",
+    "usage": "Supply ordered display cells, stable row/column IDs, prepared percentages and localized share labels. Use TableCollection when filters, sorting and properties are required.",
+    "behavior": "Rows activate through pointer, Enter or Space; nested controls keep their own keyboard behavior. Zero shares remain zero.",
+    "avoid": "Do not build a new metric-list table or calculate rankings inside the renderer."
+  },
+  {
+    "name": "RangeTrack",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Prepared interval geometry with proportional gridlines and optional drag handles.",
+    "aliases": [
+      "schedule bar",
+      "range bar"
+    ],
+    "status": "experimental",
+    "usage": "Supply percentages, column weights and formatted labels. Keep date conversion and persistence in an adapter. Pair pointer editing with accessible date fields.",
+    "behavior": "Clamps geometry to the visible track. Emits pointer gestures without calculating or mutating dates.",
+    "avoid": "Do not pass domain timelines, queries or custom CSS."
+  },
+  {
+    "name": "ValueTransition",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "A before/after preview of prepared values.",
+    "aliases": [
+      "allocation summary",
+      "assignment change"
+    ],
+    "status": "experimental",
+    "usage": "Pass formatted old and proposed labels. Omit fromLabel for a new assignment.",
+    "behavior": "Shows an arrow only when a previous label exists.",
+    "avoid": "Do not add allocation logic or financial comparisons to the renderer."
   }
 ]

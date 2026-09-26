@@ -999,6 +999,22 @@
     ]
   },
   {
+    "name": "react/patterns/Hierarchy",
+    "import": "@klein-ui/react/patterns/Hierarchy",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function HierarchyFrame({",
+      "export function HierarchyLevel(props: ElementProps) {",
+      "export function HierarchyNode(props: ElementProps) {",
+      "export function HierarchyAddAction({",
+      "export function HierarchyDropZone({"
+    ],
+    "declarations": [
+      "type ElementProps = Omit<HTMLAttributes<HTMLElement>, \"className\" | \"style\">;"
+    ]
+  },
+  {
     "name": "react/patterns/IdentityStrip",
     "import": "@klein-ui/react/patterns/IdentityStrip",
     "status": "migration-api",
@@ -2137,6 +2153,22 @@
       "export type SplitScaleMode = \"auto\" | \"on\" | \"off\";",
       "export interface AnalyticsDataPoint {\n  /** Period label (e.g., \"Jan 2025\", \"Q1 2025\", \"2025\") */\n  period: string;\n  /** Metric value for this period */\n  value: number;\n}",
       "export interface AnalyticsSeries {\n  /** Unique key for the series (e.g., \"capex\", \"team-123\") */\n  key: string;\n  /** Human-readable label for display */\n  label: string;\n  /** Suggested color for charts */\n  color: string | null;\n  /** Data points in chronological order */\n  dataPoints: AnalyticsDataPoint[];\n}"
+    ]
+  },
+  {
+    "name": "charts/tool-colours",
+    "import": "@klein-ui/charts/tool-colours",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ToolColour {",
+      "export function toolColourKey(id: string): string {",
+      "export function toolColours(id: string): ToolColour {",
+      "export function toolColour(id: string, isDark = false): string {",
+      "export function withToolColours<"
+    ],
+    "declarations": [
+      "export interface ToolColour {\n  /** Hex colour on a light background. */\n  readonly light: string;\n  /** Hex colour on a dark background. */\n  readonly dark: string;\n}"
     ]
   },
   {

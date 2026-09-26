@@ -17,6 +17,13 @@ const Progress = React.forwardRef<
 >(({ className, value, indicatorClassName, ...props }, ref) => (
   <ProgressPrimitive.Root
     ref={ref}
+    value={
+      typeof value === "number" && Number.isFinite(value)
+        ? Math.max(0, Math.min(100, value))
+        : value == null
+          ? value
+          : 0
+    }
     className={cn("bg-tint relative h-2 w-full overflow-hidden", className)}
     {...props}
   >
@@ -25,7 +32,9 @@ const Progress = React.forwardRef<
         "bg-klein-600 h-full w-full flex-1 transition-all",
         indicatorClassName,
       )}
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      style={{
+        transform: `translateX(-${100 - (typeof value === "number" && Number.isFinite(value) ? Math.max(0, Math.min(100, value)) : 0)}%)`,
+      }}
     />
   </ProgressPrimitive.Root>
 ));

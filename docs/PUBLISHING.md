@@ -12,7 +12,7 @@ Trusted publishing uses OIDC (`id-token: write`) on GitHub-hosted runners, Node 
 
 ## Every release
 
-Run `npm run release:version -- 0.1.5` with the intended new version, and commit the resulting manifests and lockfile with package changes. Keep all package versions aligned. Never reuse a published version for changed code.
+Run `npm run release:version -- 0.1.6` with the intended new version, and commit the resulting manifests and lockfile with package changes. Keep all package versions aligned. Never reuse a published version for changed code.
 
 On main, package/build/manifest changes trigger publish.yml. It runs generation consistency, build, types, tests, dependency boundaries, Astro build, browser tests and packed Vite/Next consumer tests before publishing. Packages publish in dependency order. Already-published versions are skipped, allowing a partially failed release to be retried with workflow_dispatch. CI checks that package changes include a version change. Documentation-only changes deploy the site without publishing npm packages.
 

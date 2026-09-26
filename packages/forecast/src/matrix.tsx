@@ -143,6 +143,10 @@ export function ForecastExpandableRow({
 }
 /** Primary and secondary display values, with supplied deltas and permission-filtered content. */
 export interface ForecastValueProps {
+  /** Position supporting units or cost text relative to the primary value. */
+  secondaryPlacement?: "before" | "after";
+  /** Use strong emphasis for the main numeric figure. */
+  emphasis?: "normal" | "strong";
   primary: ReactNode;
   secondary?: ReactNode;
   primaryTitle?: string;
@@ -151,6 +155,8 @@ export interface ForecastValueProps {
   editLabel?: string;
 }
 export function ForecastValue({
+  secondaryPlacement = "after",
+  emphasis = "normal",
   primary,
   secondary,
   primaryTitle,
@@ -159,7 +165,12 @@ export function ForecastValue({
   editLabel,
 }: ForecastValueProps) {
   return (
-    <div className="k-forecast-value" aria-busy={pending || undefined}>
+    <div
+      className="k-forecast-value"
+      data-secondary-placement={secondaryPlacement}
+      data-emphasis={emphasis}
+      aria-busy={pending || undefined}
+    >
       {onEdit ? (
         <button
           type="button"

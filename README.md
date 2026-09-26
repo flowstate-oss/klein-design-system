@@ -26,7 +26,7 @@ Open the URL printed by Astro (normally http://localhost:4321). The static site 
 | `@klein-ui/eddy` | Composer, messages, conversation scrolling, history, panel, persistent rail, chart preview and icon |
 | `@klein-ui/contracts` | Usage contracts, generated props, migration reference, source inventory and consumer checker |
 
-All versions are experimental `0.1.4`. Packages are built locally and consumed by Flowstate as committed tarballs. The remote is `git@github.com:flowstate-oss/klein-design-system.git`. GitHub workflows validate changes, deploy the static site and publish new package versions on main. The documentation is live at https://flowstate-oss.github.io/klein-design-system/. Initial npm publication is awaiting maintainer authentication. See [publishing setup](docs/PUBLISHING.md).
+All versions are experimental `0.1.5`. Packages are built locally and consumed by Flowstate as committed tarballs. The remote is `git@github.com:flowstate-oss/klein-design-system.git`. GitHub workflows validate changes, deploy the static site and publish new package versions on main. The documentation is live at https://flowstate-oss.github.io/klein-design-system/. Initial npm publication is awaiting maintainer authentication. See [publishing setup](docs/PUBLISHING.md).
 
 ## Consume
 
@@ -61,6 +61,6 @@ The checks cover generated artifacts, package builds, types, behavior, applicati
 
 Link the installed `@klein-ui/contracts/AGENTS.md` from application agent entry points. Flowstate runs a fingerprinted adoption check in CI: existing page/adaptor violations are recorded, and new occurrences fail. Instructions and syntax checks help prevent drift; they cannot prove that every arbitrary layout is canonical.
 
-Read [AGENTS.md](AGENTS.md), [design decisions](docs/DECISIONS.md), [migration status](PLAN.md) and [the source inventory](docs/migration-inventory.json) before changing ownership or APIs.
+Read [AGENTS.md](AGENTS.md), [design decisions](docs/DECISIONS.md), [migration status](PLAN.md) and [the source inventory](docs/migration-inventory.json) and [renderer ownership audit](docs/RENDERER_AUDIT.md) before changing ownership or APIs.
 
 Copyright © 2026 Flowstate. [MIT licence](LICENSE).

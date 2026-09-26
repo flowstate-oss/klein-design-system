@@ -1,3 +1,5 @@
+import { ValueTransition } from "@klein-ui/react";
+import { RangeTrack } from "@klein-ui/react";
 import { Sparkline } from "@klein-ui/charts";
 import { EddyRail } from "@klein-ui/eddy";
 import {
@@ -465,7 +467,31 @@ export function TooltipExample() {
   );
 }
 export function ProgressExample() {
-  return <Progress label="Completed" value={65} />;
+  return (
+    <>
+      <Progress
+        label="Completed"
+        value={65}
+        tone="good"
+        target={{ value: 80 }}
+        valueText="65% complete, target 80%"
+      />
+      <Progress
+        label="Budget utilization"
+        value={130}
+        valueText="130% of budget"
+        tone="bad"
+        size="sm"
+      />
+      <Progress
+        label="Projected allocation"
+        value={60}
+        valueText="60% current, 85% projected"
+        preview={{ value: 85, tone: "watch" }}
+        size="lg"
+      />
+    </>
+  );
 }
 export function AvatarExample() {
   return <Avatar label="Alex Morgan" initials="AM" />;
@@ -1319,4 +1345,243 @@ export function PanZoomCanvasExample() {
       </div>
     </>
   );
+}
+
+import { HierarchyTree } from "@klein-ui/react";
+export function HierarchyTreeExample() {
+  return (
+    <HierarchyTree
+      label="Reporting structure"
+      padded
+      addAction={{ label: "Add node", onSelect: () => {} }}
+      nodes={[
+        {
+          id: "director",
+          content: <Notice title="Director">1.0 FTE</Notice>,
+          children: [
+            {
+              id: "platform",
+              content: <Notice title="Platform">4.0 FTE</Notice>,
+            },
+            {
+              id: "product",
+              content: <Notice title="Product">3.0 FTE</Notice>,
+            },
+          ],
+        },
+      ]}
+    />
+  );
+}
+
+import { AssignmentCard } from "@klein-ui/react";
+export function AssignmentCardExample() {
+  const [selected, setSelected] = useState("No selection");
+  return (
+    <>
+      <AssignmentCard
+        title="Engineering lead"
+        value="1.0"
+        description="Through December 2026"
+        selectLabel="Open Engineering lead"
+        emptyLabel="Unfilled"
+        onSelect={() => setSelected("position")}
+        onEntrySelect={setSelected}
+        entries={[
+          {
+            id: "alex",
+            label: "Alex Morgan",
+            kind: "Employee",
+            description: "September–December 2026",
+            value: "0.8",
+          },
+        ]}
+      />
+      <p role="status">{selected}</p>
+    </>
+  );
+}
+
+import { HierarchySummaryCard } from "@klein-ui/react";
+export function HierarchySummaryCardExample() {
+  const [expanded, onExpandedChange] = useState(false);
+  const [branch, onBranchChange] = useState(true);
+  const [selected, setSelected] = useState("No selection");
+  return (
+    <>
+      <HierarchySummaryCard
+        title="Engineering"
+        badge="Department"
+        metrics={["12 people", "2 open positions"]}
+        onSelect={() => setSelected("engineering")}
+        expanded={expanded}
+        onExpandedChange={onExpandedChange}
+        expandLabel={expanded ? "Hide assignments" : "Show assignments"}
+        branch={{
+          label: "3 groups",
+          actionLabel: branch ? "Hide groups" : "Show groups",
+          expanded: branch,
+          onExpandedChange: onBranchChange,
+        }}
+      />
+      <p role="status">
+        {selected}; assignments {expanded ? "shown" : "hidden"}; groups{" "}
+        {branch ? "shown" : "hidden"}
+      </p>
+    </>
+  );
+}
+
+import { ReviewSequence } from "@klein-ui/react";
+export function ReviewSequenceExample() {
+  return (
+    <ReviewSequence
+      label="Approval sequence"
+      steps={[
+        {
+          id: "first",
+          label: "AM",
+          accessibleLabel: "Alex Morgan: approved",
+          details: "Reviewed by Alex Morgan on 24 September.",
+          tone: "good",
+          icon: "check",
+        },
+        {
+          id: "second",
+          label: "JL",
+          accessibleLabel: "Jordan Lee: awaiting review",
+          details: "Awaiting Jordan Lee’s review.",
+          tone: "watch",
+          icon: "clock",
+        },
+        {
+          id: "third",
+          label: "SK",
+          accessibleLabel: "Sam Kim: pending",
+          details: "Final review has not started.",
+          tone: "neutral",
+          icon: "circle",
+        },
+      ]}
+    />
+  );
+}
+
+import { RankedBars } from "@klein-ui/charts";
+export function RankedBarsExample() {
+  const [value, onValueChange] = useState<string | null>(null);
+  return (
+    <RankedBars
+      label="Cost by team"
+      emptyLabel="No spend"
+      value={value}
+      onValueChange={(id) => onValueChange(value === id ? null : id)}
+      items={[
+        {
+          id: "platform",
+          label: "Platform",
+          description: "8 people",
+          valueLabel: "£80k",
+          percentage: 100,
+        },
+        {
+          id: "product",
+          label: "Product",
+          description: "5 people",
+          valueLabel: "£50k",
+          percentage: 62.5,
+        },
+      ]}
+    />
+  );
+}
+
+import { SegmentedBar } from "@klein-ui/charts";
+export function SegmentedBarExample() {
+  return (
+    <SegmentedBar
+      label="Coverage"
+      size="medium"
+      showLegend
+      segments={[
+        {
+          id: "measured",
+          label: "Measured",
+          valueLabel: "£70k",
+          shareLabel: "70%",
+          percentage: 70,
+          tone: "good",
+        },
+        {
+          id: "unmeasured",
+          label: "Unmeasured",
+          valueLabel: "£20k",
+          shareLabel: "20%",
+          percentage: 20,
+          tone: "watch",
+        },
+        {
+          id: "unattributed",
+          label: "Unattributed",
+          valueLabel: "£10k",
+          shareLabel: "10%",
+          percentage: 10,
+          tone: "neutral",
+        },
+      ]}
+    />
+  );
+}
+
+import { BreakdownTable } from "@klein-ui/table";
+export function BreakdownTableExample() {
+  const [selected, setSelected] = useState("No selection");
+  return (
+    <>
+      <BreakdownTable
+        label="Team spend"
+        columns={[
+          { id: "team", label: "Team" },
+          { id: "cost", label: "Cost", align: "right" },
+        ]}
+        rows={[
+          {
+            id: "platform",
+            cells: ["Platform", "£80k"],
+            percentage: 100,
+            shareLabel: "100%",
+          },
+          {
+            id: "product",
+            cells: ["Product", "£50k"],
+            percentage: 62.5,
+            shareLabel: "62.5%",
+          },
+        ]}
+        shareLabel="Relative spend"
+        onRowClick={setSelected}
+      />
+      <p role="status">{selected}</p>
+    </>
+  );
+}
+
+export function RangeTrackExample() {
+  return (
+    <RangeTrack
+      label="Assignment, January to June"
+      valueLabel="Jan → Jun"
+      left={10}
+      width={60}
+      columns={[
+        { id: "q1", weight: 1 },
+        { id: "q2", weight: 1 },
+        { id: "q3", weight: 1 },
+      ]}
+    />
+  );
+}
+
+export function ValueTransitionExample() {
+  return <ValueTransition fromLabel="Platform" toLabel="Product engineering" />;
 }

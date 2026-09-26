@@ -120,3 +120,40 @@ it("clamps progress and retains its accessible label when icon only", () => {
   expect(container.querySelector("svg")).toHaveAttribute("data-fraction", "0");
   expect(container.querySelector("path")).toBeNull();
 });
+
+import { Progress } from "../packages/react/src/controls";
+it("clamps progress geometry and ARIA while preserving the application-formatted overage", () => {
+  render(
+    <Progress
+      label="Budget utilization"
+      value={130}
+      valueText="130%"
+      tone="bad"
+    />,
+  );
+  const progress = screen.getByRole("progressbar", {
+    name: "Budget utilization",
+  });
+  expect(progress).toHaveAttribute("aria-valuenow", "100");
+  expect(progress).toHaveAttribute("aria-valuetext", "130%");
+  expect(progress.firstElementChild).toHaveStyle({
+    transform: "translateX(-0%)",
+  });
+});
+
+it("clamps the target marker while preserving the accessible target description", () => {
+  render(
+    <Progress
+      label="Spend"
+      value={65}
+      target={{ value: 130, testId: "target" }}
+      valueText="65% spent, projected 130%"
+    />,
+  );
+  expect(screen.getByRole("progressbar", { name: "Spend" })).toHaveAttribute(
+    "aria-valuetext",
+    "65% spent, projected 130%",
+  );
+  expect(screen.getByTestId("target")).toHaveStyle({ left: "100%" });
+  expect(screen.getByTestId("target")).toHaveAttribute("aria-hidden", "true");
+});

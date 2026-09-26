@@ -97,3 +97,31 @@ export {
   type PanZoomCanvasProps,
   type PanZoomCanvasHandle,
 } from "./pan-zoom-canvas.js";
+export {
+  HierarchyTree,
+  type HierarchyTreeProps,
+  type HierarchyTreeNode,
+} from "./hierarchy-tree.js";
+export {
+  AssignmentCard,
+  type AssignmentCardProps,
+  type AssignmentCardEntry,
+} from "./assignment-card.js";
+export {
+  HierarchySummaryCard,
+  type HierarchySummaryCardProps,
+} from "./hierarchy-summary-card.js";
+export {
+  ReviewSequence,
+  type ReviewSequenceProps,
+  type ReviewSequenceStep,
+} from "./review-sequence.js";
+export {
+  RangeTrack,
+  type RangeTrackProps,
+  type RangeTrackPart,
+} from "./range-track.js";
+export {
+  ValueTransition,
+  type ValueTransitionProps,
+} from "./value-transition.js";

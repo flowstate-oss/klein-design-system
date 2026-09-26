@@ -1304,7 +1304,7 @@
     ]
   },
   "Progress": {
-    "declaration": "export interface ProgressProps {\n  label: string;\n  value: number;\n}",
+    "declaration": "export interface ProgressProps {\n  label: string;\n  /** Percentage; geometry and the ARIA numeric range clamp to 0–100. */\n  value: number;\n  /** Application-formatted actual value, including any over-capacity amount. */\n  valueText?: string;\n  /** Optional prepared projection; visual only, include its meaning in valueText. */\n  preview?: { value: number; tone?: \"accent\" | \"good\" | \"watch\" | \"bad\" };\n  /** Optional prepared target marker; describe its meaning in valueText. */\n  target?: { value: number; testId?: string };\n  \"data-testid\"?: string;\n  /** Business assessment belongs to the adapter, never inferred from the value. */\n  tone?: \"neutral\" | \"accent\" | \"good\" | \"watch\" | \"bad\";\n  size?: \"sm\" | \"md\" | \"lg\";\n}",
     "props": [
       {
         "name": "label",
@@ -1317,6 +1317,48 @@
         "name": "value",
         "type": "number",
         "required": true,
+        "description": "Percentage; geometry and the ARIA numeric range clamp to 0–100.",
+        "default": null
+      },
+      {
+        "name": "valueText",
+        "type": "string | undefined",
+        "required": false,
+        "description": "Application-formatted actual value, including any over-capacity amount.",
+        "default": null
+      },
+      {
+        "name": "preview",
+        "type": "{ value: number; tone?: \"accent\" | \"good\" | \"watch\" | \"bad\"; } | undefined",
+        "required": false,
+        "description": "Optional prepared projection; visual only, include its meaning in valueText.",
+        "default": null
+      },
+      {
+        "name": "target",
+        "type": "{ value: number; testId?: string; } | undefined",
+        "required": false,
+        "description": "Optional prepared target marker; describe its meaning in valueText.",
+        "default": null
+      },
+      {
+        "name": "data-testid",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "\"neutral\" | \"accent\" | \"good\" | \"watch\" | \"bad\" | undefined",
+        "required": false,
+        "description": "Business assessment belongs to the adapter, never inferred from the value.",
+        "default": null
+      },
+      {
+        "name": "size",
+        "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+        "required": false,
         "description": "",
         "default": null
       }
@@ -1716,7 +1758,7 @@
     ]
   },
   "DashboardChart": {
-    "declaration": "export type DashboardChartProps=import('react').ComponentProps<typeof import('./DashboardChart.js').DashboardChart>;",
+    "declaration": "export type DashboardChartProps = import(\"react\").ComponentProps<\n  typeof import(\"./DashboardChart.js\").DashboardChart\n>;",
     "props": [
       {
         "name": "labels",
@@ -2851,6 +2893,527 @@
         "type": "{ viewport?: string; layer?: string; } | undefined",
         "required": false,
         "description": "Optional testing hooks, without layout overrides.",
+        "default": null
+      }
+    ]
+  },
+  "HierarchyTree": {
+    "declaration": "export interface HierarchyTreeProps {\n  /** Optional application-authorized action at the foot of the diagram. */\n  addAction?: { label: string; onSelect: () => void };\n  /** Accessible name of the hierarchy region. */\n  label: string;\n  /** Prepared roots. Cycle detection, permissions and business ordering belong to the application. */\n  nodes: readonly HierarchyTreeNode[];\n  /** Apply the standalone diagram gutter; omit inside PanZoomCanvas. */\n  padded?: boolean;\n}",
+    "props": [
+      {
+        "name": "addAction",
+        "type": "{ label: string; onSelect: () => void; } | undefined",
+        "required": false,
+        "description": "Optional application-authorized action at the foot of the diagram.",
+        "default": null
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name of the hierarchy region.",
+        "default": null
+      },
+      {
+        "name": "nodes",
+        "type": "readonly HierarchyTreeNode[]",
+        "required": true,
+        "description": "Prepared roots. Cycle detection, permissions and business ordering belong to the application.",
+        "default": null
+      },
+      {
+        "name": "padded",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Apply the standalone diagram gutter; omit inside PanZoomCanvas.",
+        "default": null
+      }
+    ]
+  },
+  "AssignmentCard": {
+    "declaration": "export interface AssignmentCardProps extends Omit<\n  HTMLAttributes<HTMLDivElement>,\n  | \"className\"\n  | \"style\"\n  | \"children\"\n  | \"onSelect\"\n  | \"title\"\n  | \"dangerouslySetInnerHTML\"\n> {\n  /** Position or responsibility name. */\n  title: string;\n  /** Formatted capacity, without domain calculations. */\n  value: string;\n  /** Optional expiry or metadata. */\n  description?: string;\n  /** Visible assignments in application order. */\n  entries: readonly AssignmentCardEntry[];\n  /** Explanation when no assignments are present. */\n  emptyLabel: string;\n  /** Accessible action label for the card heading. */\n  selectLabel: string;\n  onSelect: () => void;\n  /** Omit to make the entire summary one action; supply for independently selectable assignments. */\n  onEntrySelect?: (id: string) => void;\n  /** Compact cards sit beneath wider parent nodes. */\n  size?: \"regular\" | \"compact\";\n  /** Optional domain context-menu adapter around an entry's trigger. */\n  renderEntryMenu?: (id: string, trigger: ReactNode) => ReactNode;\n  /** Drag bindings supplied by an application drag controller. */\n  dragHandle?: Omit<\n    ButtonHTMLAttributes<HTMLButtonElement>,\n    \"className\" | \"style\" | \"children\" | \"aria-label\"\n  > & { label: string };\n  /** Controlled drag/drop presentation states. */\n  dragging?: boolean;\n  dropTarget?: boolean;\n  ref?: Ref<HTMLDivElement>;\n  testIds?: { root?: string; open?: string; dragHandle?: string };\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Position or responsibility name.",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Formatted capacity, without domain calculations.",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string | undefined",
+        "required": false,
+        "description": "Optional expiry or metadata.",
+        "default": null
+      },
+      {
+        "name": "entries",
+        "type": "readonly AssignmentCardEntry[]",
+        "required": true,
+        "description": "Visible assignments in application order.",
+        "default": null
+      },
+      {
+        "name": "emptyLabel",
+        "type": "string",
+        "required": true,
+        "description": "Explanation when no assignments are present.",
+        "default": null
+      },
+      {
+        "name": "selectLabel",
+        "type": "string",
+        "required": true,
+        "description": "Accessible action label for the card heading.",
+        "default": null
+      },
+      {
+        "name": "onSelect",
+        "type": "() => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onEntrySelect",
+        "type": "((id: string) => void) | undefined",
+        "required": false,
+        "description": "Omit to make the entire summary one action; supply for independently selectable assignments.",
+        "default": null
+      },
+      {
+        "name": "size",
+        "type": "\"regular\" | \"compact\" | undefined",
+        "required": false,
+        "description": "Compact cards sit beneath wider parent nodes.",
+        "default": null
+      },
+      {
+        "name": "renderEntryMenu",
+        "type": "((id: string, trigger: ReactNode) => ReactNode) | undefined",
+        "required": false,
+        "description": "Optional domain context-menu adapter around an entry's trigger.",
+        "default": null
+      },
+      {
+        "name": "dragHandle",
+        "type": "(Omit<ButtonHTMLAttributes<HTMLButtonElement>, \"className\" | \"style\" | \"children\" | \"aria-label\"> & { label: string; }) | undefined",
+        "required": false,
+        "description": "Drag bindings supplied by an application drag controller.",
+        "default": null
+      },
+      {
+        "name": "dragging",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Controlled drag/drop presentation states.",
+        "default": null
+      },
+      {
+        "name": "dropTarget",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement> | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "testIds",
+        "type": "{ root?: string; open?: string; dragHandle?: string; } | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "HierarchySummaryCard": {
+    "declaration": "export interface HierarchySummaryCardProps extends Omit<\n  HTMLAttributes<HTMLDivElement>,\n  | \"className\"\n  | \"style\"\n  | \"children\"\n  | \"title\"\n  | \"onSelect\"\n  | \"dangerouslySetInnerHTML\"\n> {\n  /** Display name and optional classification. */\n  title: string;\n  badge?: string;\n  /** Prepared summary figures in application order. */\n  metrics: readonly string[];\n  /** Optional semantic markers, outside the expansion button. */\n  indicators?: ReactNode;\n  onSelect: () => void;\n  /** Controlled expansion of related records. */\n  expanded: boolean;\n  onExpandedChange: (expanded: boolean) => void;\n  expandLabel: string;\n  /** Optional independent branch visibility control. */\n  branch?: {\n    label: string;\n    actionLabel: string;\n    expanded: boolean;\n    onExpandedChange: (expanded: boolean) => void;\n  };\n  ref?: Ref<HTMLDivElement>;\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Display name and optional classification.",
+        "default": null
+      },
+      {
+        "name": "badge",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "metrics",
+        "type": "readonly string[]",
+        "required": true,
+        "description": "Prepared summary figures in application order.",
+        "default": null
+      },
+      {
+        "name": "indicators",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Optional semantic markers, outside the expansion button.",
+        "default": null
+      },
+      {
+        "name": "onSelect",
+        "type": "() => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "required": true,
+        "description": "Controlled expansion of related records.",
+        "default": null
+      },
+      {
+        "name": "onExpandedChange",
+        "type": "(expanded: boolean) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "expandLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "branch",
+        "type": "{ label: string; actionLabel: string; expanded: boolean; onExpandedChange: (expanded: boolean) => void; } | undefined",
+        "required": false,
+        "description": "Optional independent branch visibility control.",
+        "default": null
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLDivElement> | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ReviewSequence": {
+    "declaration": "export interface ReviewSequenceProps {\n  /** Accessible name for the ordered review sequence. */\n  label: string;\n  steps: readonly ReviewSequenceStep[];\n  /** Hide the supplementary icon in dense table rows. */\n  compact?: boolean;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for the ordered review sequence.",
+        "default": null
+      },
+      {
+        "name": "steps",
+        "type": "readonly ReviewSequenceStep[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "compact",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Hide the supplementary icon in dense table rows.",
+        "default": null
+      }
+    ]
+  },
+  "RankedBars": {
+    "declaration": "export interface RankedBarsProps {\n  /** Accessible name for this ranking. */\n  label: string;\n  items: readonly RankedBarItem[];\n  /** Controlled selection; other rows remain visible but dimmed. */\n  value?: string | null;\n  onValueChange?: (id: string) => void;\n  loading?: boolean;\n  loadingLabel?: string;\n  emptyLabel: string;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for this ranking.",
+        "default": null
+      },
+      {
+        "name": "items",
+        "type": "readonly RankedBarItem[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": "Controlled selection; other rows remain visible but dimmed.",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "((id: string) => void) | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "loading",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "loadingLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "emptyLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "SegmentedBar": {
+    "declaration": "export interface SegmentedBarProps {\n  label: string;\n  segments: readonly SegmentedBarSegment[];\n  /** Approved heights for table rows and summary bands. */\n  size?: \"small\" | \"medium\";\n  showLegend?: boolean;\n  /** Optional prepared summary above the bar. */\n  summary?: ReactNode;\n  /** Optional prepared supporting information below the legend. */\n  footer?: ReactNode;\n  testIds?: { bar?: string; legendItem?: string; segment?: string };\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "segments",
+        "type": "readonly SegmentedBarSegment[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "size",
+        "type": "\"small\" | \"medium\" | undefined",
+        "required": false,
+        "description": "Approved heights for table rows and summary bands.",
+        "default": null
+      },
+      {
+        "name": "showLegend",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "summary",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Optional prepared summary above the bar.",
+        "default": null
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Optional prepared supporting information below the legend.",
+        "default": null
+      },
+      {
+        "name": "testIds",
+        "type": "{ bar?: string; legendItem?: string; segment?: string; } | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "BreakdownTable": {
+    "declaration": "export interface BreakdownTableProps {\n  /** Accessible table name. */\n  label: string;\n  columns: readonly BreakdownColumn[];\n  rows: readonly BreakdownRow[];\n  shareLabel: string;\n  /** Stable row ID from pointer or keyboard activation. */\n  onRowClick?: (id: string) => void;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible table name.",
+        "default": null
+      },
+      {
+        "name": "columns",
+        "type": "readonly BreakdownColumn[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "rows",
+        "type": "readonly BreakdownRow[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "shareLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onRowClick",
+        "type": "((id: string) => void) | undefined",
+        "required": false,
+        "description": "Stable row ID from pointer or keyboard activation.",
+        "default": null
+      }
+    ]
+  },
+  "RangeTrack": {
+    "declaration": "export interface RangeTrackProps {\n  label: string;\n  /** Text displayed inside the interval. */\n  valueLabel: string;\n  left: number;\n  width: number;\n  /** Proportional grid columns; values are relative weights, not dates. */\n  columns: readonly { id: string; weight: number }[];\n  tone?: \"accent\" | \"bad\";\n  ongoing?: boolean;\n  dragging?: boolean;\n  trackRef?: Ref<HTMLDivElement>;\n  /** Pointer editing is an optional adapter capability. Supply a separate accessible date editor. */\n  onPointerDown?: (part: RangeTrackPart) => PointerEventHandler<HTMLElement>;\n  startLabel?: string;\n  endLabel?: string;\n  startValue?: string;\n  endValue?: string;\n  testIds?: { bar?: string; start?: string; end?: string };\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "valueLabel",
+        "type": "string",
+        "required": true,
+        "description": "Text displayed inside the interval.",
+        "default": null
+      },
+      {
+        "name": "left",
+        "type": "number",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "columns",
+        "type": "readonly { id: string; weight: number; }[]",
+        "required": true,
+        "description": "Proportional grid columns; values are relative weights, not dates.",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "\"accent\" | \"bad\" | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "ongoing",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "dragging",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "trackRef",
+        "type": "Ref<HTMLDivElement> | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onPointerDown",
+        "type": "((part: RangeTrackPart) => PointerEventHandler<HTMLElement>) | undefined",
+        "required": false,
+        "description": "Pointer editing is an optional adapter capability. Supply a separate accessible date editor.",
+        "default": null
+      },
+      {
+        "name": "startLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "endLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "startValue",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "endValue",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "testIds",
+        "type": "{ bar?: string; start?: string; end?: string; } | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ValueTransition": {
+    "declaration": "export interface ValueTransitionProps {\n  /** Previous display value; omit for a new assignment. */\n  fromLabel?: string | null;\n  /** Proposed display value. */\n  toLabel: string;\n}",
+    "props": [
+      {
+        "name": "fromLabel",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": "Previous display value; omit for a new assignment.",
+        "default": null
+      },
+      {
+        "name": "toLabel",
+        "type": "string",
+        "required": true,
+        "description": "Proposed display value.",
         "default": null
       }
     ]

@@ -1,11 +1,16 @@
 import { tokens } from "@klein-ui/tokens";
+/** Six Klein series plus six documented product identities; every index is distinct. */
 export const CHART_PALETTE_LIGHT = Array.from(
   { length: 12 },
-  (_, i) => tokens[("series-0" + ((i % 6) + 1)) as keyof typeof tokens],
+  (_, index) =>
+    tokens[
+      `series-${String(index + 1).padStart(2, "0")}` as keyof typeof tokens
+    ],
 );
-// Same six series identities, lifted for Flowstate's dark surface.
 export const CHART_PALETTE_DARK = Array.from(
   { length: 12 },
   (_, index) =>
-    tokens[("series-dark-0" + ((index % 6) + 1)) as keyof typeof tokens],
+    tokens[
+      `series-dark-${String(index + 1).padStart(2, "0")}` as keyof typeof tokens
+    ],
 );

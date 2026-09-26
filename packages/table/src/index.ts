@@ -20,3 +20,10 @@ export type {
 export { TableCollection, TableCollectionContent } from "./TableCollection.js";
 export type { TableCollectionProps } from "./TableCollection.js";
 export { TableRuntimeProvider } from "./runtime.js";
+
+export {
+  BreakdownTable,
+  type BreakdownTableProps,
+  type BreakdownColumn,
+  type BreakdownRow,
+} from "./BreakdownTable.js";
