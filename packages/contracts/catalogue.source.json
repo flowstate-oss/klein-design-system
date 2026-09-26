@@ -1,0 +1,828 @@
+[
+  {
+    "name": "Button",
+    "layer": "Atoms",
+    "purpose": "Commit or trigger one action.",
+    "aliases": [
+      "button",
+      "action",
+      "submit"
+    ],
+    "status": "experimental",
+    "usage": "Use one primary per view. Danger is only for confirmation.",
+    "behavior": "Native disabled and loading prevent activation. Label remains visible.",
+    "avoid": "Use a link for navigation. Do not use arbitrary colour or style props.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "IconButton",
+    "layer": "Atoms",
+    "purpose": "A compact action represented by an approved glyph.",
+    "aliases": [
+      "icon",
+      "button",
+      "search"
+    ],
+    "status": "experimental",
+    "usage": "Supply a label that describes the action.",
+    "behavior": "Accessible name is required. Native button semantics.",
+    "avoid": "Use Button when a visible label would help.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "Icon",
+    "layer": "Atoms",
+    "purpose": "An approved decorative Klein glyph.",
+    "aliases": [
+      "glyph",
+      "chevron",
+      "tick",
+      "magnifier"
+    ],
+    "status": "experimental",
+    "usage": "Meaning belongs in the parent control label.",
+    "behavior": "Hidden from assistive technology.",
+    "avoid": "Do not import a separate icon library or draw page-local icons.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "Input",
+    "layer": "Atoms",
+    "purpose": "Native text entry for custom field composition.",
+    "aliases": [
+      "text",
+      "input",
+      "search",
+      "email"
+    ],
+    "status": "experimental",
+    "usage": "Prefer Field. Standalone Input needs an accessible label.",
+    "behavior": "Use native value/onChange and inputMode for numeric entry.",
+    "avoid": "No checkbox/radio/file variants; those require dedicated components.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "Field",
+    "layer": "Molecules",
+    "purpose": "Text entry with an associated label, help and error.",
+    "aliases": [
+      "form",
+      "label",
+      "validation",
+      "field"
+    ],
+    "status": "experimental",
+    "usage": "The caller validates and supplies error text.",
+    "behavior": "Label and help/error IDs are generated; disabled/readOnly/required stay native.",
+    "avoid": "Do not use placeholders as labels. Use one field per Field.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "NumericValue",
+    "layer": "Atoms",
+    "purpose": "Already formatted money, dates, percentages and measured values.",
+    "aliases": [
+      "currency",
+      "money",
+      "number",
+      "fte"
+    ],
+    "status": "experimental",
+    "usage": "Pass locale-aware text; choose semantic tone in the data layer.",
+    "behavior": "Uses monospace tabular numerals.",
+    "avoid": "Never infer good/bad from arithmetic sign or calculate totals here.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "PageHeader",
+    "layer": "Organisms",
+    "purpose": "The page title and its primary actions.",
+    "aliases": [
+      "header",
+      "heading",
+      "title"
+    ],
+    "status": "experimental",
+    "usage": "One h1 and at most one primary action per page.",
+    "behavior": "Actions wrap at narrow widths.",
+    "avoid": "No prose lead, invented subtitle or duplicated header.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "RouteTabs",
+    "layer": "Organisms",
+    "purpose": "Navigation between routes.",
+    "aliases": [
+      "route",
+      "tab",
+      "navigation",
+      "subview"
+    ],
+    "status": "experimental",
+    "usage": "The application supplies hrefs and current route ID.",
+    "behavior": "Real links; aria-current marks the active page.",
+    "avoid": "Use Tabs for local panels. Do not drive page routes with local tab state.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "Tabs",
+    "layer": "Organisms",
+    "purpose": "Controlled selection between local panels.",
+    "aliases": [
+      "tab",
+      "panel",
+      "drawer"
+    ],
+    "status": "experimental",
+    "usage": "Use inside a drawer or a local panel, not page sub-navigation.",
+    "behavior": "Arrow/Home/End move focus; Enter/Space activate. Disabled tabs are skipped.",
+    "avoid": "Do not replace RouteTabs or duplicate navigation state.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "ViewControlPanel",
+    "layer": "Organisms",
+    "purpose": "The single control region above a view body.",
+    "aliases": [
+      "toolbar",
+      "filter",
+      "controls"
+    ],
+    "status": "experimental",
+    "usage": "Supply approved controls and trailing actions.",
+    "behavior": "Mixed native controls retain normal Tab order.",
+    "avoid": "Do not add a second toolbar; extend the actions slot.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "ViewSection",
+    "layer": "Organisms",
+    "purpose": "A flat titled region inside a view.",
+    "aliases": [
+      "section",
+      "panel",
+      "chart",
+      "wrapper"
+    ],
+    "status": "experimental",
+    "usage": "Use for a chart or sub-list in an approved layout.",
+    "behavior": "Heading and optional actions share a band.",
+    "avoid": "Do not wrap it in a decorative Card or add shadow/rounded corners.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "ViewLayout",
+    "layer": "Templates",
+    "purpose": "One of five approved view-body layouts.",
+    "aliases": [
+      "grid",
+      "dashboard",
+      "layout",
+      "split",
+      "tree"
+    ],
+    "status": "experimental",
+    "usage": "Choose single, 2:1, 2:2, 3:3 or tree:detail.",
+    "behavior": "Owns internal gutters and scroll behaviour. Grids stack on narrow screens.",
+    "avoid": "Do not add page padding or recreate these grids in consumers.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "ListViewTemplate",
+    "layer": "Templates",
+    "purpose": "Canonical header, navigation, controls and scrolling body.",
+    "aliases": [
+      "page",
+      "list",
+      "index",
+      "template"
+    ],
+    "status": "experimental",
+    "usage": "Supply PageHeader, optional RouteTabs, one ViewControlPanel and body.",
+    "behavior": "Place in a height-constrained application shell; body scrolls independently.",
+    "avoid": "No backend, router or saved preference state belongs here.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "EdgeToEdgeLayout",
+    "layer": "Layouts",
+    "purpose": "A full-width dashboard stack with hairline-separated bands.",
+    "aliases": [
+      "edge-to-edge",
+      "full-bleed",
+      "layout",
+      "band"
+    ],
+    "status": "experimental",
+    "usage": "Use for edge-to-edge product surfaces, with no outer padding or decorative cards.",
+    "behavior": "Bands own gutters; narrow layouts stack; grow fills the parent.",
+    "avoid": "Do not add gaps between bands or wrap tables in padded containers.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "DashboardBand",
+    "layer": "Layouts",
+    "purpose": "One full-width dashboard band; flush makes tables edge-to-edge.",
+    "aliases": [
+      "edge-to-edge",
+      "full-bleed",
+      "layout",
+      "band"
+    ],
+    "status": "experimental",
+    "usage": "Use for edge-to-edge product surfaces, with no outer padding or decorative cards.",
+    "behavior": "Bands own gutters; narrow layouts stack; grow fills the parent.",
+    "avoid": "Do not add gaps between bands or wrap tables in padded containers.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "SplitBand",
+    "layer": "Layouts",
+    "purpose": "Two full-bleed dashboard regions with a dividing hairline.",
+    "aliases": [
+      "edge-to-edge",
+      "full-bleed",
+      "layout",
+      "band"
+    ],
+    "status": "experimental",
+    "usage": "Use for edge-to-edge product surfaces, with no outer padding or decorative cards.",
+    "behavior": "Bands own gutters; narrow layouts stack; grow fills the parent.",
+    "avoid": "Do not add gaps between bands or wrap tables in padded containers.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "BandTitle",
+    "layer": "Layouts",
+    "purpose": "Sentence-case band title with information and action slots.",
+    "aliases": [
+      "edge-to-edge",
+      "full-bleed",
+      "layout",
+      "band"
+    ],
+    "status": "experimental",
+    "usage": "Use for edge-to-edge product surfaces, with no outer padding or decorative cards.",
+    "behavior": "Bands own gutters; narrow layouts stack; grow fills the parent.",
+    "avoid": "Do not add gaps between bands or wrap tables in padded containers.",
+    "package": "@klein-ui/react"
+  },
+  {
+    "name": "Table",
+    "package": "@klein-ui/table",
+    "layer": "Organisms",
+    "purpose": "Semantic, controlled table using the shared renderer.",
+    "aliases": [
+      "table",
+      "table"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "Chart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Chart.js renderer with a closed series API.",
+    "aliases": [
+      "charts",
+      "chart"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "ForecastTable",
+    "package": "@klein-ui/forecast",
+    "layer": "Organisms",
+    "purpose": "Forecast presentation, pinned columns and supplied financial values.",
+    "aliases": [
+      "forecast",
+      "forecasttable"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "ForecastVariance",
+    "package": "@klein-ui/forecast",
+    "layer": "Molecules",
+    "purpose": "Forecast presentation, pinned columns and supplied financial values.",
+    "aliases": [
+      "forecast",
+      "forecastvariance"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "ForecastDelta",
+    "package": "@klein-ui/forecast",
+    "layer": "Molecules",
+    "purpose": "Forecast presentation, pinned columns and supplied financial values.",
+    "aliases": [
+      "forecast",
+      "forecastdelta"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "EddyComposer",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddycomposer"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "EddyMessage",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddymessage"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "EddyConversation",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddyconversation"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "EddyHistory",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddyhistory"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "EddyPanel",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddypanel"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "EddyChartPreview",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddychartpreview"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component."
+  },
+  {
+    "name": "Checkbox",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical checkbox with a closed visual API.",
+    "aliases": [
+      "checkbox"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Switch",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical switch with a closed visual API.",
+    "aliases": [
+      "switch"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Select",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical select with a closed visual API.",
+    "aliases": [
+      "select"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Textarea",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical textarea with a closed visual API.",
+    "aliases": [
+      "textarea"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Dialog",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Canonical dialog with a closed visual API.",
+    "aliases": [
+      "dialog"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Tooltip",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Canonical tooltip with a closed visual API.",
+    "aliases": [
+      "tooltip"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Progress",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical progress with a closed visual API.",
+    "aliases": [
+      "progress"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Avatar",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical avatar with a closed visual API.",
+    "aliases": [
+      "avatar"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Badge",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical badge with a closed visual API.",
+    "aliases": [
+      "badge"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features."
+  },
+  {
+    "name": "Sparkline",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Display-ready trend visualization.",
+    "aliases": [
+      "sparkline"
+    ],
+    "status": "experimental",
+    "usage": "Supply values and accessible labels; application services remain outside the renderer.",
+    "behavior": "The component owns geometry and accessible presentation.",
+    "avoid": "Do not copy its SVG or shell markup into the application."
+  },
+  {
+    "name": "EddyRail",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Persistent, controlled assistant rail.",
+    "aliases": [
+      "eddyrail"
+    ],
+    "status": "experimental",
+    "usage": "Supply values and accessible labels; application services remain outside the renderer.",
+    "behavior": "The component owns geometry and accessible presentation.",
+    "avoid": "Do not copy its SVG or shell markup into the application."
+  },
+  {
+    "name": "DashboardPageLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Compact dashboard with header, metric band, tabs and a single scrolling body.",
+    "aliases": [
+      "dashboardpagelayout"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability."
+  },
+  {
+    "name": "DetailPageLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Persistent entity header and responsive properties, description and related content.",
+    "aliases": [
+      "detailpagelayout"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability."
+  },
+  {
+    "name": "WorkspaceLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Workspace chrome with navigation, a main scrolling region and a detail rail.",
+    "aliases": [
+      "workspacelayout"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability."
+  },
+  {
+    "name": "MetricStrip",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Up to six metrics in a wrapping strip, with trends and one sparkline.",
+    "aliases": [
+      "metricstrip"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability."
+  },
+  {
+    "name": "MetricGrid",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Up to four metrics in a responsive grid.",
+    "aliases": [
+      "metricgrid"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability."
+  },
+  {
+    "name": "AnalyticsChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "The complete analytics renderer: thirteen chart types, partial periods, targets and split scale.",
+    "aliases": [
+      "analyticschart"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability."
+  },
+  {
+    "name": "DashboardChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Aligned chart and bounded legend with a controlled stack-by selector.",
+    "aliases": [
+      "dashboardchart"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability."
+  },
+  {
+    "name": "TableCollection",
+    "package": "@klein-ui/table",
+    "layer": "Organisms",
+    "purpose": "Complete table collection (formerly DataView): state provider, toolbar, filters, sorts, properties, grouping, rows and pagination.",
+    "aliases": [
+      "tablecollection",
+      "DataView"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability."
+  },
+  {
+    "name": "CapacityBubbleChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare positioned capacity bubbles and their semantic changes.",
+    "aliases": [
+      "capacitybubblechart"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values; use the example as the canonical recipe.",
+    "behavior": "The application calculates values, dates and capacity. The organism owns presentation only.",
+    "avoid": "Do not calculate financial totals or fetch data inside the chart. Do not override vendor options."
+  },
+  {
+    "name": "ForecastActualChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare cumulative forecast and actual values with a current-period marker.",
+    "aliases": [
+      "forecastactualchart"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values; use the example as the canonical recipe.",
+    "behavior": "The application calculates values, dates and capacity. The organism owns presentation only.",
+    "avoid": "Do not calculate financial totals or fetch data inside the chart. Do not override vendor options."
+  },
+  {
+    "name": "AllocationTimeline",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Inspect scheduled allocation tasks at week, month, quarter or year scale.",
+    "aliases": [
+      "allocationtimeline"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values; use the example as the canonical recipe.",
+    "behavior": "The application calculates values, dates and capacity. The organism owns presentation only.",
+    "avoid": "Do not calculate financial totals or fetch data inside the chart. Do not override vendor options."
+  },
+  {
+    "name": "ProfilePageLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Identity, standing summary, metrics and tabbed content in one scrollable page.",
+    "aliases": [
+      "profilepagelayout"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library."
+  },
+  {
+    "name": "IdentityStrip",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Keep the current subject and its status visible in a compact orientation row.",
+    "aliases": [
+      "identitystrip"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library."
+  },
+  {
+    "name": "StandingSummary",
+    "package": "@klein-ui/react",
+    "layer": "Organisms",
+    "purpose": "Summarize standing, supporting context and the next action.",
+    "aliases": [
+      "standingsummary"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library."
+  },
+  {
+    "name": "SectionDivider",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Separate sections with a labelled hairline and optional metadata.",
+    "aliases": [
+      "sectiondivider"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library."
+  },
+  {
+    "name": "ProgressRing",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Show measured completion with an accessible progress value.",
+    "aliases": [
+      "progressring"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library."
+  },
+  {
+    "name": "ForecastMatrix",
+    "package": "@klein-ui/forecast",
+    "layer": "Organisms",
+    "purpose": "Full controlled forecast matrix with hierarchical rows, lazy child states, pinned totals and edit intents.",
+    "aliases": [
+      "forecastmatrix"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library."
+  },
+  {
+    "name": "RadarComparison",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare precomputed axis coverage and balance scores.",
+    "aliases": [
+      "radarcomparison"
+    ],
+    "status": "experimental",
+    "usage": "Supply ready-to-render data; follow the typed example.",
+    "behavior": "The component renders supplied values and drawing geometry. Calculations and queries stay in the application.",
+    "avoid": "Do not copy chart options into the application or calculate business values in the renderer."
+  },
+  {
+    "name": "CumulativeChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Show supplied monthly and cumulative values with a current-period marker.",
+    "aliases": [
+      "cumulativechart"
+    ],
+    "status": "experimental",
+    "usage": "Supply ready-to-render data; follow the typed example.",
+    "behavior": "The component renders supplied values and drawing geometry. Calculations and queries stay in the application.",
+    "avoid": "Do not copy chart options into the application or calculate business values in the renderer."
+  },
+  {
+    "name": "DistributionChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare category shares with a total and accessible data table.",
+    "aliases": [
+      "distributionchart"
+    ],
+    "status": "experimental",
+    "usage": "Supply ready-to-render data; follow the typed example.",
+    "behavior": "The component renders supplied values and drawing geometry. Calculations and queries stay in the application.",
+    "avoid": "Do not copy chart options into the application or calculate business values in the renderer."
+  }
+]

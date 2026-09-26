@@ -1,0 +1,8 @@
+---
+const base=import.meta.env.BASE_URL.replace(/\/$/,'');
+import Documentation from '../../layouts/Documentation.astro';
+import RecipeIsland, {recipeNames} from '../../RecipeIsland';
+export function getStaticPaths(){return recipeNames.map(name=>({params:{name}}));}
+const {name}=Astro.params;
+---
+<Documentation title={name}><main class="docs-example-page"><RecipeIsland name={name!} client:only="react"/></main></Documentation>

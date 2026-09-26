@@ -1,0 +1,8 @@
+node_modules/
+**/dist/
+apps/docs/build/
+playwright-report/
+test-results/
+artifacts/
+.DS_Store
+apps/docs/.astro/

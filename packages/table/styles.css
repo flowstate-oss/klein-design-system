@@ -1,0 +1,42 @@
+/*
+  DataRow Responsive Property Hiding
+  --------------------------------------------------
+  Visibility is controlled by the [data-prop-slots] attribute on the container.
+  Properties have a [data-priority] attribute (lower number = lower priority = hides first).
+
+  Logic:
+  - 0 slots: Hide 1, 2, 3, 4 (All properties)
+  - 1 slot:  Hide 1, 2, 3
+  - 2 slots: Hide 1, 2
+  - 3 slots: Hide 1
+  - 4+ slots: Show all
+*/
+
+/* 0 Slots (<450px): Hide all properties (1, 2, 3, 4) */
+[data-prop-slots='0'] [data-priority='1'],
+[data-prop-slots='0'] [data-priority='2'],
+[data-prop-slots='0'] [data-priority='3'],
+[data-prop-slots='0'] [data-priority='4'],
+[data-prop-slots='0'] .data-row-header-properties {
+  display: none;
+}
+
+/* 1 Slot (450-599px): Hide priority 1, 2, 3 */
+[data-prop-slots='1'] [data-priority='1'],
+[data-prop-slots='1'] [data-priority='2'],
+[data-prop-slots='1'] [data-priority='3'] {
+  display: none;
+}
+
+/* 2 Slots (600-799px): Hide priority 1, 2 */
+[data-prop-slots='2'] [data-priority='1'],
+[data-prop-slots='2'] [data-priority='2'] {
+  display: none;
+}
+
+/* 3 Slots (800-999px): Hide priority 1 */
+[data-prop-slots='3'] [data-priority='1'] {
+  display: none;
+}
+
+/* 4 Slots (1000px+): Show all (default behavior, no rules needed) */

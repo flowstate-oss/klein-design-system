@@ -1,0 +1,6 @@
+---
+const base=import.meta.env.BASE_URL.replace(/\/$/,'');
+import Documentation from '../../layouts/Documentation.astro';
+import entries from '../../../../../packages/contracts/compatibility.json';
+---
+<Documentation title="Migrated APIs"><main class="docs-catalogue"><h1>Migrated APIs.</h1><p>These extracted APIs preserve established product behaviour. Prefer a named organism from the main catalogue for new work. This reference shows the additional composition primitives and migration contracts.</p><nav class="docs-index" aria-label="Migrated API index">{entries.map(entry=><a href={`${base}/reference/${entry.name}/`}>{entry.import}</a>)}</nav></main></Documentation>

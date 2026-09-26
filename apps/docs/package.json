@@ -1,0 +1,23 @@
+{
+  "name": "@klein-ui/docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@astrojs/react": "^7.0.0",
+    "@fontsource/geist": "5.2.8",
+    "@fontsource/geist-mono": "5.2.7",
+    "@klein-ui/charts": "0.1.0",
+    "@klein-ui/contracts": "0.1.0",
+    "@klein-ui/eddy": "0.1.0",
+    "@klein-ui/forecast": "0.1.0",
+    "@klein-ui/react": "0.1.0",
+    "@klein-ui/table": "0.1.0",
+    "@klein-ui/tokens": "0.1.0",
+    "astro": "^7.3.5"
+  }
+}

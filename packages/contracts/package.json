@@ -1,0 +1,39 @@
+{
+  "name": "@klein-ui/contracts",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "check.mjs",
+    "components.json",
+    "props.json",
+    "AGENTS.md",
+    "migration.json",
+    "compatibility.json",
+    "LICENSE"
+  ],
+  "bin": {
+    "klein-check": "./check.mjs"
+  },
+  "exports": {
+    "./components.json": "./components.json",
+    "./props.json": "./props.json",
+    "./AGENTS.md": "./AGENTS.md",
+    "./check": "./check.mjs",
+    "./migration.json": "./migration.json",
+    "./compatibility.json": "./compatibility.json"
+  },
+  "dependencies": {
+    "typescript": "5.9.3",
+    "postcss": "8.5.28"
+  },
+  "license": "MIT",
+  "author": "Flowstate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowstate-oss/klein-design-system.git",
+    "directory": "packages/contracts"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

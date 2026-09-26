@@ -1,0 +1,1005 @@
+[
+  {
+    "name": "Button",
+    "layer": "Atoms",
+    "purpose": "Commit or trigger one action.",
+    "aliases": [
+      "button",
+      "action",
+      "submit"
+    ],
+    "status": "experimental",
+    "usage": "Use one primary per view. Danger is only for confirmation.",
+    "behavior": "Native disabled and loading prevent activation. Label remains visible.",
+    "avoid": "Use a link for navigation. Do not use arbitrary colour or style props.",
+    "package": "@klein-ui/react",
+    "example": "import { Button } from \"@klein-ui/react\";\n\n\n\nexport function ButtonExample() {\n  return <Button tone=\"accent\">Save changes</Button>;\n}",
+    "import": "import { Button } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "IconButton",
+    "layer": "Atoms",
+    "purpose": "A compact action represented by an approved glyph.",
+    "aliases": [
+      "icon",
+      "button",
+      "search"
+    ],
+    "status": "experimental",
+    "usage": "Supply a label that describes the action.",
+    "behavior": "Accessible name is required. Native button semantics.",
+    "avoid": "Use Button when a visible label would help.",
+    "package": "@klein-ui/react",
+    "example": "import { IconButton } from \"@klein-ui/react\";\n\n\n\nexport function IconButtonExample() {\n  return <IconButton icon=\"search\" label=\"Search records\" />;\n}",
+    "import": "import { IconButton } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Icon",
+    "layer": "Atoms",
+    "purpose": "An approved decorative Klein glyph.",
+    "aliases": [
+      "glyph",
+      "chevron",
+      "tick",
+      "magnifier"
+    ],
+    "status": "experimental",
+    "usage": "Meaning belongs in the parent control label.",
+    "behavior": "Hidden from assistive technology.",
+    "avoid": "Do not import a separate icon library or draw page-local icons.",
+    "package": "@klein-ui/react",
+    "example": "import { Icon } from \"@klein-ui/react\";\n\n\n\nexport function IconExample() {\n  return (\n    <span>\n      Open report <Icon name=\"arrow-right\" />\n    </span>\n  );\n}",
+    "import": "import { Icon } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Input",
+    "layer": "Atoms",
+    "purpose": "Native text entry for custom field composition.",
+    "aliases": [
+      "text",
+      "input",
+      "search",
+      "email"
+    ],
+    "status": "experimental",
+    "usage": "Prefer Field. Standalone Input needs an accessible label.",
+    "behavior": "Use native value/onChange and inputMode for numeric entry.",
+    "avoid": "No checkbox/radio/file variants; those require dedicated components.",
+    "package": "@klein-ui/react",
+    "example": "import { Input } from \"@klein-ui/react\";\n\n\n\nexport function InputExample() {\n  return (\n    <Input aria-label=\"Find in view\" type=\"search\" placeholder=\"Find in view\" />\n  );\n}",
+    "import": "import { Input } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Field",
+    "layer": "Molecules",
+    "purpose": "Text entry with an associated label, help and error.",
+    "aliases": [
+      "form",
+      "label",
+      "validation",
+      "field"
+    ],
+    "status": "experimental",
+    "usage": "The caller validates and supplies error text.",
+    "behavior": "Label and help/error IDs are generated; disabled/readOnly/required stay native.",
+    "avoid": "Do not use placeholders as labels. Use one field per Field.",
+    "package": "@klein-ui/react",
+    "example": "import { useState } from \"react\";\n\nimport { Field } from \"@klein-ui/react\";\n\n\n\nexport function FieldExample() {\n  const [value, setValue] = useState(\"Engineering\");\n  return (\n    <Field\n      label=\"Cost centre\"\n      value={value}\n      onChange={(event) => setValue(event.target.value)}\n      description=\"Name used in budget reports.\"\n      required\n    />\n  );\n}",
+    "import": "import { Field } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "NumericValue",
+    "layer": "Atoms",
+    "purpose": "Already formatted money, dates, percentages and measured values.",
+    "aliases": [
+      "currency",
+      "money",
+      "number",
+      "fte"
+    ],
+    "status": "experimental",
+    "usage": "Pass locale-aware text; choose semantic tone in the data layer.",
+    "behavior": "Uses monospace tabular numerals.",
+    "avoid": "Never infer good/bad from arithmetic sign or calculate totals here.",
+    "package": "@klein-ui/react",
+    "example": "import { NumericValue } from \"@klein-ui/react\";\n\n\n\nexport function NumericValueExample() {\n  return <NumericValue>£128,400.00</NumericValue>;\n}",
+    "import": "import { NumericValue } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "PageHeader",
+    "layer": "Organisms",
+    "purpose": "The page title and its primary actions.",
+    "aliases": [
+      "header",
+      "heading",
+      "title"
+    ],
+    "status": "experimental",
+    "usage": "One h1 and at most one primary action per page.",
+    "behavior": "Actions wrap at narrow widths.",
+    "avoid": "No prose lead, invented subtitle or duplicated header.",
+    "package": "@klein-ui/react",
+    "example": "import { Button, PageHeader } from \"@klein-ui/react\";\n\n\n\nexport function PageHeaderExample() {\n  return (\n    <PageHeader\n      title=\"Budgets\"\n      actions={<Button tone=\"accent\">Create budget</Button>}\n    />\n  );\n}",
+    "import": "import { PageHeader } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "RouteTabs",
+    "layer": "Organisms",
+    "purpose": "Navigation between routes.",
+    "aliases": [
+      "route",
+      "tab",
+      "navigation",
+      "subview"
+    ],
+    "status": "experimental",
+    "usage": "The application supplies hrefs and current route ID.",
+    "behavior": "Real links; aria-current marks the active page.",
+    "avoid": "Use Tabs for local panels. Do not drive page routes with local tab state.",
+    "package": "@klein-ui/react",
+    "example": "import { RouteTabs } from \"@klein-ui/react\";\n\n\n\nexport function RouteTabsExample() {\n  return (\n    <RouteTabs\n      label=\"Budget views\"\n      value=\"current\"\n      items={[\n        { id: \"current\", label: \"Current budgets\", href: \"#current\" },\n        { id: \"requests\", label: \"Requests\", href: \"#requests\" },\n      ]}\n    />\n  );\n}",
+    "import": "import { RouteTabs } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Tabs",
+    "layer": "Organisms",
+    "purpose": "Controlled selection between local panels.",
+    "aliases": [
+      "tab",
+      "panel",
+      "drawer"
+    ],
+    "status": "experimental",
+    "usage": "Use inside a drawer or a local panel, not page sub-navigation.",
+    "behavior": "Arrow/Home/End move focus; Enter/Space activate. Disabled tabs are skipped.",
+    "avoid": "Do not replace RouteTabs or duplicate navigation state.",
+    "package": "@klein-ui/react",
+    "example": "import { useState } from \"react\";\n\nimport { Field, Tabs } from \"@klein-ui/react\";\n\n\n\nexport function TabsExample() {\n  const [value, setValue] = useState(\"details\");\n  return (\n    <Tabs\n      label=\"Budget details\"\n      value={value}\n      onValueChange={setValue}\n      items={[\n        {\n          id: \"details\",\n          label: \"Details\",\n          content: <Field label=\"Budget name\" defaultValue=\"Platform\" />,\n        },\n        {\n          id: \"history\",\n          label: \"History\",\n          content: <p>Updated 24 September 2026</p>,\n        },\n        { id: \"locked\", label: \"Approvals\", content: null, disabled: true },\n      ]}\n    />\n  );\n}",
+    "import": "import { Tabs } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ViewControlPanel",
+    "layer": "Organisms",
+    "purpose": "The single control region above a view body.",
+    "aliases": [
+      "toolbar",
+      "filter",
+      "controls"
+    ],
+    "status": "experimental",
+    "usage": "Supply approved controls and trailing actions.",
+    "behavior": "Mixed native controls retain normal Tab order.",
+    "avoid": "Do not add a second toolbar; extend the actions slot.",
+    "package": "@klein-ui/react",
+    "example": "import { Button, Input, ViewControlPanel } from \"@klein-ui/react\";\n\n\n\nexport function ViewControlPanelExample() {\n  return (\n    <ViewControlPanel\n      label=\"Budget controls\"\n      actions={<Button variant=\"secondary\">Export</Button>}\n    >\n      <Input\n        type=\"search\"\n        aria-label=\"Find budgets\"\n        placeholder=\"Find budgets\"\n      />\n    </ViewControlPanel>\n  );\n}",
+    "import": "import { ViewControlPanel } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ViewSection",
+    "layer": "Organisms",
+    "purpose": "A flat titled region inside a view.",
+    "aliases": [
+      "section",
+      "panel",
+      "chart",
+      "wrapper"
+    ],
+    "status": "experimental",
+    "usage": "Use for a chart or sub-list in an approved layout.",
+    "behavior": "Heading and optional actions share a band.",
+    "avoid": "Do not wrap it in a decorative Card or add shadow/rounded corners.",
+    "package": "@klein-ui/react",
+    "example": "import { NumericValue, ViewSection } from \"@klein-ui/react\";\n\n\n\nexport function ViewSectionExample() {\n  return (\n    <ViewSection title=\"Approved budget\">\n      <NumericValue>£128,400.00</NumericValue>\n    </ViewSection>\n  );\n}",
+    "import": "import { ViewSection } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ViewLayout",
+    "layer": "Templates",
+    "purpose": "One of five approved view-body layouts.",
+    "aliases": [
+      "grid",
+      "dashboard",
+      "layout",
+      "split",
+      "tree"
+    ],
+    "status": "experimental",
+    "usage": "Choose single, 2:1, 2:2, 3:3 or tree:detail.",
+    "behavior": "Owns internal gutters and scroll behaviour. Grids stack on narrow screens.",
+    "avoid": "Do not add page padding or recreate these grids in consumers.",
+    "package": "@klein-ui/react",
+    "example": "import { NumericValue, ViewSection, ViewLayout } from \"@klein-ui/react\";\n\n\n\nexport function ViewLayoutExample() {\n  return (\n    <ViewLayout\n      variant=\"2:1\"\n      top={[\n        <ViewSection key=\"approved\" title=\"Approved\">\n          <NumericValue>£128,400.00</NumericValue>\n        </ViewSection>,\n        <ViewSection key=\"spent\" title=\"Spent\">\n          <NumericValue>£98,420.00</NumericValue>\n        </ViewSection>,\n      ]}\n      main={\n        <ViewSection title=\"Remaining\">\n          <NumericValue>£29,980.00</NumericValue>\n        </ViewSection>\n      }\n    />\n  );\n}",
+    "import": "import { ViewLayout } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ListViewTemplate",
+    "layer": "Templates",
+    "purpose": "Canonical header, navigation, controls and scrolling body.",
+    "aliases": [
+      "page",
+      "list",
+      "index",
+      "template"
+    ],
+    "status": "experimental",
+    "usage": "Supply PageHeader, optional RouteTabs, one ViewControlPanel and body.",
+    "behavior": "Place in a height-constrained application shell; body scrolls independently.",
+    "avoid": "No backend, router or saved preference state belongs here.",
+    "package": "@klein-ui/react",
+    "example": "import { useState } from \"react\";\n\nimport { Button, Input, PageHeader, RouteTabs, ViewControlPanel, ListViewTemplate } from \"@klein-ui/react\";\n\n\n\nexport function ListViewTemplateExample() {\n  const [query, setQuery] = useState(\"\");\n  const names = [\"Engineering\", \"Platform\", \"Product\"];\n  return (\n    <div className=\"docs-page-frame\">\n      <ListViewTemplate\n        header={\n          <PageHeader\n            title=\"Cost centres\"\n            actions={<Button tone=\"accent\">Create cost centre</Button>}\n          />\n        }\n        navigation={\n          <RouteTabs\n            label=\"Cost centre views\"\n            value=\"active\"\n            items={[\n              { id: \"active\", label: \"Active\", href: \"#active\" },\n              { id: \"archived\", label: \"Archived\", href: \"#archived\" },\n            ]}\n          />\n        }\n        controls={\n          <ViewControlPanel label=\"Cost centre controls\">\n            <Input\n              aria-label=\"Find cost centres\"\n              type=\"search\"\n              value={query}\n              onChange={(event) => setQuery(event.target.value)}\n              placeholder=\"Find in view\"\n            />\n          </ViewControlPanel>\n        }\n      >\n        <ul className=\"docs-example-list\">\n          {names\n            .filter((name) => name.toLowerCase().includes(query.toLowerCase()))\n            .map((name) => (\n              <li key={name}>{name}</li>\n            ))}\n        </ul>\n        {!names.some((name) =>\n          name.toLowerCase().includes(query.toLowerCase()),\n        ) && <p className=\"docs-example-empty\">No matching cost centres.</p>}\n      </ListViewTemplate>\n    </div>\n  );\n}",
+    "import": "import { ListViewTemplate } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "EdgeToEdgeLayout",
+    "layer": "Layouts",
+    "purpose": "A full-width dashboard stack with hairline-separated bands.",
+    "aliases": [
+      "edge-to-edge",
+      "full-bleed",
+      "layout",
+      "band"
+    ],
+    "status": "experimental",
+    "usage": "Use for edge-to-edge product surfaces, with no outer padding or decorative cards.",
+    "behavior": "Bands own gutters; narrow layouts stack; grow fills the parent.",
+    "avoid": "Do not add gaps between bands or wrap tables in padded containers.",
+    "package": "@klein-ui/react",
+    "example": "import { NumericValue } from \"@klein-ui/react\";\n\nimport { EdgeToEdgeLayout, DashboardBand, SplitBand, BandTitle } from \"@klein-ui/react\";\n\n\n\nexport function DashboardBandExample() {\n  return (\n    <DashboardBand>\n      <BandTitle>Approved budget</BandTitle>\n      <NumericValue>£128,400.00</NumericValue>\n    </DashboardBand>\n  );\n}\n\nexport function SplitBandExample() {\n  return (\n    <SplitBand\n      left={\n        <>\n          <BandTitle>Spent</BandTitle>\n          <NumericValue>£98,420.00</NumericValue>\n        </>\n      }\n      right={\n        <>\n          <BandTitle>Remaining</BandTitle>\n          <NumericValue>£29,980.00</NumericValue>\n        </>\n      }\n    />\n  );\n}\n\nexport function EdgeToEdgeLayoutExample() {\n  return (\n    <EdgeToEdgeLayout>\n      <DashboardBandExample />\n      <SplitBandExample />\n      <DashboardBand flush>\n        <ul className=\"docs-example-list\">\n          <li>Platform</li>\n          <li>Engineering</li>\n        </ul>\n      </DashboardBand>\n    </EdgeToEdgeLayout>\n  );\n}",
+    "import": "import { EdgeToEdgeLayout } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "DashboardBand",
+    "layer": "Layouts",
+    "purpose": "One full-width dashboard band; flush makes tables edge-to-edge.",
+    "aliases": [
+      "edge-to-edge",
+      "full-bleed",
+      "layout",
+      "band"
+    ],
+    "status": "experimental",
+    "usage": "Use for edge-to-edge product surfaces, with no outer padding or decorative cards.",
+    "behavior": "Bands own gutters; narrow layouts stack; grow fills the parent.",
+    "avoid": "Do not add gaps between bands or wrap tables in padded containers.",
+    "package": "@klein-ui/react",
+    "example": "import { NumericValue } from \"@klein-ui/react\";\n\nimport { DashboardBand, BandTitle } from \"@klein-ui/react\";\n\n\n\nexport function DashboardBandExample() {\n  return (\n    <DashboardBand>\n      <BandTitle>Approved budget</BandTitle>\n      <NumericValue>£128,400.00</NumericValue>\n    </DashboardBand>\n  );\n}",
+    "import": "import { DashboardBand } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "SplitBand",
+    "layer": "Layouts",
+    "purpose": "Two full-bleed dashboard regions with a dividing hairline.",
+    "aliases": [
+      "edge-to-edge",
+      "full-bleed",
+      "layout",
+      "band"
+    ],
+    "status": "experimental",
+    "usage": "Use for edge-to-edge product surfaces, with no outer padding or decorative cards.",
+    "behavior": "Bands own gutters; narrow layouts stack; grow fills the parent.",
+    "avoid": "Do not add gaps between bands or wrap tables in padded containers.",
+    "package": "@klein-ui/react",
+    "example": "import { NumericValue } from \"@klein-ui/react\";\n\nimport { SplitBand, BandTitle } from \"@klein-ui/react\";\n\n\n\nexport function SplitBandExample() {\n  return (\n    <SplitBand\n      left={\n        <>\n          <BandTitle>Spent</BandTitle>\n          <NumericValue>£98,420.00</NumericValue>\n        </>\n      }\n      right={\n        <>\n          <BandTitle>Remaining</BandTitle>\n          <NumericValue>£29,980.00</NumericValue>\n        </>\n      }\n    />\n  );\n}",
+    "import": "import { SplitBand } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "BandTitle",
+    "layer": "Layouts",
+    "purpose": "Sentence-case band title with information and action slots.",
+    "aliases": [
+      "edge-to-edge",
+      "full-bleed",
+      "layout",
+      "band"
+    ],
+    "status": "experimental",
+    "usage": "Use for edge-to-edge product surfaces, with no outer padding or decorative cards.",
+    "behavior": "Bands own gutters; narrow layouts stack; grow fills the parent.",
+    "avoid": "Do not add gaps between bands or wrap tables in padded containers.",
+    "package": "@klein-ui/react",
+    "example": "import { BandTitle } from \"@klein-ui/react\";\n\n\n\nexport function BandTitleExample() {\n  return <BandTitle>Approved budget</BandTitle>;\n}",
+    "import": "import { BandTitle } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Table",
+    "package": "@klein-ui/table",
+    "layer": "Organisms",
+    "purpose": "Semantic, controlled table using the shared renderer.",
+    "aliases": [
+      "table",
+      "table"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { Table } from \"@klein-ui/table\";\n\n\n\nexport function TableExample() {\n  return (\n    <Table\n      label=\"People\"\n      rowKey={(row) => row.id}\n      rows={[\n        { id: \"1\", name: \"Alex\", role: \"Design\" },\n        { id: \"2\", name: \"Morgan\", role: \"Engineering\" },\n      ]}\n      columns={[\n        { id: \"name\", label: \"Name\", render: (row) => row.name },\n        { id: \"role\", label: \"Role\", render: (row) => row.role },\n      ]}\n    />\n  );\n}",
+    "import": "import { Table } from '@klein-ui/table';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Chart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Chart.js renderer with a closed series API.",
+    "aliases": [
+      "charts",
+      "chart"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { Chart } from \"@klein-ui/charts\";\n\n\n\nexport function ChartExample() {\n  return (\n    <Chart\n      label=\"Monthly capacity\"\n      type=\"bar\"\n      labels={[\"Jan\", \"Feb\", \"Mar\"]}\n      series={[\n        { id: \"planned\", label: \"Planned\", values: [12, 14, 16] },\n        { id: \"actual\", label: \"Actual\", values: [10, 13, null] },\n      ]}\n    />\n  );\n}",
+    "import": "import { Chart } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ForecastTable",
+    "package": "@klein-ui/forecast",
+    "layer": "Organisms",
+    "purpose": "Forecast presentation, pinned columns and supplied financial values.",
+    "aliases": [
+      "forecast",
+      "forecasttable"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { ForecastTable } from \"@klein-ui/forecast\";\n\n\n\nexport function ForecastTableExample() {\n  return (\n    <ForecastTable\n      label=\"Forecast\"\n      periods={[\n        { id: \"jan\", label: \"Jan\" },\n        { id: \"feb\", label: \"Feb\" },\n      ]}\n      rows={[\n        {\n          id: \"team\",\n          label: \"Engineering\",\n          cells: [\"£20,000\", \"£22,000\"],\n          total: \"£42,000\",\n        },\n        {\n          id: \"person\",\n          label: \"Alex\",\n          level: 1,\n          cells: [\"£10,000\", \"£11,000\"],\n          total: \"£21,000\",\n        },\n      ]}\n    />\n  );\n}",
+    "import": "import { ForecastTable } from '@klein-ui/forecast';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ForecastVariance",
+    "package": "@klein-ui/forecast",
+    "layer": "Molecules",
+    "purpose": "Forecast presentation, pinned columns and supplied financial values.",
+    "aliases": [
+      "forecast",
+      "forecastvariance"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { ForecastVariance } from \"@klein-ui/forecast\";\n\n\n\nexport function ForecastVarianceExample() {\n  return <ForecastVariance label=\"£2,000 below budget\" tone=\"good\" />;\n}",
+    "import": "import { ForecastVariance } from '@klein-ui/forecast';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ForecastDelta",
+    "package": "@klein-ui/forecast",
+    "layer": "Molecules",
+    "purpose": "Forecast presentation, pinned columns and supplied financial values.",
+    "aliases": [
+      "forecast",
+      "forecastdelta"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { ForecastDelta } from \"@klein-ui/forecast\";\n\n\n\nexport function ForecastDeltaExample() {\n  return (\n    <ForecastDelta label=\"Cost increased\" direction=\"increase\" tone=\"bad\" />\n  );\n}",
+    "import": "import { ForecastDelta } from '@klein-ui/forecast';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "EddyComposer",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddycomposer"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { EddyComposer } from \"@klein-ui/eddy\";\n\nimport { useState } from \"react\";\n\n\n\nexport function EddyComposerExample() {\n  const [value, setValue] = useState(\"\");\n  return (\n    <EddyComposer\n      value={value}\n      onValueChange={setValue}\n      onSubmit={() => setValue(\"\")}\n      label=\"Message Eddy\"\n      placeholder=\"Ask about your plan\"\n      sendLabel=\"Send\"\n      hint=\"Enter to send; Shift+Enter for a new line\"\n    />\n  );\n}",
+    "import": "import { EddyComposer } from '@klein-ui/eddy';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "EddyMessage",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddymessage"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { EddyMessage } from \"@klein-ui/eddy\";\n\n\n\nexport function EddyMessageExample() {\n  return (\n    <EddyMessage\n      role=\"assistant\"\n      content=\"The forecast is **within budget**.\"\n      status=\"complete\"\n      thinkingLabel=\"Thinking\"\n      retryLabel=\"Retry\"\n    />\n  );\n}",
+    "import": "import { EddyMessage } from '@klein-ui/eddy';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "EddyConversation",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddyconversation"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { EddyMessage, EddyConversation } from \"@klein-ui/eddy\";\n\n\n\nexport function EddyMessageExample() {\n  return (\n    <EddyMessage\n      role=\"assistant\"\n      content=\"The forecast is **within budget**.\"\n      status=\"complete\"\n      thinkingLabel=\"Thinking\"\n      retryLabel=\"Retry\"\n    />\n  );\n}\n\nexport function EddyConversationExample() {\n  return (\n    <EddyConversation label=\"Conversation\">\n      <EddyMessage\n        role=\"user\"\n        content=\"How is the forecast?\"\n        status=\"complete\"\n        thinkingLabel=\"Thinking\"\n        retryLabel=\"Retry\"\n      />\n      <EddyMessageExample />\n    </EddyConversation>\n  );\n}",
+    "import": "import { EddyConversation } from '@klein-ui/eddy';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "EddyHistory",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddyhistory"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { EddyHistory } from \"@klein-ui/eddy\";\n\nimport { useState } from \"react\";\n\n\n\nexport function EddyHistoryExample() {\n  const [value, setValue] = useState<string | null>(\"forecast\");\n  return (\n    <EddyHistory\n      label=\"Recent conversations\"\n      items={[\n        { id: \"forecast\", title: \"Forecast review\", updatedLabel: \"Today\" },\n        { id: \"capacity\", title: \"Capacity\", updatedLabel: \"Yesterday\" },\n      ]}\n      value={value}\n      onValueChange={setValue}\n    />\n  );\n}",
+    "import": "import { EddyHistory } from '@klein-ui/eddy';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "EddyPanel",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddypanel"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { EddyComposer, EddyMessage, EddyConversation, EddyPanel } from \"@klein-ui/eddy\";\n\nimport { useState } from \"react\";\n\n\n\nexport function EddyComposerExample() {\n  const [value, setValue] = useState(\"\");\n  return (\n    <EddyComposer\n      value={value}\n      onValueChange={setValue}\n      onSubmit={() => setValue(\"\")}\n      label=\"Message Eddy\"\n      placeholder=\"Ask about your plan\"\n      sendLabel=\"Send\"\n      hint=\"Enter to send; Shift+Enter for a new line\"\n    />\n  );\n}\n\nexport function EddyMessageExample() {\n  return (\n    <EddyMessage\n      role=\"assistant\"\n      content=\"The forecast is **within budget**.\"\n      status=\"complete\"\n      thinkingLabel=\"Thinking\"\n      retryLabel=\"Retry\"\n    />\n  );\n}\n\nexport function EddyConversationExample() {\n  return (\n    <EddyConversation label=\"Conversation\">\n      <EddyMessage\n        role=\"user\"\n        content=\"How is the forecast?\"\n        status=\"complete\"\n        thinkingLabel=\"Thinking\"\n        retryLabel=\"Retry\"\n      />\n      <EddyMessageExample />\n    </EddyConversation>\n  );\n}\n\nexport function EddyPanelExample() {\n  return (\n    <EddyPanel title=\"Eddy\" description=\"Planning assistant\">\n      <EddyConversationExample />\n      <EddyComposerExample />\n    </EddyPanel>\n  );\n}",
+    "import": "import { EddyPanel } from '@klein-ui/eddy';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "EddyChartPreview",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Eddy presentation with application-controlled content and actions.",
+    "aliases": [
+      "eddy",
+      "eddychartpreview"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values and callbacks. See the typed example and props below.",
+    "behavior": "Rendering and interaction only; the application owns queries, permissions, calculations and persistence.",
+    "avoid": "Do not copy the renderer, pass arbitrary CSS, or fetch data inside the component.",
+    "example": "import { Chart } from \"@klein-ui/charts\";\n\nimport { EddyChartPreview } from \"@klein-ui/eddy\";\n\nimport { useState } from \"react\";\n\n\n\nexport function ChartExample() {\n  return (\n    <Chart\n      label=\"Monthly capacity\"\n      type=\"bar\"\n      labels={[\"Jan\", \"Feb\", \"Mar\"]}\n      series={[\n        { id: \"planned\", label: \"Planned\", values: [12, 14, 16] },\n        { id: \"actual\", label: \"Actual\", values: [10, 13, null] },\n      ]}\n    />\n  );\n}\n\nexport function EddyChartPreviewExample() {\n  const [open, setOpen] = useState(false);\n  return (\n    <EddyChartPreview\n      title=\"Monthly capacity\"\n      open={open}\n      onOpenChange={setOpen}\n      compact={<ChartExample />}\n      expanded={<ChartExample />}\n    />\n  );\n}",
+    "import": "import { EddyChartPreview } from '@klein-ui/eddy';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Checkbox",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical checkbox with a closed visual API.",
+    "aliases": [
+      "checkbox"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Checkbox } from \"@klein-ui/react\";\n\nimport { useState } from \"react\";\n\n\n\nexport function CheckboxExample() {\n  const [value, setValue] = useState(false);\n  return (\n    <Checkbox label=\"Include archived\" value={value} onValueChange={setValue} />\n  );\n}",
+    "import": "import { Checkbox } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Switch",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical switch with a closed visual API.",
+    "aliases": [
+      "switch"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Switch } from \"@klein-ui/react\";\n\nimport { useState } from \"react\";\n\n\n\nexport function SwitchExample() {\n  const [value, setValue] = useState(false);\n  return (\n    <Switch label=\"Email updates\" value={value} onValueChange={setValue} />\n  );\n}",
+    "import": "import { Switch } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Select",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical select with a closed visual API.",
+    "aliases": [
+      "select"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Select } from \"@klein-ui/react\";\n\nimport { useState } from \"react\";\n\n\n\nexport function SelectExample() {\n  const [value, setValue] = useState(\"month\");\n  return (\n    <Select\n      label=\"Period\"\n      value={value}\n      onValueChange={setValue}\n      options={[\n        { value: \"month\", label: \"Monthly\" },\n        { value: \"quarter\", label: \"Quarterly\" },\n      ]}\n    />\n  );\n}",
+    "import": "import { Select } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Textarea",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical textarea with a closed visual API.",
+    "aliases": [
+      "textarea"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Textarea } from \"@klein-ui/react\";\n\nimport { useState } from \"react\";\n\n\n\nexport function TextareaExample() {\n  const [value, setValue] = useState(\"\");\n  return (\n    <Textarea\n      label=\"Description\"\n      value={value}\n      onValueChange={setValue}\n      placeholder=\"Describe this plan\"\n    />\n  );\n}",
+    "import": "import { Textarea } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Dialog",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Canonical dialog with a closed visual API.",
+    "aliases": [
+      "dialog"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Dialog } from \"@klein-ui/react\";\n\nimport { useState } from \"react\";\n\nimport { Button } from \"@klein-ui/react\";\n\n\n\nexport function DialogExample() {\n  const [open, setOpen] = useState(false);\n  return (\n    <>\n      <Button onClick={() => setOpen(true)}>Review changes</Button>\n      <Dialog\n        title=\"Review changes\"\n        description=\"Confirm the changes to your plan.\"\n        open={open}\n        onOpenChange={setOpen}\n      >\n        <Button onClick={() => setOpen(false)}>Done</Button>\n      </Dialog>\n    </>\n  );\n}",
+    "import": "import { Dialog } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Tooltip",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Canonical tooltip with a closed visual API.",
+    "aliases": [
+      "tooltip"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Tooltip } from \"@klein-ui/react\";\n\nimport { Button } from \"@klein-ui/react\";\n\n\n\nexport function TooltipExample() {\n  return (\n    <Tooltip content=\"Download the current rows\">\n      <Button variant=\"secondary\">Export</Button>\n    </Tooltip>\n  );\n}",
+    "import": "import { Tooltip } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Progress",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical progress with a closed visual API.",
+    "aliases": [
+      "progress"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Progress } from \"@klein-ui/react\";\n\n\n\nexport function ProgressExample() {\n  return <Progress label=\"Completed\" value={65} />;\n}",
+    "import": "import { Progress } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Avatar",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical avatar with a closed visual API.",
+    "aliases": [
+      "avatar"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Avatar } from \"@klein-ui/react\";\n\n\n\nexport function AvatarExample() {\n  return <Avatar label=\"Alex Morgan\" initials=\"AM\" />;\n}",
+    "import": "import { Avatar } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Badge",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Canonical badge with a closed visual API.",
+    "aliases": [
+      "badge"
+    ],
+    "status": "experimental",
+    "usage": "Use the documented value/onValueChange pair for controlled selections. Supply translated labels.",
+    "behavior": "Accessible vendor mechanics are shared with the migrated implementation.",
+    "avoid": "Do not copy markup or import the compatibility API for new features.",
+    "example": "import { Badge } from \"@klein-ui/react\";\n\n\n\nexport function BadgeExample() {\n  return <Badge tone=\"good\">Within budget</Badge>;\n}",
+    "import": "import { Badge } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "Sparkline",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Display-ready trend visualization.",
+    "aliases": [
+      "sparkline"
+    ],
+    "status": "experimental",
+    "usage": "Supply values and accessible labels; application services remain outside the renderer.",
+    "behavior": "The component owns geometry and accessible presentation.",
+    "avoid": "Do not copy its SVG or shell markup into the application.",
+    "example": "import { Sparkline } from \"@klein-ui/charts\";\n\n\n\nexport function SparklineExample() {\n  return (\n    <Sparkline\n      points={[3, 5, 4, 8, 6, 9]}\n      label=\"Capacity over six months\"\n      partialFromIndex={5}\n    />\n  );\n}",
+    "import": "import { Sparkline } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "EddyRail",
+    "package": "@klein-ui/eddy",
+    "layer": "Organisms",
+    "purpose": "Persistent, controlled assistant rail.",
+    "aliases": [
+      "eddyrail"
+    ],
+    "status": "experimental",
+    "usage": "Supply values and accessible labels; application services remain outside the renderer.",
+    "behavior": "The component owns geometry and accessible presentation.",
+    "avoid": "Do not copy its SVG or shell markup into the application.",
+    "example": "import { EddyRail } from \"@klein-ui/eddy\";\n\nimport { EddyComposer, EddyMessage, EddyConversation, EddyPanel } from \"@klein-ui/eddy\";\n\nimport { useState } from \"react\";\n\nimport { Button } from \"@klein-ui/react\";\n\n\n\nexport function EddyComposerExample() {\n  const [value, setValue] = useState(\"\");\n  return (\n    <EddyComposer\n      value={value}\n      onValueChange={setValue}\n      onSubmit={() => setValue(\"\")}\n      label=\"Message Eddy\"\n      placeholder=\"Ask about your plan\"\n      sendLabel=\"Send\"\n      hint=\"Enter to send; Shift+Enter for a new line\"\n    />\n  );\n}\n\nexport function EddyMessageExample() {\n  return (\n    <EddyMessage\n      role=\"assistant\"\n      content=\"The forecast is **within budget**.\"\n      status=\"complete\"\n      thinkingLabel=\"Thinking\"\n      retryLabel=\"Retry\"\n    />\n  );\n}\n\nexport function EddyConversationExample() {\n  return (\n    <EddyConversation label=\"Conversation\">\n      <EddyMessage\n        role=\"user\"\n        content=\"How is the forecast?\"\n        status=\"complete\"\n        thinkingLabel=\"Thinking\"\n        retryLabel=\"Retry\"\n      />\n      <EddyMessageExample />\n    </EddyConversation>\n  );\n}\n\nexport function EddyRailExample() {\n  const [open, setOpen] = useState(false);\n  return (\n    <div style={{ position: \"relative\", height: 400, overflow: \"hidden\" }}>\n      <Button onClick={() => setOpen(!open)}>Toggle Eddy</Button>\n      <EddyRail open={open}>\n        <EddyPanel\n          title=\"Eddy\"\n          actions={\n            <Button variant=\"text\" onClick={() => setOpen(false)}>\n              Close\n            </Button>\n          }\n        >\n          <EddyConversationExample />\n          <EddyComposerExample />\n        </EddyPanel>\n      </EddyRail>\n    </div>\n  );\n}",
+    "import": "import { EddyRail } from '@klein-ui/eddy';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "DashboardPageLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Compact dashboard with header, metric band, tabs and a single scrolling body.",
+    "aliases": [
+      "dashboardpagelayout"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability.",
+    "example": "import { Chart } from \"@klein-ui/charts\";\n\nimport { PageHeader, RouteTabs, ViewSection } from \"@klein-ui/react\";\n\nimport { DashboardPageLayout } from \"@klein-ui/react\";\n\nimport { MetricStrip } from \"@klein-ui/charts\";\n\n\n\nexport function RouteTabsExample() {\n  return (\n    <RouteTabs\n      label=\"Budget views\"\n      value=\"current\"\n      items={[\n        { id: \"current\", label: \"Current budgets\", href: \"#current\" },\n        { id: \"requests\", label: \"Requests\", href: \"#requests\" },\n      ]}\n    />\n  );\n}\n\nexport function ChartExample() {\n  return (\n    <Chart\n      label=\"Monthly capacity\"\n      type=\"bar\"\n      labels={[\"Jan\", \"Feb\", \"Mar\"]}\n      series={[\n        { id: \"planned\", label: \"Planned\", values: [12, 14, 16] },\n        { id: \"actual\", label: \"Actual\", values: [10, 13, null] },\n      ]}\n    />\n  );\n}\n\nexport function DashboardPageLayoutExample() {\n  return (\n    <DashboardPageLayout\n      header={<PageHeader title=\"Usage overview\" />}\n      metrics={<MetricStripExample />}\n      tabs={<RouteTabsExample />}\n    >\n      <ViewSection title=\"Spend\">\n        <ChartExample />\n      </ViewSection>\n    </DashboardPageLayout>\n  );\n}\n\nexport function MetricStripExample() {\n  return (\n    <MetricStrip\n      tiles={[\n        {\n          id: \"cost\",\n          label: \"Spend\",\n          ariaLabel: \"Spend £24,000, up 12 percent\",\n          value: \"£24,000\",\n          delta: 0.12,\n          deltaIsBadWhenUp: true,\n          sparkPoints: [10, 12, 11, 15],\n          sparkLabel: \"Daily spend\",\n        },\n        { id: \"people\", label: \"People\", ariaLabel: \"42 people\", value: \"42\" },\n      ]}\n    />\n  );\n}",
+    "import": "import { DashboardPageLayout } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "DetailPageLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Persistent entity header and responsive properties, description and related content.",
+    "aliases": [
+      "detailpagelayout"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability.",
+    "example": "import { Table } from \"@klein-ui/table\";\n\nimport { PageHeader, RouteTabs } from \"@klein-ui/react\";\n\nimport { DetailPageLayout } from \"@klein-ui/react\";\n\n\n\nexport function RouteTabsExample() {\n  return (\n    <RouteTabs\n      label=\"Budget views\"\n      value=\"current\"\n      items={[\n        { id: \"current\", label: \"Current budgets\", href: \"#current\" },\n        { id: \"requests\", label: \"Requests\", href: \"#requests\" },\n      ]}\n    />\n  );\n}\n\nexport function TableExample() {\n  return (\n    <Table\n      label=\"People\"\n      rowKey={(row) => row.id}\n      rows={[\n        { id: \"1\", name: \"Alex\", role: \"Design\" },\n        { id: \"2\", name: \"Morgan\", role: \"Engineering\" },\n      ]}\n      columns={[\n        { id: \"name\", label: \"Name\", render: (row) => row.name },\n        { id: \"role\", label: \"Role\", render: (row) => row.role },\n      ]}\n    />\n  );\n}\n\nexport function DetailPageLayoutExample() {\n  return (\n    <DetailPageLayout\n      header={<PageHeader title=\"Platform initiative\" />}\n      tabs={<RouteTabsExample />}\n      properties={<p>Owner: Engineering</p>}\n      supporting={<p>Budget: £120,000</p>}\n      description={<p>Build the shared platform.</p>}\n      relatedTitle=\"Related projects\"\n      related={<TableExample />}\n    />\n  );\n}",
+    "import": "import { DetailPageLayout } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "WorkspaceLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Workspace chrome with navigation, a main scrolling region and a detail rail.",
+    "aliases": [
+      "workspacelayout"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability.",
+    "example": "import { Chart } from \"@klein-ui/charts\";\n\nimport { PageHeader, RouteTabs, ViewSection } from \"@klein-ui/react\";\n\nimport { DashboardPageLayout, WorkspaceLayout } from \"@klein-ui/react\";\n\nimport { MetricStrip } from \"@klein-ui/charts\";\n\n\n\nexport function RouteTabsExample() {\n  return (\n    <RouteTabs\n      label=\"Budget views\"\n      value=\"current\"\n      items={[\n        { id: \"current\", label: \"Current budgets\", href: \"#current\" },\n        { id: \"requests\", label: \"Requests\", href: \"#requests\" },\n      ]}\n    />\n  );\n}\n\nexport function ChartExample() {\n  return (\n    <Chart\n      label=\"Monthly capacity\"\n      type=\"bar\"\n      labels={[\"Jan\", \"Feb\", \"Mar\"]}\n      series={[\n        { id: \"planned\", label: \"Planned\", values: [12, 14, 16] },\n        { id: \"actual\", label: \"Actual\", values: [10, 13, null] },\n      ]}\n    />\n  );\n}\n\nexport function DashboardPageLayoutExample() {\n  return (\n    <DashboardPageLayout\n      header={<PageHeader title=\"Usage overview\" />}\n      metrics={<MetricStripExample />}\n      tabs={<RouteTabsExample />}\n    >\n      <ViewSection title=\"Spend\">\n        <ChartExample />\n      </ViewSection>\n    </DashboardPageLayout>\n  );\n}\n\nexport function WorkspaceLayoutExample() {\n  return (\n    <div className=\"docs-workspace-frame\">\n      <WorkspaceLayout\n        header={<PageHeader title=\"Workspace\" />}\n        navigation={\n          <nav aria-label=\"Areas\">\n            <a href=\"#workspace-example\">Overview</a>\n          </nav>\n        }\n        details={<p>Selected item details</p>}\n      >\n        <DashboardPageLayoutExample />\n      </WorkspaceLayout>\n    </div>\n  );\n}\n\nexport function MetricStripExample() {\n  return (\n    <MetricStrip\n      tiles={[\n        {\n          id: \"cost\",\n          label: \"Spend\",\n          ariaLabel: \"Spend £24,000, up 12 percent\",\n          value: \"£24,000\",\n          delta: 0.12,\n          deltaIsBadWhenUp: true,\n          sparkPoints: [10, 12, 11, 15],\n          sparkLabel: \"Daily spend\",\n        },\n        { id: \"people\", label: \"People\", ariaLabel: \"42 people\", value: \"42\" },\n      ]}\n    />\n  );\n}",
+    "import": "import { WorkspaceLayout } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "MetricStrip",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Up to six metrics in a wrapping strip, with trends and one sparkline.",
+    "aliases": [
+      "metricstrip"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability.",
+    "example": "import { MetricStrip } from \"@klein-ui/charts\";\n\n\n\nexport function MetricStripExample() {\n  return (\n    <MetricStrip\n      tiles={[\n        {\n          id: \"cost\",\n          label: \"Spend\",\n          ariaLabel: \"Spend £24,000, up 12 percent\",\n          value: \"£24,000\",\n          delta: 0.12,\n          deltaIsBadWhenUp: true,\n          sparkPoints: [10, 12, 11, 15],\n          sparkLabel: \"Daily spend\",\n        },\n        { id: \"people\", label: \"People\", ariaLabel: \"42 people\", value: \"42\" },\n      ]}\n    />\n  );\n}",
+    "import": "import { MetricStrip } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "MetricGrid",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Up to four metrics in a responsive grid.",
+    "aliases": [
+      "metricgrid"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability.",
+    "example": "import { MetricGrid } from \"@klein-ui/charts\";\n\n\n\nexport function MetricGridExample() {\n  return (\n    <MetricGrid\n      tiles={[\n        {\n          id: \"cost\",\n          label: \"Spend\",\n          ariaLabel: \"Spend £24,000\",\n          value: \"£24,000\",\n        },\n        { id: \"people\", label: \"People\", ariaLabel: \"42 people\", value: \"42\" },\n        {\n          id: \"coverage\",\n          label: \"Coverage\",\n          ariaLabel: \"Coverage 92 percent\",\n          value: \"92%\",\n          delta: 0.04,\n        },\n      ]}\n    />\n  );\n}",
+    "import": "import { MetricGrid } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "AnalyticsChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "The complete analytics renderer: thirteen chart types, partial periods, targets and split scale.",
+    "aliases": [
+      "analyticschart"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability.",
+    "example": "import { AnalyticsChart } from \"@klein-ui/charts\";\n\n\n\nconst analyticsSeries = [\n  {\n    key: \"engineering\",\n    label: \"Engineering\",\n    color: null,\n    dataPoints: [\n      { period: \"2026-01\", value: 42 },\n      { period: \"2026-02\", value: 55 },\n      { period: \"2026-03\", value: 48 },\n    ],\n  },\n  {\n    key: \"design\",\n    label: \"Design\",\n    color: null,\n    dataPoints: [\n      { period: \"2026-01\", value: 14 },\n      { period: \"2026-02\", value: 18 },\n      { period: \"2026-03\", value: 20 },\n    ],\n  },\n];\n\nexport function AnalyticsChartExample() {\n  return (\n    <div className=\"docs-chart-frame\">\n      <AnalyticsChart\n        chartType=\"stackedBar\"\n        series={analyticsSeries}\n        currencyCode=\"GBP\"\n        metric=\"COST\"\n        partialFrom=\"2026-03\"\n        referenceLine={{ label: \"Budget\", value: 70 }}\n      />\n    </div>\n  );\n}",
+    "import": "import { AnalyticsChart } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "DashboardChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Aligned chart and bounded legend with a controlled stack-by selector.",
+    "aliases": [
+      "dashboardchart"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability.",
+    "example": "import { useState } from \"react\";\n\nimport { DashboardChart } from \"@klein-ui/charts\";\n\n\n\nconst analyticsSeries = [\n  {\n    key: \"engineering\",\n    label: \"Engineering\",\n    color: null,\n    dataPoints: [\n      { period: \"2026-01\", value: 42 },\n      { period: \"2026-02\", value: 55 },\n      { period: \"2026-03\", value: 48 },\n    ],\n  },\n  {\n    key: \"design\",\n    label: \"Design\",\n    color: null,\n    dataPoints: [\n      { period: \"2026-01\", value: 14 },\n      { period: \"2026-02\", value: 18 },\n      { period: \"2026-03\", value: 20 },\n    ],\n  },\n];\n\nexport function DashboardChartExample() {\n  const [stackBy, setStackBy] = useState(\"team\");\n  return (\n    <div className=\"docs-chart-frame\">\n      <DashboardChart\n        chartType=\"stackedBar\"\n        series={analyticsSeries}\n        currencyCode=\"GBP\"\n        metric=\"COST\"\n        labels={{\n          other: \"Other\",\n          otherCount: (n) => `${n} others`,\n          otherGrouped: \"Grouped series\",\n          stackBy: \"Stack by\",\n          partial: \"Not final yet\",\n        }}\n        formatValue={(n) => `£${n}`}\n        stackOptions={[\n          { value: \"team\", label: \"Team\" },\n          { value: \"function\", label: \"Function\" },\n        ]}\n        stackBy={stackBy}\n        onStackByChange={setStackBy}\n        partialFrom=\"2026-03\"\n      />\n    </div>\n  );\n}",
+    "import": "import { DashboardChart } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "TableCollection",
+    "package": "@klein-ui/table",
+    "layer": "Organisms",
+    "purpose": "Complete table collection (formerly DataView): state provider, toolbar, filters, sorts, properties, grouping, rows and pagination.",
+    "aliases": [
+      "tablecollection",
+      "DataView"
+    ],
+    "status": "experimental",
+    "usage": "Choose this canonical composition. Supply display-ready values and application callbacks; use the executable recipe below.",
+    "behavior": "Presentation state stays in the component. Queries, persistence, routing and business calculations stay in application adapters.",
+    "avoid": "Do not recreate this composition in a page or introduce style/className overrides. Extend the canonical component when its contract is missing a capability.",
+    "example": "import { Select } from \"@klein-ui/react\";\n\nimport { useState } from \"react\";\n\nimport { TableCollection, useView } from \"@klein-ui/table\";\n\nimport { Users } from \"lucide-react\";\n\nimport type { TableState } from \"@klein-ui/table/view-types\";\n\n\n\nfunction ExampleSavedViews() {\n  const { applySavedView } = useView();\n  const [value, setValue] = useState(\"all\");\n  return (\n    <Select\n      label=\"Saved view\"\n      value={value}\n      onValueChange={(next) => {\n        setValue(next);\n        applySavedView({\n          filters: next === \"platform\" ? { team: [\"Platform\"] } : {},\n        });\n      }}\n      options={[\n        { value: \"all\", label: \"All people\" },\n        { value: \"platform\", label: \"Platform team\" },\n      ]}\n    />\n  );\n}\n\nexport function TableCollectionExample() {\n  const [state, setState] = useState<TableState>();\n  const rows = [\n    { id: \"alex\", name: \"Alex\", team: \"Platform\" },\n    { id: \"sam\", name: \"Sam\", team: \"Design\" },\n    { id: \"jo\", name: \"Jo\", team: \"Platform\" },\n  ];\n  // This fixture adapter stands in for a server query. The organism receives rows ready to display.\n  const selected = state?.filters.team ?? [];\n  const items = rows\n    .filter((row) => !selected.length || selected.includes(row.team))\n    .sort(\n      (a, b) =>\n        (state?.sortDir === \"desc\" ? -1 : 1) * a.name.localeCompare(b.name),\n    );\n  return (\n    <TableCollection\n      savedViews={<ExampleSavedViews />}\n      config={{\n        viewId: \"people-example\",\n        items,\n        loading: false,\n        totalCount: items.length,\n        rowKey: (r) => r.id,\n        avatar: () => null,\n        title: (r) => r.name,\n        titleColumnLabel: \"Name\",\n        columns: [\n          {\n            id: \"team\",\n            label: \"Team\",\n            priority: 1,\n            defaultVisible: true,\n            render: (r) => r.team,\n          },\n        ],\n        sortOptions: [{ value: \"name\", label: \"Name\" }],\n        defaultSortBy: \"name\",\n        groupOptions: [\n          { value: \"none\", label: \"None\" },\n          { value: \"team\", label: \"Team\" },\n        ],\n        defaultGroupBy: \"none\",\n        groupNoneValue: \"none\",\n        groupKeyExtractor: (r) => r.team,\n        filterCategories: [\n          {\n            id: \"team\",\n            label: \"Team\",\n            icon: Users,\n            options: [\n              { id: \"Platform\", label: \"Platform\" },\n              { id: \"Design\", label: \"Design\" },\n            ],\n          },\n        ],\n        showFilterChips: true,\n        onStateChange: setState,\n      }}\n    />\n  );\n}",
+    "import": "import { TableCollection } from '@klein-ui/table';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "CapacityBubbleChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare positioned capacity bubbles and their semantic changes.",
+    "aliases": [
+      "capacitybubblechart"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values; use the example as the canonical recipe.",
+    "behavior": "The application calculates values, dates and capacity. The organism owns presentation only.",
+    "avoid": "Do not calculate financial totals or fetch data inside the chart. Do not override vendor options.",
+    "example": "import { CapacityBubbleChart } from \"@klein-ui/charts\";\n\n\n\nexport function CapacityBubbleChartExample() {\n  return (\n    <CapacityBubbleChart\n      scenarioName=\"Team capacity\"\n      width={280}\n      height={200}\n      bubbles={[\n        {\n          skillId: \"one\",\n          skillName: \"Design\",\n          headcount: 4,\n          delta: 1,\n          deltaPercent: 25,\n          radius: 36,\n          x: 80,\n          y: 100,\n          tone: \"good\",\n          deltaLabel: \"+1\",\n        },\n        {\n          skillId: \"two\",\n          skillName: \"Engineering\",\n          headcount: 8,\n          delta: 0,\n          deltaPercent: 0,\n          radius: 50,\n          x: 175,\n          y: 100,\n          tone: \"accent\",\n          deltaLabel: \"0\",\n        },\n      ]}\n    />\n  );\n}",
+    "import": "import { CapacityBubbleChart } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ForecastActualChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare cumulative forecast and actual values with a current-period marker.",
+    "aliases": [
+      "forecastactualchart"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values; use the example as the canonical recipe.",
+    "behavior": "The application calculates values, dates and capacity. The organism owns presentation only.",
+    "avoid": "Do not calculate financial totals or fetch data inside the chart. Do not override vendor options.",
+    "example": "import { ForecastActualChart } from \"@klein-ui/charts\";\n\n\n\nexport function ForecastActualChartExample() {\n  return (\n    <ForecastActualChart\n      series={[\n        { month: \"Jan\", forecast: 100, actual: 90 },\n        { month: \"Feb\", forecast: 200, actual: 180 },\n        { month: \"Mar\", forecast: 300, actual: null },\n      ]}\n      mode=\"cost\"\n      todayIndex={1}\n      labels={{ forecast: \"Forecast\", actual: \"Actual\" }}\n      formatValue={(value) => `£${value}`}\n    />\n  );\n}",
+    "import": "import { ForecastActualChart } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "AllocationTimeline",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Inspect scheduled allocation tasks at week, month, quarter or year scale.",
+    "aliases": [
+      "allocationtimeline"
+    ],
+    "status": "experimental",
+    "usage": "Supply display-ready values; use the example as the canonical recipe.",
+    "behavior": "The application calculates values, dates and capacity. The organism owns presentation only.",
+    "avoid": "Do not calculate financial totals or fetch data inside the chart. Do not override vendor options.",
+    "example": "import { AllocationTimeline } from \"@klein-ui/charts\";\n\n\n\nexport function AllocationTimelineExample() {\n  return (\n    <AllocationTimeline\n      tasks={[\n        {\n          id: 1,\n          text: \"Launch\",\n          start: new Date(\"2026-01-01T00:00:00Z\"),\n          end: new Date(\"2026-03-01T00:00:00Z\"),\n          progress: 0.5,\n          type: \"task\",\n          allocation: \"2.0/3.0\",\n          color: \"#002FA7\",\n          projectId: \"launch\",\n        },\n      ]}\n    />\n  );\n}",
+    "import": "import { AllocationTimeline } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ProfilePageLayout",
+    "package": "@klein-ui/react",
+    "layer": "Templates",
+    "purpose": "Identity, standing summary, metrics and tabbed content in one scrollable page.",
+    "aliases": [
+      "profilepagelayout"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library.",
+    "example": "import { useState } from \"react\";\n\nimport { Field, Tabs } from \"@klein-ui/react\";\n\nimport { MetricGrid } from \"@klein-ui/charts\";\n\nimport { ProfilePageLayout, IdentityStrip, StandingSummary } from \"@klein-ui/react\";\n\n\n\nexport function TabsExample() {\n  const [value, setValue] = useState(\"details\");\n  return (\n    <Tabs\n      label=\"Budget details\"\n      value={value}\n      onValueChange={setValue}\n      items={[\n        {\n          id: \"details\",\n          label: \"Details\",\n          content: <Field label=\"Budget name\" defaultValue=\"Platform\" />,\n        },\n        {\n          id: \"history\",\n          label: \"History\",\n          content: <p>Updated 24 September 2026</p>,\n        },\n        { id: \"locked\", label: \"Approvals\", content: null, disabled: true },\n      ]}\n    />\n  );\n}\n\nexport function MetricGridExample() {\n  return (\n    <MetricGrid\n      tiles={[\n        {\n          id: \"cost\",\n          label: \"Spend\",\n          ariaLabel: \"Spend £24,000\",\n          value: \"£24,000\",\n        },\n        { id: \"people\", label: \"People\", ariaLabel: \"42 people\", value: \"42\" },\n        {\n          id: \"coverage\",\n          label: \"Coverage\",\n          ariaLabel: \"Coverage 92 percent\",\n          value: \"92%\",\n          delta: 0.04,\n        },\n      ]}\n    />\n  );\n}\n\nexport function IdentityStripExample() {\n  return (\n    <IdentityStrip\n      name=\"Platform\"\n      secondary=\"Engineering\"\n      status={{ label: \"Active\", tone: \"good\" }}\n    />\n  );\n}\n\nexport function StandingSummaryExample() {\n  return (\n    <StandingSummary\n      label=\"Budget standing\"\n      value=\"Review required\"\n      tone=\"warn\"\n      description=\"Forecast spend exceeds the agreed limit.\"\n      nudge={{ label: \"Review forecast\", href: \"#forecast\" }}\n    />\n  );\n}\n\nexport function ProfilePageLayoutExample() {\n  return (\n    <ProfilePageLayout\n      header={<IdentityStripExample />}\n      summary={<StandingSummaryExample />}\n      metrics={<MetricGridExample />}\n    >\n      <TabsExample />\n    </ProfilePageLayout>\n  );\n}",
+    "import": "import { ProfilePageLayout } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "IdentityStrip",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Keep the current subject and its status visible in a compact orientation row.",
+    "aliases": [
+      "identitystrip"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library.",
+    "example": "import { IdentityStrip } from \"@klein-ui/react\";\n\n\n\nexport function IdentityStripExample() {\n  return (\n    <IdentityStrip\n      name=\"Platform\"\n      secondary=\"Engineering\"\n      status={{ label: \"Active\", tone: \"good\" }}\n    />\n  );\n}",
+    "import": "import { IdentityStrip } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "StandingSummary",
+    "package": "@klein-ui/react",
+    "layer": "Organisms",
+    "purpose": "Summarize standing, supporting context and the next action.",
+    "aliases": [
+      "standingsummary"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library.",
+    "example": "import { StandingSummary } from \"@klein-ui/react\";\n\n\n\nexport function StandingSummaryExample() {\n  return (\n    <StandingSummary\n      label=\"Budget standing\"\n      value=\"Review required\"\n      tone=\"warn\"\n      description=\"Forecast spend exceeds the agreed limit.\"\n      nudge={{ label: \"Review forecast\", href: \"#forecast\" }}\n    />\n  );\n}",
+    "import": "import { StandingSummary } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "SectionDivider",
+    "package": "@klein-ui/react",
+    "layer": "Molecules",
+    "purpose": "Separate sections with a labelled hairline and optional metadata.",
+    "aliases": [
+      "sectiondivider"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library.",
+    "example": "import { SectionDivider } from \"@klein-ui/react\";\n\n\n\nexport function SectionDividerExample() {\n  return <SectionDivider label=\"Spend\" meta=\"30 days\" />;\n}",
+    "import": "import { SectionDivider } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ProgressRing",
+    "package": "@klein-ui/react",
+    "layer": "Atoms",
+    "purpose": "Show measured completion with an accessible progress value.",
+    "aliases": [
+      "progressring"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library.",
+    "example": "import { ProgressRing } from \"@klein-ui/react\";\n\n\n\nexport function ProgressRingExample() {\n  return <ProgressRing label=\"Delivery progress\" value={65} />;\n}",
+    "import": "import { ProgressRing } from '@klein-ui/react';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "ForecastMatrix",
+    "package": "@klein-ui/forecast",
+    "layer": "Organisms",
+    "purpose": "Full controlled forecast matrix with hierarchical rows, lazy child states, pinned totals and edit intents.",
+    "aliases": [
+      "forecastmatrix"
+    ],
+    "status": "experimental",
+    "usage": "Use the canonical composition with display-ready values and application callbacks.",
+    "behavior": "The library owns presentation and interaction. Queries, calculations, permissions and persistence belong to the data adapter.",
+    "avoid": "Do not duplicate this pattern or introduce style overrides. Extend its contract in the library.",
+    "example": "import { useState } from \"react\";\n\nimport { ForecastMatrix, type ForecastMatrixRow } from \"@klein-ui/forecast\";\n\n\n\nexport function ForecastMatrixExample() {\n  const [expanded, setExpanded] = useState<Set<string>>(new Set());\n  const [edited, setEdited] = useState(\"\");\n  const rows: ForecastMatrixRow[] = [\n    {\n      id: \"engineering\",\n      label: \"Engineering\",\n      count: 2,\n      hasChildren: true,\n      cells: {\n        jan: { primary: \"2.0 FTE\", secondary: \"£20,000\" },\n        feb: { primary: \"2.5 FTE\", secondary: \"£25,000\", tone: \"watch\" },\n      },\n      total: \"£45,000\",\n      children: [\n        {\n          id: \"alex\",\n          label: \"Alex\",\n          cells: {\n            jan: { primary: \"1.0 FTE\", secondary: \"£10,000\", editable: true },\n            feb: { primary: \"1.0 FTE\", secondary: \"£10,000\", editable: true },\n          },\n          total: \"£20,000\",\n        },\n      ],\n    },\n  ];\n  return (\n    <>\n      <ForecastMatrix\n        label=\"Workforce forecast\"\n        rowHeading=\"Team / person\"\n        periods={[\n          { id: \"jan\", label: \"January\" },\n          { id: \"feb\", label: \"February\" },\n        ]}\n        rows={rows}\n        expandedIds={expanded}\n        onExpandedChange={(id, value) =>\n          setExpanded((previous) => {\n            const next = new Set(previous);\n            if (value) next.add(id);\n            else next.delete(id);\n            return next;\n          })\n        }\n        onCellEdit={(row, period) => setEdited(`${row}: ${period}`)}\n      />\n      <p role=\"status\">\n        {edited\n          ? `Edit requested for ${edited}`\n          : \"Expand Engineering to edit an allocation.\"}\n      </p>\n    </>\n  );\n}",
+    "import": "import { ForecastMatrix } from '@klein-ui/forecast';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "RadarComparison",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare precomputed axis coverage and balance scores.",
+    "aliases": [
+      "radarcomparison"
+    ],
+    "status": "experimental",
+    "usage": "Supply ready-to-render data; follow the typed example.",
+    "behavior": "The component renders supplied values and drawing geometry. Calculations and queries stay in the application.",
+    "avoid": "Do not copy chart options into the application or calculate business values in the renderer.",
+    "example": "import { RadarComparison } from \"@klein-ui/charts\";\n\n\n\nexport function RadarComparisonExample() {\n  return (\n    <RadarComparison\n      labels={{ coverage: \"Coverage\", balance: \"Balance\" }}\n      series={[\n        {\n          id: \"current\",\n          label: \"Current\",\n          axes: [\n            { id: \"design\", label: \"Design\", value: 80 },\n            { id: \"engineering\", label: \"Engineering\", value: 60 },\n            { id: \"delivery\", label: \"Delivery\", value: 90 },\n          ],\n          coverageScore: 76.7,\n          balanceScore: 82,\n        },\n      ]}\n    />\n  );\n}",
+    "import": "import { RadarComparison } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "CumulativeChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Show supplied monthly and cumulative values with a current-period marker.",
+    "aliases": [
+      "cumulativechart"
+    ],
+    "status": "experimental",
+    "usage": "Supply ready-to-render data; follow the typed example.",
+    "behavior": "The component renders supplied values and drawing geometry. Calculations and queries stay in the application.",
+    "avoid": "Do not copy chart options into the application or calculate business values in the renderer.",
+    "example": "import { CumulativeChart } from \"@klein-ui/charts\";\n\n\n\nexport function CumulativeChartExample() {\n  return (\n    <CumulativeChart\n      data={[\n        {\n          month: \"January\",\n          monthDate: new Date(\"2026-01-01T00:00:00Z\"),\n          monthlySpend: 100,\n          cumulativeSpend: 100,\n        },\n        {\n          month: \"February\",\n          monthDate: new Date(\"2026-02-01T00:00:00Z\"),\n          monthlySpend: 150,\n          cumulativeSpend: 250,\n        },\n      ]}\n      labels={{\n        title: \"Cumulative spend\",\n        description: \"Values supplied by the application\",\n        empty: \"No data\",\n        cumulative: \"Cumulative\",\n        period: \"Monthly\",\n      }}\n      formatValue={(value) => `£${value}`}\n      currentMonth={new Date(\"2026-02-01T00:00:00Z\")}\n    />\n  );\n}",
+    "import": "import { CumulativeChart } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  },
+  {
+    "name": "DistributionChart",
+    "package": "@klein-ui/charts",
+    "layer": "Organisms",
+    "purpose": "Compare category shares with a total and accessible data table.",
+    "aliases": [
+      "distributionchart"
+    ],
+    "status": "experimental",
+    "usage": "Supply ready-to-render data; follow the typed example.",
+    "behavior": "The component renders supplied values and drawing geometry. Calculations and queries stay in the application.",
+    "avoid": "Do not copy chart options into the application or calculate business values in the renderer.",
+    "example": "import { DistributionChart } from \"@klein-ui/charts\";\n\n\n\nexport function DistributionChartExample() {\n  return (\n    <DistributionChart\n      label=\"Capacity distribution\"\n      total={10}\n      items={[\n        { id: \"engineering\", label: \"Engineering\", count: 7, percentage: 70 },\n        { id: \"design\", label: \"Design\", count: 3, percentage: 30 },\n      ]}\n      emptyLabel=\"No categories\"\n      formatCount={(value) => `${value} people`}\n    />\n  );\n}",
+    "import": "import { DistributionChart } from '@klein-ui/charts';",
+    "version": "0.1.0"
+  }
+]

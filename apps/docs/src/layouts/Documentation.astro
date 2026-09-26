@@ -1,0 +1,17 @@
+---
+import "@fontsource/geist/400.css";
+import "@fontsource/geist/500.css";
+import "@fontsource/geist/600.css";
+import "@fontsource/geist-mono/400.css";
+import "@fontsource/geist-mono/600.css";
+import "@klein-ui/react/styles.css";
+import "../docs.css";
+
+import '@klein-ui/forecast/styles.css';
+import '@klein-ui/table/styles.css';
+import '@klein-ui/eddy/styles.css';
+
+const base=import.meta.env.BASE_URL.replace(/\/$/,'');
+const { title = 'Klein design system' } = Astro.props;
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="description" content="Flowstate's reusable interface components, layouts and implementation contracts."/><title>{title} · Klein</title></head><body><header class="docs-site-nav"><a href={base+"/"}>KLEIN</a><nav aria-label="Documentation"><a href={base+"/"}>Components</a><a href={base+"/foundations/"}>Foundations</a><a href={base+"/reference/"}>API reference</a><a href={base+"/layouts/"}>Layouts</a><a href={base+"/tables/"}>Tables</a><a href={base+"/charts/"}>Charts</a><a href={base+"/implementation/"}>Implementation</a><a href="https://github.com/flowstate-oss/klein-design-system">GitHub</a></nav></header><slot/><footer class="docs-site-footer">Copyright © 2026 Flowstate · MIT</footer></body></html>

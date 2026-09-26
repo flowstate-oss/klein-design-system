@@ -1,0 +1,1302 @@
+{
+  "sourceRevision": "09886eaf4",
+  "status": "local extraction; unpublished",
+  "naming": "Table; persisted dataview keys and IDs retained",
+  "modules": [
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/forecast/_components/BudgetVarianceBadge.tsx",
+      "destinations": [
+        "@klein-ui/forecast"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/forecast/_components/CategoryHeaderRow.tsx",
+      "destinations": [
+        "@klein-ui/forecast"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/forecast/_components/ChildResourceRow.tsx",
+      "destinations": [
+        "@klein-ui/forecast"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/forecast/_components/CostForecastTable.tsx",
+      "destinations": [
+        "@klein-ui/forecast"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/forecast/_components/ExpandableRow.tsx",
+      "destinations": [
+        "@klein-ui/forecast"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/forecast/_components/FteEditPopover.tsx",
+      "destinations": [
+        "@klein-ui/forecast/editor"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/finance/forecast/_components/forecast-tone.ts",
+      "destinations": [
+        "@klein-ui/forecast"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/reports/_components/charts/ChartRenderer.tsx",
+      "destinations": [
+        "@klein-ui/charts/ChartRenderer",
+        "@klein-ui/charts/compat"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/reports/_components/charts/SplitScaleStackedBar.tsx",
+      "destinations": [
+        "@klein-ui/charts/SplitScaleStackedBar",
+        "@klein-ui/charts/compat"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/reports/_components/charts/partial-periods.ts",
+      "destinations": [
+        "@klein-ui/charts/partial-periods"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/reports/_components/charts/spike-highlight.ts",
+      "destinations": [
+        "@klein-ui/charts/spike-highlight"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/app/(authenticated)/plan/[planId]/insights/analytics/reports/_components/charts/split-scale.ts",
+      "destinations": [
+        "@klein-ui/charts/split-scale"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-subject-detail/SubjectDetailShell.tsx",
+      "destinations": [
+        "@klein-ui/react/patterns/ProfilePageFrame"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-subject-detail/SubjectIdentityStrip.tsx",
+      "destinations": [
+        "@klein-ui/react/patterns/IdentityStrip"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-subject-detail/SubjectKpiStrip.tsx",
+      "destinations": [
+        "@klein-ui/charts/MetricGrid"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-subject-detail/SubjectStandingCard.tsx",
+      "destinations": [
+        "@klein-ui/react/patterns/StandingSummary",
+        "@klein-ui/react/patterns/routing"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/ai-terminal/AiKpiRow.tsx",
+      "destinations": [
+        "@klein-ui/charts/MetricStrip"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-terminal/AiPageHeader.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/ai-page-header"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-terminal/AiPageShell.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/ai-page-shell"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-terminal/AiSectionDivider.tsx",
+      "destinations": [
+        "@klein-ui/react/patterns/SectionDivider"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-terminal/AiSparkline.tsx",
+      "destinations": [
+        "@klein-ui/charts/Sparkline"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ai-terminal/AiTabBar.tsx",
+      "destinations": [
+        "@klein-ui/react/patterns/SectionNavigation",
+        "@klein-ui/react/patterns/routing"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/assistant/AssistantHost.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/assistant/AssistantPanel.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/assistant/ChartPreview.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/assistant/ChatConversation.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/assistant/ChatInput.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/assistant/ChatList.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/assistant/ChatMessage.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/capitalisation/TimeAllocationReviewTable.tsx",
+      "destinations": [
+        "@klein-ui/table/GridEngine"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/comparison/SkillBubbleChart.tsx",
+      "destinations": [
+        "@klein-ui/charts/BubbleChart"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/dashboard/BurnUpChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/dashboard/TeamSkillDonutChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/data-row/DataRowContainer.tsx",
+      "destinations": [
+        "@klein-ui/table/DataRowContainer"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/data-row/RowActions.tsx",
+      "destinations": [
+        "@klein-ui/table/RowActions"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/entity-details/EntityDetailLayout.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/entity-detail-layout"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/entity-details/initiative-summary/InitiativeBurndownChart.tsx",
+      "destinations": [
+        "@klein-ui/charts/BurndownChart"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/insights/DashboardBand.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/dashboard-band"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/insights/DashboardChart.tsx",
+      "destinations": [
+        "@klein-ui/charts",
+        "@klein-ui/charts/DashboardChart"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/layout/SectionBar.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/section-bar"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/layout/StableWidthLayout.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/stable-width-layout"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/navigation/primary-nav/shell-parts.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/shell"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/projects/ProjectGanttChart.tsx",
+      "destinations": [
+        "@klein-ui/charts/GanttChart"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/rd-tax/AdditionalCostsGrid.tsx",
+      "destinations": [
+        "@klein-ui/table/GridEngine"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/scenarios/SkillBalanceRadarChart.tsx",
+      "destinations": [
+        "@klein-ui/charts"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/shared/CircularProgress.tsx",
+      "destinations": [
+        "@klein-ui/react/patterns/ProgressRing"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/staffing/CapabilityBulkGrid.tsx",
+      "destinations": [
+        "@klein-ui/table/GridEngine"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/table/KanbanView.tsx",
+      "destinations": [
+        "@klein-ui/table/KanbanView"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/table/Table.tsx",
+      "destinations": [
+        "@klein-ui/table/TableCollection"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/table/TableBody.tsx",
+      "destinations": [
+        "@klein-ui/table/TableBody",
+        "@klein-ui/table/labels",
+        "@klein-ui/table/runtime"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/table/TableTable.tsx",
+      "destinations": [
+        "@klein-ui/table"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/table/cells/BasisMarker.tsx",
+      "destinations": [
+        "@klein-ui/table/BasisMarker"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/table/cells/BudgetBar.tsx",
+      "destinations": [
+        "@klein-ui/table/BudgetBar"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/table/dnd-types.ts",
+      "destinations": [
+        "@klein-ui/table/dnd-types"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/table/row-selection.ts",
+      "destinations": [
+        "@klein-ui/table/row-selection"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/table/table-sizing.ts",
+      "destinations": [
+        "@klein-ui/table/table-sizing"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/table/table-types.ts",
+      "destinations": [
+        "@klein-ui/table/table-types"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/table/types.ts",
+      "destinations": [
+        "@klein-ui/table/view-types"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/table/useTableTable.tsx",
+      "destinations": [
+        "@klein-ui/table/useTableTable"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/time-reports/TimeAllocationGrid.tsx",
+      "destinations": [
+        "@klein-ui/table/GridEngine"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/ui/accordion.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/accordion"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/alert-dialog.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/alert-dialog"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/alert.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/alert"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/animated-number.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/animated-number"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/aspect-ratio.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/aspect-ratio"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/avatar-group.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/avatar-group"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/avatar.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/avatar"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/badge.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/badge"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/breadcrumb.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/breadcrumb"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/button-group.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/button-group"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/button.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/button"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/calendar.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/calendar"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/card.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/card"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/carousel.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/carousel"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/chart-base.tsx",
+      "destinations": [
+        "@klein-ui/charts/compat"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/ui/checkbox.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/checkbox"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/collapsible.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/collapsible"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/color-swatch.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/color-swatch"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/command.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/command"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/compact-control-bar.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/compact-control-bar"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/context-menu.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/context-menu"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/currency-input-group.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/currency-input-group"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/data-table.tsx",
+      "destinations": [
+        "@klein-ui/table/Grid"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/dialog.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/dialog"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/drawer.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/drawer"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/dropdown-menu"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/eddy-icon.tsx",
+      "destinations": [
+        "@klein-ui/eddy"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/empty-state.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/empty-state"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/empty.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/empty"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/field.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/field"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/floating-tabs.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/floating-tabs"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/form.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/form"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/gantt.tsx",
+      "destinations": [
+        "@klein-ui/charts/Timeline"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/hover-card.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/hover-card"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/icon.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/icon"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/input-group.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/input-group"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/input-otp.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/input-otp"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/input.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/input"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/item.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/item"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/kbd.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/kbd"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/label.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/label"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/layered-card.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/layered-card"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/menubar.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/menubar"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/navigation-menu.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/navigation-menu"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/pagination.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/pagination"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/placeholder-pattern.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/placeholder-pattern"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/popover.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/popover"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/priority-indicator.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/priority-indicator"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/progress.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/progress"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/property-pill.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/property-pill"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/pulsing-dot.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/pulsing-dot"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/pulsing-indicator.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/pulsing-indicator"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/radio-group.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/radio-group"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/resizable.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/resizable"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/scroll-area.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/scroll-area"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/scrollable-tabs.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/scrollable-tabs"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/search-input.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/search-input"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/select.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/select"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/separator.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/separator"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/sheet.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/sheet"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/skeleton-patterns.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/skeleton-patterns"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/skeleton.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/skeleton"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/slider.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/slider"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/sonner.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/sonner"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/spinner.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/spinner"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/star-rating.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/star-rating"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/stat-card.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/stat-card"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/switch.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/switch"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/table.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/table"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/tabs.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/tabs"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/textarea.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/textarea"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/time-period-tabs.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/time-period-tabs"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/timeline.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/timeline"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/toggle-group.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/toggle-group"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/toggle.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/toggle"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/tooltip.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/tooltip"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/user-avatar.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/user-avatar"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/ui/view-toggle.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/view-toggle"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/view/ViewContext.tsx",
+      "destinations": [
+        "@klein-ui/table/ViewContext"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view/ViewControlPanel.tsx",
+      "destinations": [
+        "@klein-ui/table/TableToolbar",
+        "@klein-ui/table/labels"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view/ViewLayout.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/view-layout"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/view/ViewSection.tsx",
+      "destinations": [
+        "@klein-ui/react/compat/view-section"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/view/shared-filters.tsx",
+      "destinations": [
+        "@klein-ui/table/shared-filters"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view/view-state.ts",
+      "destinations": [
+        "@klein-ui/table/view-state"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view-controls/ActiveFilterChips.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/ActiveFilterChips",
+        "@klein-ui/table/labels"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view-controls/DisplayControl.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/DisplayControl"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/view-controls/FilterCombobox.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/FilterCombobox",
+        "@klein-ui/table/labels"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view-controls/FilterOptionRow.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/FilterOptionRow"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/view-controls/GroupingControl.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/GroupingControl"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/view-controls/PaginationControls.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/PaginationControls"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/view-controls/PropertyPicker.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/PropertyPicker",
+        "@klein-ui/table/labels"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view-controls/ServerSearchFilter.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/ServerSearchFilter",
+        "@klein-ui/table/labels"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view-controls/SortControl.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/SortControl"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view-controls/SplitAddButton.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/SplitAddButton",
+        "@klein-ui/table/labels"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view-controls/SplitSortButton.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/SplitSortButton",
+        "@klein-ui/table/labels"
+      ],
+      "disposition": "application-adapter",
+      "ownership": "Klein supplies presentation; application retains domain data, formatting, permissions, routing and composition."
+    },
+    {
+      "source": "src/components/view-controls/ToolbarSelect.tsx",
+      "destinations": [
+        "@klein-ui/table/controls/ToolbarSelect"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/components/view-controls/toolbar-button-styles.ts",
+      "destinations": [
+        "@klein-ui/table/controls/toolbar-button-styles"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/lib/chart-config.ts",
+      "destinations": [
+        "@klein-ui/charts/chart-config"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    },
+    {
+      "source": "src/lib/chart-palette.ts",
+      "destinations": [
+        "@klein-ui/charts/chart-palette"
+      ],
+      "disposition": "re-export",
+      "ownership": "Rendering in Klein; existing import retained."
+    }
+  ],
+  "retainedApplicationBoundaries": [
+    "queries and GraphQL/generated types",
+    "server pagination and saved-view preferences",
+    "financial calculations and resource hierarchy",
+    "scenario comparisons and allocation calculations",
+    "Eddy transport, subscriptions and report creation",
+    "navigation destinations and viewer entitlements",
+    "domain-specific page composition and rich-text editing integrations"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "name": "@klein-ui/charts",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./compat": {
+      "types": "./dist/compat.d.ts",
+      "import": "./dist/compat.js"
+    },
+    "./ChartRenderer": {
+      "types": "./dist/ChartRenderer.d.ts",
+      "import": "./dist/ChartRenderer.js"
+    },
+    "./SplitScaleStackedBar": {
+      "types": "./dist/SplitScaleStackedBar.d.ts",
+      "import": "./dist/SplitScaleStackedBar.js"
+    },
+    "./split-scale": {
+      "types": "./dist/split-scale.d.ts",
+      "import": "./dist/split-scale.js"
+    },
+    "./partial-periods": {
+      "types": "./dist/partial-periods.d.ts",
+      "import": "./dist/partial-periods.js"
+    },
+    "./spike-highlight": {
+      "types": "./dist/spike-highlight.d.ts",
+      "import": "./dist/spike-highlight.js"
+    },
+    "./chart-config": {
+      "types": "./dist/chart-config.d.ts",
+      "import": "./dist/chart-config.js"
+    },
+    "./chart-palette": {
+      "types": "./dist/chart-palette.d.ts",
+      "import": "./dist/chart-palette.js"
+    },
+    "./DashboardChart": {
+      "types": "./dist/DashboardChart.d.ts",
+      "import": "./dist/DashboardChart.js"
+    },
+    "./BubbleChart": {
+      "types": "./dist/BubbleChart.d.ts",
+      "import": "./dist/BubbleChart.js"
+    },
+    "./GanttChart": {
+      "types": "./dist/GanttChart.d.ts",
+      "import": "./dist/GanttChart.js"
+    },
+    "./BurndownChart": {
+      "types": "./dist/BurndownChart.d.ts",
+      "import": "./dist/BurndownChart.js"
+    },
+    "./chart-base": {
+      "types": "./dist/chart-base.d.ts",
+      "import": "./dist/chart-base.js"
+    },
+    "./Timeline": {
+      "types": "./dist/Timeline.d.ts",
+      "import": "./dist/Timeline.js"
+    },
+    "./Sparkline": {
+      "types": "./dist/Sparkline.d.ts",
+      "import": "./dist/Sparkline.js"
+    },
+    "./MetricStrip": {
+      "types": "./dist/MetricStrip.d.ts",
+      "import": "./dist/MetricStrip.js"
+    },
+    "./MetricGrid": {
+      "types": "./dist/MetricGrid.d.ts",
+      "import": "./dist/MetricGrid.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js"
+    }
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@klein-ui/react": "0.1.0",
+    "@klein-ui/tokens": "0.1.0",
+    "chart.js": "^4.5.1",
+    "react-chartjs-2": "^5.3.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "date-fns": "^4.4.0",
+    "@uidotdev/usehooks": "^2.4.1",
+    "@svar-ui/react-gantt": "^2.7.1",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/modifiers": "^9.0.0",
+    "jotai": "^2.20.2",
+    "lodash.throttle": "^4.1.1",
+    "lucide-react": "^0.475.0"
+  },
+  "license": "MIT",
+  "author": "Flowstate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowstate-oss/klein-design-system.git",
+    "directory": "packages/charts"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "name": "@klein-ui/table",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "LICENSE",
+    "styles.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./table-sizing": {
+      "types": "./dist/table-sizing.d.ts",
+      "import": "./dist/table-sizing.js"
+    },
+    "./table-types": {
+      "types": "./dist/table-types.d.ts",
+      "import": "./dist/table-types.js"
+    },
+    "./dnd-types": {
+      "types": "./dist/dnd-types.d.ts",
+      "import": "./dist/dnd-types.js"
+    },
+    "./row-selection": {
+      "types": "./dist/row-selection.d.ts",
+      "import": "./dist/row-selection.js"
+    },
+    "./Grid": {
+      "types": "./dist/Grid.d.ts",
+      "import": "./dist/Grid.js"
+    },
+    "./BudgetBar": {
+      "types": "./dist/BudgetBar.d.ts",
+      "import": "./dist/BudgetBar.js"
+    },
+    "./BasisMarker": {
+      "types": "./dist/BasisMarker.d.ts",
+      "import": "./dist/BasisMarker.js"
+    },
+    "./controls/*": {
+      "types": "./dist/controls/*.d.ts",
+      "import": "./dist/controls/*.js"
+    },
+    "./GridEngine": {
+      "types": "./dist/GridEngine.d.ts",
+      "import": "./dist/GridEngine.js"
+    },
+    "./view-state": {
+      "types": "./dist/view-state.d.ts",
+      "import": "./dist/view-state.js"
+    },
+    "./view-types": {
+      "types": "./dist/view-types.d.ts",
+      "import": "./dist/view-types.js"
+    },
+    "./shared-filters": {
+      "types": "./dist/shared-filters.d.ts",
+      "import": "./dist/shared-filters.js"
+    },
+    "./ViewContext": {
+      "types": "./dist/ViewContext.d.ts",
+      "import": "./dist/ViewContext.js"
+    },
+    "./TableToolbar": {
+      "types": "./dist/TableToolbar.d.ts",
+      "import": "./dist/TableToolbar.js"
+    },
+    "./labels": {
+      "types": "./dist/labels.d.ts",
+      "import": "./dist/labels.js"
+    },
+    "./TableBody": {
+      "types": "./dist/TableBody.d.ts",
+      "import": "./dist/TableBody.js"
+    },
+    "./useTableTable": {
+      "types": "./dist/useTableTable.d.ts",
+      "import": "./dist/useTableTable.js"
+    },
+    "./KanbanView": {
+      "types": "./dist/KanbanView.d.ts",
+      "import": "./dist/KanbanView.js"
+    },
+    "./TimelineView": {
+      "types": "./dist/TimelineView.d.ts",
+      "import": "./dist/TimelineView.js"
+    },
+    "./TableBulkActionBar": {
+      "types": "./dist/TableBulkActionBar.d.ts",
+      "import": "./dist/TableBulkActionBar.js"
+    },
+    "./DataRowContainer": {
+      "types": "./dist/DataRowContainer.d.ts",
+      "import": "./dist/DataRowContainer.js"
+    },
+    "./RowActions": {
+      "types": "./dist/RowActions.d.ts",
+      "import": "./dist/RowActions.js"
+    },
+    "./ChangeStatusIndicator": {
+      "types": "./dist/ChangeStatusIndicator.d.ts",
+      "import": "./dist/ChangeStatusIndicator.js"
+    },
+    "./row-navigation": {
+      "types": "./dist/row-navigation.d.ts",
+      "import": "./dist/row-navigation.js"
+    },
+    "./runtime": {
+      "types": "./dist/runtime.d.ts",
+      "import": "./dist/runtime.js"
+    },
+    "./TableCollection": {
+      "types": "./dist/TableCollection.d.ts",
+      "import": "./dist/TableCollection.js"
+    },
+    "./styles.css": "./styles.css"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@klein-ui/react": "0.1.0",
+    "@tanstack/react-table": "^8.21.3",
+    "@dnd-kit/core": "^6.3.1",
+    "@radix-ui/react-compose-refs": "^1.1.2",
+    "lucide-react": "^0.475.0",
+    "ag-grid-react": "^34.3.1",
+    "ag-grid-community": "^34.3.1"
+  },
+  "license": "MIT",
+  "author": "Flowstate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowstate-oss/klein-design-system.git",
+    "directory": "packages/table"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

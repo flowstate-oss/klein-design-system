@@ -1,0 +1,7 @@
+---
+const base=import.meta.env.BASE_URL.replace(/\/$/,'');
+import Documentation from '../layouts/Documentation.astro';
+import catalogue from '../../../../packages/contracts/components.json';
+---
+<Documentation><main class="docs-catalogue"><div class="docs-eyebrow">FLOWSTATE / DESIGN SYSTEM</div><h1>Build from a shared contract.</h1><p class="docs-intro">Reusable primitives, organisms and page layouts. These examples run the same npm packages as your application. Data fetching and business rules stay in your data layer.</p><label for="component-search">Find a component</label><input id="component-search" type="search" placeholder="Try table, header or layout"/><nav class="docs-index" aria-label="Component index">{catalogue.map(item => <a data-component={`${item.name} ${item.purpose} ${item.aliases.join(' ')}`} href={`${base}/components/${item.name}/`}><strong>{item.name}</strong><span>{item.layer} · {item.purpose}</span></a>)}</nav><p id="search-status" role="status"></p></main></Documentation>
+<script>const input=document.querySelector<HTMLInputElement>('#component-search')!;input.addEventListener('input',()=>{let count=0;document.querySelectorAll<HTMLElement>('[data-component]').forEach(item=>{item.hidden=!item.dataset.component!.toLowerCase().includes(input.value.toLowerCase());if(!item.hidden)count++;});document.querySelector('#search-status')!.textContent=`${count} components`;});</script>

@@ -1,0 +1,2111 @@
+[
+  {
+    "name": "react/compat/accordion",
+    "import": "@klein-ui/react/compat/accordion",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/ai-page-header",
+    "import": "@klein-ui/react/compat/ai-page-header",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface AiPageHeaderCrumb {",
+      "export interface AiPageHeaderProps {",
+      "export function AiPageHeader({"
+    ],
+    "declarations": [
+      "export interface AiPageHeaderCrumb {\n  /** Display label (rendered uppercase). */\n  label: string;\n  /** Optional href — turns the crumb into a navigational link. */\n  href?: string;\n}",
+      "export interface AiPageHeaderProps {\n  /**\n   * Breadcrumb chain, rendered from left to right separated by `▸`. The\n   * final crumb is rendered as plain text (current location). Pass at least\n   * one crumb — even single-section pages benefit from the orientation.\n   */\n  crumbs: readonly AiPageHeaderCrumb[];\n  /** Page title — rendered in Geist Sans, 16px, semibold. */\n  title: string;\n  /** Optional one-line description below the title. */\n  description?: string | null;\n  /**\n   * Optional \"as of\" timestamp string. Already formatted by the caller (use\n   * `useFormatters()` to honour the viewer's locale). Rendered right-aligned\n   * in mono uppercase.\n   */\n  asOf?: string | null;\n  /** Optional right-aligned action slot (buttons, range pickers, etc). */\n  actions?: React.ReactNode;\n  /** Extra class names — escape hatch for layout. */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/ai-page-shell",
+    "import": "@klein-ui/react/compat/ai-page-shell",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface AiPageShellProps {",
+      "export function AiPageShell({"
+    ],
+    "declarations": [
+      "export interface AiPageShellProps {\n  /**\n   * Page header (typically an `AiPageHeader`). Optional — sub-tab pages\n   * usually rely on the parent layout's header instead.\n   */\n  header?: React.ReactNode;\n  /**\n   * KPI row (typically an `AiKpiRow`). Optional — pages without numeric\n   * headlines (settings, audit logs) omit this band entirely.\n   */\n  kpis?: React.ReactNode;\n  /**\n   * Optional tab bar (typically an `AiTabBar`). Rendered immediately under\n   * the KPI band and pinned above the body so scroll keeps the tabs in view\n   * naturally.\n   */\n  tabs?: React.ReactNode;\n  /** Main body — pages stack content with `AiSectionDivider` as needed. */\n  children: React.ReactNode;\n  /** Extra class names. */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/alert-dialog",
+    "import": "@klein-ui/react/compat/alert-dialog",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/alert",
+    "import": "@klein-ui/react/compat/alert",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Alert, AlertTitle, AlertDescription };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/animated-number",
+    "import": "@klein-ui/react/compat/animated-number",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function AnimatedNumber({"
+    ],
+    "declarations": [
+      "interface AnimatedNumberProps {\n  /** The target value to animate to */\n  value: number;\n  /** Function to format the number for display (e.g., currency, percentage) */\n  formatter: (n: number) => string;\n  /** Animation duration in milliseconds (default: 800ms) */\n  duration?: number;\n  /** Whether the value is currently being recalculated (shows shimmer) */\n  isCalculating?: boolean;\n  /** Additional CSS classes */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/aspect-ratio",
+    "import": "@klein-ui/react/compat/aspect-ratio",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { AspectRatio };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/avatar-group",
+    "import": "@klein-ui/react/compat/avatar-group",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": [
+      "type Align = \"start\" | \"center\" | \"end\";",
+      "type AvatarContainerProps = React.ComponentProps<\n  typeof TooltipPrimitive.Root\n> & {\n  children: React.ReactNode;\n  align?: Align;\n  invertOverlap?: boolean;\n  disableAnimation?: boolean;\n};",
+      "type AvatarGroupTooltipProps = React.ComponentProps<typeof TooltipContent>;",
+      "type AvatarGroupProps = Omit<React.ComponentProps<\"div\">, \"translate\"> & {\n  children: React.ReactElement[];\n  invertOverlap?: boolean;\n  translate?: number;\n  size?: string | number;\n  border?: string | number;\n  columnSize?: string | number;\n  align?: Align;\n  tooltipProps?: Omit<\n    React.ComponentProps<typeof TooltipPrimitive.Root>,\n    \"children\"\n  >;\n  disableAnimation?: boolean;\n};"
+    ]
+  },
+  {
+    "name": "react/compat/avatar",
+    "import": "@klein-ui/react/compat/avatar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Avatar, AvatarImage, AvatarFallback };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/badge",
+    "import": "@klein-ui/react/compat/badge",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface BadgeProps",
+      "export { Badge, badgeVariants };"
+    ],
+    "declarations": [
+      "export interface BadgeProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof badgeVariants> {}"
+    ]
+  },
+  {
+    "name": "react/compat/breadcrumb",
+    "import": "@klein-ui/react/compat/breadcrumb",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/button-group",
+    "import": "@klein-ui/react/compat/button-group",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/button",
+    "import": "@klein-ui/react/compat/button",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ButtonProps",
+      "export { Button, buttonVariants };"
+    ],
+    "declarations": [
+      "export interface ButtonProps\n  extends\n    React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {\n  asChild?: boolean;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/calendar",
+    "import": "@klein-ui/react/compat/calendar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Calendar, CalendarDayButton };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/card",
+    "import": "@klein-ui/react/compat/card",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/carousel",
+    "import": "@klein-ui/react/compat/carousel",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": [
+      "type CarouselApi = UseEmblaCarouselType[1];",
+      "type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;",
+      "type CarouselOptions = UseCarouselParameters[0];",
+      "type CarouselPlugin = UseCarouselParameters[1];",
+      "type CarouselProps = {\n  opts?: CarouselOptions;\n  plugins?: CarouselPlugin;\n  orientation?: \"horizontal\" | \"vertical\";\n  setApi?: (api: CarouselApi) => void;\n};",
+      "type CarouselContextProps = {\n  carouselRef: ReturnType<typeof useEmblaCarousel>[0];\n  api: ReturnType<typeof useEmblaCarousel>[1];\n  scrollPrev: () => void;\n  scrollNext: () => void;\n  canScrollPrev: boolean;\n  canScrollNext: boolean;\n} & CarouselProps;"
+    ]
+  },
+  {
+    "name": "react/compat/checkbox",
+    "import": "@klein-ui/react/compat/checkbox",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Checkbox };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/collapsible",
+    "import": "@klein-ui/react/compat/collapsible",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Collapsible, CollapsibleTrigger, CollapsibleContent };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/color-swatch",
+    "import": "@klein-ui/react/compat/color-swatch",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const COST_CENTER_COLORS = [",
+      "export type CostCenterColor = (typeof COST_CENTER_COLORS)[number];",
+      "export function ColorSwatch({",
+      "export function ColorSwatchGroup({"
+    ],
+    "declarations": [
+      "export type CostCenterColor = (typeof COST_CENTER_COLORS)[number];",
+      "interface ColorSwatchProps {\n  color: string;\n  selected?: boolean;\n  onClick?: () => void;\n  size?: \"sm\" | \"md\";\n}",
+      "interface ColorSwatchGroupProps {\n  value: string;\n  onChange: (color: string) => void;\n  colors?: readonly string[];\n  size?: \"sm\" | \"md\";\n}"
+    ]
+  },
+  {
+    "name": "react/compat/command",
+    "import": "@klein-ui/react/compat/command",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/compact-control-bar",
+    "import": "@klein-ui/react/compat/compact-control-bar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type ZoomLevel = \"week\" | \"month\" | \"quarter\" | \"year\";",
+      "export type OrderingOption = \"name\" | \"fte\" | \"salary\" | \"team\";",
+      "export interface VisibleColumns {",
+      "export interface CompactControlBarProps {",
+      "export function CompactControlBar({"
+    ],
+    "declarations": [
+      "export type ZoomLevel = \"week\" | \"month\" | \"quarter\" | \"year\";",
+      "export type OrderingOption = \"name\" | \"fte\" | \"salary\" | \"team\";",
+      "export interface VisibleColumns {\n  fte: boolean;\n  salary: boolean;\n}",
+      "export interface CompactControlBarProps {\n  // Ordering\n  ordering?: OrderingOption;\n  onOrderingChange?: (ordering: OrderingOption) => void;\n\n  // Properties (visible columns) - simplified to FTE and Salary only\n  visibleColumns?: VisibleColumns;\n  onVisibleColumnsChange?: (columns: VisibleColumns) => void;\n\n  // Zoom (for forecast view)\n  zoom?: ZoomLevel;\n  onZoomChange?: (zoom: ZoomLevel) => void;\n\n  // RBAC - hide salary controls if user doesn't have permission\n  canViewSalaries?: boolean;\n\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/context-menu",
+    "import": "@klein-ui/react/compat/context-menu",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/currency-input-group",
+    "import": "@klein-ui/react/compat/currency-input-group",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface CurrencyInputGroupProps {",
+      "export function CurrencyInputGroup({",
+      "export { getCurrencySymbol };"
+    ],
+    "declarations": [
+      "export interface CurrencyInputGroupProps {\n  value: number | string;\n  onChange: (value: number) => void;\n  currencyCode: string;\n  placeholder?: string;\n  disabled?: boolean;\n  min?: number;\n  max?: number;\n  step?: number;\n  \"aria-invalid\"?: boolean;\n  id?: string;\n  name?: string;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/dashboard-band",
+    "import": "@klein-ui/react/compat/dashboard-band",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function BandTitle({",
+      "export function DashboardBand({",
+      "export function SplitBand({"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/dialog",
+    "import": "@klein-ui/react/compat/dialog",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/drawer",
+    "import": "@klein-ui/react/compat/drawer",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/dropdown-menu",
+    "import": "@klein-ui/react/compat/dropdown-menu",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/empty-state",
+    "import": "@klein-ui/react/compat/empty-state",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function EmptyState({"
+    ],
+    "declarations": [
+      "interface EmptyStateProps {\n  icon?: LucideIcon;\n  title: string;\n  description?: string;\n  action?: ReactNode;\n  className?: string;\n  /**\n   * Optional media rendered where the icon goes, above the title — e.g. a row\n   * of provider logos that shows what the empty state is asking for. Renders\n   * after the icon when both are given.\n   */\n  media?: ReactNode;\n  /**\n   * Visual treatment.\n   *\n   * - `'default'` — full-canvas placeholder: dashed border, generous padding,\n   *   prominent centred title. For page/list-level empties.\n   * - `'inline'` — quiet, compact, borderless: muted `text-sm` copy with\n   *   minimal padding. For empties INSIDE dense panels (dashboard quadrants,\n   *   table bodies) where the default's prominence would fight the density\n   *   mandate.\n   */\n  variant?: \"default\" | \"inline\";\n}"
+    ]
+  },
+  {
+    "name": "react/compat/empty",
+    "import": "@klein-ui/react/compat/empty",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/entity-detail-layout",
+    "import": "@klein-ui/react/compat/entity-detail-layout",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface EntityDetailHeaderProps {",
+      "export function EntityDetailHeader({",
+      "export interface EntityDetailOverviewGridProps {",
+      "export function EntityDetailOverviewGrid({",
+      "export function PropCell({",
+      "export function HeaderStatCell({"
+    ],
+    "declarations": [
+      "export interface EntityDetailHeaderProps {\n  backLink: ReactNode;\n  /** The `[icon] Type` kicker eyebrow above the title. */\n  kicker: { icon: LucideIcon; label: string };\n  /** Large inline-editable title node. */\n  title: ReactNode;\n  /** Status control (e.g. a status pill picker). */\n  status?: ReactNode;\n  /** Latest status update — a short pill/text beside the status. */\n  latestUpdate?: ReactNode;\n  /** Right-of-header stat cells (compose with `HeaderStatCell`). */\n  headerStats?: ReactNode;\n  \"data-testid\"?: string;\n}",
+      "export interface EntityDetailOverviewGridProps {\n  /** Body LEFT, first — the editable properties block. */\n  properties: ReactNode;\n  /** Body LEFT, second — the capitalise / R&D surface (omit when N/A). */\n  capitalise?: ReactNode;\n  /** Body LEFT, last — the description. */\n  description: ReactNode;\n  /** Body RIGHT — the related delivery table (child projects / PMS projects). */\n  rightPanel: ReactNode;\n  /** Optional title + action above the right panel. */\n  rightPanelTitle?: ReactNode;\n  rightPanelAction?: ReactNode;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/field",
+    "import": "@klein-ui/react/compat/field",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/floating-tabs",
+    "import": "@klein-ui/react/compat/floating-tabs",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface FloatingTabsTab {",
+      "export interface FloatingTabsFab {",
+      "export interface FloatingTabsProps {",
+      "export function FloatingTabs({"
+    ],
+    "declarations": [
+      "export interface FloatingTabsTab {\n  /** Stable id used as the tab's panel target (wired into `aria-controls`). */\n  value: string;\n  /** Visible label. Translated by the caller. */\n  label: string;\n  /** Optional leading icon (Lucide). */\n  icon?: LucideIcon;\n  /** Optional `data-tour-target` for anchoring a guided-tour spotlight on this tab. */\n  tourTarget?: string;\n}",
+      "export interface FloatingTabsFab {\n  /** Stable id matched against `value` to determine active state. */\n  value: string;\n  /** Accessible label (no visible text on FABs). */\n  ariaLabel: string;\n  /** Inner content of the FAB button. Typically a Lucide icon (+ badge). */\n  children: React.ReactNode;\n}",
+      "export interface FloatingTabsProps {\n  /** Currently active value. May match a tab or a FAB. */\n  value: string;\n  /** Invoked when the user picks a different tab or FAB. */\n  onValueChange: (next: string) => void;\n  /** The labelled tabs (rendered in the middle pill). May be empty. */\n  tabs: FloatingTabsTab[];\n  /** Optional FAB pill to the LEFT (typically Overview). */\n  leadingFab?: FloatingTabsFab;\n  /** Optional FAB pill to the RIGHT (typically Comments). */\n  trailingFab?: FloatingTabsFab;\n  /** Vertical anchor. Defaults to 'bottom'. */\n  position?: \"bottom\" | \"top\";\n  /**\n   * CSS `position` strategy for the bar.\n   *\n   * - `'sticky'` (default) — the bar sticks within its scroll container. This\n   *   is correct for entity drawers where the drawer itself scrolls.\n   * - `'fixed'` — the bar is pinned to the viewport bottom-centre, always\n   *   visible regardless of page scroll. Use this for full-page route layouts\n   *   (e.g. BudgetRequestFloatingTabs) where the scroll container is the\n   *   document root and `sticky` would not keep the bar on screen.\n   *\n   * Cannot be overridden via `className` because Tailwind's `sticky` and\n   * `fixed` are both `position` utilities and would conflict — this prop is\n   * the single source of truth.\n   */\n  pinned?: \"sticky\" | \"fixed\";\n  /**\n   * Vertical offset from the anchored edge. `'default'` is the standard\n   * `bottom-4`/`top-4`; `'raised'` lifts the bar further off the edge\n   * (`bottom-8`/`top-8`) so it reads as more prominent on tall full-page routes.\n   * Like `position`/`pinned`, this owns the offset utility (it would conflict with\n   * a `bottom-*` passed via `className`), so it is a prop rather than a class.\n   */\n  offset?: \"default\" | \"raised\";\n  /** Optional accessible label for the tablist. */\n  \"aria-label\"?: string;\n  /** Extra classes merged onto the outer wrapper. */\n  className?: string;\n  /**\n   * Inline-end (right) inset in pixels for the `pinned=\"fixed\"` variant ONLY.\n   *\n   * The fixed bar is `inset-x-0` and centres itself across the whole viewport.\n   * When a right-hand side panel (the entity-details drawer) opens it NARROWS\n   * the main content area but NOT the viewport, so a viewport-centred fixed bar\n   * would sit half-under the panel. Passing the open panel's width here pulls the\n   * bar's right edge in by that much, so it re-centres over the remaining content\n   * and never overlaps the panel. Ignored for `pinned=\"sticky\"`. Defaults to `0`.\n   */\n  endInset?: number;\n}",
+      "interface IndicatorGeometry {\n  left: number;\n  top: number;\n  width: number;\n  height: number;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/form",
+    "import": "@klein-ui/react/compat/form",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": [
+      "type FormFieldContextValue<\n  TFieldValues extends FieldValues = FieldValues,\n  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,\n> = {\n  name: TName;\n};",
+      "type FormItemContextValue = {\n  id: string;\n};"
+    ]
+  },
+  {
+    "name": "react/compat/hover-card",
+    "import": "@klein-ui/react/compat/hover-card",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { HoverCard, HoverCardTrigger, HoverCardContent };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/icon",
+    "import": "@klein-ui/react/compat/icon",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function Icon({"
+    ],
+    "declarations": [
+      "interface IconProps extends Omit<LucideProps, \"ref\"> {\n  iconNode: ComponentType<LucideProps>;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/input-group",
+    "import": "@klein-ui/react/compat/input-group",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/input-otp",
+    "import": "@klein-ui/react/compat/input-otp",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/input",
+    "import": "@klein-ui/react/compat/input",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Input };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/item",
+    "import": "@klein-ui/react/compat/item",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/kbd",
+    "import": "@klein-ui/react/compat/kbd",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Kbd, KbdGroup };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/label",
+    "import": "@klein-ui/react/compat/label",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Label };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/layered-card",
+    "import": "@klein-ui/react/compat/layered-card",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": [
+      "interface LayeredCardContentProps extends React.HTMLAttributes<HTMLDivElement> {\n  noPadding?: boolean;\n  containerClassName?: string;\n}",
+      "interface LayeredCardFooterProps extends React.HTMLAttributes<HTMLDivElement> {\n  variant?: \"default\" | \"actions\";\n}"
+    ]
+  },
+  {
+    "name": "react/compat/menubar",
+    "import": "@klein-ui/react/compat/menubar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/navigation-menu",
+    "import": "@klein-ui/react/compat/navigation-menu",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/pagination",
+    "import": "@klein-ui/react/compat/pagination",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": [
+      "type PaginationLinkProps = {\n  isActive?: boolean;\n} & Pick<ButtonProps, \"size\"> &\n  React.ComponentProps<\"a\">;"
+    ]
+  },
+  {
+    "name": "react/compat/placeholder-pattern",
+    "import": "@klein-ui/react/compat/placeholder-pattern",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function PlaceholderPattern({ className }: PlaceholderPatternProps) {"
+    ],
+    "declarations": [
+      "interface PlaceholderPatternProps {\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/popover",
+    "import": "@klein-ui/react/compat/popover",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/priority-indicator",
+    "import": "@klein-ui/react/compat/priority-indicator",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface PriorityIndicatorProps {",
+      "export function PriorityIndicator({",
+      "export interface PrioritySelectorProps {",
+      "export function PrioritySelector({"
+    ],
+    "declarations": [
+      "export interface PriorityIndicatorProps {\n  priority: number | null | undefined; // 0-6\n  className?: string;\n  /** Size of the square. Default 16px (4). */\n  size?: \"sm\" | \"md\" | \"lg\";\n}",
+      "export interface PrioritySelectorProps {\n  priority: number | null | undefined;\n  onChange?: (priority: number) => void;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/progress",
+    "import": "@klein-ui/react/compat/progress",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Progress };"
+    ],
+    "declarations": [
+      "interface ProgressProps extends React.ComponentPropsWithoutRef<\n  typeof ProgressPrimitive.Root\n> {\n  indicatorClassName?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/property-pill",
+    "import": "@klein-ui/react/compat/property-pill",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function PropertyGrid({",
+      "export function PropertyPill({"
+    ],
+    "declarations": [
+      "interface PropertyPillProps {\n  /** Small label above the value */\n  label: string;\n  /** The displayed value — rendered with mono font for numbers */\n  value: string | number | React.ReactNode;\n  /** Click handler — enables edit indicator on hover */\n  onClick?: () => void;\n  /** Use mini variant for inline/table contexts */\n  mini?: boolean;\n  /** Additional className for the value text */\n  valueClassName?: string;\n  /** Additional className for the outer container */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/pulsing-dot",
+    "import": "@klein-ui/react/compat/pulsing-dot",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function PulsingDot({"
+    ],
+    "declarations": [
+      "interface PulsingDotProps {\n  className?: string;\n  color?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/pulsing-indicator",
+    "import": "@klein-ui/react/compat/pulsing-indicator",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface PulsingIndicatorProps extends React.HTMLAttributes<HTMLDivElement> {",
+      "export const PulsingIndicator = React.forwardRef<"
+    ],
+    "declarations": [
+      "export interface PulsingIndicatorProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** The element to wrap with the indicator */\n  children?: React.ReactNode;\n  /** Whether the indicator is active/visible */\n  active?: boolean;\n  /** Whether the pulse animation should run */\n  pulsing?: boolean;\n  /** Duration in ms to stop pulsing automatically. If undefined, pulses forever. */\n  pulseDuration?: number;\n  /** Color of the indicator dot */\n  color?: string;\n  /** Custom class for the wrapper */\n  className?: string;\n  /** Custom class for the indicator dot */\n  indicatorClassName?: string;\n  /** Position of the indicator relative to the child */\n  position?:\n    \"top-right\" | \"top-left\" | \"bottom-right\" | \"bottom-left\" | \"center-right\";\n}"
+    ]
+  },
+  {
+    "name": "react/compat/radio-group",
+    "import": "@klein-ui/react/compat/radio-group",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { RadioGroup, RadioGroupItem };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/resizable",
+    "import": "@klein-ui/react/compat/resizable",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { ResizablePanelGroup, ResizablePanel, ResizableHandle };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/scroll-area",
+    "import": "@klein-ui/react/compat/scroll-area",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { ScrollArea, ScrollBar };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/scrollable-tabs",
+    "import": "@klein-ui/react/compat/scrollable-tabs",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": [
+      "interface ScrollableTabsListProps extends React.ComponentPropsWithoutRef<\n  typeof TabsPrimitive.List\n> {\n  /** Show arrow buttons when content overflows */\n  showArrows?: boolean;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/search-input",
+    "import": "@klein-ui/react/compat/search-input",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface SearchInputProps extends Omit<",
+      "export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>("
+    ],
+    "declarations": [
+      "export interface SearchInputProps extends Omit<\n  React.InputHTMLAttributes<HTMLInputElement>,\n  \"onChange\"\n> {\n  value?: string;\n  onValueChange?: (value: string) => void;\n  placeholder?: string;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/section-bar",
+    "import": "@klein-ui/react/compat/section-bar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const KPI_STRIP_MAX_TILES = 6;",
+      "export interface SectionBarProps {",
+      "export function SectionBar({"
+    ],
+    "declarations": [
+      "export interface SectionBarProps {\n  /**\n   * The leading (left) segment — grows to fill available space. Typically a\n   * title + status + meta line. Omit for a band that is only cells + actions.\n   */\n  leading?: ReactNode;\n  /**\n   * The middle segments — each is divider-separated from its neighbours. Pass\n   * the cells (e.g. `TickerStat`s) as children.\n   */\n  children?: ReactNode;\n  /**\n   * The trailing (right) segment — typically actions (a primary button + an\n   * overflow menu). Pinned to the right edge.\n   */\n  trailing?: ReactNode;\n  /** Forwarded to the band's `data-testid` for targeted assertions. */\n  \"data-testid\"?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/select",
+    "import": "@klein-ui/react/compat/select",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/separator",
+    "import": "@klein-ui/react/compat/separator",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Separator };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/sheet",
+    "import": "@klein-ui/react/compat/sheet",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": [
+      "interface SheetContentProps\n  extends\n    React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,\n    VariantProps<typeof sheetVariants> {}"
+    ]
+  },
+  {
+    "name": "react/compat/shell",
+    "import": "@klein-ui/react/compat/shell",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const HEADER_TOOLBAR_BUTTON_CLASS =",
+      "export interface ShellSidebarState {",
+      "export function ShellSidebar({",
+      "export function ShellSidebarToggle({",
+      "export function ShellTitle({ children }: { children: ReactNode }) {",
+      "export function ShellTitleBar({",
+      "export function ShellDetailsPanel({",
+      "export function ShellBody({"
+    ],
+    "declarations": [
+      "export interface ShellSidebarState {\n  sidebarRef: RefObject<HTMLElement | null>;\n  sidebarOpen: boolean;\n  sidebarWidth: number;\n  toggleSidebar: () => void;\n  handleMouseDown: (e: ReactMouseEvent) => void;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/skeleton-patterns",
+    "import": "@klein-ui/react/compat/skeleton-patterns",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function TextSkeleton({",
+      "export function TableSkeleton({",
+      "export function CardSkeleton({",
+      "export function StatCardSkeleton({",
+      "export function FormSkeleton({",
+      "export function ListItemSkeleton({"
+    ],
+    "declarations": [
+      "interface TextSkeletonProps {\n  lines?: number;\n  className?: string;\n  animate?: boolean;\n}",
+      "interface TableSkeletonProps {\n  rows?: number;\n  cols?: number;\n  showHeader?: boolean;\n  className?: string;\n}",
+      "interface CardSkeletonProps {\n  count?: number;\n  showActions?: boolean;\n  className?: string;\n}",
+      "interface StatCardSkeletonProps {\n  count?: number;\n  className?: string;\n}",
+      "interface FormSkeletonProps {\n  fields?: number;\n  showLabels?: boolean;\n  className?: string;\n}",
+      "interface ListItemSkeletonProps {\n  count?: number;\n  showAvatar?: boolean;\n  showActions?: boolean;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/skeleton",
+    "import": "@klein-ui/react/compat/skeleton",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Skeleton };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/slider",
+    "import": "@klein-ui/react/compat/slider",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Slider };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/sonner",
+    "import": "@klein-ui/react/compat/sonner",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Toaster };"
+    ],
+    "declarations": [
+      "type ToasterProps = React.ComponentProps<typeof Sonner>;"
+    ]
+  },
+  {
+    "name": "react/compat/spinner",
+    "import": "@klein-ui/react/compat/spinner",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Spinner };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/stable-width-layout",
+    "import": "@klein-ui/react/compat/stable-width-layout",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function StableWidthLayout({"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/star-rating",
+    "import": "@klein-ui/react/compat/star-rating",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface StarRatingProps {",
+      "export { StarRating };"
+    ],
+    "declarations": [
+      "export interface StarRatingProps {\n  value?: number;\n  onChange?: (value: number) => void;\n  max?: number;\n  size?: \"sm\" | \"md\" | \"lg\";\n  readonly?: boolean;\n  showValue?: boolean;\n  label?: string;\n  precision?: number;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/stat-card",
+    "import": "@klein-ui/react/compat/stat-card",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface StatCardProps {",
+      "export function StatCard({",
+      "export function StatCardSkeleton({"
+    ],
+    "declarations": [
+      "export interface StatCardProps {\n  /** Icon displayed next to the label */\n  icon: React.ReactNode;\n  /** Card label (e.g., \"Employees\", \"Total Cost\") */\n  label: string;\n  /** Current numeric value */\n  current: number;\n  /** Forecast numeric value */\n  forecast: number;\n  /** Delta (forecast - current) */\n  delta: number;\n  /** Formatter function for displaying values */\n  formatter: (n: number) => string;\n  /** Formatter for delta value display (can include +/- sign) */\n  deltaFormatter?: (n: number) => string;\n  /** Secondary value displayed below current (e.g., full currency amount) */\n  secondaryFormatter?: (n: number) => string;\n  /** Whether the data is currently being recalculated (shows shimmer) */\n  isCalculating?: boolean;\n  /** Label for the current value row (default: \"Current\") */\n  currentLabel?: string;\n  /** Label for the forecast value row (default: \"Current forecast\") */\n  forecastLabel?: string;\n  /** Label for the difference row (default: \"Difference\") */\n  differenceLabel?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/switch",
+    "import": "@klein-ui/react/compat/switch",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Switch };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/table",
+    "import": "@klein-ui/react/compat/table",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/tabs",
+    "import": "@klein-ui/react/compat/tabs",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Tabs, TabsList, TabsTrigger, TabsContent };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/textarea",
+    "import": "@klein-ui/react/compat/textarea",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Textarea };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/time-period-tabs",
+    "import": "@klein-ui/react/compat/time-period-tabs",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type TimePeriod = \"last30\" | \"reporting\";",
+      "export interface TimePeriodTabsProps {",
+      "export function TimePeriodTabs({"
+    ],
+    "declarations": [
+      "export type TimePeriod = \"last30\" | \"reporting\";",
+      "export interface TimePeriodTabsProps {\n  value: TimePeriod;\n  onChange: (value: TimePeriod) => void;\n  reportingLabel?: string;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/timeline",
+    "import": "@klein-ui/react/compat/timeline",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/toggle-group",
+    "import": "@klein-ui/react/compat/toggle-group",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { ToggleGroup, ToggleGroupItem };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/toggle",
+    "import": "@klein-ui/react/compat/toggle",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Toggle, toggleVariants };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/tooltip",
+    "import": "@klein-ui/react/compat/tooltip",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/user-avatar",
+    "import": "@klein-ui/react/compat/user-avatar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function UserAvatar({"
+    ],
+    "declarations": [
+      "interface UserAvatarProps extends React.ComponentPropsWithoutRef<\n  typeof Avatar\n> {\n  name: string;\n  avatarUrl?: string | null;\n  /**\n   * Optional custom initials. If not provided, will be derived from `name`.\n   */\n  initials?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/utils",
+    "import": "@klein-ui/react/compat/utils",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function cn(...values: ClassValue[]) {",
+      "export function getInitials(name: string): string {",
+      "export function getUserAvatarColor(name: string): string {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "react/compat/view-layout",
+    "import": "@klein-ui/react/compat/view-layout",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type ViewLayoutVariant =",
+      "export interface ViewLayoutProps {",
+      "export function ViewLayout({"
+    ],
+    "declarations": [
+      "export type ViewLayoutVariant =\n  \"single\" | \"2:1\" | \"3:3\" | \"2:2\" | \"tree:detail\";",
+      "export interface ViewLayoutProps {\n  variant: ViewLayoutVariant;\n  /** Top graph row — 2:1 & 2:2 expect 2 panels, 3:3 expects 3 (each a ViewSection). */\n  top?: ReactNode;\n  /** Bottom graph row — 3:3 expects 3 panels, 2:2 expects 2. Unused by single/2:1. */\n  bottom?: ReactNode;\n  /** Primary body (list/kanban/gantt) — single & 2:1. Unused by 3:3/2:2. */\n  main?: ReactNode;\n  /** Left navigator rail — `tree:detail` only (e.g. the portfolio Objective→Initiative→Project tree). */\n  tree?: ReactNode;\n  /** Right detail pane — `tree:detail` only (e.g. the selected Initiative's variance + children). */\n  detail?: ReactNode;\n  /** Width of the `tree:detail` rail (Tailwind width class). Defaults to a dense 340px. */\n  treeWidthClassName?: string;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/view-section",
+    "import": "@klein-ui/react/compat/view-section",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ViewSectionProps {",
+      "export function ViewSection({"
+    ],
+    "declarations": [
+      "export interface ViewSectionProps {\n  /** Section title (left of the header). Omit for a header-less panel. */\n  title?: ReactNode;\n  /** Optional info copy shown behind an (i) tooltip next to the title. */\n  info?: ReactNode;\n  /** Right-aligned header actions (toggles, period chips, links). */\n  actions?: ReactNode;\n  /**\n   * Body height. Charts use a fixed pixel height so rows align across a\n   * `ViewLayout` grid; tables/lists pass `'auto'` to size to content (and\n   * fill height inside a `single` layout).\n   */\n  height?: number | \"auto\";\n  /** Remove body padding — e.g. for edge-to-edge tables. */\n  flush?: boolean;\n  /** Show a loading skeleton in place of the body. */\n  loading?: boolean;\n  className?: string;\n  children: ReactNode;\n}"
+    ]
+  },
+  {
+    "name": "react/compat/view-toggle",
+    "import": "@klein-ui/react/compat/view-toggle",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ViewOption<T extends string = string> {",
+      "export interface ViewToggleProps<T extends string = string> {",
+      "export function ViewToggle<T extends string = string>({"
+    ],
+    "declarations": [
+      "export interface ViewOption<T extends string = string> {\n  value: T;\n  label: string;\n  icon: LucideIcon;\n}",
+      "export interface ViewToggleProps<T extends string = string> {\n  value: T;\n  onValueChange: (value: T) => void;\n  options: ViewOption<T>[];\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/patterns/IdentityStrip",
+    "import": "@klein-ui/react/patterns/IdentityStrip",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type SubjectIdentityStatus = \"neutral\" | \"good\" | \"warn\" | \"bad\";",
+      "export interface IdentityStripProps {",
+      "export function IdentityStrip({"
+    ],
+    "declarations": [
+      "export type SubjectIdentityStatus = \"neutral\" | \"good\" | \"warn\" | \"bad\";",
+      "export interface IdentityStripProps {\n  /** Subject's display name. Required — this is the orientation anchor. */\n  name: string;\n  /** Optional secondary descriptor (role, team, slug). Shown in muted text. */\n  secondary?: string | null;\n  /** Optional contact line — usually the linked email. Shown in mono. */\n  email?: string | null;\n  /** Optional trailing status pill. Omit to suppress entirely. */\n  status?: {\n    label: string;\n    tone: SubjectIdentityStatus;\n  } | null;\n  /** Extra class names — escape hatch for layout. */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/patterns/ProfilePageFrame",
+    "import": "@klein-ui/react/patterns/ProfilePageFrame",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ProfilePageFrameProps {",
+      "export function ProfilePageFrame({"
+    ],
+    "declarations": [
+      "export interface ProfilePageFrameProps {\n  /** Identity strip — always shown, even during loading. */\n  identity: React.ReactNode;\n  /**\n   * Standing card. Omit when the page has no meaningful standing\n   * concept (rare — most subject pages do).\n   */\n  standing?: React.ReactNode;\n  /** KPI strip. Omit when the page has no numeric headline. */\n  kpis?: React.ReactNode;\n  /** Tabs subtree — the `Tabs` primitive plus its `TabsList`/`TabsContent`. */\n  tabs: React.ReactNode;\n  /** Extra class names — escape hatch for layout. */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/patterns/ProgressRing",
+    "import": "@klein-ui/react/patterns/ProgressRing",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ProgressRingProps {",
+      "export function ProgressRing({"
+    ],
+    "declarations": [
+      "export interface ProgressRingProps {\n  /** 0–100. Clamped. */\n  percent: number;\n  /** Diameter in px (default 36). */\n  size?: number;\n  /** Ring stroke width in px (default 4). */\n  stroke?: number;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/patterns/SectionDivider",
+    "import": "@klein-ui/react/patterns/SectionDivider",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface SectionDividerProps {",
+      "export function SectionDivider({"
+    ],
+    "declarations": [
+      "export interface SectionDividerProps {\n  /**\n   * Eyebrow label. Rendered uppercase + 10px mono. Optional — when omitted\n   * we still render the 1px hairline (useful for divider-only separators).\n   */\n  label?: string | null;\n  /**\n   * Optional trailing meta — e.g. \"30D\" or \"USD\". Rendered next to the label\n   * with a centre dot separator: `COST · 30D`.\n   */\n  meta?: string | null;\n  /** Optional right-aligned slot — e.g. a 7d/30d/90d toggle. */\n  trailing?: React.ReactNode;\n  /** Extra class names — escape hatch for layout. */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/patterns/SectionNavigation",
+    "import": "@klein-ui/react/patterns/SectionNavigation",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface AiTabItem {",
+      "export interface SectionNavigationProps {",
+      "export function SectionNavigation({"
+    ],
+    "declarations": [
+      "export interface AiTabItem {\n  /** Stable id — used for the React key and `data-testid`. */\n  id: string;\n  /** Display label. */\n  label: string;\n  /** Optional numeric badge (e.g. count of pending items). */\n  badge?: number | string | null;\n  /** When provided, renders as an `<a>` via next/link. */\n  href?: string;\n  /** When provided AND no `href`, renders as `<button>` with onClick. */\n  onClick?: () => void;\n  /** Whether this tab is currently selected. */\n  active?: boolean;\n}",
+      "export interface SectionNavigationProps {\n  /** Tabs in display order. */\n  items: readonly AiTabItem[];\n  /** Optional right-aligned slot — e.g. a 7d/30d/90d toggle or filter chip. */\n  trailing?: React.ReactNode;\n  /** ARIA label for the tablist. */\n  ariaLabel: string;\n  /** Extra class names. */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/patterns/StandingSummary",
+    "import": "@klein-ui/react/patterns/StandingSummary",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type SubjectStandingTone = \"neutral\" | \"good\" | \"warn\" | \"bad\";",
+      "export interface StandingSummaryProps {",
+      "export function StandingSummary({"
+    ],
+    "declarations": [
+      "export type SubjectStandingTone = \"neutral\" | \"good\" | \"warn\" | \"bad\";",
+      "export interface StandingSummaryProps {\n  /**\n   * Eyebrow label above the standing value, e.g. \"Tier\", \"Standing\",\n   * \"Account status\". Renders in 10px upper-case muted text.\n   */\n  label: string;\n  /**\n   * The standing value itself, e.g. \"Heads-up\", \"Tier 3\", \"Active\".\n   * Renders as a pill with the requested tone.\n   */\n  value: string;\n  /** Standing tone — drives the value pill colour. */\n  tone: SubjectStandingTone;\n  /**\n   * One short paragraph of supporting copy. Keep it under 160 chars —\n   * the card is for orientation, not documentation.\n   */\n  description?: string | null;\n  /**\n   * The single recommended action the viewer can take. Renders as a\n   * compact row with an arrow. Omit when there's nothing to do.\n   */\n  nudge?: {\n    label: string;\n    href: string;\n  } | null;\n  /**\n   * Link to the policy / configuration that drives this standing.\n   * Renders as a tiny meta line at the bottom of the card.\n   */\n  policy?: {\n    label: string;\n    href: string;\n  } | null;\n  /** Extra class names — escape hatch for layout. */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "react/patterns/routing",
+    "import": "@klein-ui/react/patterns/routing",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function PatternLinkProvider({",
+      "export function usePatternLink() {"
+    ],
+    "declarations": [
+      "type LinkComponent = ComponentType<\n  AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }\n>;"
+    ]
+  },
+  {
+    "name": "table/table-sizing",
+    "import": "@klein-ui/table/table-sizing",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface TrackSize {",
+      "export function tokeniseGridTemplate(template: string): string[] {",
+      "export function parseTrack(token: string): TrackSize {",
+      "export const DEFAULT_PROPERTY_TRACK: TrackSize = {",
+      "export const PROPERTY_BASE_MIN_PX = 96;",
+      "export const PROPERTY_MAX_PX = 420;",
+      "export const MEASURE_PAD_PX = 28;",
+      "export function resolveMeasuredContentWidth(geometry: {",
+      "export function contentFitBase(",
+      "export interface SizingColumn {",
+      "export function computeFluidWidths(args: {",
+      "export function resolveResizePins(args: {",
+      "export function totalTableWidth(widths: Record<string, number>): number {",
+      "export function slotFromWidth(width: number): number {",
+      "export function priorityVisibleAtSlot(priority: number, slot: number): boolean {"
+    ],
+    "declarations": [
+      "export interface TrackSize {\n  /** The smallest width the track may shrink to (the `minmax(min, …)` floor). */\n  min: number;\n  /** The track's natural/default width before fluid distribution. */\n  base: number;\n  /**\n   * Flexible-grow weight from an `fr` max (`minmax(_, Nfr)` → `N`). `0` for a\n   * fixed or content-sized (`auto`) track, which never absorbs free space.\n   */\n  grow: number;\n}",
+      "export interface SizingColumn {\n  id: string;\n  size: TrackSize;\n}"
+    ]
+  },
+  {
+    "name": "table/table-types",
+    "import": "@klein-ui/table/table-types",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const AVATAR_COL_ID = \"__dv_avatar\";",
+      "export const TITLE_COL_ID = \"__dv_title\";",
+      "export const ACTIONS_COL_ID = \"__dv_actions\";",
+      "export const SELECT_COL_ID = \"__dv_select\";",
+      "export type TableColumnKind =",
+      "export interface TableColumnMeta {"
+    ],
+    "declarations": [
+      "export type TableColumnKind =\n  \"select\" | \"avatar\" | \"title\" | \"property\" | \"actions\";",
+      "export interface TableColumnMeta {\n  /** Structural role — drives the `<td>`/`<th>` chrome (padding, alignment, stopPropagation). */\n  kind: TableColumnKind;\n  /** Responsive hide priority (property columns only); lower hides sooner. */\n  priority?: number;\n  /** Header-cell horizontal alignment. */\n  headerAlign?: \"start\" | \"end\" | \"center\";\n  /** Optional `(i)` tooltip copy shown beside the header label. */\n  headerInfo?: ReactNode;\n  /** Resolved px sizing for fluid-width distribution. */\n  size: TrackSize;\n  /** Whether the column exposes a drag-to-resize handle. */\n  resizable: boolean;\n}"
+    ]
+  },
+  {
+    "name": "table/dnd-types",
+    "import": "@klein-ui/table/dnd-types",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface DragItemData {",
+      "export interface DropGroupData {"
+    ],
+    "declarations": [
+      "export interface DragItemData {\n  /** Unique key of the item being dragged */\n  itemKey: string;\n  /** Group key the item currently belongs to */\n  groupKey: string;\n}",
+      "export interface DropGroupData {\n  /** Group key identifying the drop target */\n  groupKey: string;\n  /** Human-readable label for the target group */\n  groupLabel: string;\n}"
+    ]
+  },
+  {
+    "name": "table/row-selection",
+    "import": "@klein-ui/table/row-selection",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type PageSelectionState = \"none\" | \"some\" | \"all\";",
+      "export function pageSelectionState(",
+      "export interface TableRowSelection<T> {",
+      "export interface TableRowSelectionState<T> extends TableRowSelection<T> {",
+      "export function useRowSelection<T>(args: {"
+    ],
+    "declarations": [
+      "export type PageSelectionState = \"none\" | \"some\" | \"all\";",
+      "export interface TableRowSelection<T> {\n  /** The id a row contributes to the selection. */\n  rowId: (item: T) => string;\n  /** Ids of the rows on the current page, in page order. */\n  pageIds: readonly string[];\n  /** How much of the current page is selected. */\n  pageState: PageSelectionState;\n  /** Whether one id is selected. */\n  isSelected: (id: string) => boolean;\n  /** Tick or untick one row. */\n  toggle: (id: string) => void;\n  /** Select (true) or deselect (false) every row on the current page. */\n  setPageSelected: (selected: boolean) => void;\n}",
+      "export interface TableRowSelectionState<T> extends TableRowSelection<T> {\n  /** Every selected id across pages, in the order they were ticked. */\n  selectedIds: string[];\n  /** Deselect everything. */\n  clear: () => void;\n}"
+    ]
+  },
+  {
+    "name": "table/Grid",
+    "import": "@klein-ui/table/Grid",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface DataTableProps<",
+      "export const DataTable = forwardRef(DataTableInner) as <TData = unknown>(",
+      "export const changeArrowRenderer = (params: {",
+      "export const currencyRenderer = (",
+      "export const dateRenderer = (",
+      "export const percentageRenderer = ("
+    ],
+    "declarations": [
+      "export interface DataTableProps<\n  TData = unknown,\n> extends AgGridReactProps<TData> {\n  /**\n   * Column definitions for the table\n   */\n  columnDefs: ColDef<TData>[];\n\n  /**\n   * Data to display in the table\n   */\n  rowData: TData[];\n\n  /**\n   * Default column configuration applied to all columns\n   */\n  defaultColDef?: ColDef<TData>;\n\n  /**\n   * Enable pagination (default: false)\n   */\n  pagination?: boolean;\n\n  /**\n   * Number of rows per page (default: 20)\n   */\n  paginationPageSize?: number;\n\n  /**\n   * Enable row animation (default: true)\n   */\n  animateRows?: boolean;\n\n  /**\n   * Row selection mode - supports both legacy string format and new object format\n   */\n  rowSelection?: \"single\" | \"multiple\" | { mode: \"singleRow\" | \"multiRow\" };\n\n  /**\n   * Additional grid options\n   */\n  gridOptions?: GridOptions<TData>;\n\n  /**\n   * CSS class name for the container\n   */\n  className?: string;\n\n  /**\n   * Height of the table (default: 100%)\n   */\n  height?: string;\n\n  /**\n   * Function to get unique row ID for maintaining grid state across updates\n   */\n  getRowId?: (params: GetRowIdParams<TData>) => string;\n\n  /**\n   * Suppress scrolling when new data is loaded (default: false)\n   */\n  suppressScrollOnNewData?: boolean;\n}"
+    ]
+  },
+  {
+    "name": "table/BudgetBar",
+    "import": "@klein-ui/table/BudgetBar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type BudgetPace = \"within\" | \"ahead\" | \"over\";",
+      "export interface BudgetBarProps {",
+      "export function BudgetBar({"
+    ],
+    "declarations": [
+      "export type BudgetPace = \"within\" | \"ahead\" | \"over\";",
+      "export interface BudgetBarProps {\n  spent: number;\n  limit: number;\n  state: { spentShare: number; fill: number; tick: number; pace: BudgetPace };\n  label: string;\n  valueLabel: string;\n}"
+    ]
+  },
+  {
+    "name": "table/BasisMarker",
+    "import": "@klein-ui/table/BasisMarker",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface BasisMarkerProps {",
+      "export function BasisMarker({"
+    ],
+    "declarations": [
+      "export interface BasisMarkerProps {\n  basis: string;\n  label: string;\n  definition: string;\n  children: ReactNode;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/ActiveFilterChips",
+    "import": "@klein-ui/table/controls/ActiveFilterChips",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface FilterChip {",
+      "export function filterChips(",
+      "export interface ActiveFilterChipsProps {",
+      "export function ActiveFilterChips({"
+    ],
+    "declarations": [
+      "export interface FilterChip {\n  /** The category id. */\n  readonly id: string;\n  /** The category label. */\n  readonly label: string;\n  /** What it's filtered to. */\n  readonly value: string;\n  /** A locked category can't be removed. */\n  readonly locked: boolean;\n}",
+      "export interface ActiveFilterChipsProps {\n  readonly categories: readonly FilterCategory[];\n  readonly selected: Readonly<Record<string, string[]>>;\n  readonly lockedFilters?: Readonly<Record<string, string[]>>;\n  /** Clear one category. */\n  readonly onRemove: (categoryId: string) => void;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/DisplayControl",
+    "import": "@klein-ui/table/controls/DisplayControl",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface DisplayOption<T extends string> {",
+      "export function DisplayControl<T extends string>({"
+    ],
+    "declarations": [
+      "export interface DisplayOption<T extends string> {\n  value: T;\n  label: string;\n  icon: LucideIcon;\n}",
+      "interface DisplayControlProps<T extends string> {\n  value: T;\n  onChange: (value: T) => void;\n  options: DisplayOption<T>[];\n}"
+    ]
+  },
+  {
+    "name": "table/controls/FilterCombobox",
+    "import": "@klein-ui/table/controls/FilterCombobox",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function FilterCombobox({"
+    ],
+    "declarations": [
+      "interface FilterComboboxProps {\n  /** Available filter categories with their options */\n  categories: FilterCategory[];\n  /** Currently selected option IDs keyed by category ID */\n  selected: Record<string, string[]>;\n  /**\n   * Categories LOCKED to a fixed value, keyed by category id. A locked category\n   * renders read-only: only its locked option(s) are shown, they cannot be\n   * toggled off, and it is excluded from \"Clear all\". Used to hard-scope a view\n   * (e.g. a per-team budget proposal pinned to its own team). See\n   * `UseViewStateConfig.lockedFilters`.\n   */\n  lockedFilters?: Record<string, string[]>;\n  /** Called when selection changes for a category */\n  onChange: (categoryId: string, optionIds: string[]) => void;\n  /** Called to clear all active filters */\n  onClearAll: () => void;\n}",
+      "interface FlatSearchResult {\n  category: FilterCategory;\n  option: FilterOption;\n}",
+      "interface CategoryOptionsProps {\n  /** The (already discriminated) options category being drilled into. */\n  category: FilterOptionsCategory;\n  /**\n   * `null` when the category is not locked. Otherwise the locked option ids: the\n   * ONLY options shown, rendered read-only (checked, non-toggleable) so the scope\n   * cannot be widened or cleared.\n   */\n  lockedIds: string[] | null;\n  isOptionSelected: (categoryId: string, optionId: string) => boolean;\n  lockedLabel: string;\n  emptyLabel: string;\n  onToggle: (categoryId: string, optionId: string) => void;\n  onSelectAndClose: (categoryId: string, optionId: string) => void;\n}",
+      "interface SearchResultRowProps {\n  category: FilterCategory;\n  option: FilterOption;\n  checked: boolean;\n  onToggle: () => void;\n  onSelectAndClose: () => void;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/FilterOptionRow",
+    "import": "@klein-ui/table/controls/FilterOptionRow",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function FilterCheckbox({",
+      "export interface FilterOptionRowProps {",
+      "export function FilterOptionRow({"
+    ],
+    "declarations": [
+      "export interface FilterOptionRowProps {\n  option: FilterOption;\n  checked: boolean;\n  /** Toggle without closing the popover */\n  onToggle: () => void;\n  /** Toggle AND close the popover */\n  onSelectAndClose: () => void;\n  /** When true the row is read-only: shown checked, non-toggleable, with a lock. */\n  locked?: boolean;\n  /** Accessible label / tooltip for the lock affordance (translated). */\n  lockedLabel?: string;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/GroupingControl",
+    "import": "@klein-ui/table/controls/GroupingControl",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface GroupingOption<T extends string> {",
+      "export function GroupingControl<T extends string>({"
+    ],
+    "declarations": [
+      "export interface GroupingOption<T extends string> {\n  value: T;\n  label: string;\n}",
+      "interface GroupingControlProps<T extends string> {\n  value: T;\n  onChange: (value: T) => void;\n  options: GroupingOption<T>[];\n  noneValue: T;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/PaginationControls",
+    "import": "@klein-ui/table/controls/PaginationControls",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function PaginationControls({"
+    ],
+    "declarations": [
+      "interface PaginationControlsProps {\n  /** Current page (1-indexed) */\n  page: number;\n  /** Items per page */\n  pageSize: number;\n  /** Total number of items */\n  totalCount: number;\n  /** Whether there's a next page */\n  hasNextPage: boolean;\n  /** Whether there's a previous page */\n  hasPreviousPage: boolean;\n  /** Callback when page changes */\n  onPageChange: (page: number) => void;\n  /** Callback when page size changes */\n  onPageSizeChange: (size: number) => void;\n  /** Available page size options */\n  pageSizeOptions?: number[];\n  /** Optional className */\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/PropertyPicker",
+    "import": "@klein-ui/table/controls/PropertyPicker",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface PropertyDefinition {",
+      "export function PropertyPicker({"
+    ],
+    "declarations": [
+      "export interface PropertyDefinition {\n  /** Unique identifier for the property. */\n  id: string;\n  /** Human-readable label shown in the picker. */\n  label: string;\n  /** Whether this property is visible by default. */\n  defaultVisible: boolean;\n}",
+      "interface PropertyPickerProps {\n  /** All available property definitions. */\n  properties: PropertyDefinition[];\n  /** IDs of currently visible properties. */\n  visible: string[];\n  /** Callback fired when visibility changes. Receives the updated list of visible IDs. */\n  onChange: (visibleIds: string[]) => void;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/ServerSearchFilter",
+    "import": "@klein-ui/table/controls/ServerSearchFilter",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const SERVER_SEARCH_DEBOUNCE_MS = 300;",
+      "export const SERVER_SEARCH_LIMIT = 20;",
+      "export interface ServerSearchResult {",
+      "export type ServerSearchHook = (query: string) => ServerSearchResult;",
+      "export type OptionLabelCache = Map<string, string>;",
+      "export interface ServerSearchFilterPanelProps {",
+      "export function ServerSearchFilterPanel({",
+      "export interface ServerSearchFilterCategoryOptions {",
+      "export function serverSearchFilterCategory(",
+      "export function summariseLabels("
+    ],
+    "declarations": [
+      "export interface ServerSearchResult {\n  /** At most {@link SERVER_SEARCH_LIMIT} matches, in the server's order. */\n  readonly options: readonly FilterOption[];\n  /** True while the query is in flight. */\n  readonly loading: boolean;\n}",
+      "export type ServerSearchHook = (query: string) => ServerSearchResult;",
+      "export type OptionLabelCache = Map<string, string>;",
+      "export interface ServerSearchFilterPanelProps {\n  /** Searches the options (already debounced input goes in). */\n  readonly useSearch: ServerSearchHook;\n  /** The selected ids. */\n  readonly value: readonly string[];\n  /** Write the selected ids back. */\n  readonly onChange: (next: string[]) => void;\n  /** Close the Filter popover. */\n  readonly onClose: () => void;\n  /** Labels seen so far, filled as results arrive. */\n  readonly labels: OptionLabelCache;\n  /** Placeholder for the search box, already translated. */\n  readonly placeholder: string;\n}",
+      "export interface ServerSearchFilterCategoryOptions {\n  /** Filter key in the view's `filters` (and the shared filters, if shared). */\n  readonly id: string;\n  /** Category label, already translated. */\n  readonly label: string;\n  /** Category icon. */\n  readonly icon: LucideIcon;\n  /** The server search. */\n  readonly useSearch: ServerSearchHook;\n  /** Search box placeholder, already translated. */\n  readonly placeholder: string;\n  /**\n   * Label cache, kept by the page across renders (`useRef(new Map())`) so the\n   * chips can name what was picked. Seed it with known labels if the page has\n   * them (e.g. from a deep link).\n   */\n  readonly labels: OptionLabelCache;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/SortControl",
+    "import": "@klein-ui/table/controls/SortControl",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface SortOption<T extends string> {",
+      "export interface SortControlProps<T extends string> {",
+      "export function SortControl<T extends string>({"
+    ],
+    "declarations": [
+      "export interface SortOption<T extends string> {\n  value: T;\n  label: string;\n}",
+      "export interface SortControlProps<T extends string> {\n  labels: { label: string; ascending: string; descending: string };\n  sortBy: T;\n  sortDir: \"asc\" | \"desc\";\n  onSortByChange: (value: T) => void;\n  onSortDirToggle: () => void;\n  options: SortOption<T>[];\n}"
+    ]
+  },
+  {
+    "name": "table/controls/SplitAddButton",
+    "import": "@klein-ui/table/controls/SplitAddButton",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function SplitAddButton({ label, onAdd, actions }: SplitAddButtonProps) {"
+    ],
+    "declarations": [
+      "interface SplitAddButtonProps {\n  /** Label for the primary add button (e.g. \"Add\"). */\n  label: string;\n  /**\n   * Primary action — fired by clicking the main button. When omitted (e.g. the\n   * viewer lacks create permission) the control degrades to a standalone\n   * actions menu so the secondary `actions` stay reachable.\n   */\n  onAdd?: () => void;\n  /** Secondary actions shown in the chevron dropdown. */\n  actions: AddMenuAction[];\n}"
+    ]
+  },
+  {
+    "name": "table/controls/SplitSortButton",
+    "import": "@klein-ui/table/controls/SplitSortButton",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function SplitSortButton<T extends string>({"
+    ],
+    "declarations": [
+      "interface SplitSortButtonProps<T extends string> {\n  /** The currently active sort field value */\n  sortBy: T;\n  /** The current sort direction */\n  sortDir: \"asc\" | \"desc\";\n  /** Callback when the sort field changes */\n  onSortByChange: (value: T) => void;\n  /** Callback when the sort direction changes */\n  onSortDirChange: (dir: \"asc\" | \"desc\") => void;\n  /** Available sort field options */\n  options: SortOption<T>[];\n}"
+    ]
+  },
+  {
+    "name": "table/controls/ToolbarSelect",
+    "import": "@klein-ui/table/controls/ToolbarSelect",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ToolbarControlOption {",
+      "export function ToolbarSelect({"
+    ],
+    "declarations": [
+      "export interface ToolbarControlOption {\n  value: string;\n  label: string;\n  icon?: LucideIcon;\n  locked?: boolean;\n}",
+      "interface ToolbarSelectProps {\n  value: string;\n  options: ToolbarControlOption[];\n  onChange: (value: string) => void;\n  /** Optional muted prefix, e.g. \"View\" or \"Source\". */\n  label?: string;\n  /** Icon shown when the current option has none of its own. */\n  defaultIcon?: LucideIcon;\n  /** Dropdown width class. */\n  menuWidth?: string;\n}"
+    ]
+  },
+  {
+    "name": "table/controls/toolbar-button-styles",
+    "import": "@klein-ui/table/controls/toolbar-button-styles",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const toolbarTrigger ="
+    ],
+    "declarations": []
+  },
+  {
+    "name": "table/GridEngine",
+    "import": "@klein-ui/table/GridEngine",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type GridEngineProps<Row = unknown> = AgGridReactProps<Row> & {",
+      "export type GridEngineRef<Row = unknown> = AgGridReact<Row>;",
+      "export function GridEngine<Row = unknown>({"
+    ],
+    "declarations": [
+      "export type GridEngineProps<Row = unknown> = AgGridReactProps<Row> & {\n  ref?: Ref<AgGridReact<Row>>;\n};",
+      "export type GridEngineRef<Row = unknown> = AgGridReact<Row>;"
+    ]
+  },
+  {
+    "name": "table/view-state",
+    "import": "@klein-ui/table/view-state",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ViewState {",
+      "export interface UseViewStateConfig<G extends string, S extends string> {",
+      "export function resolveInitialViewState(args: {",
+      "export interface ViewStateApi<G extends string, S extends string> {",
+      "export function useViewState<G extends string, S extends string>("
+    ],
+    "declarations": [
+      "export interface ViewState {\n  sortBy: string;\n  sortDir: \"asc\" | \"desc\";\n  groupBy: string;\n  filters: Record<string, string[]>;\n  visibleProperties: string[];\n  displayMode: TableDisplayMode;\n  expandedGroups: Record<string, boolean>;\n  page: number;\n  pageSize: number;\n  /**\n   * Per-group \"show more\" window (1-based) for server-side grouping. Keyed by\n   * the group's `ListGroup.key`. Each expanded group lazily loads\n   * `groupPage * groupPageSize` rows. Transient; reset whenever the filtered\n   * set re-buckets (group/filter/sort/search change).\n   */\n  groupPages: Record<string, number>;\n  timelineDateField: string;\n  /**\n   * Persisted-only bookkeeping: every property id the view had CONFIGURED at\n   * the time the state was last saved. On load, any default-visible property\n   * NOT in this set is treated as new-since-save and surfaced, while a\n   * property the user deliberately hid (known but not visible) stays hidden.\n   *\n   * Optional for backwards compatibility with the FROZEN persisted shape:\n   * pre-existing blobs without it keep loading unchanged, with\n   * `visibleProperties` doubling as the known set on first read (see\n   * {@link resolveInitialViewState}).\n   */\n  knownProperties?: string[];\n  /**\n   * User-set column widths in pixels, keyed by TanStack column id (the\n   * `TableColumn.id`). Written by the table's column-resize handles and fed\n   * back into TanStack's `columnSizing` state; absent columns fall back to the\n   * width derived from `propertiesGridTemplate`.\n   *\n   * Optional/additive to the FROZEN persisted shape — exactly like\n   * {@link ViewState.knownProperties}: pre-existing blobs without it load\n   * unchanged (all columns auto-sized), and `resolveInitialViewState` spreads\n   * it through verbatim. Deliberately NOT part of the external `TableState`\n   * snapshot — column widths are presentation, not a server-query input, so a\n   * resize must never trigger a re-query. Cleared by {@link ViewStateApi.reset}\n   * (the `defaults` object omits it).\n   */\n  columnSizing?: Record<string, number>;\n  /**\n   * User-set column order — the full list of column ids (incl. the synthetic\n   * avatar/title/actions columns) in display order, written when the user drags\n   * a table header to reorder. Fed into TanStack's `columnOrder` state.\n   *\n   * Optional/additive to the FROZEN persisted shape, exactly like\n   * {@link ViewState.columnSizing}: old blobs without it load in declaration\n   * order, it is excluded from the external `TableState` snapshot (pure\n   * presentation, never re-queries), and it is cleared by\n   * {@link ViewStateApi.reset}.\n   */\n  columnOrder?: string[];\n}",
+      "export interface UseViewStateConfig<G extends string, S extends string> {\n  viewId: string;\n  /** Initial persisted presentation state, supplied by the application. */\n  initialState?: Partial<ViewState> | null;\n  /** Application persistence adapter; called only for changed presentation state. */\n  onPersist?: (viewId: string, state: ViewState) => void;\n  /** Search after application routing/debounce, ready for queries. */\n  search?: string;\n\n  defaultSortBy: S;\n  defaultSortDir?: \"asc\" | \"desc\";\n  defaultGroupBy: G;\n  defaultVisibleProperties: string[];\n  defaultDisplayMode?: TableDisplayMode;\n  defaultDateRange?: string;\n  dateRanges?: { id: string }[];\n  /**\n   * Context-derived default filter selections, keyed by filter-category id\n   * (e.g. `{ teamId: ['team_123'] }`). Applied to a category ONLY while the user\n   * has not made their own choice for it — a soft default, never a lock:\n   *\n   *  - On first load (or when this value changes, e.g. the active plan switches)\n   *    a category is seeded from here only if it is currently empty.\n   *  - A user choice is sacrosanct: once the user edits a category, the default\n   *    never overrides it again.\n   *  - When the default changes (e.g. moving between two budget proposals, or\n   *    leaving a proposal for the main plan), a *previously auto-applied* value\n   *    that the user never touched is replaced/cleared so the default tracks the\n   *    context and never lingers where it no longer applies.\n   *\n   * May be `undefined` (no context default) — the common case.\n   */\n  defaultFilters?: Record<string, string[]>;\n  /**\n   * Filter categories LOCKED to a fixed value — the authoritative, non-clearable\n   * counterpart to {@link defaultFilters}. Keyed by category id (e.g.\n   * `{ teamId: ['team_123'] }`). A locked category is force-set to its value on\n   * load and whenever it changes, cannot be altered via {@link ViewStateApi.setFilter},\n   * and is preserved by {@link ViewStateApi.clearFilters}/{@link ViewStateApi.reset}.\n   *\n   * Used to HARD-scope a view to a context the user must not escape — e.g. a\n   * per-team budget proposal scoping its workforce lists to the proposal's team,\n   * so a manager of several teams cannot view or edit a different team from inside\n   * it (a change made against an out-of-scope team would silently not apply to\n   * the proposal). Unlike a soft default, the lock overrides even a persisted or\n   * saved-view value for that category.\n   *\n   * May be `undefined` (no lock) — the common case.\n   */\n  lockedFilters?: Record<string, string[]>;\n  /**\n   * Every property id the view currently configures (visible or not) —\n   * typically `config.columns.map((c) => c.id)`. Persisted as\n   * {@link ViewState.knownProperties} so a column added AFTER a user saved\n   * their view state can still surface when it is default-visible, without\n   * resurrecting columns the user deliberately hid. Optional: when omitted,\n   * the union of the current visible + default-visible properties is\n   * persisted instead.\n   */\n  allPropertyIds?: string[];\n  onStateChange?: (state: TableState<G, S>) => void;\n}",
+      "export interface ViewStateApi<G extends string, S extends string> {\n  state: ViewState;\n  /**\n   * The context-locked filter categories (keyed by category id), echoed back\n   * from config so the control panel can render them read-only (only the locked\n   * option shown, non-toggleable, excluded from clear-all). `undefined` when the\n   * view has no lock. See {@link UseViewStateConfig.lockedFilters}.\n   */\n  lockedFilters?: Record<string, string[]>;\n  /** The debounced `?q=` search term. */\n  search: string;\n  /** The external snapshot fired via onStateChange (also useful to read). */\n  externalState: TableState<G, S>;\n  /** True when non-transient state differs from defaults (drives Reset). */\n  isModified: boolean;\n  updateState: (patch: Partial<ViewState>) => void;\n  setSortBy: (value: S) => void;\n  setSortDir: (dir: \"asc\" | \"desc\") => void;\n  setGroupBy: (value: G) => void;\n  setFilter: (categoryId: string, optionIds: string[]) => void;\n  clearFilters: () => void;\n  setVisibleProperties: (ids: string[]) => void;\n  /**\n   * Replace the persisted column-width map (px, keyed by column id). Pure\n   * presentation — does not reset pagination and is excluded from the external\n   * `onStateChange` snapshot so resizing never re-queries the server.\n   */\n  setColumnSizing: (sizing: Record<string, number>) => void;\n  /** Replace the persisted column order (full leaf-column id list). Pure\n   *  presentation — excluded from the external snapshot, no re-query. */\n  setColumnOrder: (order: string[]) => void;\n  setDisplayMode: (mode: TableDisplayMode) => void;\n  setPage: (page: number) => void;\n  setPageSize: (pageSize: number) => void;\n  toggleGroup: (groupKey: string) => void;\n  /**\n   * Whether a group is expanded. `defaultExpanded` controls the value for a\n   * group the user hasn't toggled yet — server-side grouping passes `false`\n   * (collapsed first paint = no per-group queries); the legacy client path\n   * defaults to expanded.\n   */\n  isGroupExpanded: (\n    groupKey: string,\n    opts?: { defaultExpanded?: boolean },\n  ) => boolean;\n  /** The 1-based \"show more\" window for a server-grouped group (default 1). */\n  getGroupPage: (groupKey: string) => number;\n  /** Set the \"show more\" window for a server-grouped group. */\n  setGroupPage: (groupKey: string, page: number) => void;\n  reset: () => void;\n  applySavedView: (preferences: Record<string, unknown>) => void;\n}"
+    ]
+  },
+  {
+    "name": "table/view-types",
+    "import": "@klein-ui/table/view-types",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface RowAction {",
+      "export interface FilterOption {",
+      "export interface FilterOptionsCategory {",
+      "export interface FilterCustomCategory {",
+      "export type FilterCategory = FilterOptionsCategory | FilterCustomCategory;",
+      "export interface TableColumn<T> {",
+      "export interface BulkAction {",
+      "export interface TableDefaultView {",
+      "export interface TableCsvColumn<T> {",
+      "export interface TableCsvExport<",
+      "export interface TableDateRange<T> {",
+      "export interface PropertyMutationSideEffectProps<T> {",
+      "export interface PropertyMutationConfig<T> {",
+      "export interface AddMenuAction {",
+      "export interface SortOption<T extends string = string> {",
+      "export interface GroupOption<T extends string = string> {",
+      "export interface ListGroup {",
+      "export type TableDisplayMode = \"list\" | \"timeline\" | \"kanban\";",
+      "export interface DisplayModeOption {",
+      "export interface ToolbarControlOption {",
+      "export interface ViewControlConfig {",
+      "export interface DataSourceControlConfig {",
+      "export interface TableSummaryRow {",
+      "export interface TablePaginationOptions {",
+      "export interface TableState<",
+      "export interface TableConfig<"
+    ],
+    "declarations": [
+      "type PlanChangeStatus = \"ADDED\" | \"MODIFIED\" | \"DELETED\";",
+      "export interface RowAction {\n  /** Unique key for this action */\n  id: string;\n  /** Display label */\n  label: string;\n  /** Icon rendered alongside the label */\n  icon: LucideIcon;\n  /** Handler invoked when the action is triggered */\n  onClick: () => void;\n  /** Visual variant — destructive renders in red */\n  variant?: \"default\" | \"destructive\";\n  /** Disables the action */\n  disabled?: boolean;\n  /**\n   * Why a disabled action can't run, already translated — for an action a\n   * tool can't support, the connection that would enable it (\"Needs the\n   * Flowstate Agent\"). Shown with the label; see `applyActionAvailability`.\n   */\n  disabledReason?: string;\n  /** Keyboard shortcut hint (e.g., \"Enter\", \"⌘D\") */\n  shortcut?: string;\n}",
+      "export interface FilterOption {\n  id: string;\n  label: string;\n  /** Optional color dot for visual coding (e.g., lifecycle stages) */\n  color?: string | null;\n}",
+      "export interface FilterOptionsCategory {\n  /** Discriminant. Optional for back-compat — absence means an options category. */\n  kind?: \"options\";\n  /** Unique key for this category (used as filter key in state) */\n  id: string;\n  /** Display label for the category */\n  label: string;\n  /** Icon shown in the category list */\n  icon: LucideIcon;\n  /** Available options within this category */\n  options: FilterOption[];\n}",
+      "export interface FilterCustomCategory {\n  kind: \"custom\";\n  /** Unique key for this category (used as filter key in state) */\n  id: string;\n  /** Display label for the category */\n  label: string;\n  /** Icon shown in the category list */\n  icon: LucideIcon;\n  /**\n   * Renders the drilled-in panel. Receives the current encoded value(s), a\n   * setter that writes them back into `filters[id]` (pass `[]` to clear), and\n   * a callback that closes the filter popover.\n   */\n  renderPanel: (args: {\n    value: string[];\n    onChange: (next: string[]) => void;\n    onClose: () => void;\n  }) => ReactNode;\n  /**\n   * Optional short summary of the active value, shown on the level-1 category\n   * row in place of the numeric count badge (e.g. \"> $150,000\"). Return null\n   * when no value is set.\n   */\n  summary?: (value: string[]) => string | null;\n}",
+      "export type FilterCategory = FilterOptionsCategory | FilterCustomCategory;",
+      "export interface TableColumn<T> {\n  /** Unique key for this column (used in visibleProperties preference) */\n  id: string;\n  /** Display label in the property picker AND in the list-view column header (when `propertiesGridTemplate` is set on Table). */\n  label: string;\n  /**\n   * Responsive hide priority. Lower number = hidden sooner on narrow viewports.\n   * 1: Hides first (narrowest)\n   * 2: Hides second\n   * 3: Hides third\n   * 4+: Always visible (unless manually hidden via property picker)\n   */\n  priority: number;\n  /** Whether this column is visible by default */\n  defaultVisible: boolean;\n  /** Render function for this column's content in a row */\n  render: (item: T) => ReactNode;\n  /**\n   * Optional explanatory copy shown behind an (i) tooltip next to the column\n   * header label (the same affordance as `ViewSection`'s `info`). Only rendered\n   * when `propertiesGridTemplate` is set on Table (i.e. a header row exists).\n   */\n  headerInfo?: ReactNode;\n  /**\n   * Horizontal alignment for the column-header cell in list view. Use\n   * `'end'` for right-aligned numeric columns (cost, duration) so the\n   * header label hugs the right edge alongside the cell value. Has no\n   * effect when `propertiesGridTemplate` is not set on Table (no\n   * header row is rendered in that case). Defaults to `'start'`.\n   */\n  headerAlign?: \"start\" | \"end\" | \"center\";\n  /**\n   * Whether this column has a data source in the current view. Defaults to\n   * `true`. A column with `hasSource: false` (e.g. a provider that doesn't\n   * report the figure) is removed from the table AND from the property picker\n   * — it is never rendered as a blank column. Its entries in `summaryRow` /\n   * `groupSummary` are ignored with it.\n   */\n  hasSource?: boolean;\n}",
+      "export interface BulkAction {\n  /** Unique key for this action. */\n  id: string;\n  /** Display label, already translated. */\n  label: string;\n  /** Icon rendered alongside the label. */\n  icon: LucideIcon;\n  /**\n   * Runs the action on the selected row ids (see `TableConfig.getRowId`).\n   * When it resolves, the selection is cleared; when it throws or rejects the\n   * selection is kept so the user can retry — the page reports its own error.\n   */\n  onRun: (ids: string[]) => void | Promise<void>;\n  /** Visual variant — destructive renders in red. */\n  variant?: \"default\" | \"destructive\";\n  /** Disables the action. */\n  disabled?: boolean;\n  /** Why a disabled action can't run, already translated. Shown on hover/focus. */\n  disabledReason?: string;\n}",
+      "export interface TableDefaultView {\n  /** Stable id, unique within the screen. */\n  id: string;\n  /** Display name, already translated. */\n  name: string;\n  /** The view preferences it applies — the same shape a saved view stores. */\n  preferences: Record<string, unknown>;\n}",
+      "export interface TableCsvColumn<T> {\n  /** Column header in the file, already translated. */\n  header: string;\n  /**\n   * The cell value — a plain figure (a number, or a decimal string for money\n   * in major units), never a formatted, symbol-bearing display string.\n   */\n  value: (item: T) => string | number | null;\n  /**\n   * The `TableColumn.id` this CSV column mirrors. When set, the CSV column\n   * is exported only while that table column is visible (picked in the\n   * property picker and `hasSource !== false`), so the file matches the view.\n   * Omit for columns that always export (e.g. the name or the currency code).\n   */\n  columnId?: string;\n}",
+      "export interface TableCsvExport<\n  T,\n  G extends string = string,\n  S extends string = string,\n> {\n  /** File name offered to the user, ending `.csv`. */\n  filename: string;\n  /** The exported columns, in file order. */\n  columns: readonly TableCsvColumn<T>[];\n  /**\n   * Fetch EVERY row matching the current view state (search, filters, sort) —\n   * not just the page on screen. Pages SHOULD pass this: without it the export\n   * holds only the rows currently loaded (one page).\n   */\n  fetchRows?: (state: TableState<G, S>) => Promise<T[]>;\n}",
+      "export interface TableDateRange<T> {\n  /** Unique key (e.g., 'employment', 'allocation') */\n  id: string;\n  /** Display label (e.g., 'Employment period', 'Project allocation') */\n  label: string;\n  /** Extract start date from an item. Null = no start (renders from left edge). */\n  start: (item: T) => Date | null;\n  /** Extract end date from an item. Null = ongoing (renders with gradient/arrow to right edge). */\n  end: (item: T) => Date | null;\n}",
+      "export interface PropertyMutationSideEffectProps<T> {\n  /** The item being moved */\n  item: T;\n  /** The target group value (e.g., team ID) */\n  targetValue: string;\n  /** Display label for the target (e.g., \"Product Team\") */\n  targetLabel: string;\n  /** Call this to confirm the mutation */\n  onConfirm: () => void;\n  /** Call this to cancel the mutation */\n  onCancel: () => void;\n}",
+      "export interface PropertyMutationConfig<T> {\n  /** The property key this handles (must match a groupBy option value) */\n  propertyKey: string;\n\n  /**\n   * Execute the mutation. Called from drag-drop, popovers, context menus.\n   * Return true on success, false on failure.\n   */\n  mutate: (item: T, newValue: string) => Promise<boolean>;\n\n  /**\n   * Optional side-effect flow. When defined, the Table renders this UI\n   * instead of calling mutate() directly — letting the user confirm or\n   * provide additional data (e.g., \"When should this team change take effect?\").\n   *\n   * The rendered component receives the item, target, and confirm/cancel callbacks.\n   */\n  sideEffect?: {\n    render: (props: PropertyMutationSideEffectProps<T>) => ReactNode;\n  };\n}",
+      "export interface AddMenuAction {\n  /** Unique key for this action */\n  id: string;\n  /** Display label */\n  label: string;\n  /** Optional icon rendered alongside the label */\n  icon?: LucideIcon;\n  /** Handler invoked when the action is triggered */\n  onClick: () => void;\n  /** Disables the action (e.g. until a precondition is met) */\n  disabled?: boolean;\n  /** Short reason shown beneath the label when the action is disabled */\n  disabledReason?: string;\n  /** Optional test id applied to the menu item */\n  testId?: string;\n}",
+      "export interface SortOption<T extends string = string> {\n  value: T;\n  label: string;\n}",
+      "export interface GroupOption<T extends string = string> {\n  value: T;\n  label: string;\n}",
+      "export interface ListGroup {\n  key: string;\n  label: string;\n  count: number;\n}",
+      "export type TableDisplayMode = \"list\" | \"timeline\" | \"kanban\";",
+      "export interface DisplayModeOption {\n  value: TableDisplayMode;\n  label: string;\n  icon: LucideIcon;\n}",
+      "export interface ToolbarControlOption {\n  value: string;\n  label: string;\n  icon?: LucideIcon;\n  /**\n   * Locked option — still selectable (so a page can route to an upgrade\n   * sneak-peek) but rendered with a trailing lock glyph + muted text to signal\n   * it needs an upgrade. Used by the AI-insights dimension control.\n   */\n  locked?: boolean;\n}",
+      "export interface ViewControlConfig {\n  value: string;\n  options: ToolbarControlOption[];\n  onChange: (value: string) => void;\n  /** Optional prefix, e.g. \"View\". */\n  label?: string;\n}",
+      "export interface DataSourceControlConfig {\n  value: string;\n  options: ToolbarControlOption[];\n  onChange: (value: string) => void;\n  /** Optional prefix, e.g. \"Source\". */\n  label?: string;\n}",
+      "export interface TableSummaryRow {\n  /** Content of the title column: what the row is and what it covers. */\n  title: ReactNode;\n  /**\n   * Cell content keyed by `TableColumn.id`. A visible column with no entry\n   * renders an empty cell; hidden columns are skipped with their header.\n   */\n  cells: Partial<Record<string, ReactNode>>;\n  /** Optional `data-testid` on the row. */\n  testId?: string;\n}",
+      "export interface TablePaginationOptions {\n  /** Sizes offered by the page-size selector, ascending. */\n  pageSizeOptions: number[];\n  /** The size a view starts on; must be one of `pageSizeOptions`. */\n  defaultPageSize: number;\n}",
+      "export interface TableState<\n  G extends string = string,\n  S extends string = string,\n> {\n  search: string;\n  sortBy: S;\n  sortDir: \"asc\" | \"desc\";\n  groupBy: G;\n  filters: Record<string, string[]>;\n  page: number;\n  pageSize: number;\n  displayMode: TableDisplayMode;\n  visibleProperties: string[];\n}",
+      "export interface TableConfig<\n  T,\n  G extends string = string,\n  S extends string = string,\n> {\n  /* ─── Identity ─── */\n\n  /** Route key for persisting preferences (e.g., 'team/people') */\n  viewId: string;\n\n  /* ─── Data ─── */\n\n  /** The items to display */\n  items: T[];\n  /** Whether a data fetch is in progress */\n  loading: boolean;\n  /** Total count of items matching current filters (for pagination) */\n  totalCount: number;\n  /** Pagination page info from GraphQL */\n  pageInfo?: { hasNextPage: boolean; hasPreviousPage: boolean };\n\n  /* ─── Row rendering ─── */\n\n  /** Extract a unique key from an item */\n  rowKey: (item: T) => string;\n  /** Render the avatar/icon slot for a row */\n  avatar: (item: T) => ReactNode;\n  /** Render the title slot for a row */\n  title: (item: T) => ReactNode;\n  /**\n   * Header label for the leading title column. Defaults to the shared\n   * `common:name` string (\"Name\"); set it when the title is something other\n   * than a name (e.g. a session \"Purpose\").\n   */\n  titleColumnLabel?: ReactNode;\n  /** Render the optional subtitle slot for a row */\n  subtitle?: (item: T) => ReactNode;\n  /** Handler when a row is clicked (e.g., open detail drawer) */\n  onRowClick?: (item: T) => void;\n  /**\n   * The entity page a row opens (list mode). Clicking a row navigates there\n   * with the app router; cmd/ctrl-click opens it in a new tab. Clicks on the\n   * row's actions, its checkbox, or any cell content that stops propagation do\n   * not navigate. Ignored when `onRowClick` is also given — `onRowClick` wins.\n   * Unlike `onRowClick`, a click anywhere in the row (property cells included)\n   * navigates, so interactive cell content must stop click propagation itself.\n   */\n  rowHref?: (item: T) => string;\n  /**\n   * Handler when a row is double-clicked (e.g., navigate to a detail page).\n   * Single-click (`onRowClick`) behaviour is left untouched — a double-click\n   * fires `onRowClick` once on the first click and then `onRowDoubleClick`.\n   */\n  onRowDoubleClick?: (item: T) => void;\n  /** Extract change status for plan-aware styling */\n  changeStatus?: (item: T) => PlanChangeStatus | null;\n\n  /* ─── Columns / Properties ─── */\n\n  /** Column definitions for the properties displayed on each row */\n  columns: TableColumn<T>[];\n\n  /* ─── Row Actions ─── */\n\n  /** The primary action button shown on each row (always visible) */\n  primaryAction?: (item: T) => RowAction;\n  /** Additional actions shown in the overflow \"...\" menu */\n  overflowActions?: (item: T) => RowAction[];\n  /**\n   * Hide each row's actions until the row is hovered or has focus within it.\n   * The actions keep their width while hidden, so columns never jump. Defaults\n   * to `false` (actions always visible).\n   */\n  rowActionsOnHover?: boolean;\n\n  /* ─── Bulk select ─── */\n\n  /**\n   * Actions run on every selected row. When set (and non-empty), list mode\n   * gains a leading checkbox column — the header checkbox selects the rows on\n   * the current page — and a bulk action bar shows \"{count} selected\", these\n   * actions and Clear. The selection is kept by id across pages until cleared.\n   */\n  bulkActions?: readonly BulkAction[];\n  /**\n   * The id a selected row contributes to `BulkAction.onRun`. Defaults to\n   * `rowKey`; set it when the row key is not the entity id.\n   */\n  getRowId?: (item: T) => string;\n  /**\n   * Wraps each rendered row to attach a right-click context menu. Receives the\n   * item and the already-rendered row element, and must return the row wrapped\n   * in a context-menu component (e.g. `<TeamRowContextMenu>{row}</…>`). The\n   * wrapper component is expected to render the row via `<ContextMenuTrigger\n   * asChild>` — `DataRow` forwards refs/props so this works directly.\n   */\n  rowContextMenu?: (item: T, row: ReactNode) => ReactNode;\n\n  /* ─── Sorting ─── */\n\n  /** Available sort options for the toolbar */\n  sortOptions: SortOption<S>[];\n  /** Default sort field */\n  defaultSortBy: S;\n  /** Default sort direction */\n  defaultSortDir?: \"asc\" | \"desc\";\n\n  /* ─── Grouping ─── */\n\n  /** Available group options for the toolbar */\n  groupOptions: GroupOption<G>[];\n  /** Default group-by value */\n  defaultGroupBy: G;\n  /** The value that represents \"no grouping\" */\n  groupNoneValue: G;\n  /** Custom label for a group header (defaults to the raw group key) */\n  groupTitle?: (groupKey: string) => string;\n  /** Optional right-aligned content in group headers (e.g., subtotals) */\n  groupSubtitle?: (groupKey: string, items: T[]) => ReactNode;\n  /**\n   * Per-column content for each group header row (list mode), keyed by\n   * `TableColumn.id` — \"group rows total every measure\". Cells sit under\n   * their own columns with the same widths and order as the `summaryRow`\n   * cells, so a page can put each group's total (and the same inline bar the\n   * rows show) in every measure column. The page supplies the figures —\n   * normally the server's per-group totals over the full filtered set, not a\n   * sum of the loaded rows. The group label, count and `groupSubtitle` stay in\n   * the leading cell. A visible column with no entry renders an empty cell.\n   */\n  groupSummary?: (group: {\n    key: string;\n    items: T[];\n  }) => Partial<Record<string, ReactNode>>;\n  /**\n   * @deprecated Legacy client-side grouping over the current page only — this\n   * is the source of the \"filter/group only affects page 1\" bug. Prefer\n   * `grouped` (server-side buckets + lazy per-group rows). Still honoured for\n   * pages not yet migrated: when `grouped` is absent and this is provided,\n   * Table groups the fetched page client-side.\n   */\n  groupKeyExtractor?: (item: T, groupBy: G) => string;\n\n  /**\n   * Server-computed group buckets (key, label, and TRUE count over the full\n   * filtered set) for the active grouping. The page supplies these from its list\n   * query's `groups`. Table renders accurate group-header counts from them;\n   * the rows themselves are the normal paginated `items`, grouped generically by\n   * each node's server-emitted `listGroupKey`/`listGroupLabel`.\n   */\n  groups?: ListGroup[];\n\n  /* ─── Filtering ─── */\n\n  /** Filter categories for the nested filter combobox */\n  filterCategories?: FilterCategory[];\n  /**\n   * Show the active filters as removable chips under the toolbar (see\n   * `ViewControlPanel`'s `showFilterChips`). Off by default.\n   */\n  showFilterChips?: boolean;\n\n  /**\n   * Context-derived default filter selections, keyed by filter-category id\n   * (e.g. `{ teamId: ['team_123'] }`). These are *soft* defaults: a category is\n   * seeded from here only while the user has not made their own choice for it,\n   * and the default tracks the surrounding context — when it changes (e.g. the\n   * active plan switches) a previously auto-applied value the user never edited\n   * is replaced or cleared. A user's explicit selection is never overridden.\n   * See `UseViewStateConfig.defaultFilters` for the full semantics.\n   */\n  defaultFilters?: Record<string, string[]>;\n\n  /**\n   * Filter categories LOCKED to a fixed value — the authoritative, non-clearable\n   * counterpart to `defaultFilters`, keyed by category id (e.g.\n   * `{ teamId: ['team_123'] }`). A locked category cannot be changed or cleared\n   * by the user, overrides any persisted/saved value, and renders read-only in\n   * the filter menu (only the locked option shown, non-toggleable, excluded from\n   * clear-all). Use it to hard-scope a view to a context the user must not escape\n   * — e.g. a per-team budget proposal pinned to its own team. See\n   * `UseViewStateConfig.lockedFilters` for the full semantics.\n   */\n  lockedFilters?: Record<string, string[]>;\n\n  /* ─── Display modes ─── */\n\n  /** Which display modes are available for this view */\n  displayModes?: TableDisplayMode[];\n  /** Default display mode */\n  defaultDisplayMode?: TableDisplayMode;\n\n  /* ─── Timeline config ─── */\n\n  /** Date range definitions for timeline view. Users can switch between them. */\n  dateRanges?: TableDateRange<T>[];\n  /** ID of the default date range */\n  defaultDateRange?: string;\n\n  /* ─── Drag-and-drop ─── */\n\n  /**\n   * Property mutation configs for drag-and-drop. Each config maps a groupBy\n   * value to a mutation. When the user drags an item between groups, Table\n   * looks up the config for the current groupBy and triggers the mutation.\n   */\n  propertyMutations?: PropertyMutationConfig<T>[];\n\n  /* ─── First-class toolbar controls (optional, page-controlled) ─── */\n\n  /**\n   * Data \"view\" pivot (e.g. Projects | Members) — a consistent dropdown in the\n   * toolbar RHS. Rendered only when provided. Controlled; never persisted.\n   */\n  view?: ViewControlConfig;\n  /**\n   * Reporting data-source selector (e.g. submissions / estimate / disparity) —\n   * rendered in the toolbar RHS only when it has more than one option.\n   */\n  dataSource?: DataSourceControlConfig;\n  /**\n   * Period / date-range control (FY·Q or relative range), rendered in the\n   * standard RHS slot so it sits consistently across pages. Pages pass their\n   * own period control (e.g. `<FiscalPeriodControl>`); Table only positions\n   * it. Use a value-based control above for view/source; period stays a node\n   * because its range logic is page-specific.\n   */\n  periodControl?: ReactNode;\n\n  /**\n   * Optional content rendered as a fixed flex child BETWEEN the control panel\n   * (toolbar) and the scrolling body. Use for a dashboard that mixes charts +\n   * a table: pass the KPI band + charts here so the ONE `ViewControlPanel`\n   * sits ABOVE them, the charts stay put, and only the list rows scroll. Stays\n   * `undefined` for ordinary list pages.\n   */\n  betweenToolbarAndBody?: ReactNode;\n\n  /* ─── Toolbar extras ─── */\n\n  /** Handler for the \"Add\" button. If undefined, no add button is shown. */\n  onAdd?: () => void;\n  /** Label for the add button (defaults to common.action.add) */\n  addLabel?: string;\n  /**\n   * Secondary actions for the \"Add\" button. When provided (and `onAdd` is set),\n   * the Add button becomes a split-dropdown: the primary click fires `onAdd`,\n   * and a chevron opens a menu of these actions. When omitted, a plain Add\n   * button is rendered.\n   */\n  addMenuActions?: AddMenuAction[];\n  /** Bespoke toolbar actions before the add button — the exception, not the\n   * default. Prefer `view` / `dataSource` / `periodControl` / `filterCategories`. */\n  extraToolbarActions?: ReactNode;\n  /**\n   * Adds an \"Export\" button to the toolbar that downloads the current view as\n   * CSV. See {@link TableCsvExport}: pass `fetchRows` so the file holds\n   * every row of the current filters and sort, not only the loaded page.\n   * Not rendered when `hideToolbar` is set.\n   */\n  csvExport?: TableCsvExport<T, G, S>;\n\n  /* ─── Default saved views ─── */\n\n  /**\n   * The saved views this screen ships with, listed in their own group above\n   * the viewer's personal and shared views in the saved-view menu.\n   */\n  defaultViews?: readonly TableDefaultView[];\n  /**\n   * Id of a `defaultViews` entry applied once on first load — only when the\n   * viewer has no persisted state for this view yet, so it never overrides a\n   * returning viewer's own layout.\n   */\n  initialDefaultViewId?: string;\n\n  /* ─── State callback ─── */\n\n  /**\n   * Called whenever view state changes. Pages use this to update their\n   * GraphQL query variables for server-side filtering/sorting/grouping.\n   */\n  onStateChange?: (state: TableState<G, S>) => void;\n\n  /* ─── Empty states ─── */\n\n  /** Rendered when there are no items at all */\n  emptyState?: ReactNode;\n  /** Rendered when filters/search return no results */\n  emptyFilteredState?: ReactNode;\n\n  /* ─── Optional hiding ─── */\n\n  /** Hide the grouping control in the toolbar */\n  hideGrouping?: boolean;\n  /** Hide pagination controls */\n  hidePagination?: boolean;\n  /**\n   * Page-size choices and the size a view starts on. Omit for the view\n   * system's defaults (25 / 50 / 100 / 200, starting at 50).\n   */\n  pagination?: TablePaginationOptions;\n\n  /* ─── Summary row ─── */\n\n  /**\n   * A totals row pinned beneath the list-view table (list mode only). See\n   * {@link TableSummaryRow}: its figures come from the page, never from a\n   * sum of the rows on screen.\n   */\n  summaryRow?: TableSummaryRow;\n  /** Hide the entire view control panel — the page supplies its own controls above. */\n  hideToolbar?: boolean;\n\n  /* ─── Row layout overrides ─── */\n\n  /**\n   * Optional CSS `grid-template-columns` value applied to each row's\n   * properties container. When set, every property cell becomes a\n   * fixed-width grid track instead of a flex item — so the columns of\n   * property cells line up vertically across rows (the standard\n   * flex/gap layout lets each row size its own cells, which works for\n   * sparse property sets but reads as \"tightly packed pills\" on\n   * data-dense views).\n   *\n   * The template MUST declare one track per column in `config.columns`\n   * declaration order. Tracks for columns hidden by the PropertyPicker\n   * are skipped on the fly — Table only renders visible columns and\n   * passes the matching slice of the template to each row, so the\n   * surviving cells keep their relative widths.\n   */\n  propertiesGridTemplate?: string;\n}"
+    ]
+  },
+  {
+    "name": "table/shared-filters",
+    "import": "@klein-ui/table/shared-filters",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface SharedFiltersApi {",
+      "export const SharedFiltersContext = createContext<SharedFiltersApi | null>(",
+      "export function pickSharedFilters(",
+      "export function mergeSharedFilters(",
+      "export function SharedFiltersProvider({",
+      "export function useSharedFilters() {"
+    ],
+    "declarations": [
+      "export interface SharedFiltersApi {\n  /** The area the filters belong to. */\n  readonly scope: string;\n  /** The filter categories the provider owns. */\n  readonly keys: readonly string[];\n  /** Current values, keyed by category id; only non-empty categories appear. */\n  readonly filters: Readonly<Record<string, string[]>>;\n  /** Set one category (an empty list clears it). Ignores a key not in `keys`. */\n  readonly setFilter: (key: string, values: string[]) => void;\n  /** Clear every shared category. */\n  readonly clear: () => void;\n}"
+    ]
+  },
+  {
+    "name": "table/ViewContext",
+    "import": "@klein-ui/table/ViewContext",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const ViewContext = createContext<ViewStateApi<string, string> | null>(",
+      "export interface ViewProviderProps<G extends string, S extends string> {",
+      "export function ViewProvider<G extends string, S extends string>({",
+      "export function useView<"
+    ],
+    "declarations": [
+      "export interface ViewProviderProps<G extends string, S extends string> {\n  config: UseViewStateConfig<G, S>;\n  children: ReactNode;\n}"
+    ]
+  },
+  {
+    "name": "table/TableToolbar",
+    "import": "@klein-ui/table/TableToolbar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface TableToolbarProps<G extends string, S extends string> {",
+      "export function TableToolbar<G extends string, S extends string>({"
+    ],
+    "declarations": [
+      "interface PropertyDefinition {\n  id: string;\n  label: string;\n  defaultVisible: boolean;\n}",
+      "export interface TableToolbarProps<G extends string, S extends string> {\n  /** Route key, for the SavedViewSelector. */\n  viewId: string;\n  /** Saved-view menu supplied by the application data adapter. */\n  savedViews?: ReactNode;\n  /**\n   * The saved views this screen ships with, listed in the saved-view menu\n   * above personal/shared views. Omit for none (the menu is unchanged).\n   */\n  defaultViews?: readonly TableDefaultView[];\n  /** Id of the default view applied on first load, so the menu shows its name. */\n  initialDefaultViewId?: string | null;\n  /* ── LHS ── */\n  filterCategories?: FilterCategory[];\n  /**\n   * Show the active filters as removable chips under the bar (\"Team:\n   * Platform ×\"). Off by default so existing pages render as before; the Helm\n   * screen template turns it on.\n   */\n  showFilterChips?: boolean;\n  hideGrouping?: boolean;\n  /**\n   * Hide the sort control. A CHART dashboard has no row order to sort, so\n   * rendering the control there would be a dead widget (\"NO SHIT UI\").\n   * List surfaces leave this off.\n   */\n  hideSort?: boolean;\n  /**\n   * Hide the properties/column picker — same reasoning as {@link hideSort}: a\n   * chart surface has no columns to show or hide.\n   */\n  hideProperties?: boolean;\n  groupOptions: GroupOption<G>[];\n  groupNoneValue: G;\n  propertyDefinitions: PropertyDefinition[];\n  /* ── RHS ── */\n  view?: ViewControlConfig;\n  dataSource?: DataSourceControlConfig;\n  periodControl?: ReactNode;\n  sortOptions: SortOption<S>[];\n  displayModeOptions: DisplayOption<TableDisplayMode>[];\n  /* ── Add / extras ── */\n  onAdd?: () => void;\n  addLabel?: string;\n  addMenuActions?: AddMenuAction[];\n  extraToolbarActions?: ReactNode;\n}"
+    ]
+  },
+  {
+    "name": "table/labels",
+    "import": "@klein-ui/table/labels",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type TableTranslate = (",
+      "export function TableLabelsProvider({",
+      "export function useTableLabels() {"
+    ],
+    "declarations": [
+      "export type TableTranslate = (\n  key: string,\n  values?: Record<string, string | number>,\n) => string;"
+    ]
+  },
+  {
+    "name": "table/TableBody",
+    "import": "@klein-ui/table/TableBody",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function TableBody<T, G extends string, S extends string>({"
+    ],
+    "declarations": [
+      "interface PendingDrop<T> {\n  /** The item being moved */\n  item: T;\n  /** The target group value (e.g., team ID) */\n  targetValue: string;\n  /** Display label for the target (e.g., \"Product Team\") */\n  targetLabel: string;\n}",
+      "interface GroupedSection<T> {\n  key: string;\n  /** Display label for the group header (server `listGroupLabel`, else groupTitle/key). */\n  label: string;\n  items: T[];\n}"
+    ]
+  },
+  {
+    "name": "table/useTableTable",
+    "import": "@klein-ui/table/useTableTable",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function hasBulkSelect<T, G extends string, S extends string>(",
+      "export function actionsColumnWidthPx(",
+      "export interface UseTableTableArgs<T, G extends string, S extends string> {",
+      "export interface UseTableTableResult<T> {",
+      "export function useTableTable<T, G extends string, S extends string>("
+    ],
+    "declarations": [
+      "export interface UseTableTableArgs<T, G extends string, S extends string> {\n  config: TableConfig<T, G, S>;\n  /** PropertyPicker selection — the user-visible property ids. */\n  visibleProperties: string[];\n  /** The scroll container's measured content width (px); 0 before first measure. */\n  containerWidth: number;\n  /** Persisted user column widths (px) keyed by column id. */\n  columnSizing: Record<string, number> | undefined;\n  /** Persisted user column order (full leaf-column id list), or undefined for declaration order. */\n  columnOrder: string[] | undefined;\n  /** Measured natural content width (px) per data column id, from the DOM —\n   *  drives content-fit auto-sizing. Empty before the first measurement. */\n  measuredWidths: Record<string, number>;\n  /** Resolved title-column header label (`config.titleColumnLabel ?? tc('name')`). */\n  titleColumnLabel: ReactNode;\n}",
+      "export interface UseTableTableResult<T> {\n  /** The TanStack table instance (core row model only; manual everything else). */\n  table: Table<T>;\n  /** Resolved pixel width for every VISIBLE leaf column, keyed by column id. */\n  colWidths: Record<string, number>;\n  /** The table's `min-width` in px — below it the container scrolls horizontally. */\n  minWidthPx: number;\n  /** Parsed track sizing keyed by column id (for resize min-clamps). */\n  sizingById: Map<string, TrackSize>;\n}"
+    ]
+  },
+  {
+    "name": "table/KanbanView",
+    "import": "@klein-ui/table/KanbanView",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function KanbanView<T>({"
+    ],
+    "declarations": [
+      "interface KanbanCardColumn<T> {\n  /** Column identifier */\n  id: string;\n  /** Render function for column content */\n  render: (item: T) => ReactNode;\n}",
+      "interface KanbanViewProps<T> {\n  /** Grouped sections — each becomes a column */\n  sections: Array<{ key: string; label?: string; items: T[] }>;\n  /** Group title lookup */\n  groupTitle?: (key: string) => string;\n  /** Render functions from TableConfig */\n  rowKey: (item: T) => string;\n  /** Render the avatar/icon slot for a card */\n  avatar: (item: T) => ReactNode;\n  /** Render the title slot for a card */\n  title: (item: T) => ReactNode;\n  /** Render the optional subtitle slot for a card */\n  subtitle?: (item: T) => ReactNode;\n  /** Handler when a card is clicked */\n  onRowClick?: (item: T) => void;\n  /** Visible columns to show on cards */\n  visibleColumns: KanbanCardColumn<T>[];\n  /** Empty state when there are no sections */\n  emptyState?: ReactNode;\n  /** Whether drag-and-drop is enabled for this view */\n  dndEnabled?: boolean;\n}"
+    ]
+  },
+  {
+    "name": "table/TimelineView",
+    "import": "@klein-ui/table/TimelineView",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface TimelineViewProps<T> {",
+      "export function TimelineView<T>({"
+    ],
+    "declarations": [
+      "export interface TimelineViewProps<T> {\n  /** All items to display */\n  items: T[];\n  /** Grouped sections for swimlanes (null = no grouping) */\n  sections: Array<{ key: string; label?: string; items: T[] }> | null;\n  /** Group title lookup */\n  groupTitle?: (key: string) => string;\n  /** The active date range config */\n  dateRange: {\n    start: (item: T) => Date | null;\n    end: (item: T) => Date | null;\n  };\n  /** Extract a unique key from an item */\n  rowKey: (item: T) => string;\n  /** Render the title slot for a row */\n  title: (item: T) => ReactNode;\n  /** Render the avatar slot for a row */\n  avatar: (item: T) => ReactNode;\n  /** Handler when a row is clicked */\n  onRowClick?: (item: T) => void;\n  /** Empty state content */\n  emptyState?: ReactNode;\n}"
+    ]
+  },
+  {
+    "name": "table/TableBulkActionBar",
+    "import": "@klein-ui/table/TableBulkActionBar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface TableBulkActionBarProps {",
+      "export function TableBulkActionBar({"
+    ],
+    "declarations": [
+      "export interface TableBulkActionBarProps {\n  /** Every selected row id, across pages. The bar renders nothing when empty. */\n  selectedIds: string[];\n  /** The page's bulk actions, in display order. */\n  actions: readonly BulkAction[];\n  /** Deselect everything. */\n  onClear: () => void;\n}"
+    ]
+  },
+  {
+    "name": "table/DataRowContainer",
+    "import": "@klein-ui/table/DataRowContainer",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function DataRowContainer({"
+    ],
+    "declarations": [
+      "interface DataRowContainerProps extends React.HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode;\n}"
+    ]
+  },
+  {
+    "name": "table/RowActions",
+    "import": "@klein-ui/table/RowActions",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const ROW_ACTION_BUTTON_REM = 1.75;",
+      "export const ROW_ACTION_GAP_REM = 0.25;",
+      "export function RowActions({ primary, overflow }: RowActionsProps) {"
+    ],
+    "declarations": [
+      "interface RowActionsProps {\n  /** The primary action rendered as a visible icon button */\n  primary: RowAction;\n  /** Additional actions shown in an overflow dropdown menu */\n  overflow?: RowAction[];\n}"
+    ]
+  },
+  {
+    "name": "table/ChangeStatusIndicator",
+    "import": "@klein-ui/table/ChangeStatusIndicator",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type ChangeStatus = PlanChangeStatus | null;",
+      "export function ChangeStatusIndicator({",
+      "export function getChangeStatusRowClass(status: ChangeStatus): string {"
+    ],
+    "declarations": [
+      "type PlanChangeStatus = \"ADDED\" | \"MODIFIED\" | \"DELETED\";",
+      "export type ChangeStatus = PlanChangeStatus | null;",
+      "interface ChangeStatusIndicatorProps {\n  status: ChangeStatus;\n  className?: string;\n}"
+    ]
+  },
+  {
+    "name": "table/row-navigation",
+    "import": "@klein-ui/table/row-navigation",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface RowClickModifiers {",
+      "export function navigateToRow(args: {",
+      "export function RowHrefNavigation<T>({"
+    ],
+    "declarations": [
+      "export interface RowClickModifiers {\n  metaKey: boolean;\n  ctrlKey: boolean;\n}"
+    ]
+  },
+  {
+    "name": "table/runtime",
+    "import": "@klein-ui/table/runtime",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface TableRuntime {",
+      "export function TableRuntimeProvider({",
+      "export function useTableRuntime() {"
+    ],
+    "declarations": [
+      "export interface TableRuntime {\n  navigate: (href: string) => void;\n  formatDate: (date: Date, options?: Intl.DateTimeFormatOptions) => string;\n}"
+    ]
+  },
+  {
+    "name": "table/TableCollection",
+    "import": "@klein-ui/table/TableCollection",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface TableCollectionProps<",
+      "export function withSourcedColumns<T, G extends string, S extends string>(",
+      "export function TableCollection<T, G extends string, S extends string>({",
+      "export function TableCollectionContent<T, G extends string, S extends string>({"
+    ],
+    "declarations": [
+      "export interface TableCollectionProps<\n  T,\n  G extends string = string,\n  S extends string = string,\n> {\n  /** Display-ready rows, columns and callbacks. All queries and mutations belong to the caller. */\n  config: TableConfig<T, G, S>;\n  /** Search, initial preferences and persistence callback from the application. */\n  state?: Pick<\n    UseViewStateConfig<G, S>,\n    \"search\" | \"initialState\" | \"onPersist\"\n  >;\n  /** Saved-view service adapter; rendered inside the shared state provider. */\n  savedViews?: ReactNode;\n  /** Additional toolbar actions, for example an application CSV export adapter. */\n  actions?: ReactNode;\n}"
+    ]
+  },
+  {
+    "name": "charts/compat",
+    "import": "@klein-ui/charts/compat",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export * from \"./chart-base.js\";",
+      "export * from \"./ChartRenderer.js\";",
+      "export * from \"./SplitScaleStackedBar.js\";",
+      "export * from \"./theme.js\";"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "charts/ChartRenderer",
+    "import": "@klein-ui/charts/ChartRenderer",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ChartRendererProps {",
+      "export interface ChartReferenceLine {",
+      "export const REFERENCE_LINE_DASH: readonly number[] = [6, 4];",
+      "export const REFERENCE_LINE_STACK = \"_ref\";",
+      "export function toCumulativeSeries(",
+      "export interface HorizontalLineDataset {",
+      "export interface HorizontalLineOptions {",
+      "export function buildHorizontalLineDataset(",
+      "export function buildReferenceLineDataset(",
+      "export function partialBarFills(",
+      "export function getLabels(series: readonly AnalyticsSeries[]): string[] {",
+      "export type ChartValueFormat = \"percent\";",
+      "export function ChartRenderer({"
+    ],
+    "declarations": [
+      "export interface ChartRendererProps {\n  chartType: ChartType;\n  series: AnalyticsSeries[];\n  currencyCode: string;\n  metric: AnalyticsMetricType;\n  minimal?: boolean;\n  showAverage?: boolean;\n  stackedBarLabel?: StackedBarLabelFormat;\n  splitScale?: SplitScaleMode;\n  /** When false, the built-in Chart.js legend is hidden (a caller renders its own). */\n  showLegend?: boolean;\n  /**\n   * Category indices to paint a translucent red band behind (line charts only)\n   * — the agent-insights spend trendline uses this to show WHERE\n   * `detectSpendAnomalies` flagged a spike. Empty/omitted draws nothing.\n   */\n  highlightIndices?: readonly number[];\n  /**\n   * Override how values read on the axis + in tooltips when the panel plots a\n   * ratio of `metric` rather than `metric` itself (see {@link ChartValueFormat}).\n   */\n  valueFormat?: ChartValueFormat;\n  /**\n   * A flat target line (e.g. the month's budget) drawn across every period as\n   * a dashed line. Drawn for `stackedBar`, `groupedBar`, `line` and `multiLine`;\n   * ignored for other chart types. Never stacked into the bars, excluded from\n   * the built-in legend (callers with their own legend add an entry), and it\n   * turns split-scale off — one flat line across two independently-scaled\n   * panels would read as two different targets.\n   */\n  referenceLine?: ChartReferenceLine;\n  /**\n   * When true, every series is drawn as a running total over the period axis\n   * (month-to-date spend rather than spend per day). Applies to the time-axis\n   * charts (`stackedBar`, `groupedBar`, `stackedArea`, `line`, `multiLine`);\n   * ignored for categorical/total charts where a running sum means nothing.\n   * Tooltips and labels show the running total. The input is not mutated.\n   */\n  cumulative?: boolean;\n  /**\n   * The FIRST period that is not final yet (e.g. today, while its spend is\n   * still arriving), in the same format as `dataPoints[].period`. From it to\n   * the end of the axis: `line`/`multiLine` segments ending on a partial\n   * period are dashed; `stackedBar`/`groupedBar` bars are translucent with a\n   * dashed outline (and split-scale is turned off so the partial state stays\n   * visible). Omitted, or not on the axis, draws everything as final. See\n   * `partial-periods.ts`.\n   */\n  partialFrom?: string;\n  /**\n   * The y-axis title on the time-axis charts, already translated. Omitted, it\n   * is the metric's name (`METRIC_LABELS`) — which for a count the analytics\n   * metrics don't name (e.g. requests raised) would be wrong. Named edit, H4.\n   */\n  axisTitle?: string;\n}",
+      "export interface ChartReferenceLine {\n  /** Where the line sits on the value axis, in the chart's metric units. */\n  value: number;\n  /** Already-translated name of the line, shown in tooltips (e.g. \"Budget\"). */\n  label: string;\n}",
+      "interface EndLabelDatalabels {\n  display: (ctx: DatalabelsContext) => boolean;\n  anchor: \"end\";\n  align: \"right\";\n  color: string;\n  font: { size: number; weight: \"bold\"; family: string };\n  formatter: () => string;\n}",
+      "interface NoDatalabels {\n  display: false;\n  labels: { segment: null; total: null };\n}",
+      "export interface HorizontalLineDataset {\n  label: string;\n  data: number[];\n  type: \"line\";\n  borderColor: string;\n  borderWidth: number;\n  borderDash?: number[];\n  pointRadius: number;\n  fill: false;\n  stack?: string;\n  datalabels: EndLabelDatalabels | NoDatalabels;\n}",
+      "export interface HorizontalLineOptions {\n  /** Height of the line on the value axis. */\n  value: number;\n  /** Dataset label (legend + tooltip). */\n  label: string;\n  /** Number of periods on the axis — the line has one point per period. */\n  labelCount: number;\n  /** Stroke colour. */\n  color: string;\n  /** Stroke width in pixels. */\n  borderWidth: number;\n  /** Dash pattern; omitted leaves the dataset's key out entirely. */\n  borderDash?: number[];\n  /** Stack id, so a line on a stacked bar chart isn't summed into the bars. */\n  stack?: string;\n  /** Text drawn beside the line's last point; omitted draws no label. */\n  endLabel?: string;\n}",
+      "export type ChartValueFormat = \"percent\";"
+    ]
+  },
+  {
+    "name": "charts/SplitScaleStackedBar",
+    "import": "@klein-ui/charts/SplitScaleStackedBar",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function SplitScaleStackedBar({"
+    ],
+    "declarations": [
+      "interface Props {\n  /** Pre-sorted series (largest total first) — same shape as ChartRenderer feeds today. */\n  series: AnalyticsSeries[];\n  /** Index where the dominant block ends and the tail begins. */\n  splitIndex: number;\n  metric: AnalyticsMetricType;\n  currencyCode: string;\n  minimal?: boolean;\n  stackedBarLabel: StackedBarLabelFormat;\n  formatValue: (\n    value: number,\n    metric: AnalyticsMetricType,\n    code: string,\n  ) => string;\n  pickContrastingTextColor: (bg: string | undefined) => string;\n}"
+    ]
+  },
+  {
+    "name": "charts/split-scale",
+    "import": "@klein-ui/charts/split-scale",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function computeSplitIndex(",
+      "export function computeBottomMax(",
+      "export function computeTopMax("
+    ],
+    "declarations": []
+  },
+  {
+    "name": "charts/partial-periods",
+    "import": "@klein-ui/charts/partial-periods",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const PARTIAL_DASH: readonly number[] = [4, 3];",
+      "export const PARTIAL_BAR_ALPHA = 0.35;",
+      "export function partialIndexOf(",
+      "export function isPartialPeriod(",
+      "export function isPartialSegment(",
+      "export interface BarGeometry {",
+      "export interface OutlineRect {",
+      "export function barOutlineRect(bar: BarGeometry): OutlineRect | null {",
+      "export function createPartialBarOutlinePlugin(partialIndex: number): {"
+    ],
+    "declarations": [
+      "export interface BarGeometry {\n  /** Horizontal centre. */\n  x: number;\n  /** The value end of the bar. */\n  y: number;\n  /** The base end of the bar. */\n  base: number;\n  /** Bar width. */\n  width: number;\n}",
+      "export interface OutlineRect {\n  left: number;\n  top: number;\n  width: number;\n  height: number;\n}",
+      "interface BarElementLike {\n  getProps: (props: [\"x\", \"y\", \"base\", \"width\"], final: boolean) => BarGeometry;\n}",
+      "interface ChartLike {\n  ctx: Pick<\n    CanvasRenderingContext2D,\n    | \"save\"\n    | \"restore\"\n    | \"setLineDash\"\n    | \"strokeRect\"\n    | \"lineWidth\"\n    | \"strokeStyle\"\n  >;\n  data: { datasets: ReadonlyArray<{ borderColor?: unknown; type?: unknown }> };\n  isDatasetVisible: (datasetIndex: number) => boolean;\n  getDatasetMeta: (datasetIndex: number) => { data: readonly BarElementLike[] };\n}"
+    ]
+  },
+  {
+    "name": "charts/spike-highlight",
+    "import": "@klein-ui/charts/spike-highlight",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface SpikeBand {",
+      "export function spikeBands(",
+      "export const SPIKE_BAND_FILL_LIGHT = \"rgba(225, 29, 72, 0.10)\";",
+      "export const SPIKE_BAND_FILL_DARK = \"rgba(251, 113, 133, 0.16)\";",
+      "export function createSpikeHighlightPlugin("
+    ],
+    "declarations": [
+      "export interface SpikeBand {\n  /** Left edge, chart-area pixels. */\n  readonly left: number;\n  /** Band width in pixels — always positive. */\n  readonly width: number;\n}"
+    ]
+  },
+  {
+    "name": "charts/chart-config",
+    "import": "@klein-ui/charts/chart-config",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export function resolveColor(variable: string): string {",
+      "export const CHART_COLORS = CHART_PALETTE_LIGHT;",
+      "export const CHART_COLORS_DARK = CHART_PALETTE_DARK;",
+      "export function getChartColor(index: number, isDark = false): string {",
+      "export function resolveSeriesColor(",
+      "export const COMMON_OPTIONS = {"
+    ],
+    "declarations": []
+  },
+  {
+    "name": "charts/chart-palette",
+    "import": "@klein-ui/charts/chart-palette",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const CHART_PALETTE_LIGHT = Array.from(",
+      "export const CHART_PALETTE_DARK = Array.from("
+    ],
+    "declarations": []
+  },
+  {
+    "name": "charts/DashboardChart",
+    "import": "@klein-ui/charts/DashboardChart",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ChartStackOption {",
+      "export const LEGEND_OTHER_KEY = \"__legend_other__\";",
+      "export interface OtherMember {",
+      "export function capSeriesForLegend(",
+      "export function DashboardChart({"
+    ],
+    "declarations": [
+      "export interface ChartStackOption {\n  /** Stable value handed back to `onStackByChange`. */\n  value: string;\n  /** Already-translated label shown on the toggle. */\n  label: string;\n}",
+      "export interface OtherMember {\n  label: string;\n  total: number;\n}"
+    ]
+  },
+  {
+    "name": "charts/BubbleChart",
+    "import": "@klein-ui/charts/BubbleChart",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface BubbleData {",
+      "export function packCircles(",
+      "export function BubbleChart({"
+    ],
+    "declarations": [
+      "export interface BubbleData {\n  skillId: string;\n  skillName: string;\n  headcount: number;\n  delta: number;\n  deltaPercent: number;\n  tone?: \"good\" | \"bad\" | \"accent\";\n  deltaLabel?: string;\n  radius: number;\n  x: number;\n  y: number;\n}"
+    ]
+  },
+  {
+    "name": "charts/GanttChart",
+    "import": "@klein-ui/charts/GanttChart",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface GanttTask {",
+      "export type ZoomLevel = \"WEEK\" | \"MONTH\" | \"QUARTER\" | \"YEAR\";",
+      "export interface GanttChartProps {",
+      "export function GanttChart({ tasks, zoomLevel = \"MONTH\" }: GanttChartProps) {"
+    ],
+    "declarations": [
+      "export interface GanttTask {\n  id: number;\n  text: string;\n  start: Date;\n  end: Date;\n  progress: number;\n  type: \"task\";\n  allocation: string;\n  color: string;\n  projectId: string;\n}",
+      "export type ZoomLevel = \"WEEK\" | \"MONTH\" | \"QUARTER\" | \"YEAR\";",
+      "export interface GanttChartProps {\n  tasks: GanttTask[];\n  zoomLevel?: ZoomLevel;\n}"
+    ]
+  },
+  {
+    "name": "charts/BurndownChart",
+    "import": "@klein-ui/charts/BurndownChart",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface BurndownPoint {",
+      "export interface BurndownChartProps {",
+      "export function BurndownChart({"
+    ],
+    "declarations": [
+      "export interface BurndownPoint {\n  /** Display label for the month, e.g. \"Jan\". */\n  month: string;\n  /** Forecast value for the month (cost or effort, per `mode`). */\n  forecast: number;\n  /**\n   * Actual value for the month. Use `null` for future months that have no\n   * actuals yet — the actual line stops at \"today\" instead of dropping to 0.\n   */\n  actual: number | null;\n}",
+      "export interface BurndownChartProps {\n  /** Monthly series (chronological). Already cumulative; calculated by the application. */\n  series: BurndownPoint[];\n  /** Cost (money) or Effort (FTE/days) — drives the axis formatter + labels. */\n  mode: \"cost\" | \"effort\";\n  /** Pre-translated dataset labels. */\n  labels: { forecast: string; actual: string };\n  /** Index of the \"today\" month in `series` (red marker). -1 to omit. */\n  todayIndex: number;\n  /** Format an axis/tooltip value (caller injects currency/effort formatting). */\n  formatValue: (value: number) => string;\n  /** Copy for the empty state. */\n  emptyText?: string;\n  height?: number;\n  className?: string;\n  \"data-testid\"?: string;\n}"
+    ]
+  },
+  {
+    "name": "charts/chart-base",
+    "import": "@klein-ui/charts/chart-base",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ChartElementClickParams {",
+      "export const BaseChart = ({",
+      "export const BarChart = (props: Omit<BaseChartProps, \"type\">) => (",
+      "export const LineChart = (props: Omit<BaseChartProps, \"type\">) => (",
+      "export const PieChart = (props: Omit<BaseChartProps, \"type\">) => (",
+      "export const DoughnutChart = (props: Omit<BaseChartProps, \"type\">) => (",
+      "export const RadarChart = (props: Omit<BaseChartProps, \"type\">) => (",
+      "export const ScatterChart = (props: Omit<BaseChartProps, \"type\">) => ("
+    ],
+    "declarations": [
+      "export interface ChartElementClickParams {\n  /** Index of the dataset (series) that was clicked */\n  datasetIndex: number;\n  /** Index of the data point within the dataset */\n  index: number;\n  /** X-axis label (or segment label for pie/doughnut) */\n  label: string;\n  /** Dataset label (series name) */\n  datasetLabel: string;\n  /** Numeric value of the clicked element */\n  value: number;\n}",
+      "interface BaseChartProps {\n  data: any;\n  options?: any;\n  isLoading?: boolean;\n  height?: number | string;\n  className?: string;\n  type?: \"bar\" | \"line\" | \"pie\" | \"doughnut\" | \"radar\" | \"scatter\";\n  plugins?: any[];\n  /** Called when a chart element (bar, point, segment) is clicked. */\n  onElementClick?: (params: ChartElementClickParams) => void;\n}"
+    ]
+  },
+  {
+    "name": "charts/Timeline",
+    "import": "@klein-ui/charts/Timeline",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export const useGanttDragging = () => useAtom(draggingAtom);",
+      "export const useGanttScrollX = () => useAtom(scrollXAtom);",
+      "export type GanttDragHandlers = {",
+      "export function useGanttDragHandlers(id: string, handlers: GanttDragHandlers) {",
+      "export type GanttStatus = {",
+      "export type GanttFeature = {",
+      "export type GanttMarkerProps = {",
+      "export type Range = \"daily\" | \"monthly\" | \"quarterly\";",
+      "export type TimelineData = {",
+      "export type GanttContextProps = {",
+      "export const getDateByMousePosition = (",
+      "export const GanttContext = createContext<GanttContextProps>({",
+      "export type GanttContentHeaderProps = {",
+      "export const GanttContentHeader: FC<GanttContentHeaderProps> = ({",
+      "export type GanttHeaderProps = {",
+      "export const GanttHeader: FC<GanttHeaderProps> = ({ className }) => {",
+      "export type GanttSidebarItemProps = {",
+      "export const GanttSidebarItem: FC<GanttSidebarItemProps> = ({",
+      "export const GanttSidebarHeader: FC = () => (",
+      "export type GanttSidebarGroupProps = {",
+      "export const GanttSidebarGroup: FC<GanttSidebarGroupProps> = ({",
+      "export type GanttSidebarProps = {",
+      "export const GanttSidebar: FC<GanttSidebarProps> = ({",
+      "export type GanttAddFeatureHelperProps = {",
+      "export const GanttAddFeatureHelper: FC<GanttAddFeatureHelperProps> = ({",
+      "export type GanttColumnProps = {",
+      "export const GanttColumn: FC<GanttColumnProps> = memo(",
+      "export type GanttColumnsProps = {",
+      "export const GanttColumns: FC<GanttColumnsProps> = memo(",
+      "export type GanttCreateMarkerTriggerProps = {",
+      "export const GanttCreateMarkerTrigger: FC<GanttCreateMarkerTriggerProps> = ({",
+      "export type GanttFeatureDragHelperProps = {",
+      "export const GanttFeatureDragHelper: FC<GanttFeatureDragHelperProps> = ({",
+      "export type GanttFeatureItemCardProps = Pick<GanttFeature, \"id\"> & {",
+      "export const GanttFeatureItemCard: FC<GanttFeatureItemCardProps> = memo(",
+      "export type GanttFeatureItemProps = GanttFeature & {",
+      "export const GanttFeatureItem: FC<GanttFeatureItemProps> = ({",
+      "export type GanttFeatureListGroupProps = {",
+      "export const GanttFeatureListGroup: FC<GanttFeatureListGroupProps> = memo(",
+      "export function computeSubRowCount(features: GanttFeature[]): number {",
+      "export const GANTT_SUB_ROW_HEIGHT = 44;",
+      "export const GANTT_HEADER_HEIGHT = 60;",
+      "export const GANTT_ROW_HEIGHT = 60;",
+      "export const GANTT_LIST_TOP_PADDING = 16;",
+      "export function ganttRowHeight(subRows: number): number {",
+      "export type GanttFeatureRowProps = {",
+      "export const GanttFeatureRow: FC<GanttFeatureRowProps> = ({",
+      "export type GanttFeatureListProps = {",
+      "export const GanttFeatureList: FC<GanttFeatureListProps> = ({",
+      "export const GanttMarker: FC<",
+      "export type GanttProviderProps = {",
+      "export const GanttProvider: FC<GanttProviderProps> = ({",
+      "export type GanttTimelineProps = {",
+      "export const GanttTimeline: FC<GanttTimelineProps> = ({",
+      "export type GanttTodayProps = {",
+      "export const GanttToday: FC<GanttTodayProps> = ({ className }) => {"
+    ],
+    "declarations": [
+      "export type GanttDragHandlers = {\n  onDragStart?: (event: DragStartEvent) => void;\n  onDragMove?: (event: DragMoveEvent) => void;\n  onDragEnd?: (event: DragEndEvent) => void;\n};",
+      "type GanttDragRegistryContextValue = {\n  register: (id: string, handlers: GanttDragHandlers) => void;\n  unregister: (id: string) => void;\n};",
+      "export type GanttStatus = {\n  id: string;\n  name: string;\n  color: string;\n};",
+      "export type GanttFeature = {\n  id: string;\n  name: string;\n  startAt: Date;\n  endAt: Date | null;\n  status: GanttStatus;\n  lane?: string;\n};",
+      "export type GanttMarkerProps = {\n  id: string;\n  date: Date;\n  label: string;\n};",
+      "export type Range = \"daily\" | \"monthly\" | \"quarterly\";",
+      "export type TimelineData = {\n  year: number;\n  quarters: {\n    months: {\n      days: number;\n    }[];\n  }[];\n}[];",
+      "export type GanttContextProps = {\n  zoom: number;\n  range: Range;\n  columnWidth: number;\n  sidebarWidth: number;\n  headerHeight: number;\n  rowHeight: number;\n  onAddItem: ((date: Date) => void) | undefined;\n  placeholderLength: number;\n  timelineData: TimelineData;\n  ref: RefObject<HTMLDivElement | null> | null;\n  scrollToFeature?: (feature: GanttFeature) => void;\n};",
+      "export type GanttContentHeaderProps = {\n  renderHeaderItem: (index: number) => ReactNode;\n  title: string;\n  columns: number;\n};",
+      "export type GanttHeaderProps = {\n  className?: string;\n};",
+      "export type GanttSidebarItemProps = {\n  feature: GanttFeature;\n  onSelectItem?: (id: string) => void;\n  className?: string;\n};",
+      "export type GanttSidebarGroupProps = {\n  children: ReactNode;\n  name: string;\n  className?: string;\n};",
+      "export type GanttSidebarProps = {\n  children: ReactNode;\n  className?: string;\n};",
+      "export type GanttAddFeatureHelperProps = {\n  top: number;\n  className?: string;\n};",
+      "export type GanttColumnProps = {\n  index: number;\n  isColumnSecondary?: (item: number) => boolean;\n};",
+      "export type GanttColumnsProps = {\n  columns: number;\n  isColumnSecondary?: (item: number) => boolean;\n};",
+      "export type GanttCreateMarkerTriggerProps = {\n  onCreateMarker: (date: Date) => void;\n  className?: string;\n};",
+      "export type GanttFeatureDragHelperProps = {\n  featureId: GanttFeature[\"id\"];\n  direction: \"left\" | \"right\";\n  date: Date | null;\n  costImpact?: {\n    costDelta: number;\n    percentChange: number;\n  } | null;\n  onDragActiveChange?: (direction: \"left\" | \"right\", isActive: boolean) => void;\n};",
+      "export type GanttFeatureItemCardProps = Pick<GanttFeature, \"id\"> & {\n  children?: ReactNode;\n  costImpact?: {\n    costDelta: number;\n    percentChange: number;\n  } | null;\n  newStartDate?: Date | null;\n  newEndDate?: Date | null;\n  onDragActiveChange?: (isActive: boolean) => void;\n  /** When true, renders a fade-out gradient on the right edge to indicate an open-ended/indefinite item */\n  isOpenEnded?: boolean;\n  /** When true, removes the Card's internal padding so children fill edge-to-edge */\n  flat?: boolean;\n  /** Click handler fired when the card is clicked without triggering a drag */\n  onSelectItem?: (id: string) => void;\n};",
+      "export type GanttFeatureItemProps = GanttFeature & {\n  onMove?: (id: string, startDate: Date, endDate: Date | null) => void;\n  onDragMove?: (id: string, startDate: Date, endDate: Date | null) => void;\n  onCalculateCostImpact?: (\n    id: string,\n    newStartDate: Date,\n    newEndDate: Date,\n  ) => { costDelta: number; percentChange: number; newCost: number } | null;\n  children?: ReactNode;\n  className?: string;\n  /** When true, removes the Card's internal padding so children fill edge-to-edge */\n  flat?: boolean;\n  /** Click handler fired when the bar is clicked without triggering a drag */\n  onSelectItem?: (id: string) => void;\n};",
+      "export type GanttFeatureListGroupProps = {\n  children: ReactNode;\n  className?: string;\n};",
+      "export type GanttFeatureRowProps = {\n  features: GanttFeature[];\n  onMove?: (id: string, startAt: Date, endAt: Date | null) => void;\n  children?: (feature: GanttFeature) => ReactNode;\n  className?: string;\n  /** When true, removes the Card's internal padding so bars fill edge-to-edge */\n  flat?: boolean;\n  /** Click handler fired when a bar is clicked without triggering a drag */\n  onSelectItem?: (id: string) => void;\n};",
+      "export type GanttFeatureListProps = {\n  className?: string;\n  children: ReactNode;\n};",
+      "export type GanttProviderProps = {\n  range?: Range;\n  zoom?: number;\n  onAddItem?: (date: Date) => void;\n  children: ReactNode;\n  className?: string;\n  /**\n   * Day the timeline is built around — it draws that year plus the one either\n   * side, and scrolling extends it from there. Defaults to today, so a consumer\n   * that does not pass it behaves exactly as before. Pass it when the chart\n   * covers a window that is not centred on today (e.g. a schedule read as at a\n   * past or future As-of day), or the bars fall outside the drawn years.\n   */\n  start?: Date;\n};",
+      "export type GanttTimelineProps = {\n  children: ReactNode;\n  className?: string;\n};",
+      "export type GanttTodayProps = {\n  className?: string;\n};"
+    ]
+  },
+  {
+    "name": "charts/Sparkline",
+    "import": "@klein-ui/charts/Sparkline",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface SparklineProps {",
+      "export const SPARKLINE_PARTIAL_DASH = \"2 2\";",
+      "export function sparklineSegments(",
+      "export function Sparkline({"
+    ],
+    "declarations": [
+      "export interface SparklineProps {\n  /**\n   * Numeric series. Order matters — index 0 is the oldest sample, index n\n   * is the most recent. Caller is responsible for downsampling.\n   */\n  points: readonly number[];\n  /** Width in px. */\n  width?: number;\n  /** Height in px. */\n  height?: number;\n  /**\n   * Accessible label for the SVG. Required — the sparkline is meaningless\n   * without context for screen-readers.\n   */\n  label: string;\n  /**\n   * When true, treats a final-point higher than the first as \"good\"\n   * (accent stroke). When false (default) the sparkline is monochrome so\n   * the page can reserve `var(--accent-ai)` for the headline tile only.\n   */\n  accent?: boolean;\n  /** Extra class names — escape hatch for layout. */\n  className?: string;\n  /**\n   * Index of the first PARTIAL (not yet final) point — e.g. today's spend\n   * while the day is still running. The solid stroke stops at the last\n   * complete point (`partialFromIndex - 1`); from there to the end a second,\n   * dashed path is drawn, so the line reads \"final up to here, still moving\n   * after\". Omitted (or ≥ `points.length`) draws one solid path, as before;\n   * `0` draws the whole series dashed.\n   */\n  partialFromIndex?: number;\n  /**\n   * Stroke colour override (any CSS colour, e.g. `currentColor` or a series\n   * colour). Takes precedence over `accent`. Omitted keeps the default:\n   * `var(--accent-ai)` when `accent`, otherwise `currentColor`.\n   */\n  color?: string;\n}"
+    ]
+  },
+  {
+    "name": "charts/MetricStrip",
+    "import": "@klein-ui/charts/MetricStrip",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface MetricDeltaLabels {",
+      "export interface MetricTile {",
+      "export interface MetricStripProps {",
+      "export function MetricStrip({"
+    ],
+    "declarations": [
+      "export interface MetricDeltaLabels {\n  /** Title attribute when delta > 0 (receives the absolute % integer). */\n  up: (pct: number) => string;\n  /** Title attribute when delta < 0. */\n  down: (pct: number) => string;\n  /** Title attribute when the delta rounds to 0. */\n  flat: string;\n}",
+      "export interface MetricTile {\n  /** Stable id — used for data-testid and React key. */\n  id: string;\n  /** 10px uppercase mono eyebrow label. */\n  label: string;\n  /** Accessible label fully describing the tile to screen readers. */\n  ariaLabel: string;\n  /** Formatted value (currency, count, percent, etc). */\n  value: string;\n  /**\n   * Fractional delta vs previous period (e.g. 0.12 → 12%). Null suppresses\n   * the delta indicator.\n   */\n  delta?: number | null;\n  /** Whether a positive delta should render rose (\"bad when up\"). */\n  deltaIsBadWhenUp?: boolean;\n  /** Per-tile delta copy — wire through your i18n helper. */\n  deltaLabels?: MetricDeltaLabels;\n  /**\n   * Optional sparkline series. Only the FIRST tile renders a sparkline\n   * even when others supply points; the spec restricts the row to one\n   * sparkline so the eye keeps scanning across.\n   */\n  sparkPoints?: readonly number[];\n  /** Accessible label for the sparkline. */\n  sparkLabel?: string;\n  /** Optional click handler — turns the tile into a navigational target. */\n  onClick?: () => void;\n}",
+      "export interface MetricStripProps {\n  /** Up to six tiles. Anything past index 5 is dropped. */\n  tiles: readonly MetricTile[];\n  /** When true, renders skeleton dots in place of values. */\n  loading?: boolean;\n  /** Extra class names. */\n  className?: string;\n}",
+      "interface MetricCellProps {\n  tile: MetricTile;\n  allowSparkline: boolean;\n}"
+    ]
+  },
+  {
+    "name": "charts/MetricGrid",
+    "import": "@klein-ui/charts/MetricGrid",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface MetricGridDeltaLabels {",
+      "export interface MetricGridTile {",
+      "export interface MetricGridProps {",
+      "export function MetricGrid({"
+    ],
+    "declarations": [
+      "export interface MetricGridDeltaLabels {\n  /** Used as the title attribute when delta > 0. Receives the abs %. */\n  up: (pct: number) => string;\n  /** Used as the title attribute when delta < 0. Receives the abs %. */\n  down: (pct: number) => string;\n  /** Used when the delta rounds to 0%. */\n  flat: string;\n}",
+      "export interface MetricGridTile {\n  /** Stable id — used for data-testid and React key. */\n  id: string;\n  /** Eyebrow label above the value (10px upper-case muted). */\n  label: string;\n  /** Accessible label that fully describes the tile to screen readers. */\n  ariaLabel: string;\n  /** The formatted value — usually currency, count, or percent. */\n  value: string;\n  /**\n   * Fractional delta vs the previous period (e.g. 0.12 → 12%). Null\n   * suppresses the delta indicator entirely.\n   */\n  delta?: number | null;\n  /** Whether a positive delta should render red (\"bad when up\"). */\n  deltaIsBadWhenUp?: boolean;\n  /** Per-tile delta copy — wire through your i18n helper. */\n  deltaLabels?: MetricGridDeltaLabels;\n  /**\n   * Optional sparkline points (raw numeric values). Only honoured on\n   * the FIRST tile — the spec restricts the strip to a single\n   * sparkline so the eye keeps moving across the row.\n   */\n  sparkPoints?: readonly number[];\n  /** Aria-label for the sparkline SVG. */\n  sparkLabel?: string;\n  /** Optional click handler — turns the tile into a navigational target. */\n  onClick?: () => void;\n}",
+      "export interface MetricGridProps {\n  /** Up to four tiles. Extra entries past index 3 are dropped on render. */\n  tiles: readonly MetricGridTile[];\n  /** When true, renders skeleton dots instead of values. */\n  loading?: boolean;\n  /** Extra class names — escape hatch for layout. */\n  className?: string;\n}",
+      "interface MetricGridTileProps {\n  tile: MetricGridTile;\n  /** Only honour `sparkPoints` when this is true (first tile). */\n  allowSparkline: boolean;\n}"
+    ]
+  },
+  {
+    "name": "charts/types",
+    "import": "@klein-ui/charts/types",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export type ChartType =",
+      "export type AnalyticsMetricType =",
+      "export type StackedBarLabelFormat = \"value\" | \"percent\" | \"none\";",
+      "export type SplitScaleMode = \"auto\" | \"on\" | \"off\";",
+      "export const METRIC_LABELS: Record<AnalyticsMetricType, string> = {",
+      "export interface AnalyticsDataPoint {",
+      "export interface AnalyticsSeries {"
+    ],
+    "declarations": [
+      "export type ChartType =\n  | \"stackedArea\"\n  | \"line\"\n  | \"pie\"\n  | \"stackedBar\"\n  | \"groupedBar\"\n  | \"donut\"\n  | \"heatmap\"\n  | \"table\"\n  | \"waterfall\"\n  | \"scatter\"\n  | \"horizontalBar\"\n  | \"multiLine\"\n  | \"wholeNumber\";",
+      "export type AnalyticsMetricType =\n  | \"COST\"\n  | \"FTE\"\n  | \"HEADCOUNT\"\n  | \"AI_COST\"\n  | \"AI_SESSIONS\"\n  | \"AI_FRUSTRATION\"\n  | \"AI_INPUT_QUALITY_AVG\"\n  | \"AI_TOKENS\"\n  | \"AI_REQUESTS\"\n  | \"PR_COUNT\"\n  | \"COST_PER_PR\"\n  | \"LINES_CHANGED\"\n  | \"AI_SPEND\"\n  | \"AI_TOTAL_COST\"\n  | \"METRIC_VALUE\";",
+      "export type StackedBarLabelFormat = \"value\" | \"percent\" | \"none\";",
+      "export type SplitScaleMode = \"auto\" | \"on\" | \"off\";",
+      "export interface AnalyticsDataPoint {\n  /** Period label (e.g., \"Jan 2025\", \"Q1 2025\", \"2025\") */\n  period: string;\n  /** Metric value for this period */\n  value: number;\n}",
+      "export interface AnalyticsSeries {\n  /** Unique key for the series (e.g., \"capex\", \"team-123\") */\n  key: string;\n  /** Human-readable label for display */\n  label: string;\n  /** Suggested color for charts */\n  color: string | null;\n  /** Data points in chronological order */\n  dataPoints: AnalyticsDataPoint[];\n}"
+    ]
+  },
+  {
+    "name": "forecast/editor",
+    "import": "@klein-ui/forecast/editor",
+    "status": "migration-api",
+    "usage": "Extracted application API. New features use the closed API in the main catalogue or extend it in Klein. Data, permissions and persistence stay in application adapters.",
+    "exports": [
+      "export interface ForecastAllocationEditorProps {",
+      "export function ForecastAllocationEditor({"
+    ],
+    "declarations": [
+      "export interface ForecastAllocationEditorProps {\n  open: boolean;\n  onOpenChange: (open: boolean) => void;\n  resourceName: string;\n  resourceType: string;\n  children: ReactNode;\n  value: number;\n  onValueChange: (value: number) => void;\n  creating: boolean;\n  onCreatingChange: (value: boolean) => void;\n  loading: boolean;\n  saving: boolean;\n  canCreate: boolean;\n  allocationCount: number;\n  directAllocations: readonly { id: string }[];\n  teamAllocations: readonly {\n    id: string;\n    teamName?: string | null;\n    fte: number;\n  }[];\n  onSave: (id?: string) => void;\n}"
+    ]
+  }
+]

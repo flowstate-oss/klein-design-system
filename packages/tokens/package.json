@@ -1,0 +1,32 @@
+{
+  "name": "@klein-ui/tokens",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "tokens.css",
+    "source.json",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./tokens.css": "./tokens.css"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "license": "MIT",
+  "author": "Flowstate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowstate-oss/klein-design-system.git",
+    "directory": "packages/tokens"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

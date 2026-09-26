@@ -1,0 +1,123 @@
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css" source(none);
+@source "./src/compat";
+@source "../table/src";
+@source "../charts/src";
+@source "../forecast/src";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-display: 'Geist', system-ui, sans-serif;
+  --font-body: 'Geist', system-ui, sans-serif;
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --radius: 0;
+
+  --color-klein-50: #eef2fc;
+  --color-klein-100: #d8e1f7;
+  --color-klein-200: #b0c2ee;
+  --color-klein-300: #7e99df;
+  --color-klein-400: #4a6bcb;
+  --color-klein-500: #1b45b4;
+  --color-klein-600: #002fa7;
+  --color-klein-700: #00278a;
+  --color-klein-800: #001f6e;
+  --color-klein-900: #001a57;
+  --color-klein-950: #00113a;
+
+  --color-paper: #ffffff;
+  --color-band: #f6f7f9;
+  --color-tint: #eceef2;
+  --color-line: #d7dbe2;
+  --color-muted: #eceef2;
+  --color-body: #4b505a;
+  --color-ink: #0b0d12;
+
+  --color-gray-50: #f6f7f9;
+  --color-gray-100: #eceef2;
+  --color-gray-200: #d7dbe2;
+  --color-gray-300: #b9bec7;
+  --color-gray-400: #8a8f9a;
+  --color-gray-500: #6b7078;
+  --color-gray-600: #4b505a;
+  --color-gray-700: #3a3e46;
+  --color-gray-800: #23262d;
+  --color-gray-900: #15171c;
+  --color-gray-950: #0b0d12;
+
+  --color-good: #0f6b4f;
+  --color-good-tint: #e6f2ed;
+  --color-watch: #9a6b00;
+  --color-watch-tint: #fbf1df;
+  --color-bad: #a8102b;
+  --color-bad-tint: #fbecef;
+
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-paper);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-tint);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-ink);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--color-klein-600);
+  --color-secondary-foreground: #ffffff;
+  --color-muted-foreground: #8a8f9a;
+  --color-accent: var(--color-klein-50);
+  --color-accent-foreground: var(--color-klein-600);
+  --color-destructive: var(--color-bad);
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-ring: var(--color-klein-600);
+  --color-backdrop: rgb(255 255 255 / 0.82);
+
+  --color-chart-1: #002fa7;
+  --color-chart-2: #3e7ca6;
+  --color-chart-3: #7e99df;
+  --color-chart-4: #0f6b4f;
+  --color-chart-5: #9a6b00;
+  --color-chart-6: #a8102b;
+  --color-chart-7: #4a6bcb;
+  --color-chart-8: #b0c2ee;
+  --color-chart-9: #3e7ca6;
+  --color-chart-10: #7e99df;
+  --color-chart-11: #1b45b4;
+  --color-chart-12: #8a8f9a;
+
+  --surface-1: var(--color-paper);
+  --surface-2: var(--color-band);
+  --surface-inset: var(--color-tint);
+  --focus-ring: var(--color-klein-600);
+
+  --shadow-card: none;
+  --shadow-prop: none;
+  --shadow-prop-hover: none;
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-control: none;
+
+  --color-brand: var(--color-klein-600);
+  --color-brand-light: var(--color-klein-400);
+  --color-brand-dark: var(--color-klein-800);
+  --color-brand-blue: var(--color-klein-600);
+  --color-brand-blue-foreground: #ffffff;
+
+  --ai-gradient: linear-gradient(135deg, var(--color-klein-600), var(--color-klein-600));
+  --ai-gradient-soft: linear-gradient(135deg, var(--color-klein-50), var(--color-klein-50));
+
+  --nav-color-primary: var(--color-klein-600);
+  --nav-color-inactive: var(--color-muted-foreground);
+
+  --color-floating-bar: var(--color-tint);
+  --color-floating-bar-border: var(--color-line);
+  --shadow-floating-bar: none;
+  --color-chip-active: var(--color-paper);
+  --color-chip-active-border: var(--color-klein-600);
+}
+
+
+:root { --row-height-padding: 8px; --row-min-height: 40px; }
+
+@source "./src/patterns";

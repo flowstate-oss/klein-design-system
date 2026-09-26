@@ -1,0 +1,42 @@
+{
+  "name": "@klein-ui/forecast",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "styles.css",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./styles.css",
+    "./editor": {
+      "types": "./dist/ForecastAllocationEditor.d.ts",
+      "import": "./dist/ForecastAllocationEditor.js"
+    }
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@klein-ui/react": "0.1.0",
+    "lucide-react": "^0.475.0"
+  },
+  "license": "MIT",
+  "author": "Flowstate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowstate-oss/klein-design-system.git",
+    "directory": "packages/forecast"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

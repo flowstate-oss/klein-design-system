@@ -1,0 +1,63 @@
+name: Publish npm packages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig*.json'
+      - 'LICENSE'
+      - '.github/workflows/publish.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'flowstate-oss/klein-design-system' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - run: npm install --global npm@11
+      - name: Check release version
+        run: node scripts/check-release-version.mjs
+        env:
+          RELEASE_BASE: ${{ github.event.before }}
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build:docs
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: npm run smoke:pack
+      - name: Identify unpublished versions (safe retry)
+        id: plan
+        run: node scripts/release-plan.mjs
+      - if: steps.plan.outputs.pending_tokens == 'true'
+        run: npm publish --workspace @klein-ui/tokens --access public --provenance
+      - if: steps.plan.outputs.pending_react == 'true'
+        run: npm publish --workspace @klein-ui/react --access public --provenance
+      - if: steps.plan.outputs.pending_table == 'true'
+        run: npm publish --workspace @klein-ui/table --access public --provenance
+      - if: steps.plan.outputs.pending_charts == 'true'
+        run: npm publish --workspace @klein-ui/charts --access public --provenance
+      - if: steps.plan.outputs.pending_forecast == 'true'
+        run: npm publish --workspace @klein-ui/forecast --access public --provenance
+      - if: steps.plan.outputs.pending_eddy == 'true'
+        run: npm publish --workspace @klein-ui/eddy --access public --provenance
+      - if: steps.plan.outputs.pending_contracts == 'true'
+        run: npm publish --workspace @klein-ui/contracts --access public --provenance

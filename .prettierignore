@@ -1,0 +1,12 @@
+node_modules
+**/dist
+apps/docs/build
+apps/docs/public
+artifacts
+test-results
+package-lock.json
+packages/tokens/index.*
+packages/tokens/tokens.css
+packages/contracts/components.json
+packages/contracts/props.json
+packages/contracts/AGENTS.md

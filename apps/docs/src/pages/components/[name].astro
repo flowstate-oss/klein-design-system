@@ -1,0 +1,11 @@
+---
+const base=import.meta.env.BASE_URL.replace(/\/$/,'');
+import Documentation from '../../layouts/Documentation.astro';
+import catalogue from '../../../../../packages/contracts/components.json';
+import references from '../../../../../packages/contracts/props.json';
+import ExampleIsland from '../../ExampleIsland';
+export function getStaticPaths(){ return catalogue.map(item=>({params:{name:item.name},props:{item}})); }
+const {item}=Astro.props;
+const reference=references[item.name as keyof typeof references];
+---
+<Documentation title={item.name}><main class="docs-catalogue"><article id={item.name}><div class="docs-eyebrow">{item.layer} · {item.status}</div><h1>{item.name}</h1><p>{item.purpose}</p><h2>Use it</h2><p>{item.usage}</p><pre><code>{item.import}</code></pre><div class="docs-specimen"><ExampleIsland name={item.name} client:only="react"/></div><h2>Example source</h2><pre><code>{item.example}</code></pre><h2>Behaviour and ownership</h2><p>{item.behavior}</p><h2>Props</h2><div class="docs-table-scroll"><table><caption>{item.name} public props</caption><thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Contract</th></tr></thead><tbody>{reference.props.map(prop=><tr><th scope="row">{prop.name}</th><td><code>{prop.type}</code></td><td>{prop.default??'—'}</td><td>{prop.description || (prop.required?'Required in the applicable mode.':'Optional in the applicable mode.')}</td></tr>)}</tbody></table></div><details><summary>Type signature</summary><pre><code>{reference.declaration}</code></pre></details><h2>Avoid</h2><p>{item.avoid}</p></article></main></Documentation>

@@ -1,0 +1,8 @@
+---
+const base=import.meta.env.BASE_URL.replace(/\/$/,'');
+import Documentation from '../../layouts/Documentation.astro';
+import entries from '../../../../../packages/contracts/compatibility.json';
+export function getStaticPaths(){return entries.map(entry=>({params:{path:entry.name},props:{entry}}));}
+const {entry}=Astro.props;
+---
+<Documentation title={entry.import}><main class="docs-catalogue"><h1>{entry.name}</h1><p>{entry.usage}</p><pre><code>{entry.import}</code></pre><h2>Exports</h2><pre><code>{entry.exports.join('\n')}</code></pre><h2>Types and props</h2>{entry.declarations.map(declaration=><pre><code>{declaration}</code></pre>)}<p><a href={`${base}/implementation/`}>Implementation and agent rules</a></p></main></Documentation>

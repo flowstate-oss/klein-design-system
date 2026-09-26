@@ -1,0 +1,8 @@
+/* Flowstate dark-mode product extension. Brand primitives remain unchanged. */
+.dark {
+ --k-surface-page:#0b0d12;--k-surface-band:#15171c;--k-surface-fill:#23262d;
+ --k-surface-selected:#001a57;--k-text-primary:#ffffff;--k-text-body:#d7dbe2;
+ --k-text-secondary:#b9bec7;--k-text-muted:#b0c2ee;--k-text-link:#b0c2ee;
+ --k-text-accent:#b0c2ee;--k-border:#23262d;
+ --k-rule-hairline:1px solid #23262d;--k-rule-strong:1px solid #3a3e46;
+}

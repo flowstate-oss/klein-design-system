@@ -1,0 +1,2306 @@
+{
+  "Button": {
+    "declaration": "type NativeButton = Omit<\n  ButtonHTMLAttributes<HTMLButtonElement>,\n  \"className\" | \"style\" | \"color\" | \"children\" | \"dangerouslySetInnerHTML\"\n>;\n\ntype Appearance =\n  | { variant?: \"primary\"; tone?: \"neutral\" | \"accent\" | \"danger\" }\n  | { variant: \"secondary\" | \"tertiary\"; tone?: \"neutral\" }\n  | { variant: \"text\"; tone?: \"accent\" };\n\nexport type ButtonProps = NativeButton &\n  Appearance & {\n    /** Visible, sentence-case action label. */\n    children: ReactNode;\n    /** Control height: 32, 40 or 48px. @default md */\n    size?: \"sm\" | \"md\" | \"lg\";\n    /** Prevent repeated activation while retaining the action label. @default false */\n    loading?: boolean;\n    /** Optional approved glyph before the label. */\n    leading?: ReactNode;\n    ref?: Ref<HTMLButtonElement>;\n  };",
+    "props": [
+      {
+        "name": "variant",
+        "type": "\"primary\" | undefined | \"secondary\" | \"tertiary\" | \"text\"",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "\"neutral\" | \"accent\" | \"danger\" | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Visible, sentence-case action label.",
+        "default": null
+      },
+      {
+        "name": "size",
+        "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+        "required": false,
+        "description": "Control height: 32, 40 or 48px.",
+        "default": "md"
+      },
+      {
+        "name": "loading",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Prevent repeated activation while retaining the action label.",
+        "default": "false"
+      },
+      {
+        "name": "leading",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Optional approved glyph before the label.",
+        "default": null
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement> | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "IconButton": {
+    "declaration": "type NativeButton = Omit<\n  ButtonHTMLAttributes<HTMLButtonElement>,\n  \"className\" | \"style\" | \"color\" | \"children\" | \"dangerouslySetInnerHTML\"\n>;\n\ntype Appearance =\n  | { variant?: \"primary\"; tone?: \"neutral\" | \"accent\" | \"danger\" }\n  | { variant: \"secondary\" | \"tertiary\"; tone?: \"neutral\" }\n  | { variant: \"text\"; tone?: \"accent\" };\n\nexport type IconButtonProps = Omit<\n  NativeButton,\n  \"aria-label\" | \"aria-labelledby\"\n> & {\n  /** Describes the action, not the icon shape. */\n  label: string;\n  /** Approved glyph. */\n  icon: IconProps[\"name\"];\n  /** Control height and width. @default md */\n  size?: \"sm\" | \"md\" | \"lg\";\n  ref?: Ref<HTMLButtonElement>;\n};",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Describes the action, not the icon shape.",
+        "default": null
+      },
+      {
+        "name": "icon",
+        "type": "\"chevron-down\" | \"chevron-left\" | \"chevron-right\" | \"arrow-right\" | \"search\" | \"check\"",
+        "required": true,
+        "description": "Approved glyph.",
+        "default": null
+      },
+      {
+        "name": "size",
+        "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+        "required": false,
+        "description": "Control height and width.",
+        "default": "md"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLButtonElement> | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Icon": {
+    "declaration": "type NativeButton = Omit<\n  ButtonHTMLAttributes<HTMLButtonElement>,\n  \"className\" | \"style\" | \"color\" | \"children\" | \"dangerouslySetInnerHTML\"\n>;\n\ntype Appearance =\n  | { variant?: \"primary\"; tone?: \"neutral\" | \"accent\" | \"danger\" }\n  | { variant: \"secondary\" | \"tertiary\"; tone?: \"neutral\" }\n  | { variant: \"text\"; tone?: \"accent\" };\n\nexport interface IconProps {\n  /** Glyph names are a closed, reviewed set. */\n  name:\n    | \"chevron-down\"\n    | \"chevron-left\"\n    | \"chevron-right\"\n    | \"arrow-right\"\n    | \"search\"\n    | \"check\";\n}",
+    "props": [
+      {
+        "name": "name",
+        "type": "\"chevron-down\" | \"chevron-left\" | \"chevron-right\" | \"arrow-right\" | \"search\" | \"check\"",
+        "required": true,
+        "description": "Glyph names are a closed, reviewed set.",
+        "default": null
+      }
+    ]
+  },
+  "Input": {
+    "declaration": "export interface InputProps extends Omit<\n  InputHTMLAttributes<HTMLInputElement>,\n  \"size\" | \"className\" | \"style\" | \"color\" | \"type\" | \"dangerouslySetInnerHTML\"\n> {\n  /** Native text-entry type. Other controls have their own components. @default text */\n  type?: \"text\" | \"email\" | \"password\" | \"search\" | \"tel\" | \"url\";\n  /** Use numeric inputMode for decimal entry; validation stays with the caller. */\n  ref?: Ref<HTMLInputElement>;\n}",
+    "props": [
+      {
+        "name": "type",
+        "type": "\"text\" | \"search\" | \"email\" | \"password\" | \"tel\" | \"url\" | undefined",
+        "required": false,
+        "description": "Native text-entry type. Other controls have their own components.",
+        "default": "text"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement> | undefined",
+        "required": false,
+        "description": "Use numeric inputMode for decimal entry; validation stays with the caller.",
+        "default": null
+      }
+    ]
+  },
+  "Field": {
+    "declaration": "export interface FieldProps extends InputProps {\n  /** Visible label, never a placeholder substitute. */\n  label: string;\n  /** Supporting instructions. */\n  description?: string;\n  /** Validation supplied by the application. */\n  error?: string;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Visible label, never a placeholder substitute.",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string | undefined",
+        "required": false,
+        "description": "Supporting instructions.",
+        "default": null
+      },
+      {
+        "name": "error",
+        "type": "string | undefined",
+        "required": false,
+        "description": "Validation supplied by the application.",
+        "default": null
+      },
+      {
+        "name": "type",
+        "type": "\"text\" | \"search\" | \"email\" | \"password\" | \"tel\" | \"url\" | undefined",
+        "required": false,
+        "description": "Native text-entry type. Other controls have their own components.",
+        "default": "text"
+      },
+      {
+        "name": "ref",
+        "type": "Ref<HTMLInputElement> | undefined",
+        "required": false,
+        "description": "Use numeric inputMode for decimal entry; validation stays with the caller.",
+        "default": null
+      }
+    ]
+  },
+  "NumericValue": {
+    "declaration": "export interface NumericValueProps {\n  /** Locale-aware text supplied by the application. */\n  children: string;\n  /** Meaning supplied by business rules, never inferred from a sign. @default neutral */\n  tone?: \"neutral\" | \"good\" | \"watch\" | \"bad\";\n}",
+    "props": [
+      {
+        "name": "children",
+        "type": "string",
+        "required": true,
+        "description": "Locale-aware text supplied by the application.",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "\"neutral\" | \"good\" | \"watch\" | \"bad\" | undefined",
+        "required": false,
+        "description": "Meaning supplied by business rules, never inferred from a sign.",
+        "default": "neutral"
+      }
+    ]
+  },
+  "PageHeader": {
+    "declaration": "export interface PageHeaderProps {\n  /** The page's single h1. */\n  title: string;\n  /** Optional Button or compact action group. */\n  actions?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "The page's single h1.",
+        "default": null
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Optional Button or compact action group.",
+        "default": null
+      }
+    ]
+  },
+  "RouteTabs": {
+    "declaration": "export interface RouteTabsProps {\n  /** Accessible navigation landmark name. */\n  label: string;\n  /** Stable IDs and application-produced URLs. */\n  items: readonly { id: string; label: string; href: string }[];\n  /** Active route ID, supplied by the router adapter. */\n  value: string;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible navigation landmark name.",
+        "default": null
+      },
+      {
+        "name": "items",
+        "type": "readonly { id: string; label: string; href: string; }[]",
+        "required": true,
+        "description": "Stable IDs and application-produced URLs.",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Active route ID, supplied by the router adapter.",
+        "default": null
+      }
+    ]
+  },
+  "Tabs": {
+    "declaration": "export interface TabsProps {\n  /** Accessible name for this local tab list. */\n  label: string;\n  /** Controlled active panel ID. */\n  value: string;\n  /** Receives the next panel ID. */\n  onValueChange: (value: string) => void;\n  /** Stable panel IDs, labels and content. */\n  items: readonly {\n    id: string;\n    label: string;\n    content: ReactNode;\n    disabled?: boolean;\n  }[];\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible name for this local tab list.",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Controlled active panel ID.",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Receives the next panel ID.",
+        "default": null
+      },
+      {
+        "name": "items",
+        "type": "readonly { id: string; label: string; content: ReactNode; disabled?: boolean; }[]",
+        "required": true,
+        "description": "Stable panel IDs, labels and content.",
+        "default": null
+      }
+    ]
+  },
+  "ViewControlPanel": {
+    "declaration": "export interface ViewControlPanelProps {\n  /** Accessible region label. */\n  label: string;\n  /** Filter, search and period controls. */\n  children: ReactNode;\n  /** Applied filters rendered under the control row. */\n  filters?: ReactNode;\n  /** Trailing view actions. */\n  actions?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Accessible region label.",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Filter, search and period controls.",
+        "default": null
+      },
+      {
+        "name": "filters",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Applied filters rendered under the control row.",
+        "default": null
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Trailing view actions.",
+        "default": null
+      }
+    ]
+  },
+  "ViewSection": {
+    "declaration": "export interface ViewSectionProps {\n  /** Region heading. */\n  title: string;\n  /** Optional region actions. */\n  actions?: ReactNode;\n  /** Chart, metric or sub-list content. */\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Region heading.",
+        "default": null
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Optional region actions.",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Chart, metric or sub-list content.",
+        "default": null
+      }
+    ]
+  },
+  "ViewLayout": {
+    "declaration": "export type ViewLayoutProps =\n  | { variant: \"single\"; main: ReactNode }\n  | { variant: \"2:1\"; top: readonly [ReactNode, ReactNode]; main: ReactNode }\n  | {\n      variant: \"2:2\";\n      top: readonly [ReactNode, ReactNode];\n      bottom: readonly [ReactNode, ReactNode];\n    }\n  | {\n      variant: \"3:3\";\n      top: readonly [ReactNode, ReactNode, ReactNode];\n      bottom: readonly [ReactNode, ReactNode, ReactNode];\n    }\n  | { variant: \"tree:detail\"; tree: ReactNode; detail: ReactNode };",
+    "props": [
+      {
+        "name": "variant",
+        "type": "\"single\" | \"2:1\" | \"2:2\" | \"3:3\" | \"tree:detail\"",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "main",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "top",
+        "type": "readonly [ReactNode, ReactNode] | readonly [ReactNode, ReactNode, ReactNode]",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "bottom",
+        "type": "readonly [ReactNode, ReactNode] | readonly [ReactNode, ReactNode, ReactNode]",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tree",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "detail",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ListViewTemplate": {
+    "declaration": "export interface ListViewTemplateProps {\n  /** PageHeader. */\n  header: ReactNode;\n  /** Optional RouteTabs. */\n  navigation?: ReactNode;\n  /** Exactly one ViewControlPanel. */\n  controls: ReactNode;\n  /** The view body. The single layout owns its scrolling. */\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "header",
+        "type": "ReactNode",
+        "required": true,
+        "description": "PageHeader.",
+        "default": null
+      },
+      {
+        "name": "navigation",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Optional RouteTabs.",
+        "default": null
+      },
+      {
+        "name": "controls",
+        "type": "ReactNode",
+        "required": true,
+        "description": "Exactly one ViewControlPanel.",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "The view body. The single layout owns its scrolling.",
+        "default": null
+      }
+    ]
+  },
+  "EdgeToEdgeLayout": {
+    "declaration": "export interface EdgeToEdgeLayoutProps {\n  children: ReactNode;\n  /** Fill a height-constrained parent. */ grow?: boolean;\n}",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "grow",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Fill a height-constrained parent.",
+        "default": null
+      }
+    ]
+  },
+  "DashboardBand": {
+    "declaration": "export interface DashboardBandProps {\n  children: ReactNode;\n  flush?: boolean;\n  grow?: boolean;\n}",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "flush",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "grow",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "SplitBand": {
+    "declaration": "export interface SplitBandProps {\n  left: ReactNode;\n  right: ReactNode;\n  grow?: boolean;\n}",
+    "props": [
+      {
+        "name": "left",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "right",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "grow",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "BandTitle": {
+    "declaration": "export interface BandTitleProps {\n  children: ReactNode;\n  info?: ReactNode;\n  actions?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "info",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Table": {
+    "declaration": "export interface TableProps<Row> {\n  label: string;\n  rows: Row[];\n  columns: readonly TableColumn<Row>[];\n  rowKey: (row: Row) => string;\n  onRowClick?: (row: Row) => void;\n  emptyLabel?: string;\n  loading?: boolean;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "rows",
+        "type": "Row[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "columns",
+        "type": "readonly TableColumn<Row>[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "rowKey",
+        "type": "(row: Row) => string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onRowClick",
+        "type": "((row: Row) => void) | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "emptyLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "loading",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Chart": {
+    "declaration": "export interface ChartProps {\n  label: string;\n  description?: string;\n  type: \"bar\" | \"line\" | \"pie\" | \"doughnut\";\n  labels: readonly string[];\n  series: readonly ChartSeries[];\n  height?: number;\n  loading?: boolean;\n  stacked?: boolean;\n  onPointSelect?: (point: ChartElementClickParams) => void;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "type",
+        "type": "\"bar\" | \"line\" | \"pie\" | \"doughnut\"",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "labels",
+        "type": "readonly string[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "series",
+        "type": "readonly ChartSeries[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "loading",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "stacked",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onPointSelect",
+        "type": "((point: ChartElementClickParams) => void) | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ForecastTable": {
+    "declaration": "export interface ForecastTableProps {\n  label: string;\n  periods: readonly { id: string; label: string }[];\n  rows: readonly {\n    id: string;\n    label: ReactNode;\n    cells: readonly ReactNode[];\n    total?: ReactNode;\n    level?: number;\n  }[];\n  totalLabel?: string;\n  refreshing?: boolean;\n  footer?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "periods",
+        "type": "readonly { id: string; label: string; }[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "rows",
+        "type": "readonly { id: string; label: ReactNode; cells: readonly ReactNode[]; total?: ReactNode; level?: number; }[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "totalLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "refreshing",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ForecastVariance": {
+    "declaration": "export interface ForecastVarianceProps {\n  label: string;\n  description?: string;\n  tone: ForecastTone;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "ForecastTone",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ForecastDelta": {
+    "declaration": "export interface ForecastDeltaProps {\n  direction: \"increase\" | \"decrease\";\n  tone: ForecastTone;\n  label: string;\n}",
+    "props": [
+      {
+        "name": "direction",
+        "type": "\"increase\" | \"decrease\"",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "ForecastTone",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "EddyComposer": {
+    "declaration": "export interface EddyComposerProps {\n  value: string;\n  onValueChange: (next: string) => void;\n  onSubmit: () => void;\n  loading?: boolean;\n  label: string;\n  placeholder?: string;\n  hint?: string;\n  sendLabel: string;\n}",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "(next: string) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onSubmit",
+        "type": "() => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "loading",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "placeholder",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "hint",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "sendLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "EddyMessage": {
+    "declaration": "export interface EddyMessageProps {\n  role: \"user\" | \"assistant\" | \"system\";\n  content: string;\n  status: \"queued\" | \"streaming\" | \"complete\" | \"error\" | \"cancelled\";\n  steps?: readonly string[];\n  thinkingLabel: string;\n  retryLabel: string;\n  retrying?: boolean;\n  onRetry?: () => void;\n  suggestion?: string;\n  onSuggestion?: (value: string) => void;\n  chart?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "role",
+        "type": "\"user\" | \"assistant\" | \"system\"",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "\"queued\" | \"streaming\" | \"complete\" | \"error\" | \"cancelled\"",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "steps",
+        "type": "readonly string[] | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "thinkingLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "retryLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "retrying",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onRetry",
+        "type": "(() => void) | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "suggestion",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onSuggestion",
+        "type": "((value: string) => void) | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "chart",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "EddyConversation": {
+    "declaration": "export interface EddyConversationProps {\n  children: ReactNode;\n  label?: string;\n}",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "label",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "EddyHistory": {
+    "declaration": "export interface EddyHistoryProps {\n  items: readonly {\n    id: string;\n    title: string;\n    updatedLabel?: string;\n    disabled?: boolean;\n  }[];\n  value: string | null;\n  onValueChange: (id: string) => void;\n  label: string;\n  footer?: string;\n}",
+    "props": [
+      {
+        "name": "items",
+        "type": "readonly { id: string; title: string; updatedLabel?: string; disabled?: boolean; }[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "string | null",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "(id: string) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "footer",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "EddyPanel": {
+    "declaration": "export interface EddyPanelProps {\n  title: string;\n  description?: string;\n  actions?: ReactNode;\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "EddyChartPreview": {
+    "declaration": "export interface EddyChartPreviewProps {\n  title: string;\n  open: boolean;\n  onOpenChange: (value: boolean) => void;\n  compact: ReactNode;\n  expanded: ReactNode;\n  actions?: ReactNode;\n  footer?: ReactNode;\n  onDragStart?: DragEventHandler<HTMLElement>;\n}",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(value: boolean) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "compact",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "expanded",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onDragStart",
+        "type": "DragEventHandler<HTMLElement> | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Checkbox": {
+    "declaration": "export interface CheckboxProps {\n  label: string;\n  value: boolean | \"indeterminate\";\n  onValueChange: (value: boolean) => void;\n  disabled?: boolean;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "boolean | \"indeterminate\"",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: boolean) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "disabled",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Switch": {
+    "declaration": "export interface SwitchProps {\n  label: string;\n  value: boolean;\n  onValueChange: (value: boolean) => void;\n  disabled?: boolean;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "boolean",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: boolean) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "disabled",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Select": {
+    "declaration": "export interface SelectProps {\n  label: string;\n  value: string;\n  onValueChange: (value: string) => void;\n  options: readonly { value: string; label: string; disabled?: boolean }[];\n  placeholder?: string;\n  disabled?: boolean;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "options",
+        "type": "readonly { value: string; label: string; disabled?: boolean; }[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "placeholder",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "disabled",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Textarea": {
+    "declaration": "export interface TextareaProps {\n  label: string;\n  value: string;\n  onValueChange: (value: string) => void;\n  placeholder?: string;\n  disabled?: boolean;\n  readOnly?: boolean;\n  rows?: number;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "placeholder",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "disabled",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "rows",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Dialog": {
+    "declaration": "export interface DialogProps {\n  open: boolean;\n  onOpenChange: (open: boolean) => void;\n  title: string;\n  description: string;\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Tooltip": {
+    "declaration": "export interface TooltipProps {\n  content: ReactNode;\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "content",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Progress": {
+    "declaration": "export interface ProgressProps {\n  label: string;\n  value: number;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Avatar": {
+    "declaration": "export interface AvatarProps {\n  label: string;\n  src?: string;\n  initials: string;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "src",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "initials",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Badge": {
+    "declaration": "export interface BadgeProps {\n  children: ReactNode;\n  tone?: \"neutral\" | \"accent\" | \"good\" | \"watch\" | \"bad\";\n}",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "\"neutral\" | \"accent\" | \"good\" | \"watch\" | \"bad\" | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "Sparkline": {
+    "declaration": "export interface SparklineProps {\n  points: readonly number[];\n  label: string;\n  partialFromIndex?: number;\n  tone?: \"neutral\" | \"accent\" | \"good\" | \"watch\" | \"bad\";\n  width?: number;\n  height?: number;\n}",
+    "props": [
+      {
+        "name": "points",
+        "type": "readonly number[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "partialFromIndex",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "\"neutral\" | \"accent\" | \"good\" | \"watch\" | \"bad\" | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "width",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "EddyRail": {
+    "declaration": "export interface EddyRailProps {\n  open: boolean;\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "DashboardPageLayout": {
+    "declaration": "export interface DashboardPageLayoutProps {\n  header?: ReactNode;\n  metrics?: ReactNode;\n  tabs?: ReactNode;\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "header",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "metrics",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tabs",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "DetailPageLayout": {
+    "declaration": "export interface DetailPageLayoutProps {\n  header: ReactNode;\n  tabs?: ReactNode;\n  properties: ReactNode;\n  supporting?: ReactNode;\n  description: ReactNode;\n  related: ReactNode;\n  relatedTitle?: ReactNode;\n  relatedActions?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "header",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "tabs",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "properties",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "supporting",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "related",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "relatedTitle",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "relatedActions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "WorkspaceLayout": {
+    "declaration": "export interface WorkspaceLayoutProps {\n  header: ReactNode;\n  navigation?: ReactNode;\n  details?: ReactNode;\n  overlay?: ReactNode;\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "header",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "navigation",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "details",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "overlay",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "MetricStrip": {
+    "declaration": "export type MetricStripProps = Omit<OriginalStripProps, \"className\">;",
+    "props": [
+      {
+        "name": "tiles",
+        "type": "readonly MetricTile[]",
+        "required": true,
+        "description": "Up to six tiles. Anything past index 5 is dropped.",
+        "default": null
+      },
+      {
+        "name": "loading",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "When true, renders skeleton dots in place of values.",
+        "default": null
+      }
+    ]
+  },
+  "MetricGrid": {
+    "declaration": "export type MetricGridProps = Omit<OriginalGridProps, \"className\">;",
+    "props": [
+      {
+        "name": "tiles",
+        "type": "readonly MetricGridTile[]",
+        "required": true,
+        "description": "Up to four tiles. Extra entries past index 3 are dropped on render.",
+        "default": null
+      },
+      {
+        "name": "loading",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "When true, renders skeleton dots instead of values.",
+        "default": null
+      }
+    ]
+  },
+  "AnalyticsChart": {
+    "declaration": "export interface ChartRendererProps {\n  chartType: ChartType;\n  series: AnalyticsSeries[];\n  currencyCode: string;\n  metric: AnalyticsMetricType;\n  minimal?: boolean;\n  showAverage?: boolean;\n  stackedBarLabel?: StackedBarLabelFormat;\n  splitScale?: SplitScaleMode;\n  /** When false, the built-in Chart.js legend is hidden (a caller renders its own). */\n  showLegend?: boolean;\n  /**\n   * Category indices to paint a translucent red band behind (line charts only)\n   * — the agent-insights spend trendline uses this to show WHERE\n   * `detectSpendAnomalies` flagged a spike. Empty/omitted draws nothing.\n   */\n  highlightIndices?: readonly number[];\n  /**\n   * Override how values read on the axis + in tooltips when the panel plots a\n   * ratio of `metric` rather than `metric` itself (see {@link ChartValueFormat}).\n   */\n  valueFormat?: ChartValueFormat;\n  /**\n   * A flat target line (e.g. the month's budget) drawn across every period as\n   * a dashed line. Drawn for `stackedBar`, `groupedBar`, `line` and `multiLine`;\n   * ignored for other chart types. Never stacked into the bars, excluded from\n   * the built-in legend (callers with their own legend add an entry), and it\n   * turns split-scale off — one flat line across two independently-scaled\n   * panels would read as two different targets.\n   */\n  referenceLine?: ChartReferenceLine;\n  /**\n   * When true, every series is drawn as a running total over the period axis\n   * (month-to-date spend rather than spend per day). Applies to the time-axis\n   * charts (`stackedBar`, `groupedBar`, `stackedArea`, `line`, `multiLine`);\n   * ignored for categorical/total charts where a running sum means nothing.\n   * Tooltips and labels show the running total. The input is not mutated.\n   */\n  cumulative?: boolean;\n  /**\n   * The FIRST period that is not final yet (e.g. today, while its spend is\n   * still arriving), in the same format as `dataPoints[].period`. From it to\n   * the end of the axis: `line`/`multiLine` segments ending on a partial\n   * period are dashed; `stackedBar`/`groupedBar` bars are translucent with a\n   * dashed outline (and split-scale is turned off so the partial state stays\n   * visible). Omitted, or not on the axis, draws everything as final. See\n   * `partial-periods.ts`.\n   */\n  partialFrom?: string;\n  /**\n   * The y-axis title on the time-axis charts, already translated. Omitted, it\n   * is the metric's name (`METRIC_LABELS`) — which for a count the analytics\n   * metrics don't name (e.g. requests raised) would be wrong. Named edit, H4.\n   */\n  axisTitle?: string;\n}",
+    "props": [
+      {
+        "name": "chartType",
+        "type": "ChartType",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "series",
+        "type": "AnalyticsSeries[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "currencyCode",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "metric",
+        "type": "AnalyticsMetricType",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "minimal",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "showAverage",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "stackedBarLabel",
+        "type": "StackedBarLabelFormat | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "splitScale",
+        "type": "SplitScaleMode | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "showLegend",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "When false, the built-in Chart.js legend is hidden (a caller renders its own).",
+        "default": null
+      },
+      {
+        "name": "highlightIndices",
+        "type": "readonly number[] | undefined",
+        "required": false,
+        "description": "Category indices to paint a translucent red band behind (line charts only)\n— the agent-insights spend trendline uses this to show WHERE\n`detectSpendAnomalies` flagged a spike. Empty/omitted draws nothing.",
+        "default": null
+      },
+      {
+        "name": "valueFormat",
+        "type": "\"percent\" | undefined",
+        "required": false,
+        "description": "Override how values read on the axis + in tooltips when the panel plots a\nratio of `metric` rather than `metric` itself (see {@link ChartValueFormat}).",
+        "default": null
+      },
+      {
+        "name": "referenceLine",
+        "type": "ChartReferenceLine | undefined",
+        "required": false,
+        "description": "A flat target line (e.g. the month's budget) drawn across every period as\na dashed line. Drawn for `stackedBar`, `groupedBar`, `line` and `multiLine`;\nignored for other chart types. Never stacked into the bars, excluded from\nthe built-in legend (callers with their own legend add an entry), and it\nturns split-scale off — one flat line across two independently-scaled\npanels would read as two different targets.",
+        "default": null
+      },
+      {
+        "name": "cumulative",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "When true, every series is drawn as a running total over the period axis\n(month-to-date spend rather than spend per day). Applies to the time-axis\ncharts (`stackedBar`, `groupedBar`, `stackedArea`, `line`, `multiLine`);\nignored for categorical/total charts where a running sum means nothing.\nTooltips and labels show the running total. The input is not mutated.",
+        "default": null
+      },
+      {
+        "name": "partialFrom",
+        "type": "string | undefined",
+        "required": false,
+        "description": "The FIRST period that is not final yet (e.g. today, while its spend is\nstill arriving), in the same format as `dataPoints[].period`. From it to\nthe end of the axis: `line`/`multiLine` segments ending on a partial\nperiod are dashed; `stackedBar`/`groupedBar` bars are translucent with a\ndashed outline (and split-scale is turned off so the partial state stays\nvisible). Omitted, or not on the axis, draws everything as final. See\n`partial-periods.ts`.",
+        "default": null
+      },
+      {
+        "name": "axisTitle",
+        "type": "string | undefined",
+        "required": false,
+        "description": "The y-axis title on the time-axis charts, already translated. Omitted, it\nis the metric's name (`METRIC_LABELS`) — which for a count the analytics\nmetrics don't name (e.g. requests raised) would be wrong. Named edit, H4.",
+        "default": null
+      }
+    ]
+  },
+  "DashboardChart": {
+    "declaration": "export type DashboardChartProps=import('react').ComponentProps<typeof import('./DashboardChart.js').DashboardChart>;",
+    "props": [
+      {
+        "name": "labels",
+        "type": "{ other: string; otherCount: (count: number) => string; otherGrouped: string; stackBy: string; partial: string; }",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "formatValue",
+        "type": "(value: number) => string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "chartType",
+        "type": "\"line\" | \"stackedBar\"",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "series",
+        "type": "AnalyticsSeries[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "currencyCode",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "metric",
+        "type": "AnalyticsMetricType",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "stackedBarLabel",
+        "type": "StackedBarLabelFormat | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "splitScale",
+        "type": "SplitScaleMode | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "highlightIndices",
+        "type": "readonly number[] | undefined",
+        "required": false,
+        "description": "Category indices to paint a translucent red band behind (line charts only)\n— used by the spend trendline to show where a spike was detected.",
+        "default": null
+      },
+      {
+        "name": "valueFormat",
+        "type": "\"percent\" | undefined",
+        "required": false,
+        "description": "Override how values read on the axis + tooltips when the panel plots a\nratio of `metric` rather than `metric` itself (e.g. attribution coverage %).",
+        "default": null
+      },
+      {
+        "name": "referenceLine",
+        "type": "ChartReferenceLine | undefined",
+        "required": false,
+        "description": "A flat dashed target line (e.g. the month's budget) across every period.\nAlso gets its own entry — dashed swatch + `label` — at the end of the legend.",
+        "default": null
+      },
+      {
+        "name": "cumulative",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "Draw every series as a running total over the periods (month-to-date).",
+        "default": null
+      },
+      {
+        "name": "partialFrom",
+        "type": "string | undefined",
+        "required": false,
+        "description": "The first period that is not final yet (same format as\n`dataPoints[].period`, e.g. `'2026-09-25'`). Drawn dashed / translucent,\nwith a legend key while it is on the axis.",
+        "default": null
+      },
+      {
+        "name": "axisTitle",
+        "type": "string | undefined",
+        "required": false,
+        "description": "The y-axis title, already translated; omitted, it is the metric's name (named edit, H4).",
+        "default": null
+      },
+      {
+        "name": "stackOptions",
+        "type": "readonly ChartStackOption[] | undefined",
+        "required": false,
+        "description": "What the chart can stack by. The toggle shows only with two or more.",
+        "default": null
+      },
+      {
+        "name": "stackBy",
+        "type": "string | undefined",
+        "required": false,
+        "description": "The selected stack-by value (one of `stackOptions`).",
+        "default": null
+      },
+      {
+        "name": "onStackByChange",
+        "type": "((value: string) => void) | undefined",
+        "required": false,
+        "description": "Called with the new value when the user picks another stack-by option.",
+        "default": null
+      }
+    ]
+  },
+  "TableCollection": {
+    "declaration": "export interface TableCollectionProps<\n  T,\n  G extends string = string,\n  S extends string = string,\n> {\n  /** Display-ready rows, columns and callbacks. All queries and mutations belong to the caller. */\n  config: TableConfig<T, G, S>;\n  /** Search, initial preferences and persistence callback from the application. */\n  state?: Pick<\n    UseViewStateConfig<G, S>,\n    \"search\" | \"initialState\" | \"onPersist\"\n  >;\n  /** Saved-view service adapter; rendered inside the shared state provider. */\n  savedViews?: ReactNode;\n  /** Additional toolbar actions, for example an application CSV export adapter. */\n  actions?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "config",
+        "type": "TableConfig<T, G, S>",
+        "required": true,
+        "description": "Display-ready rows, columns and callbacks. All queries and mutations belong to the caller.",
+        "default": null
+      },
+      {
+        "name": "state",
+        "type": "Pick<UseViewStateConfig<G, S>, \"search\" | \"initialState\" | \"onPersist\"> | undefined",
+        "required": false,
+        "description": "Search, initial preferences and persistence callback from the application.",
+        "default": null
+      },
+      {
+        "name": "savedViews",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Saved-view service adapter; rendered inside the shared state provider.",
+        "default": null
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Additional toolbar actions, for example an application CSV export adapter.",
+        "default": null
+      }
+    ]
+  },
+  "CapacityBubbleChart": {
+    "declaration": "export type CapacityBubbleChartProps = ComponentProps<typeof BubbleChart>;",
+    "props": [
+      {
+        "name": "scenarioName",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "bubbles",
+        "type": "BubbleData[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ForecastActualChart": {
+    "declaration": "export type ForecastActualChartProps = Omit<BurndownChartProps, \"className\">;",
+    "props": [
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "mode",
+        "type": "\"cost\" | \"effort\"",
+        "required": true,
+        "description": "Cost (money) or Effort (FTE/days) — drives the axis formatter + labels.",
+        "default": null
+      },
+      {
+        "name": "series",
+        "type": "BurndownPoint[]",
+        "required": true,
+        "description": "Monthly series (chronological). Already cumulative; calculated by the application.",
+        "default": null
+      },
+      {
+        "name": "labels",
+        "type": "{ forecast: string; actual: string; }",
+        "required": true,
+        "description": "Pre-translated dataset labels.",
+        "default": null
+      },
+      {
+        "name": "todayIndex",
+        "type": "number",
+        "required": true,
+        "description": "Index of the \"today\" month in `series` (red marker). -1 to omit.",
+        "default": null
+      },
+      {
+        "name": "formatValue",
+        "type": "(value: number) => string",
+        "required": true,
+        "description": "Format an axis/tooltip value (caller injects currency/effort formatting).",
+        "default": null
+      },
+      {
+        "name": "emptyText",
+        "type": "string | undefined",
+        "required": false,
+        "description": "Copy for the empty state.",
+        "default": null
+      },
+      {
+        "name": "data-testid",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "AllocationTimeline": {
+    "declaration": "export type AllocationTimelineProps = GanttChartProps;",
+    "props": [
+      {
+        "name": "tasks",
+        "type": "GanttTask[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "zoomLevel",
+        "type": "ZoomLevel | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ProfilePageLayout": {
+    "declaration": "export interface ProfilePageLayoutProps {\n  header: ReactNode;\n  summary?: ReactNode;\n  metrics?: ReactNode;\n  children: ReactNode;\n}",
+    "props": [
+      {
+        "name": "header",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "summary",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "metrics",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "IdentityStrip": {
+    "declaration": "export type IdentityStripProps = Omit<IdentityProps, \"className\">;",
+    "props": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true,
+        "description": "Subject's display name. Required — this is the orientation anchor.",
+        "default": null
+      },
+      {
+        "name": "secondary",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": "Optional secondary descriptor (role, team, slug). Shown in muted text.",
+        "default": null
+      },
+      {
+        "name": "email",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": "Optional contact line — usually the linked email. Shown in mono.",
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "{ label: string; tone: SubjectIdentityStatus; } | null | undefined",
+        "required": false,
+        "description": "Optional trailing status pill. Omit to suppress entirely.",
+        "default": null
+      }
+    ]
+  },
+  "StandingSummary": {
+    "declaration": "export type StandingSummaryProps = Omit<StandingProps, \"className\">;",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "The standing value itself, e.g. \"Heads-up\", \"Tier 3\", \"Active\".\nRenders as a pill with the requested tone.",
+        "default": null
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Eyebrow label above the standing value, e.g. \"Tier\", \"Standing\",\n\"Account status\". Renders in 10px upper-case muted text.",
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": "One short paragraph of supporting copy. Keep it under 160 chars —\nthe card is for orientation, not documentation.",
+        "default": null
+      },
+      {
+        "name": "tone",
+        "type": "SubjectStandingTone",
+        "required": true,
+        "description": "Standing tone — drives the value pill colour.",
+        "default": null
+      },
+      {
+        "name": "nudge",
+        "type": "{ label: string; href: string; } | null | undefined",
+        "required": false,
+        "description": "The single recommended action the viewer can take. Renders as a\ncompact row with an arrow. Omit when there's nothing to do.",
+        "default": null
+      },
+      {
+        "name": "policy",
+        "type": "{ label: string; href: string; } | null | undefined",
+        "required": false,
+        "description": "Link to the policy / configuration that drives this standing.\nRenders as a tiny meta line at the bottom of the card.",
+        "default": null
+      }
+    ]
+  },
+  "SectionDivider": {
+    "declaration": "export type SectionDividerProps = Omit<DividerProps, \"className\">;",
+    "props": [
+      {
+        "name": "label",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": "Eyebrow label. Rendered uppercase + 10px mono. Optional — when omitted\nwe still render the 1px hairline (useful for divider-only separators).",
+        "default": null
+      },
+      {
+        "name": "meta",
+        "type": "string | null | undefined",
+        "required": false,
+        "description": "Optional trailing meta — e.g. \"30D\" or \"USD\". Rendered next to the label\nwith a centre dot separator: `COST · 30D`.",
+        "default": null
+      },
+      {
+        "name": "trailing",
+        "type": "import(\"/Users/will/Code/klein-design-system/node_modules/@types/react/index\").ReactNode",
+        "required": false,
+        "description": "Optional right-aligned slot — e.g. a 7d/30d/90d toggle.",
+        "default": null
+      }
+    ]
+  },
+  "ProgressRing": {
+    "declaration": "export interface ProgressRingProps {\n  label: string;\n  value: number;\n  size?: number;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "size",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "ForecastMatrix": {
+    "declaration": "export interface ForecastMatrixProps {\n  label: string;\n  rowHeading: string;\n  periods: readonly ForecastPeriod[];\n  rows: readonly ForecastMatrixRow[];\n  expandedIds: ReadonlySet<string>;\n  onExpandedChange: (id: string, expanded: boolean) => void;\n  onRowClick?: (id: string) => void;\n  onCellEdit?: (rowId: string, periodId: string) => void;\n  refreshing?: boolean;\n  loading?: boolean;\n  error?: string;\n  emptyLabel?: string;\n  loadingLabel?: string;\n  totalLabel?: string;\n  footer?: ReactNode;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "rowHeading",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "periods",
+        "type": "readonly ForecastPeriod[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "rows",
+        "type": "readonly ForecastMatrixRow[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "expandedIds",
+        "type": "ReadonlySet<string>",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onExpandedChange",
+        "type": "(id: string, expanded: boolean) => void",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onRowClick",
+        "type": "((id: string) => void) | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "onCellEdit",
+        "type": "((rowId: string, periodId: string) => void) | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "refreshing",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "loading",
+        "type": "boolean | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "error",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "emptyLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "loadingLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "totalLabel",
+        "type": "string | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "required": false,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "RadarComparison": {
+    "declaration": "export interface RadarComparisonProps {\n  series: readonly RadarComparisonSeries[];\n  height?: number;\n  labels: { coverage: string; balance: string };\n}",
+    "props": [
+      {
+        "name": "series",
+        "type": "readonly RadarComparisonSeries[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "labels",
+        "type": "{ coverage: string; balance: string; }",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "CumulativeChart": {
+    "declaration": "export interface CumulativeChartProps {\n  data: CumulativePoint[];\n  height?: number;\n  currentMonth?: Date;\n  labels: {\n    title: string;\n    description: string;\n    empty: string;\n    cumulative: string;\n    period: string;\n  };\n  formatValue: (value: number) => string;\n}",
+    "props": [
+      {
+        "name": "data",
+        "type": "CumulativePoint[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "currentMonth",
+        "type": "Date | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "labels",
+        "type": "{ title: string; description: string; empty: string; cumulative: string; period: string; }",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "formatValue",
+        "type": "(value: number) => string",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  },
+  "DistributionChart": {
+    "declaration": "export interface DistributionChartProps {\n  label: string;\n  total: number;\n  items: DistributionItem[];\n  height?: number;\n  emptyLabel: string;\n  formatCount: (count: number) => string;\n}",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "total",
+        "type": "number",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "items",
+        "type": "DistributionItem[]",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "height",
+        "type": "number | undefined",
+        "required": false,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "emptyLabel",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "default": null
+      },
+      {
+        "name": "formatCount",
+        "type": "(count: number) => string",
+        "required": true,
+        "description": "",
+        "default": null
+      }
+    ]
+  }
+}
