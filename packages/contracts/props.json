@@ -2047,7 +2047,7 @@
       },
       {
         "name": "trailing",
-        "type": "import(\"/Users/will/Code/klein-design-system/node_modules/@types/react/index\").ReactNode",
+        "type": "import(\"react\").ReactNode",
         "required": false,
         "description": "Optional right-aligned slot — e.g. a 7d/30d/90d toggle.",
         "default": null

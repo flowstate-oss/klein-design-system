@@ -158,7 +158,15 @@ for (const component of metadata) {
         checker.getTypeOfSymbolAtLocation(prop, declaration),
         declaration,
         ts.TypeFormatFlags.NoTruncation,
-      );
+      ).replace(/import\("([^"\n]+)"\)/g, (_, source) => {
+        const normalized = source.replaceAll('\\', '/');
+        const marker = '/node_modules/';
+        if (normalized.includes(marker)) {
+          const dependency = normalized.slice(normalized.lastIndexOf(marker) + marker.length).replace(/^@types\//, '').replace(/\/index$/, '');
+          return `import("${dependency}")`;
+        }
+        return `import("${normalized.startsWith(root + '/') ? './' + normalized.slice(root.length + 1) : normalized}")`;
+      });
       const existing = collected.get(prop.name);
       const description = ts.displayPartsToString(
         prop.getDocumentationComment(checker),

@@ -1,6 +1,6 @@
 {
   "name": "@klein-ui/eddy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "files": [
     "dist",
@@ -22,7 +22,7 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@klein-ui/react": "0.1.0",
+    "@klein-ui/react": "0.1.1",
     "react-markdown": "^10.1.0"
   },
   "license": "MIT",
