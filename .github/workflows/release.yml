@@ -1,0 +1,41 @@
+name: GitHub release
+# Creates the v<version> tag and GitHub Release with generated notes when main
+# carries a version that has not been released yet. Does not publish to npm.
+on:
+  push:
+    branches: [main]
+    paths: ["package.json"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: github-release
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.repository == 'flowstate-oss/klein-design-system' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(node -p "require('./package.json').version")
+          tag="v${version}"
+          if git rev-parse -q --verify "refs/tags/${tag}" >/dev/null; then
+            echo "${tag} already released."
+            exit 0
+          fi
+          node scripts/release-notes.mjs --to "${GITHUB_SHA}" > "${RUNNER_TEMP}/notes.md"
+          flags=()
+          if [[ "${version}" == *-* ]]; then flags+=(--prerelease); fi
+          gh release create "${tag}" --target "${GITHUB_SHA}" --title "Klein ${version}" \
+            --notes-file "${RUNNER_TEMP}/notes.md" "${flags[@]}"

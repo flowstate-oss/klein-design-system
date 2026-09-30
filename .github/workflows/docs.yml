@@ -2,7 +2,14 @@ name: Publish documentation
 on:
   push:
     branches: [main]
-    paths: ['apps/docs/**', 'packages/**', 'scripts/**', 'package*.json', '.github/workflows/docs.yml']
+    paths:
+      [
+        "apps/docs/**",
+        "packages/**",
+        "scripts/**",
+        "package*.json",
+        ".github/workflows/docs.yml",
+      ]
   workflow_dispatch:
 permissions:
   contents: read
@@ -32,7 +39,7 @@ jobs:
         with:
           path: apps/docs/build
   deploy:
-    if: vars.ENABLE_DOCS_DEPLOY == 'true' && github.repository == 'flowstate-oss/klein-design-system' && github.ref == 'refs/heads/main'
+    if: github.repository == 'flowstate-oss/klein-design-system' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     permissions:

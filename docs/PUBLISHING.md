@@ -7,9 +7,19 @@ Repository: `flowstate-oss/klein-design-system`. Seven MIT packages use `@klein-
 Build, type, contract, test, browser and packed-consumer checks remain enabled. Two repository variables control external releases:
 
 - `ENABLE_NPM_PUBLISH=false`: package publishing is skipped.
-- `ENABLE_DOCS_DEPLOY=false`: the Astro site builds as an artifact; Pages deployment is skipped.
+  An unset variable also disables its release job. Do not enable `ENABLE_NPM_PUBLISH` or dispatch a package release until the user requests it.
 
-An unset variable also disables its release job. Do not enable either variable or dispatch a release until the user requests it. The previously deployed documentation remains available; disabling future deployments does not remove that site.
+## Documentation site
+
+`docs.yml` deploys the Astro site to <https://flowstate-oss.github.io/klein-design-system/> on every relevant push to main. It is no longer gated by a variable (`ENABLE_DOCS_DEPLOY` is obsolete). The repository's Settings → Pages → Source must be set to **GitHub Actions** once.
+
+## GitHub releases and notes
+
+`release.yml` runs when `package.json` changes on main. If tag `v<version>` does not exist, it creates the tag and a GitHub Release whose notes come from `scripts/release-notes.mjs`. Prerelease versions (`-rc.1`) are marked as prereleases. It never publishes to npm.
+
+Notes group [Conventional Commit](https://www.conventionalcommits.org/) subjects since the previous `v*` tag: `feat`, `fix`, `perf`, `refactor`, `docs`, `test`, `build`, `ci`, `chore`. `type!:` or a `BREAKING CHANGE:` footer lists a breaking change. Other subjects fall under "Other changes". Commit style is not enforced.
+
+`node scripts/release-notes.mjs --bump` prints the recommended bump (major/minor/patch) to pass to `npm run release:version`. Preview notes locally with `node scripts/release-notes.mjs`.
 
 ## Future initial publication — GitHub Actions only
 
@@ -25,4 +35,4 @@ Run `npm run release:version -- 0.1.6` with the intended next version and commit
 
 Once publishing is explicitly enabled, changes to packages, build scripts, manifests or the publish workflow on main trigger the release pipeline. Pull requests never publish. Documentation deployment has a separate `ENABLE_DOCS_DEPLOY` gate and path-filtered workflow. Setting either variable alone does not dispatch a workflow.
 
-The workflows do not commit version changes or create release tags. Initial publication and trusted-publisher setup are intentionally deferred.
+The workflows do not commit version changes; only `release.yml` creates tags. Initial publication and trusted-publisher setup are intentionally deferred.
